@@ -22,7 +22,3 @@ npm install
 
 
 ### 注意事项。
- bao	吃饱了没事写的文件
- jhhy	前任留下来的坑
- res	资源内容
-	confonrmityimage 图片内容
