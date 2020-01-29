@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "numVIP",
+    "texture": "8d680b5e-2a93-480d-bed9-5ded17c4cd6d",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      150,
+      21
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      150,
+      22
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

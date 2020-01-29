@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "loding_S",
+    "texture": "2784e9c4-061d-4320-bb1c-e53eee377399",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      6,
+      28
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      6,
+      28
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

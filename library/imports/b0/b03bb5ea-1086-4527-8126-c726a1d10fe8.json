@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lunpan_bj_03",
+    "texture": "ef55fa12-13db-44c5-ab2e-74895f369589",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      648,
+      657
+    ],
+    "offset": [
+      -2,
+      2
+    ],
+    "originalSize": [
+      652,
+      661
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

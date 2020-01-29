@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lkcy",
+    "texture": "8708356d-ba2a-404a-a7e0-cfbb11df9909",
+    "atlas": "3b19d2ac-c057-4855-9343-0bd77decb91e",
+    "rect": [
+      126,
+      138,
+      110,
+      30
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      110,
+      30
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

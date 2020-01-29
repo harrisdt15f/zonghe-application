@@ -1,0 +1,86 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "lobby.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "bottom_btn_001": {
+      "__uuid__": "2e66d461-06b1-4420-929c-ded0128cf733"
+    },
+    "bottom_btn_002": {
+      "__uuid__": "46ffe47e-6575-4ea6-af2c-b1ebfea96d57"
+    },
+    "bottom_btn_003": {
+      "__uuid__": "15b13fe7-8900-486a-8939-e02e60cc7f4f"
+    },
+    "bottom_btn_004": {
+      "__uuid__": "0844d983-a1a2-4299-aced-782ba81a2a75"
+    },
+    "bottom_btn_005": {
+      "__uuid__": "fe3d2c44-50fb-4e97-9d2d-f6073aa197d9"
+    },
+    "bottom_btn_006": {
+      "__uuid__": "40738626-2847-46f1-8c70-74ad9654e288"
+    },
+    "bottom_btn_007": {
+      "__uuid__": "eee06986-6f75-4d62-bb58-8fa83a4a5b62"
+    },
+    "bottom_btn_01": {
+      "__uuid__": "b04a17b4-5166-49c2-a86d-6692681cb383"
+    },
+    "bottom_btn_02": {
+      "__uuid__": "007a13dc-0a7c-4849-a9a4-ecdfd03d309b"
+    },
+    "bottom_btn_03": {
+      "__uuid__": "19286fe6-dd2a-4bc8-8e28-281e68c457f4"
+    },
+    "bottom_sheet_gx": {
+      "__uuid__": "bd198c8e-d738-44bf-aeee-dafeca976a3d"
+    },
+    "dikuang": {
+      "__uuid__": "003c2d01-170f-41c7-9cf3-ec4b08bc51ee"
+    },
+    "ewm": {
+      "__uuid__": "122d97e2-edf0-499c-b094-d38d4eb02df7"
+    },
+    "haibao": {
+      "__uuid__": "85caf15c-bbe4-4329-afc5-af00d1a6bc90"
+    },
+    "head_logo": {
+      "__uuid__": "86115e12-4cf1-4b13-945c-4cb6552d926d"
+    },
+    "jrdsb": {
+      "__uuid__": "2b0bedf5-ab6a-4e90-9b77-7c15004a8736"
+    },
+    "jrfhb": {
+      "__uuid__": "bdafaf30-468b-49f5-92b1-422045c9bfdc"
+    },
+    "leftPic": {
+      "__uuid__": "4a5296a3-f1ca-4059-97df-8af2d23b5c4a"
+    },
+    "panel": {
+      "__uuid__": "15e0ae3e-0fec-4c76-8719-247d29d85e19"
+    },
+    "panel_k": {
+      "__uuid__": "3dcb8ec3-fd23-4469-90ad-35d68715d2c6"
+    },
+    "phone": {
+      "__uuid__": "909b1cdb-ec77-4197-af23-19a70733abaa"
+    },
+    "save": {
+      "__uuid__": "bfb061d2-3677-4ac5-afa9-50c581c4b306"
+    },
+    "xian": {
+      "__uuid__": "8c8f673e-14e3-42cb-9d7e-8d3098d1ecbb"
+    },
+    "yinxiao_bj_03": {
+      "__uuid__": "5e805eec-2de1-41a1-96b0-33ad6674062f"
+    },
+    "yinxiaoanniu_03": {
+      "__uuid__": "e3468a78-0eb7-4661-ae63-f530fc11fd65"
+    },
+    "yinyueanniu_03": {
+      "__uuid__": "4b9a4b44-c675-436f-8d93-5dc51be0d888"
+    }
+  }
+}

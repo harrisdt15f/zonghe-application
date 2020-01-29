@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fanT2",
+    "texture": "c17107dc-845e-429e-83f5-249950e88964",
+    "atlas": "51cbeb3d-cb70-4261-9708-cac035b90d76",
+    "rect": [
+      115,
+      34,
+      32,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      32,
+      32
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

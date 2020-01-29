@@ -1,0 +1,110 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "com9s.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Input": {
+      "__uuid__": "74451d32-521d-4bcd-ab83-aba0adbdc52a"
+    },
+    "VIP_Progress bar_2": {
+      "__uuid__": "b20e84cb-dfe6-42e0-a6ec-4cfaf414f3b6"
+    },
+    "bottom_muzhuo": {
+      "__uuid__": "e57ac8be-1c63-4797-9dd7-32dbd03fd340"
+    },
+    "bottom_panel": {
+      "__uuid__": "5a6c23db-cfa8-463a-ac8b-351325229e50"
+    },
+    "box01": {
+      "__uuid__": "d0eb7ea3-ba20-4ff2-819e-f983a19db3a5"
+    },
+    "btn": {
+      "__uuid__": "131372e7-0c06-4ea9-9f1c-e89c7cf31e00"
+    },
+    "dikuang": {
+      "__uuid__": "ae92186b-84d1-43f1-a956-b9768cce58b3"
+    },
+    "doday_panel_18PX": {
+      "__uuid__": "dbe6315f-509b-4aaa-bd4d-35df5e95f768"
+    },
+    "duihuak": {
+      "__uuid__": "bdbb2e4a-5900-44fc-ae47-77564cffddee"
+    },
+    "head_gold": {
+      "__uuid__": "87a746bf-42fe-40b7-8de6-8a67d663be52"
+    },
+    "head_panel_shutiao": {
+      "__uuid__": "c219fbd7-a6f5-4058-8dfa-f5a94fdd61c5"
+    },
+    "head_www": {
+      "__uuid__": "e0502062-d81c-4a0d-a121-0e637286b326"
+    },
+    "hesiBox": {
+      "__uuid__": "13ddcfea-46cf-4d73-8b0e-bd15091c1b23"
+    },
+    "huabian": {
+      "__uuid__": "30c20e11-1945-4c22-a21d-6dfe82b023e1"
+    },
+    "input1": {
+      "__uuid__": "7ad350bd-37a0-43b3-abe2-03d25686bc3e"
+    },
+    "kuang": {
+      "__uuid__": "03cde1ab-3814-494f-b7b9-f1605d26cab4"
+    },
+    "list_panel": {
+      "__uuid__": "e4d59c6c-deb5-4a1c-b8be-f23e6208b3b9"
+    },
+    "login_panel_1": {
+      "__uuid__": "c8dd50a3-3581-4034-8f73-254db866a763"
+    },
+    "login_panel_2": {
+      "__uuid__": "0a22cf5d-81ab-4ea7-bcf2-8e0a4268fb72"
+    },
+    "lv": {
+      "__uuid__": "e6e2526a-3f6f-42b3-8094-90555fe94233"
+    },
+    "middlepanel": {
+      "__uuid__": "384c13bb-586c-495f-837f-657df92b595d"
+    },
+    "notice_panel": {
+      "__uuid__": "63768c0a-b1ad-40a4-9681-99a8bb016baf"
+    },
+    "panel": {
+      "__uuid__": "2d9a1ea8-69e0-421d-845b-1c48dfd79c83"
+    },
+    "panel2": {
+      "__uuid__": "0238d4e7-b95f-4053-8d15-b81a32ed75fd"
+    },
+    "quanbu_bj_03": {
+      "__uuid__": "8ee4fbb4-c57a-4590-84d4-28c7d2581e64"
+    },
+    "redpanel": {
+      "__uuid__": "f58e6789-7745-4be0-8f9a-e91efbdc803b"
+    },
+    "singleColor": {
+      "__uuid__": "32378ed4-7dbf-4c92-a7b9-deae1dbe6d02"
+    },
+    "tipsBox": {
+      "__uuid__": "cadc7913-5f23-44fa-93df-5da879709071"
+    },
+    "today_pre": {
+      "__uuid__": "99035b90-d1a9-49d1-8fc9-7cb5b7ba27b1"
+    },
+    "touxiang1": {
+      "__uuid__": "381a9d92-f952-454b-88b8-5d384c99522c"
+    },
+    "vipkuang": {
+      "__uuid__": "e9dbf1c5-fe9a-4483-acba-508b52a9fb61"
+    },
+    "wdsj": {
+      "__uuid__": "bd61ee8c-9989-4ca6-9250-d1e7006f7338"
+    },
+    "wwwkuang": {
+      "__uuid__": "31e98da5-138c-4b91-bf77-5cd52a252229"
+    },
+    "xzk": {
+      "__uuid__": "a046464a-2ef9-4003-a050-ec0b5f550fdb"
+    }
+  }
+}

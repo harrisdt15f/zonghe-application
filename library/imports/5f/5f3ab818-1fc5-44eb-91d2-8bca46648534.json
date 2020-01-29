@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "subtitle_tixianjilu_0",
+    "texture": "db97d32c-83d3-474e-9458-7c70ddd1d497",
+    "atlas": "7ebf2648-5a5e-4069-9f29-bf1fa5135fec",
+    "rect": [
+      116,
+      117,
+      116,
+      22
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      116,
+      22
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

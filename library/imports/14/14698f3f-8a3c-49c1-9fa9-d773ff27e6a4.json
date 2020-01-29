@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xkuan",
+    "texture": "e856ac08-3290-406d-8f2c-cf289f0ffdb7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      806,
+      286
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      806,
+      286
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

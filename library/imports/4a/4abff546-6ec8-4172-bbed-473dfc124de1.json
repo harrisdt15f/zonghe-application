@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gengduoanniu_03",
+    "texture": "c17107dc-845e-429e-83f5-249950e88964",
+    "atlas": "51cbeb3d-cb70-4261-9708-cac035b90d76",
+    "rect": [
+      36,
+      2,
+      20,
+      12
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      20,
+      12
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

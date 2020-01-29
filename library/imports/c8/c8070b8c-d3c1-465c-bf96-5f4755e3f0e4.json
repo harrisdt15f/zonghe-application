@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "button.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "QQ": {
+      "__uuid__": "2caca56b-7767-49dd-b621-1e5c11bf665c"
+    },
+    "btn": {
+      "__uuid__": "677b0343-b5b2-4c32-bab1-1a18d8f0362a"
+    },
+    "btn_fuzhi": {
+      "__uuid__": "41c97f8d-8b8b-48fc-94e5-d32733ef5ed3"
+    },
+    "btn_huoqu": {
+      "__uuid__": "95f1e359-1282-4c45-9bbc-266718a477cb"
+    },
+    "btn_lq_b": {
+      "__uuid__": "2c52b1c2-4df3-4224-8061-53768bbc1297"
+    },
+    "btn_x": {
+      "__uuid__": "c67f636c-defd-472d-b514-e060389bf54b"
+    },
+    "btn_xx": {
+      "__uuid__": "ecf77a39-78cd-47e7-96eb-6a55feb52d8d"
+    },
+    "btn_xxx": {
+      "__uuid__": "59ff84da-d62d-45cb-bae9-4f7b77ad1828"
+    },
+    "head_gold_btn": {
+      "__uuid__": "4b5ac338-8d75-4d6b-9936-21bb2c5885a3"
+    },
+    "leftbar_btn1": {
+      "__uuid__": "9ae1fa43-304a-4d14-aa7d-cb949b878a8a"
+    },
+    "leftbar_btn2": {
+      "__uuid__": "4f5e0350-8b01-4c2d-bea9-06fd71fa205a"
+    },
+    "leftbar_btn_pre": {
+      "__uuid__": "1e62582a-3fc1-4793-ae8f-c8729c841f6c"
+    },
+    "leftbar_selected": {
+      "__uuid__": "6a4dea72-ba6a-4021-b9b5-fa0c299f4513"
+    },
+    "login_btn_panel": {
+      "__uuid__": "10a680d8-a4b5-4cfd-be9e-382ee2e53c05"
+    },
+    "pyq": {
+      "__uuid__": "e323dc1b-41f0-4b9e-aa5f-dbf5ac509bb8"
+    },
+    "weixin": {
+      "__uuid__": "8fdd7dcb-a6d8-4eb7-9952-f63c98b89d65"
+    }
+  }
+}

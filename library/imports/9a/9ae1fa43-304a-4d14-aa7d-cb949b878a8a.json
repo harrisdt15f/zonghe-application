@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "leftbar_btn1",
+    "texture": "0c253be0-6014-4c5b-aa4b-616b1af12f2c",
+    "atlas": "c8070b8c-d3c1-465c-bf96-5f4755e3f0e4",
+    "rect": [
+      2,
+      212,
+      220,
+      64
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      220,
+      64
+    ],
+    "capInsets": [
+      30,
+      0,
+      30,
+      0
+    ]
+  }
+}

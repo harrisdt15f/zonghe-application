@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chat_di4",
+    "texture": "e8a1aa6c-2ca2-418a-bc6d-bddd7d9b1e91",
+    "atlas": "33f57385-21f9-40ec-be7b-651812373cfe",
+    "rect": [
+      151,
+      54,
+      74,
+      48
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      74,
+      48
+    ],
+    "capInsets": [
+      29,
+      14,
+      29,
+      16
+    ]
+  }
+}

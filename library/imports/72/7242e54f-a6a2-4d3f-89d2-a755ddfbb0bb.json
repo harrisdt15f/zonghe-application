@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xyzp",
+    "texture": "3db6a19c-69e2-4533-badf-fadf40d86f8e",
+    "atlas": "481744a8-f94d-4f37-8fb4-34c6496aad00",
+    "rect": [
+      462,
+      252,
+      424,
+      148
+    ],
+    "offset": [
+      -2,
+      -2
+    ],
+    "originalSize": [
+      428,
+      152
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

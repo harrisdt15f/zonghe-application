@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "doday_panel_18PX",
+    "texture": "53e5c977-0d37-49bb-ad6c-f1967cc14f4c",
+    "atlas": "5264b650-322a-47b7-a56e-4101ba678282",
+    "rect": [
+      483,
+      124,
+      83,
+      26
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      83,
+      26
+    ],
+    "rotated": 1,
+    "capInsets": [
+      4,
+      4,
+      4,
+      4
+    ]
+  }
+}

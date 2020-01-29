@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gd_bottom",
+    "texture": "242a90b8-8e1b-46e0-8581-ac177fcf3e9b",
+    "atlas": "40888bd8-64ff-425c-9643-4d6174d9d4de",
+    "rect": [
+      102,
+      2,
+      632,
+      22
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      632,
+      22
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

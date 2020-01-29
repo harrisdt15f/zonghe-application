@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boxHuawen",
+    "texture": "242a90b8-8e1b-46e0-8581-ac177fcf3e9b",
+    "atlas": "40888bd8-64ff-425c-9643-4d6174d9d4de",
+    "rect": [
+      2,
+      790,
+      210,
+      120
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      210,
+      120
+    ],
+    "rotated": 1,
+    "capInsets": [
+      80,
+      26,
+      80,
+      66
+    ]
+  }
+}

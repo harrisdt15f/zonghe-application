@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "huiyuan",
+    "texture": "2b3a4c19-4b98-4f86-b167-1efe74c52ac2",
+    "atlas": "",
+    "rect": [
+      11,
+      1,
+      348,
+      42
+    ],
+    "offset": [
+      5,
+      0
+    ],
+    "originalSize": [
+      360,
+      44
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

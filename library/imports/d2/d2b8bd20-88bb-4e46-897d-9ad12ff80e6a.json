@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "leftbar_icon5",
+    "texture": "c17107dc-845e-429e-83f5-249950e88964",
+    "atlas": "51cbeb3d-cb70-4261-9708-cac035b90d76",
+    "rect": [
+      108,
+      190,
+      37,
+      66
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      37,
+      66
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

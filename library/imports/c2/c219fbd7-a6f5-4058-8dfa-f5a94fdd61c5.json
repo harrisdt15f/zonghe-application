@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "head_panel_shutiao",
+    "texture": "53e5c977-0d37-49bb-ad6c-f1967cc14f4c",
+    "atlas": "5264b650-322a-47b7-a56e-4101ba678282",
+    "rect": [
+      2,
+      509,
+      1,
+      26
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1,
+      26
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

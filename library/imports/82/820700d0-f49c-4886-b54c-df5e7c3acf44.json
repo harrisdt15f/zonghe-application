@@ -1,0 +1,26 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "numberCountDown.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "0": {
+      "__uuid__": "36bbfc2d-560d-4f04-a895-9671e351e64d"
+    },
+    "1": {
+      "__uuid__": "7f89ace0-c2f0-4042-95d8-430dc8e8fb3c"
+    },
+    "2": {
+      "__uuid__": "670a24cd-5c16-46fc-bfea-a9e0c79628e8"
+    },
+    "3": {
+      "__uuid__": "d10a601d-3029-4d4e-b2ca-339783885aa7"
+    },
+    "4": {
+      "__uuid__": "96424ada-31bb-4e64-aff3-b8394619a0e9"
+    },
+    "5": {
+      "__uuid__": "69b7766e-f618-4c3d-83c3-c32cad2d8207"
+    }
+  }
+}

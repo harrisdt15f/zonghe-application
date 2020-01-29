@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "notice_panel",
+    "texture": "53e5c977-0d37-49bb-ad6c-f1967cc14f4c",
+    "atlas": "5264b650-322a-47b7-a56e-4101ba678282",
+    "rect": [
+      150,
+      368,
+      104,
+      42
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      104,
+      42
+    ],
+    "rotated": 1,
+    "capInsets": [
+      20,
+      10,
+      20,
+      10
+    ]
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "subtitle.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "subtitle_TouZhuJiLu_0": {
+      "__uuid__": "a08865a9-65f3-440f-b9cf-708fdcb7e5ff"
+    },
+    "subtitle_TouZhuJiLu_1": {
+      "__uuid__": "590bf757-22f0-4b24-9803-e1e5fb539c09"
+    },
+    "subtitle_ZaiXianKeFu_0": {
+      "__uuid__": "9e0d9ba1-c475-41b2-8762-51518db8fec0"
+    },
+    "subtitle_ZaiXianKeFu_1": {
+      "__uuid__": "192e69a1-df25-4c6e-816c-93cde219896c"
+    },
+    "subtitle_ZhanNieXin_0": {
+      "__uuid__": "005e287f-cc33-44ce-9394-fcea321dd9d2"
+    },
+    "subtitle_ZhanNieXin_1": {
+      "__uuid__": "7036bb99-b307-4a9d-a6bf-dced9b80e884"
+    },
+    "subtitle_banbenxinxi_0": {
+      "__uuid__": "81e67305-d612-4967-84cc-6491e153e19b"
+    },
+    "subtitle_banbenxinxi_1": {
+      "__uuid__": "5dfed534-64a9-4e5b-b3db-de19f96ab252"
+    },
+    "subtitle_caipiaotouzhu_0": {
+      "__uuid__": "74b564a7-0754-461d-bb76-d408fa4ad8c4"
+    },
+    "subtitle_caipiaotouzhu_1": {
+      "__uuid__": "11dd5f44-a4b7-4667-8dba-8e443e016edf"
+    },
+    "subtitle_changjianwenti_0": {
+      "__uuid__": "d00db787-33ee-40f0-bbb7-9308c99366f2"
+    },
+    "subtitle_changjianwenti_1": {
+      "__uuid__": "126ce5ae-3c98-48db-b2e2-a1236fc0dc3e"
+    },
+    "subtitle_chongzijilu_0": {
+      "__uuid__": "4b4b110b-9781-4a4a-91d4-96c82e23c871"
+    },
+    "subtitle_chongzijilu_1": {
+      "__uuid__": "227eac3c-013e-4b85-b323-bec57be76eb7"
+    },
+    "subtitle_dailishouyi_0": {
+      "__uuid__": "4d498eb5-9983-4197-9b5d-71ed932a9404"
+    },
+    "subtitle_dailishouyi_1": {
+      "__uuid__": "37a4c844-3d6b-4d63-aa60-d33a6bf9ceb9"
+    },
+    "subtitle_denglu_0": {
+      "__uuid__": "9122db86-6e93-4759-bbee-9d8d8eec10e1"
+    },
+    "subtitle_denglu_1": {
+      "__uuid__": "d9dc3763-922e-4708-8885-16ae1ede97d4"
+    },
+    "subtitle_gerenbaobiao_0": {
+      "__uuid__": "a8b04bda-fcc5-416b-a947-b719f5eab7dd"
+    },
+    "subtitle_gerenbaobiao_1": {
+      "__uuid__": "db0c42df-790b-4068-b4d5-d3fa47eec512"
+    },
+    "subtitle_gerxinxi_0": {
+      "__uuid__": "2cf317e7-fb14-4fc1-b755-9174395675b7"
+    },
+    "subtitle_gerxinxi_1": {
+      "__uuid__": "338899eb-2b0f-4da5-8d5b-93011e1aef42"
+    },
+    "subtitle_hot_0": {
+      "__uuid__": "5a94c478-1d11-421c-a372-70fcdc7d8679"
+    },
+    "subtitle_hot_1": {
+      "__uuid__": "e5c8093c-9c98-4dba-81c5-7325c254fcd2"
+    },
+    "subtitle_jingdianqipai_0": {
+      "__uuid__": "1166ba20-6263-42e7-984b-1a54872c632b"
+    },
+    "subtitle_jingdianqipai_1": {
+      "__uuid__": "cf069dd0-2cad-4241-84fd-a3dbe455b62a"
+    },
+    "subtitle_jingjijingcai_0": {
+      "__uuid__": "9ee1bb58-998b-4e8e-bdf3-e35c64388e8d"
+    },
+    "subtitle_jingjijingcai_1": {
+      "__uuid__": "f038c77b-4b3c-4c5b-9481-bbae51d58784"
+    },
+    "subtitle_laohujiheji_0": {
+      "__uuid__": "1b0a1dcb-30a4-4362-8a89-e6e7a7049f5b"
+    },
+    "subtitle_laohujiheji_1": {
+      "__uuid__": "d48579b6-93be-4680-af44-60d76ad446b8"
+    },
+    "subtitle_lijitixian_0": {
+      "__uuid__": "b2642a6f-dc60-4374-bbaf-8d2c7f1b80e6"
+    },
+    "subtitle_lijitixian_1": {
+      "__uuid__": "d4944f70-fb44-4da8-807a-0c3c9be6cd07"
+    },
+    "subtitle_meirqiandao_0": {
+      "__uuid__": "0dea850d-f6f7-4ce2-9423-73df4ebca3f4"
+    },
+    "subtitle_meirqiandao_1": {
+      "__uuid__": "0924ebdf-984b-4d63-bda1-a44cd8d1f0cf"
+    },
+    "subtitle_pingtaigonggao_0": {
+      "__uuid__": "dff36c90-cff3-4e56-a6a6-d8c68a13a31c"
+    },
+    "subtitle_pingtaigonggao_1": {
+      "__uuid__": "c43d0634-4bc0-4e6d-9bb4-72d386f46b51"
+    },
+    "subtitle_qianghongbao_0": {
+      "__uuid__": "1149f6bb-4934-4895-a111-c8ebd5326cc1"
+    },
+    "subtitle_qianghongbao_1": {
+      "__uuid__": "20c013d0-4e44-4002-a0ae-d606071e4d81"
+    },
+    "subtitle_qiehuanxianlu_0": {
+      "__uuid__": "87550abe-4712-4161-b3bc-57c895426e4b"
+    },
+    "subtitle_qiehuanxianlu_1": {
+      "__uuid__": "44abc3e0-f86d-4697-8798-ebbef2084bbf"
+    },
+    "subtitle_qqkefu_0": {
+      "__uuid__": "061b2b2d-f3aa-4ff2-a9ce-58873de44b18"
+    },
+    "subtitle_qqkefu_1": {
+      "__uuid__": "c8b7680c-6952-42f6-8ff1-c85908581c5f"
+    },
+    "subtitle_quweijingcai_0": {
+      "__uuid__": "aee817c4-28d7-4fb2-84ee-3750d143a592"
+    },
+    "subtitle_quweijingcai_1": {
+      "__uuid__": "3f34dd64-d3bf-497b-b4d0-99834feab443"
+    },
+    "subtitle_realityShow_0": {
+      "__uuid__": "46d63781-7fbd-4bc4-a73c-6bbce74a904f"
+    },
+    "subtitle_realityShow_1": {
+      "__uuid__": "5f3c5e7a-5cd7-457c-b184-b820472f980c"
+    },
+    "subtitle_shengyinshezhi_0": {
+      "__uuid__": "3503ff02-7992-478b-8fed-97dba58e1163"
+    },
+    "subtitle_shengyinshezhi_1": {
+      "__uuid__": "5016adff-108a-41f8-ae14-863f4a749781"
+    },
+    "subtitle_shouchongzengjin_0": {
+      "__uuid__": "af20b12d-ccf3-4719-85f4-f00b6795d8fb"
+    },
+    "subtitle_shouchongzengjin_1": {
+      "__uuid__": "48f8473b-da0f-4f0c-9476-908f697e7f47"
+    },
+    "subtitle_tixianjilu_0": {
+      "__uuid__": "5f3ab818-1fc5-44eb-91d2-8bca46648534"
+    },
+    "subtitle_tixianjilu_1": {
+      "__uuid__": "86106723-a248-4367-84e1-8024c4e42cd7"
+    },
+    "subtitle_tixianshuoming_0": {
+      "__uuid__": "b9b77279-ab9e-41f7-b0a4-7f0867fc1da5"
+    },
+    "subtitle_tixianshuoming_1": {
+      "__uuid__": "a871701f-532a-4852-8e88-e6c891640821"
+    },
+    "subtitle_tuanduibaobiao_0": {
+      "__uuid__": "ab56c164-5e0f-4ac7-be04-de7ac0f8b816"
+    },
+    "subtitle_tuanduibaobiao_1": {
+      "__uuid__": "07f8ad9c-fa8d-41d6-8528-5d2ecef8350f"
+    },
+    "subtitle_tuanduiguanli_0": {
+      "__uuid__": "5ca8e628-eb20-4fb3-b887-8d5a4ef4e811"
+    },
+    "subtitle_tuanduiguanli_1": {
+      "__uuid__": "90d185e1-3f2a-4707-ad60-dc67c65cea9f"
+    },
+    "subtitle_tuiguangfanyong_0": {
+      "__uuid__": "e885dd96-43d6-460c-ada9-751a42ba137a"
+    },
+    "subtitle_tuiguangfanyong_1": {
+      "__uuid__": "948780f7-597e-471e-8c5d-8a5e867f55e2"
+    },
+    "subtitle_vipchongzhi_0": {
+      "__uuid__": "680a4564-4b34-4af9-9532-6150f569c812"
+    },
+    "subtitle_vipchongzhi_1": {
+      "__uuid__": "cb5d326f-4365-4f6a-98b3-529cd2f34723"
+    },
+    "subtitle_vipxiangqing_0": {
+      "__uuid__": "1c39030c-dcee-42c2-aed1-51b616781d17"
+    },
+    "subtitle_vipxiangqing_1": {
+      "__uuid__": "bb27b81f-91ea-44fb-8758-ea1776eb5ed0"
+    },
+    "subtitle_wangyinchongzhi_0": {
+      "__uuid__": "4476ec16-1122-4d44-ad01-9a2f95f9b205"
+    },
+    "subtitle_wangyinchongzhi_1": {
+      "__uuid__": "8a1c1c87-c30b-47c5-bbdc-652935745e4e"
+    },
+    "subtitle_weixinchongzhi_0": {
+      "__uuid__": "5a432132-ab86-48b6-b02b-ea8bbd99eee2"
+    },
+    "subtitle_weixinchongzhi_1": {
+      "__uuid__": "00432b06-b131-4fd4-92b9-d1338d47838d"
+    },
+    "subtitle_weixinkefu_0": {
+      "__uuid__": "6da5f706-28f1-4b40-9d14-f89d5badd0d0"
+    },
+    "subtitle_weixinkefu_1": {
+      "__uuid__": "873c7a2b-78cc-4c21-8d01-8ccd2987b962"
+    },
+    "subtitle_wodetuiguang_0": {
+      "__uuid__": "cc0d3337-97bc-4bd7-b160-ee9c1a1fd639"
+    },
+    "subtitle_wodetuiguang_1": {
+      "__uuid__": "44d6ddde-c97b-49a9-bc99-855fd4512c23"
+    },
+    "subtitle_xingyunzhuanpan_0": {
+      "__uuid__": "b103df81-fe9b-469a-b939-c5e274e55f5d"
+    },
+    "subtitle_xingyunzhuanpan_1": {
+      "__uuid__": "98b550ac-78c1-400c-bf2b-6884848d6247"
+    },
+    "subtitle_xitongxiaoxi_0": {
+      "__uuid__": "b0262377-6c34-4e7a-9ddb-319698a68d1a"
+    },
+    "subtitle_xitongxiaoxi_1": {
+      "__uuid__": "cde6504c-5db1-4b81-9948-f5377d2d9279"
+    },
+    "subtitle_xiugaianquanma_0": {
+      "__uuid__": "1dd1e6a5-fdd0-40a6-823c-ecc37cb5887c"
+    },
+    "subtitle_xiugaianquanma_1": {
+      "__uuid__": "798e4a52-13e8-4963-b924-ae872b2da72e"
+    },
+    "subtitle_xiugaimima_0": {
+      "__uuid__": "ceaa6a37-3c6f-4dca-bfee-2934f3bc7d48"
+    },
+    "subtitle_xiugaimima_1": {
+      "__uuid__": "3ca40ca5-b509-41cf-9d3f-68dead3157ec"
+    },
+    "subtitle_yinliansaoma_0": {
+      "__uuid__": "eac26d8e-8195-4f02-b1a7-b4b1a3b89e87"
+    },
+    "subtitle_yinliansaoma_1": {
+      "__uuid__": "19cb8b06-7670-46fc-8d88-4a12cc389432"
+    },
+    "subtitle_youjiangjingcai_0": {
+      "__uuid__": "faf9ab17-bcc5-429c-b0ac-0916b92c4024"
+    },
+    "subtitle_youjiangjingcai_1": {
+      "__uuid__": "ac1cf95c-b25b-47bd-9dce-7a09054517a5"
+    },
+    "subtitle_zhanghuguanli_0": {
+      "__uuid__": "2d81cd2b-962c-4f10-b487-57e0f8accef6"
+    },
+    "subtitle_zhanghuguanli_1": {
+      "__uuid__": "9e55ade2-1cdd-4871-92b3-e6195d680222"
+    },
+    "subtitle_zhanghumingxi_0": {
+      "__uuid__": "8cc123ea-fab5-487e-ad40-00209112b781"
+    },
+    "subtitle_zhanghumingxi_1": {
+      "__uuid__": "a437da5f-97cd-4101-b1f0-7f2cf1210091"
+    },
+    "subtitle_zhaohuimima_0": {
+      "__uuid__": "92f45a18-fe16-484f-b3d3-1be17ae445cb"
+    },
+    "subtitle_zhaohuimima_1": {
+      "__uuid__": "ca597757-901d-4d8d-beae-ecce9e992803"
+    },
+    "subtitle_zhifubaocongzhi_0": {
+      "__uuid__": "62f4afce-68f3-4f73-b7e1-f28132bf1031"
+    },
+    "subtitle_zhifubaocongzhi_1": {
+      "__uuid__": "4c3a9756-e5e7-40c9-8116-a769ce91bffb"
+    },
+    "subtitle_zhuceyouli_0": {
+      "__uuid__": "0633166e-b29b-40d5-adba-bf8f25760446"
+    },
+    "subtitle_zhuceyouli_1": {
+      "__uuid__": "a6c41de1-a5c6-4155-9b69-6885bd38bed3"
+    },
+    "subtitle_zhucezhanghao_0": {
+      "__uuid__": "2e37028c-c892-4fc3-901b-6e9c5a883128"
+    },
+    "subtitle_zhucezhanghao_1": {
+      "__uuid__": "321f3773-ab99-49f8-89b2-a5d774022814"
+    }
+  }
+}

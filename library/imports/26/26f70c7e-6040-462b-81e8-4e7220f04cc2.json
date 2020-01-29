@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "yuan",
+    "texture": "3db6a19c-69e2-4533-badf-fadf40d86f8e",
+    "atlas": "481744a8-f94d-4f37-8fb4-34c6496aad00",
+    "rect": [
+      568,
+      934,
+      36,
+      36
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      36
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "head_juanzhou",
+    "texture": "c5d18708-b9b8-463e-97b0-01f6224de52d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1264,
+      96
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1264,
+      96
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

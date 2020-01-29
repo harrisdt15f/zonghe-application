@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pic_fy",
+    "texture": "2d851b45-c92a-41c9-b30b-1f25d3e12515",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      810,
+      460
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      810,
+      460
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

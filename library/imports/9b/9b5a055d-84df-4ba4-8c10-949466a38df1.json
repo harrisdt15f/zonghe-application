@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "liwu_03",
+    "texture": "b683e98d-8405-429c-977e-49e75038c6b5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      551,
+      546
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      551,
+      546
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

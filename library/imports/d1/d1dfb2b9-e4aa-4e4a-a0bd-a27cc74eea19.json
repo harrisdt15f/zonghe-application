@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pic_qhb",
+    "texture": "0af552c0-ba80-4b93-9bd5-fa4673b9548f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      810,
+      460
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      810,
+      460
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

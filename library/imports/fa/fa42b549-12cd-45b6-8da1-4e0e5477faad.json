@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "rankeffect.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "rank_effect_001": {
+      "__uuid__": "bc174a00-4a97-49d7-9ddf-6f9334a1f738"
+    },
+    "rank_effect_002": {
+      "__uuid__": "0f5fad41-86db-420d-9da4-0c9c45b8b1ab"
+    },
+    "rank_effect_003": {
+      "__uuid__": "21d57d40-c171-439a-9540-e2fd59b9bfce"
+    },
+    "rank_effect_004": {
+      "__uuid__": "88cb8101-38b0-4b04-8e0d-71866987dc22"
+    },
+    "rank_effect_005": {
+      "__uuid__": "cf74d771-42ca-4c7c-b48b-32d5b5eaf716"
+    },
+    "rank_effect_006": {
+      "__uuid__": "e96bd768-958c-4f0f-a350-c3e02d5bbee6"
+    },
+    "rank_effect_007": {
+      "__uuid__": "a250dc61-b4aa-41f4-a626-ea01a026442e"
+    },
+    "rank_effect_008": {
+      "__uuid__": "dbfae1f9-2cbe-4784-ab9e-cc309296d640"
+    },
+    "rank_effect_009": {
+      "__uuid__": "440c1dde-4c06-4b6d-b345-e7a53a41a2aa"
+    },
+    "rank_effect_010": {
+      "__uuid__": "becc9cfe-01bc-44b8-be3d-068c60d721b9"
+    },
+    "rank_effect_011": {
+      "__uuid__": "cfda6e72-16f3-4517-919c-189611bfa6c0"
+    },
+    "rank_effect_012": {
+      "__uuid__": "b4634052-cac9-4753-89c2-d86af7159fad"
+    },
+    "rank_effect_013": {
+      "__uuid__": "ce3ef400-2a44-4a42-977b-c9af1f99bc93"
+    },
+    "rank_effect_014": {
+      "__uuid__": "4ef31b29-6d7a-43b9-8528-75079e84acc6"
+    },
+    "rank_effect_015": {
+      "__uuid__": "6f74e9d7-3bee-44b4-bfab-0769c6ed9ab2"
+    },
+    "rank_effect_016": {
+      "__uuid__": "ffd7fb79-4606-4ac9-89f4-13b289013429"
+    },
+    "rank_effect_017": {
+      "__uuid__": "8b6be528-f878-41df-9c6e-a6a070031d0f"
+    },
+    "rank_effect_018": {
+      "__uuid__": "054958a8-e4e7-4a99-bb1f-bdffade430ac"
+    },
+    "rank_effect_019": {
+      "__uuid__": "1d31c423-1083-4e3d-b4d1-8b58667b804a"
+    },
+    "rank_effect_020": {
+      "__uuid__": "b47de975-06e5-409b-babb-e05138def4fd"
+    },
+    "rank_effect_021": {
+      "__uuid__": "4e355f36-da8b-471a-9e0f-2a247580acf4"
+    }
+  }
+}

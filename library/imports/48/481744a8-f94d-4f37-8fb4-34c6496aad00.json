@@ -1,0 +1,77 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "activity.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "IP": {
+      "__uuid__": "7d533fb2-57cb-4512-94f0-c1f1a55a82a2"
+    },
+    "REDpanel": {
+      "__uuid__": "30ee7aaa-1770-4160-b53a-d02e1a6c6e18"
+    },
+    "bt": {
+      "__uuid__": "df2579f2-49cf-4282-af9a-b1a22cc47399"
+    },
+    "bx": {
+      "__uuid__": "5588c7f7-a651-466a-90bd-1c3803e85442"
+    },
+    "car": {
+      "__uuid__": "23901af6-1e73-4ddd-b25a-40bd5ae33fc6"
+    },
+    "fg": {
+      "__uuid__": "f72cbbd5-c266-4127-8730-b974463c1b50"
+    },
+    "gold_8": {
+      "__uuid__": "7d876da1-ccaf-4136-a26a-d27fd41f0844"
+    },
+    "gxhd": {
+      "__uuid__": "becac1f4-55b3-4019-8480-ab00a7d4b94e"
+    },
+    "gxzz": {
+      "__uuid__": "5f2b17b3-a79b-4f7a-9e54-3c9ae56e093a"
+    },
+    "hb": {
+      "__uuid__": "31a4d17d-17c5-4c2b-989d-9fda7697a47d"
+    },
+    "hb_but": {
+      "__uuid__": "eaa5a8ba-ff79-43c1-a766-24356724102f"
+    },
+    "hb_fort1": {
+      "__uuid__": "d6609d79-4083-41ab-80d4-ed06d13944d8"
+    },
+    "hb_fort2": {
+      "__uuid__": "ae235ba2-3147-4fd9-97d1-3c7d19a22125"
+    },
+    "hb_fort3": {
+      "__uuid__": "82342420-bea1-4ca4-8110-83642cfcd01e"
+    },
+    "hb_fort4": {
+      "__uuid__": "c5b8e3c6-5b43-4084-b437-87353b514943"
+    },
+    "hb_gxhd": {
+      "__uuid__": "281ce13d-85d6-4060-b43f-6c4a41c649dc"
+    },
+    "iwatch": {
+      "__uuid__": "cddebbb9-259e-4f4e-af7b-043b6cfd53a1"
+    },
+    "ksbtn": {
+      "__uuid__": "ec03d3f6-1518-49ae-a17f-6200ccec83b1"
+    },
+    "macbook": {
+      "__uuid__": "55377d69-6020-4f42-a8c4-074eab28614b"
+    },
+    "mrqd_2": {
+      "__uuid__": "ae925540-b486-4bcc-82f4-e453d12e0add"
+    },
+    "xczj": {
+      "__uuid__": "20e07d16-224d-414f-a7f4-b0d243b7ef85"
+    },
+    "xyzp": {
+      "__uuid__": "7242e54f-a6a2-4d3f-89d2-a755ddfbb0bb"
+    },
+    "yuan": {
+      "__uuid__": "26f70c7e-6040-462b-81e8-4e7220f04cc2"
+    }
+  }
+}

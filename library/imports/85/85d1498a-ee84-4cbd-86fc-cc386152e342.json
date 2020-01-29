@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "faicaihua_tex",
+    "texture": "936183b9-4b8a-4016-877a-37d57981ff9c",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      495,
+      510
+    ],
+    "offset": [
+      -7.5,
+      0
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

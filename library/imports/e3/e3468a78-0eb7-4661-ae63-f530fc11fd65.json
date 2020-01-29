@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "yinxiaoanniu_03",
+    "texture": "e33e9e48-cde2-4cdd-9a81-abfcf4269ab4",
+    "atlas": "30741ad4-05c3-478a-8495-d660bf3dd8dd",
+    "rect": [
+      638,
+      96,
+      54,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      54,
+      60
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

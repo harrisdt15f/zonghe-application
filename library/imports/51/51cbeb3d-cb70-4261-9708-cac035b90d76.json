@@ -1,0 +1,149 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "com.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "1": {
+      "__uuid__": "5ecc70c0-d9c7-428e-bac9-83e68400ee99"
+    },
+    "2": {
+      "__uuid__": "6976ae3b-8997-4270-bb5a-e5a0fbcb60bb"
+    },
+    "3": {
+      "__uuid__": "5dd5eb82-1936-4efe-ab2c-d20f7856e16d"
+    },
+    "biaoq": {
+      "__uuid__": "f39a23c9-233e-46b5-bc62-fb728c968f0f"
+    },
+    "dian": {
+      "__uuid__": "e669664c-fa5e-4b80-9037-2b1179429e91"
+    },
+    "fanT1": {
+      "__uuid__": "cf7950ea-f677-40c5-bdd6-5aef3bc96e5f"
+    },
+    "fanT2": {
+      "__uuid__": "016b624e-c2cd-40b7-a590-c7347d6c8c76"
+    },
+    "gengduoanniu_03": {
+      "__uuid__": "4abff546-6ec8-4172-bbed-473dfc124de1"
+    },
+    "gold_icon": {
+      "__uuid__": "232060d9-4135-44ca-a0a3-cc79a5ef51e2"
+    },
+    "he": {
+      "__uuid__": "880ffe4b-ae7d-4316-a6bd-e9b344dd4e99"
+    },
+    "ic1": {
+      "__uuid__": "2d444b22-fd05-4fe8-b50f-a3c7f8ed17a3"
+    },
+    "ic2": {
+      "__uuid__": "fcd3fb09-f14d-4f26-ab31-4dbd998d9bfc"
+    },
+    "ic3": {
+      "__uuid__": "6ce1de20-e766-4d29-a7e4-51296da9bd46"
+    },
+    "ic4": {
+      "__uuid__": "62109df9-9163-4078-aefe-6e051f56816a"
+    },
+    "ic5": {
+      "__uuid__": "fa36971b-af60-4d97-ba76-b24611b16b42"
+    },
+    "ic_wkt": {
+      "__uuid__": "3afd8691-09fa-4fb4-84dc-081fb8a88b98"
+    },
+    "jiaHao": {
+      "__uuid__": "a352557e-816e-4e4c-96e8-76c61e829c8c"
+    },
+    "jiantou": {
+      "__uuid__": "94b679c4-a98e-4cb2-b074-3382ee6a2a28"
+    },
+    "jiantou_mihuang": {
+      "__uuid__": "5ece47bc-25c3-4794-9dfd-eee495232fa2"
+    },
+    "kai": {
+      "__uuid__": "18bef85d-6d71-4063-8178-d625ee75a4fe"
+    },
+    "leftbar_icon1": {
+      "__uuid__": "01a7d14e-09d4-4a77-a572-3e356f8f6775"
+    },
+    "leftbar_icon2": {
+      "__uuid__": "e3ca5a81-9159-4ad1-8b2f-afe92aae9b6f"
+    },
+    "leftbar_icon3": {
+      "__uuid__": "a60d0fcf-9ab9-4165-b01c-488a75d45167"
+    },
+    "leftbar_icon4": {
+      "__uuid__": "900a3fab-183e-463f-b329-30ecbdd8ed5f"
+    },
+    "leftbar_icon5": {
+      "__uuid__": "d2b8bd20-88bb-4e46-897d-9ad12ff80e6a"
+    },
+    "leftbar_icon6": {
+      "__uuid__": "4650ced3-e838-431b-b7ed-6530c14f7c2a"
+    },
+    "leftbar_icon7": {
+      "__uuid__": "dda02f41-06a0-4f49-ac73-95cc20ee0433"
+    },
+    "leftic1": {
+      "__uuid__": "2a7f6731-b519-471a-84cd-4d7ad87682cf"
+    },
+    "leftic2": {
+      "__uuid__": "622b84c4-122d-4372-a0be-9b506deb0883"
+    },
+    "leftic3": {
+      "__uuid__": "2835fc79-36a8-49a0-acb8-dee7308eda92"
+    },
+    "leftic4": {
+      "__uuid__": "be885ad0-0bd2-4b71-83a9-5fba0b39f4e2"
+    },
+    "leftic5": {
+      "__uuid__": "9355455d-3455-42b0-8eee-602497dccb5a"
+    },
+    "leftic6": {
+      "__uuid__": "8ab64849-8da1-4fc6-8716-94967062e4d3"
+    },
+    "leftpic_lu": {
+      "__uuid__": "74839a67-cb83-46e8-8927-a7934deaf003"
+    },
+    "menu_icon": {
+      "__uuid__": "9279ad8f-14c1-470f-bd19-6a3dd816a5b0"
+    },
+    "muzhi": {
+      "__uuid__": "67a85a6e-8dfd-4d7d-a52d-5a3050faf88f"
+    },
+    "notice_trumpet": {
+      "__uuid__": "63cb050b-ef64-4ecd-9526-a64e07f4e2e6"
+    },
+    "shuaxin": {
+      "__uuid__": "f54c000a-755a-4c7f-9879-879df292ea1f"
+    },
+    "shurukuang": {
+      "__uuid__": "f3438c1c-2108-4755-92e2-802061bedd07"
+    },
+    "top_back1": {
+      "__uuid__": "894d4276-4322-4f17-8144-167ea4d7a8a5"
+    },
+    "tu": {
+      "__uuid__": "2fca8dde-ed98-4855-9c75-63d2378f8647"
+    },
+    "vip": {
+      "__uuid__": "cb7e5d06-654c-4849-8a35-571aa7fad331"
+    },
+    "vip_jt": {
+      "__uuid__": "0d881091-0e61-4342-a067-42ceb1b23201"
+    },
+    "xialaanniu_03": {
+      "__uuid__": "6ced5af6-044e-4c78-b9e3-47b32ccba726"
+    },
+    "xiugai": {
+      "__uuid__": "69664ca5-f21f-464e-97d9-e7b735c833b3"
+    },
+    "xuanzhongzhuangtai_03": {
+      "__uuid__": "e47d255c-8ec6-42eb-867c-2bf064d2c0c3"
+    },
+    "yun": {
+      "__uuid__": "04a93fc6-2fd3-417f-968b-b1c48b750919"
+    }
+  }
+}

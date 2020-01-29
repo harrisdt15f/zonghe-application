@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_huoqu",
+    "texture": "0c253be0-6014-4c5b-aa4b-616b1af12f2c",
+    "atlas": "c8070b8c-d3c1-465c-bf96-5f4755e3f0e4",
+    "rect": [
+      2,
+      40,
+      100,
+      38
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      100,
+      38
+    ],
+    "capInsets": [
+      12,
+      10,
+      12,
+      10
+    ]
+  }
+}

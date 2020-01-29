@@ -1,0 +1,68 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "bankCard.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "qqcom": {
+      "__uuid__": "4d19efdf-a287-4a9d-9bdd-eb6073739f34"
+    },
+    "yh0": {
+      "__uuid__": "7b7f7c37-ee2a-4dbf-8307-c3cf0c2d786a"
+    },
+    "yh1": {
+      "__uuid__": "9466a871-1b26-4d44-8ef0-3b8013c7bde7"
+    },
+    "yh10": {
+      "__uuid__": "e363c1b6-2933-4c9b-aff9-1dff24476c44"
+    },
+    "yh11": {
+      "__uuid__": "4b8aba40-4b34-4426-a621-7027b559ee52"
+    },
+    "yh12": {
+      "__uuid__": "665cd5b0-a2fd-4a62-a5fb-361b339d0ecd"
+    },
+    "yh13": {
+      "__uuid__": "9a4369fc-63c5-44cd-b621-13a6e2d1e423"
+    },
+    "yh14": {
+      "__uuid__": "523d8c20-072c-4193-b10d-5f328d4c30fc"
+    },
+    "yh15": {
+      "__uuid__": "86db12b4-0b77-463e-932f-a4fad562c1d2"
+    },
+    "yh16": {
+      "__uuid__": "2fd84e37-c24a-4176-b9a2-75d926091e2a"
+    },
+    "yh2": {
+      "__uuid__": "e95dbb72-1a21-4f95-b657-0d22c6a9dfc9"
+    },
+    "yh3": {
+      "__uuid__": "6d62704d-7702-4c32-9687-04a29f8c3975"
+    },
+    "yh4": {
+      "__uuid__": "12f893b1-af4a-4c26-b43b-287d60acf22e"
+    },
+    "yh5": {
+      "__uuid__": "77087388-3d04-40ab-9329-678f17d7c473"
+    },
+    "yh6": {
+      "__uuid__": "d3559305-fda4-4985-8e63-bb8f66fee595"
+    },
+    "yh7": {
+      "__uuid__": "aa7d5bbf-c74d-423e-950d-390c7e3bdead"
+    },
+    "yh8": {
+      "__uuid__": "a49f7c62-0af5-4ef1-9e55-e9dcad7ed7fd"
+    },
+    "yh9": {
+      "__uuid__": "bf5ef49e-9174-49d7-94ee-9db4726369be"
+    },
+    "yh_panel": {
+      "__uuid__": "9d6ab537-98eb-46a0-ae60-190add9f6df3"
+    },
+    "zfb_panel": {
+      "__uuid__": "dcf5ef8a-d054-4174-bc93-7eebd9203324"
+    }
+  }
+}

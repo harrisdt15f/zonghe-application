@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "NewProject_tex",
+    "texture": "857b8b46-41c7-4a08-b803-a4aa4253e113",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      254,
+      252
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
