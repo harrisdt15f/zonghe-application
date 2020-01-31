@@ -23,7 +23,7 @@
 		安装Android Studio,直接下一步下一步安装完成。
 		
 		打开软件进入主界面,找到下载图标 如图
-		![image](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1qxJ4xoEOxxr1ejRBdnH-bxXW0DrwCdSZ115UvbL6nOmtPBb7) 
+![image](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1qxJ4xoEOxxr1ejRBdnH-bxXW0DrwCdSZ115UvbL6nOmtPBb7) 
 		
 		点开之后进入分页栏，根据自己想支持的手机版本去下载
 		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install3.png) 
