@@ -265,8 +265,8 @@
     "relativePath": "prefabs\\Hall\\Shop"
   },
   "24c481f4-d04b-4d1b-94cf-763acd45c826": {
-    "asset": 1580284430000,
-    "meta": 1580284530182,
+    "asset": 1580466743688,
+    "meta": 1580466743713,
     "relativePath": "prefabs\\Hall\\playerCentre\\playerCenterNode.prefab"
   },
   "dda0e6e6-4282-472e-94d8-f2e730db7a0a": {
@@ -1060,8 +1060,8 @@
     "relativePath": "Script\\Animation"
   },
   "133c9656-bc1e-4463-8c55-f085b44849c0": {
-    "asset": 1580370045129,
-    "meta": 1580370045139,
+    "asset": 1580468389004,
+    "meta": 1580468389014,
     "relativePath": "Scene\\loandingScene.fire"
   },
   "51cbeb3d-cb70-4261-9708-cac035b90d76": {
@@ -1288,11 +1288,6 @@
     "asset": 1580284430000,
     "meta": 1580284532306,
     "relativePath": "Script\\Config\\config.ts"
-  },
-  "36824f29-f06d-4f30-aa7e-755554925c6b": {
-    "asset": 1580284430000,
-    "meta": 1580284533379,
-    "relativePath": "Script\\Model\\UserModel.ts"
   },
   "c20727e4-69cc-49d5-a0ee-e198f89e91de": {
     "asset": 1580284430000,
@@ -1714,20 +1709,10 @@
     "meta": 1580284532993,
     "relativePath": "Script\\Hall\\PlayerCenter\\VipPromotedMoSiPanel.ts"
   },
-  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
-    "asset": 1580284430000,
-    "meta": 1580284532389,
-    "relativePath": "Script\\Controller\\VipControl.ts"
-  },
   "6fe0fa15-9924-4046-9a81-e003aff8e9db": {
     "asset": 1580284430000,
     "meta": 1580284533356,
     "relativePath": "Script\\Language\\Zh.ts"
-  },
-  "4d30ba3a-8bd5-4791-a5b2-ac9e06d85125": {
-    "asset": 1580284430000,
-    "meta": 1580284532318,
-    "relativePath": "Script\\Config\\uiEvent.ts"
   },
   "1ba3d3f7-fb75-4b68-970f-3de97713c8c1": {
     "asset": 1580284430000,
@@ -1763,11 +1748,6 @@
     "asset": 1580284430000,
     "meta": 1580284532808,
     "relativePath": "Script\\Hall\\Loanding\\landingPanel.ts"
-  },
-  "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
-    "asset": 1580284430000,
-    "meta": 1580284532961,
-    "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
   },
   "5f2ba142-5e0e-41dd-a702-8364b2c79848": {
     "asset": 1580284430000,
@@ -1808,11 +1788,6 @@
     "asset": 1580284430000,
     "meta": 1580284532853,
     "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
-  },
-  "7ba4fc46-b661-4c65-a26b-368df7b4385f": {
-    "asset": 1580284430000,
-    "meta": 1580284532380,
-    "relativePath": "Script\\Controller\\UserControl.ts"
   },
   "8734977a-127c-4dd0-8d01-448e5d4b31de": {
     "asset": 1580284430000,
@@ -2088,5 +2063,30 @@
     "asset": 1578557030759,
     "meta": 1578470272233,
     "relativePath": "resources\\resHall\\animation"
+  },
+  "36824f29-f06d-4f30-aa7e-755554925c6b": {
+    "asset": 1580459045378,
+    "meta": 1580459066242,
+    "relativePath": "Script\\Model\\UserModel.ts"
+  },
+  "4d30ba3a-8bd5-4791-a5b2-ac9e06d85125": {
+    "asset": 1580465969712,
+    "meta": 1580466230566,
+    "relativePath": "Script\\Config\\uiEvent.ts"
+  },
+  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
+    "asset": 1580466381772,
+    "meta": 1580466383592,
+    "relativePath": "Script\\Controller\\VipControl.ts"
+  },
+  "7ba4fc46-b661-4c65-a26b-368df7b4385f": {
+    "asset": 1580467148305,
+    "meta": 1580467163274,
+    "relativePath": "Script\\Controller\\UserControl.ts"
+  },
+  "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
+    "asset": 1580467690749,
+    "meta": 1580467762846,
+    "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
   }
 }

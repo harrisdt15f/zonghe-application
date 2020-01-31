@@ -13,14 +13,22 @@ var UserModel = /** @class */ (function () {
         this._usePic = null;
         //唯一id
         this._uid = null;
+        //积分
+        this._score = null;
         //等级
         this._level = null;
-        //等级
+        //富豪榜排名
         this._richrank = null;
         //money
         this._balance = null;
+        //经验
+        this._exp = null;
         //用户VIP等级 最新等级0 最大等级9  可变
         this._userVipLevel = 0;
+        //周赠金领取状态
+        this._vipweekly = null;
+        //晋级赠金领取状态
+        this._vippromotion = null;
         //用户账号
         this._userMobile = null;
         this._userPassword = null;
@@ -60,6 +68,16 @@ var UserModel = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(UserModel.prototype, "score", {
+        get: function () {
+            return this._score;
+        },
+        set: function (score) {
+            this._score = score;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(UserModel.prototype, "level", {
         get: function () {
             return this._level;
@@ -90,12 +108,42 @@ var UserModel = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(UserModel.prototype, "exp", {
+        get: function () {
+            return this._exp;
+        },
+        set: function (exp) {
+            this._exp = exp;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(UserModel.prototype, "userVipLevel", {
         get: function () {
             return this._userVipLevel;
         },
         set: function (level) {
             this._userVipLevel = level;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserModel.prototype, "vipweekly", {
+        get: function () {
+            return this._vipweekly;
+        },
+        set: function (_vipweekly) {
+            this._vipweekly = _vipweekly;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserModel.prototype, "vippromotion", {
+        get: function () {
+            return this._vippromotion;
+        },
+        set: function (_vippromotion) {
+            this._vippromotion = _vippromotion;
         },
         enumerable: true,
         configurable: true

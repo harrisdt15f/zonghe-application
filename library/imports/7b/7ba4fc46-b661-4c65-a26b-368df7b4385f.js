@@ -282,7 +282,7 @@ var UserControl = /** @class */ (function () {
     };
     UserControl.prototype.sendnormalInfoPlaydata = function (call) {
         HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/information", function (ret) {
-            console.log("[玩家信息]：1返回数据", ret);
+            //console.log("[玩家信息]：1返回数据",ret); 
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 this._userModel.userName = ret.data.nickname;
                 this._userModel.uid = ret.data.guid;
@@ -295,11 +295,17 @@ var UserControl = /** @class */ (function () {
     };
     UserControl.prototype.sendspecialPlayerData = function (call) {
         HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/dynamic-information", function (ret) {
-            //console.log("[玩家信息]：2返回数据",ret); 
+            console.log("[玩家信息]：2返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 this._userModel.richrank = ret.data.rich_rank;
                 this._userModel.level = ret.data.level_deep;
                 this._userModel.balance = ret.data.balance;
+                this._userModel.exp = ret.data.experience;
+                this._userModel.score = ret.data.score;
+                //this._userModel.userVipLevel = ret.data.grade
+                this._userModel.userVipLevel = 8;
+                this._userModel.vipweekly = ret.data.weekly_gift;
+                this._userModel.vippromotion = ret.data.promotion_gift;
                 // console.log("pic "+this._userModel.richrank)
             }
             if (call) {

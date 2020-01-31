@@ -1,0 +1,1 @@
+G:\rayobj\cs\CocosCreator\CocosCreator.exe --path ..\ --compile "platform=android;debug=true"

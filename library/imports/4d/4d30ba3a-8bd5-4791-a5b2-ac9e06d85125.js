@@ -60,6 +60,7 @@ exports.uiEventFunction = {
 //msg 消息推送
 exports.EventRequest = {
     HeadUpdata: "loginUserHeadUpdata",
+    VipUpdate: "VipUpdate",
 };
 
 cc._RF.pop();

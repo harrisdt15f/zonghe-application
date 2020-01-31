@@ -29,6 +29,8 @@ var UserControl_1 = require("../../Controller/UserControl");
 var VipControl_1 = require("../../Controller/VipControl");
 var IdentifyKey_1 = require("../../Config/IdentifyKey");
 var UiForms_1 = require("../../Tool/UiForms");
+var uiEvent_1 = require("../../Config/uiEvent");
+var OnFire_1 = require("../../Net/OnFire");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var PersonalPanel = /** @class */ (function (_super) {
     __extends(PersonalPanel, _super);
@@ -61,8 +63,13 @@ var PersonalPanel = /** @class */ (function (_super) {
         _this.index = 0;
         return _this;
     }
+    PersonalPanel.prototype.start = function () {
+        OnFire_1.G_OnFire.on(uiEvent_1.EventRequest.VipUpdate, this.showInfo.bind(this));
+    };
     PersonalPanel.prototype.onLoad = function () {
-        VipControl_1.G_VipControl.requesVipData();
+        if (VipControl_1.G_VipControl.getVipConfig().data == null) {
+            VipControl_1.G_VipControl.requesVipData();
+        }
         // G_OnFire.on(uiEventFunction.rename_event,this.renameCallback.bind(this))
         this.btnAlterName.on(cc.Node.EventType.TOUCH_START, this.onXiuGaiMingZi.bind(this));
         this.btnUpdateBalance.on(cc.Node.EventType.TOUCH_START, this.onShuaXin.bind(this));
@@ -70,7 +77,6 @@ var PersonalPanel = /** @class */ (function (_super) {
         this.btnRight.on(cc.Node.EventType.TOUCH_END, this.onBtnEvent, this);
         this.uponeLevel = this.btnLeft.getChildByName("text");
         this.nextLevel = this.btnRight.getChildByName("text");
-        UserControl_1.G_UserControl.getUser().userVipLevel = 0;
         this.list.numItems = this.max;
         this.uponeLevel.getComponent(cc.Label).string = "VIP" + UserControl_1.G_UserControl.getUser().userVipLevel;
         this.nextLevel.getComponent(cc.Label).string = "VIP" + (UserControl_1.G_UserControl.getUser().userVipLevel + 1);
@@ -89,26 +95,29 @@ var PersonalPanel = /** @class */ (function (_super) {
         this.myEditbox.active = false;
     };
     PersonalPanel.prototype.onEnable = function () {
+        if (VipControl_1.G_VipControl.getVipConfig().data) {
+            this.showInfo();
+        }
+        // this.labelMembership.getComponent(cc.Label).string =G_Language.get("Membership")
+        // this.labelMembership.getComponent(cc.Label).string = this.getVIPMembership(G_UserControl.getUser().userVipLevel)
+    };
+    PersonalPanel.prototype.showInfo = function () {
         //头像
         var spriteFrame = this.headAtlas.getSpriteFrame("touxiang" + 3);
         this.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-        this.progressBar.getComponent(cc.ProgressBar).progress = 0.1;
+        console.log('G_VipControl.getVipConfig()  ' + VipControl_1.G_VipControl.getVipConfig().data + "  G_UserControl.getUser().userVipLevel " + UserControl_1.G_UserControl.getUser().userVipLevel);
+        this.progressBar.getComponent(cc.ProgressBar).progress = UserControl_1.G_UserControl.getUser().exp / VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"];
+        this.vipExp.getComponent(cc.Label).string = Math.floor(UserControl_1.G_UserControl.getUser().exp) + "/" + Math.floor(VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"]);
         this.labelCurrentVipLv.getComponent(cc.Label).string = "VIP" + UserControl_1.G_UserControl.getUser().userVipLevel;
         var addLv = UserControl_1.G_UserControl.getUser().userVipLevel + 1;
         var nextLv = addLv > this.max ? this.max : addLv;
         this.labelNextVipLv.getComponent(cc.Label).string = "VIP" + nextLv;
-        this.vipExp.getComponent(cc.Label).string = 100 + "/" + 900;
         this.labelID0.getComponent(cc.Label).string = UserControl_1.G_UserControl.getUser().uid.toString();
         this.labelName0.getComponent(cc.Label).string = UserControl_1.G_UserControl.getUser().userName;
-        this.labelIntegral0.getComponent(cc.Label).string = "999";
+        this.labelIntegral0.getComponent(cc.Label).string = UserControl_1.G_UserControl.getUser().score.toString();
         this.labelBalance0.getComponent(cc.Label).string = (Math.floor(UserControl_1.G_UserControl.getUser().balance * 10) / 10).toString();
-        // this.labelMembership.getComponent(cc.Label).string =G_Language.get("Membership")
-        // this.labelMembership.getComponent(cc.Label).string = this.getVIPMembership(G_UserControl.getUser().userVipLevel)
         this.labelMembership.getComponent(cc.Label).string = "VIP" + this.index.toString();
     };
-    PersonalPanel.prototype.start = function () {
-    };
-    // update (dt) {}
     PersonalPanel.prototype.onListRender = function (item, idx) {
         if (idx <= 0) {
             item.active = false;
@@ -143,6 +152,7 @@ var PersonalPanel = /** @class */ (function (_super) {
     };
     PersonalPanel.prototype.onListPageChange = function (pageNum) {
         cc.log('当前是第' + pageNum + '页');
+        this.index = pageNum;
         this.uponeLevel.getComponent(cc.Label).string = pageNum - 1 >= 0 ? "VIP" + (pageNum - 1) : "";
         this.nextLevel.getComponent(cc.Label).string = "VIP" + (pageNum + 1);
         this.curLabel.getComponent(cc.Label).string = "VIP" + pageNum;
@@ -236,6 +246,9 @@ var PersonalPanel = /** @class */ (function (_super) {
     };
     PersonalPanel.prototype.getVIPMembership = function (index) {
         return UserControl_1.G_UserControl.getUser().userVipLevel == index ? Language_1.G_Language.get("currMembership") : Language_1.G_Language.get("Membership");
+    };
+    PersonalPanel.prototype.onDestroy = function () {
+        OnFire_1.G_OnFire.off(uiEvent_1.EventRequest.VipUpdate, this.showInfo.bind(this));
     };
     __decorate([
         property(List_1.default)

@@ -5485,7 +5485,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 295,
+      "width": 56,
       "height": 24
     },
     "_anchorPoint": {
@@ -5609,12 +5609,12 @@
       "__id__": 141
     },
     "_enabled": true,
-    "_N$totalLength": 590,
+    "_N$totalLength": 560,
     "_N$barSprite": {
       "__id__": 143
     },
     "_N$mode": 0,
-    "_N$progress": 0.5,
+    "_N$progress": 0.1,
     "_N$reverse": false,
     "_id": ""
   },
