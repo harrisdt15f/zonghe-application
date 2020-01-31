@@ -13,7 +13,8 @@
 # 环境安装
 
    1.安装JDK
-		打开JDK下载地址,如图![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install1.png)  
+		打开JDK下载地址,如图
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install1.png)  
     
 		下载的时候注意选择一下和本机匹配的操作系统和架构，下载完成后运行安装就可以了。
    
@@ -22,11 +23,14 @@
    2.安装Android Studio 3.5.3
 		安装Android Studio,直接下一步下一步安装完成。
 		
-		打开软件进入主界面,找到下载图标 如图![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install2.png) 
+		打开软件进入主界面,找到下载图标 如图
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install2.png) 
 		
-		点开之后进入分页栏，根据自己想支持的手机版本去下载![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install3.png) 
+		点开之后进入分页栏，根据自己想支持的手机版本去下载
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install3.png) 
 		
-		在 SDK Tools 分页栏，如图![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install4.png) 
+		在 SDK Tools 分页栏，如图
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install4.png) 
 		
 		首先勾选右下角的 Show Package Details，显示分版本的工具选择。
 
@@ -40,7 +44,8 @@
 		
 	3.	安装CocosCreator 直接下一步下一步安装完成
 		
-		打开Cocos,左上角 选择 文件 -> 设置，打开设置窗口：![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install5.png) 
+		打开Cocos,左上角 选择 文件 -> 设置，打开设置窗口：
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install5.png) 
 		
 		在原生开发环境里面要配置两个路径：NDK 路径，选择 Android SDK Location 路径下的 ndk-bundle 文件夹（NDK 是其根目录）
 		
@@ -48,7 +53,8 @@
 		
 		配置完成后点击 保存 按钮，保存并关闭窗口。
 
-	    点击菜单栏的 项目 -> 构建发布，打开构建发布面板 ，设置如下 ![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install6.png) 
+	    点击菜单栏的 项目 -> 构建发布，打开构建发布面板 ，设置如下 
+		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install6.png) 
 		
 		设置好后关闭窗口
 		
@@ -56,13 +62,15 @@
 
 #  构建发布
 
-   打开git项目中tools文件，鼠标右键记事本打开build.bat文件，![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/set1.png) 
+   打开git项目中tools文件，鼠标右键记事本打开build.bat文件，
+   ![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/set1.png) 
    
    替换文件中 "地址1" 为 git项目存放目录,  "地址2" 为cocoscreator安装目录
   
    修改保存并关闭
    
-   鼠标右键记事本打开 compile.bat文件，![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/set2.png) 
+   鼠标右键记事本打开 compile.bat文件，
+   ![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/set2.png) 
    
    替换文件中 "地址2" 为cocoscreator安装目录
    
