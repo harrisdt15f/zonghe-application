@@ -1,4 +1,3 @@
-
 # APK打包流程
 
 # 工具
@@ -14,7 +13,7 @@
 
 #  1.安装JDK
 		打开JDK下载地址,如图
-		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install1.png)  
+![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install1.png)  
     
 		下载的时候注意选择一下和本机匹配的操作系统和架构，下载完成后运行安装就可以了。
    
