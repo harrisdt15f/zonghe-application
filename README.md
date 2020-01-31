@@ -12,7 +12,7 @@
  
 # 环境安装
 
-   1.安装JDK
+#  1.安装JDK
 		打开JDK下载地址,如图
 		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install1.png)  
     
@@ -20,11 +20,11 @@
    
 		设置环境设置,参考地址:https://www.cnblogs.com/cnwutianhao/p/5487758.html
 
-   2.安装Android Studio 3.5.3
+#  2.安装Android Studio 3.5.3
 		安装Android Studio,直接下一步下一步安装完成。
 		
 		打开软件进入主界面,找到下载图标 如图
-		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install2.png) 
+		![image](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1qxJ4xoEOxxr1ejRBdnH-bxXW0DrwCdSZ115UvbL6nOmtPBb7) 
 		
 		点开之后进入分页栏，根据自己想支持的手机版本去下载
 		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install3.png) 
@@ -42,7 +42,7 @@
 		
 		点击 OK，根据提示完成安装。
 		
-	3.	安装CocosCreator 直接下一步下一步安装完成
+#  3.	安装CocosCreator 直接下一步下一步安装完成
 		
 		打开Cocos,左上角 选择 文件 -> 设置，打开设置窗口：
 		![image](http://local.gitlab:8989/cocos-frontend/jianghu_app/blob/master/ReadMeTexture/install5.png) 
@@ -58,7 +58,7 @@
 		
 		设置好后关闭窗口
 		
-	4.下载git项目	
+#  4.下载git项目	
 
 #  构建发布
 
