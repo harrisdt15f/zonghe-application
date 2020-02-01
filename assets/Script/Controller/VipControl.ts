@@ -3,6 +3,9 @@ import { G_UiForms } from "../Tool/UiForms";
 import { G_HttpHelper } from "../Net/HttpHelper";
 import { CODE } from "../Config/IdentifyKey";
 import { VipConfig } from "../Config/VipConfig";
+import { G_OnFire } from "../Net/OnFire";
+import { EventRequest } from "../Config/uiEvent";
+import { G_UserControl } from "./UserControl";
 
 
 class VipControl {
@@ -32,13 +35,62 @@ class VipControl {
             return;
         }
         G_HttpHelper.httpGet("/app-api/user/grades", function(ret){
-           // console.log("[退出登陆]：返回数据",ret)   
+            console.log("[获取VIP配置]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 this.vipConfig.data = ret.data;
                 console.log("ret.data   "+ret.data);
             }
+            G_OnFire.fire(EventRequest.VipUpdate)  
         }.bind(this))
     }
+
+    /**
+     * 领取晋级赠金
+     */
+    requesVipPromotion(call){
+        console.log("领取晋级赠金1")   
+        if(this.vipConfig.data == null)
+        {
+            return;
+        }
+        console.log("领取晋级赠金2")   
+        G_HttpHelper.httpPost("/app-api/user/promotion-gifts",null, function(ret){
+            console.log("[领取晋级赠金]：返回数据",ret)   
+            if(ret.status && ret.code == CODE.SUCCEED){
+                G_UserControl.getUser().vippromotion = 0;
+                console.log("ret.data   "+ret.data);
+            }
+           // G_OnFire.fire(EventRequest.VipUpdate)  
+            if(call)
+            {
+                call(ret)
+            }
+        }.bind(this))
+    }
+    /**
+     * 领取每周赠金
+     */
+    requesVipWeekLy(call){
+        console.log("领取每周赠金1")   
+        if(this.vipConfig.data == null)
+        {
+            return;
+        }
+        console.log("领取每周赠金2")   
+        G_HttpHelper.httpPost("/app-api/user/weekly-gifts",null, function(ret){
+            console.log("[领取每周赠金]：返回数据",ret)   
+            if(ret.status && ret.code == CODE.SUCCEED){
+                G_UserControl.getUser().vipweekly = 0;
+                console.log("ret.data   "+ret.data);
+            }
+           // G_OnFire.fire(EventRequest.VipUpdate)  
+            if(call)
+            {
+                call(ret)
+            }
+        }.bind(this))
+    }
+
 
 
 }

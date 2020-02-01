@@ -88,7 +88,7 @@ export default class NewClass extends cc.Component {
                 return;
             }
             G_UserControl.requestVerificationCode(phone,function(ret){
-                if(ret.status && ret.code == 200){
+                if(ret.status){
                     G_UiForms.hint(G_Language.get('verificationCodeSend'));
 
                     this.ver_mobile = this.phoneNumInfo;
@@ -131,7 +131,7 @@ export default class NewClass extends cc.Component {
         }
 
         G_UserControl.requestPasswordChange(this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key, function(ret){
-            if(ret.status && ret.code == 200)
+            if(ret.status)
             {
                 G_UiForms.hint(G_Language.get('registerSuccess'))
             }else

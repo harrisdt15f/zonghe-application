@@ -85,7 +85,7 @@ var NewClass = /** @class */ (function (_super) {
         // let verificationNumber = this.verificationInfo
         // console.log('verificationNumber   '+verificationNumber);      
         UserControl_1.G_UserControl.requestSecurityVerificationCode(function (ret) {
-            if (ret.status && ret.code == 200) {
+            if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get('verificationCodeSend'));
                 this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
                 this.ver_key = ret.data['verification_key'];
@@ -112,7 +112,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         UserControl_1.G_UserControl.requestSecurityRecoverCode(this.passwordInfo, this.passwordAgainInfo, this.verificationInfo, this.ver_key, function (ret) {
-            if (ret.status && ret.code == 200) {
+            if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get('securityCodeSuccess'));
             }
             else {

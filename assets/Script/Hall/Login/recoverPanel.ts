@@ -81,7 +81,7 @@ export default class recoverPanel extends cc.Component {
             }
             console.log('phone   '+phone);
             G_UserControl.requestVerificationRecoveCode(phone,function(ret){
-                if(ret.status && ret.code == 200){
+                if(ret.status){
                     G_UiForms.hint(G_Language.get('verificationCodeSend'));
 
                     this.ver_mobile = this.phoneNumInfo;
@@ -124,7 +124,7 @@ export default class recoverPanel extends cc.Component {
         }
         
         G_UserControl.requestRecoverCode(this.ver_mobile,this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key, function(ret){
-            if(ret.status && ret.code == 200)
+            if(ret.status)
             {
                 G_UiForms.hint(G_Language.get('recoverSuccess'))
             }

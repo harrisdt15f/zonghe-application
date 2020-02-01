@@ -124,7 +124,7 @@ var RankNode = /** @class */ (function (_super) {
             this.titleLabel.string = Language_1.G_Language.get("rank_title1");
             if (this.listOne.length <= 0) {
                 HttpHelper_1.G_HttpHelper.httpGet("/app-api/games-lobby/rich-list", function (data) {
-                    if (data.status && data.code == 200) {
+                    if (data.status) {
                         console.log(data.data.length);
                         this.viewOne.getComponent(ListViewCommon_1.default).init(data.data.length, 35, function (index, itemPrefab) {
                             var itemTs = itemPrefab.getComponent(RankItem_1.default);
@@ -161,7 +161,7 @@ var RankNode = /** @class */ (function (_super) {
             this.titleLabel.string = Language_1.G_Language.get("rank_title2");
             if (this.listTwo.length <= 0) {
                 HttpHelper_1.G_HttpHelper.httpGet("/app-api/games-lobby/rich-list", function (data) {
-                    if (data.status && data.code == 200) {
+                    if (data.status) {
                         this.viewTwo.getComponent(ListViewCommon_1.default).init(data.data.length, 35, function (index, itemPrefab) {
                             var itemTs = itemPrefab.getComponent(RankItem_1.default);
                             this.listTwo[index] = itemTs;

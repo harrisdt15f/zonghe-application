@@ -98,7 +98,7 @@ export default class registerPanel extends cc.Component {
                 return;
             }
             G_UserControl.requestVerificationCode(phone,function(ret){
-                if(ret.status && ret.code == 200){
+                if(ret.status){
                     G_UiForms.hint(G_Language.get('verificationCodeSend'));
 
                     this.ver_mobile = this.phoneNumInfo;
@@ -148,7 +148,7 @@ export default class registerPanel extends cc.Component {
        // },1);
         G_UserControl.requestRegister(this.ver_mobile,this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key,this.invatationInfo, function(ret){
             this.btnLanding.getComponent(cc.Button).enabled= true;
-            if(ret.status && ret.code == 200)
+            if(ret.status)
             {
                 G_UiForms.hint(G_Language.get('registerSuccess'))
             }else

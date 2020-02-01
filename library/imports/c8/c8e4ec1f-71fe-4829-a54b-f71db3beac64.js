@@ -27,7 +27,6 @@ var Language_1 = require("../../Language/Language");
 var List_1 = require("../../Common/List");
 var UserControl_1 = require("../../Controller/UserControl");
 var VipControl_1 = require("../../Controller/VipControl");
-var IdentifyKey_1 = require("../../Config/IdentifyKey");
 var UiForms_1 = require("../../Tool/UiForms");
 var uiEvent_1 = require("../../Config/uiEvent");
 var OnFire_1 = require("../../Net/OnFire");
@@ -145,6 +144,14 @@ var PersonalPanel = /** @class */ (function (_super) {
                 else if (index == 3) {
                     mvalue = "1";
                 }
+                if (index == 0) //晋级奖金
+                 {
+                    btn.active = UserControl_1.G_UserControl.getUser().vippromotion == 1;
+                }
+                if (index == 1) //每周奖励
+                 {
+                    btn.active = UserControl_1.G_UserControl.getUser().vipweekly == 1;
+                }
                 // console.log('mvalue   '+mvalue+"  index  "+index + "tt  "+tt.name);
                 gold.getComponent(cc.Label).string = mvalue;
             }, this);
@@ -186,7 +193,7 @@ var PersonalPanel = /** @class */ (function (_super) {
         }
         console.log('strName   ' + strName);
         UserControl_1.G_UserControl.requesPlayerChange(strName, UserControl_1.G_UserControl.getUser().usePic, function (ret) {
-            if (ret.code == IdentifyKey_1.CODE.SUCCEED) {
+            if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get("nameChangeSuccess"));
                 this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName;
             }
@@ -209,6 +216,37 @@ var PersonalPanel = /** @class */ (function (_super) {
                 this.btnUpdateBalance.stopAction(tt);
                 this.btnUpdateBalance.getComponent(cc.Button).interactable = true;
             }.bind(_this), 0.3);
+        });
+    };
+    PersonalPanel.prototype.onvippromotionClick = function () {
+        var _this = this;
+        console.log("this.index  " + this.index + " G_UserControl.getUser().userVipLevel  " + UserControl_1.G_UserControl.getUser().userVipLevel + "G_UserControl.getUser().vippromotion " + UserControl_1.G_UserControl.getUser().vippromotion);
+        if (this.index != UserControl_1.G_UserControl.getUser().userVipLevel) { //VIP等级不符
+            return;
+        }
+        if (UserControl_1.G_UserControl.getUser().vippromotion <= 0) { //已领取过
+            return;
+        }
+        VipControl_1.G_VipControl.requesVipPromotion(function (ret) {
+            if (ret.status) {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("getsucceed"));
+                _this.showInfo();
+            }
+        });
+    };
+    PersonalPanel.prototype.onvipweeklyClick = function () {
+        var _this = this;
+        if (this.index != UserControl_1.G_UserControl.getUser().userVipLevel) { //VIP等级不符
+            return;
+        }
+        if (UserControl_1.G_UserControl.getUser().vipweekly <= 0) { //已领取过
+            return;
+        }
+        VipControl_1.G_VipControl.requesVipWeekLy(function (ret) {
+            if (ret.status) {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("getsucceed"));
+                _this.showInfo();
+            }
         });
     };
     PersonalPanel.prototype.calculateAngle = function (first, second) {

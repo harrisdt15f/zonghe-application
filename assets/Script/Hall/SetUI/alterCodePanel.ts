@@ -80,7 +80,7 @@ export default class NewClass extends cc.Component {
      // console.log('verificationNumber   '+verificationNumber);      
 
         G_UserControl.requestSecurityVerificationCode(function(ret){
-            if(ret.status && ret.code == 200){
+            if(ret.status){
                 G_UiForms.hint(G_Language.get('verificationCodeSend'));
 
                 this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
@@ -113,7 +113,7 @@ export default class NewClass extends cc.Component {
         }
 
         G_UserControl.requestSecurityRecoverCode(this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key, function(ret){
-            if(ret.status && ret.code == 200)
+            if(ret.status)
             {
                 G_UiForms.hint(G_Language.get('securityCodeSuccess'))
             }else

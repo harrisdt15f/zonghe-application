@@ -92,7 +92,7 @@ var NewClass = /** @class */ (function (_super) {
                 return;
             }
             UserControl_1.G_UserControl.requestVerificationCode(phone, function (ret) {
-                if (ret.status && ret.code == 200) {
+                if (ret.status) {
                     UiForms_1.G_UiForms.hint(Language_1.G_Language.get('verificationCodeSend'));
                     this.ver_mobile = this.phoneNumInfo;
                     this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
@@ -128,7 +128,7 @@ var NewClass = /** @class */ (function (_super) {
             return;
         }
         UserControl_1.G_UserControl.requestPasswordChange(this.passwordInfo, this.passwordAgainInfo, this.verificationInfo, this.ver_key, function (ret) {
-            if (ret.status && ret.code == 200) {
+            if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get('registerSuccess'));
             }
             else {

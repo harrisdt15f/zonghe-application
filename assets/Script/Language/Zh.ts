@@ -108,6 +108,7 @@ export const zh = {
     tipsText : "提示，你什么都没有操作",
 
     signinsucceed : "签到成功！",
+    getsucceed : "领取成功！",
     // signin : "已"
     Membership : "会员专属",
     currMembership: "当前会员专属",

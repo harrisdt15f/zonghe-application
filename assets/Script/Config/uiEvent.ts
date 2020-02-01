@@ -64,6 +64,7 @@ export const uiEventFunction={
 //msg 消息推送
 export const EventRequest = {
     HeadUpdata : "loginUserHeadUpdata",
+    VipUpdate: "VipUpdate",
 }
 
 

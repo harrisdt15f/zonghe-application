@@ -4,6 +4,9 @@ import { G_UserControl } from '../../Controller/UserControl';
 import { G_VipControl } from '../../Controller/VipControl';
 import { CODE } from "../../Config/IdentifyKey";
 import { G_UiForms } from '../../Tool/UiForms';
+import { G_CommonControl } from '../../Controller/CommonControl';
+import { EventRequest } from '../../Config/uiEvent';
+import { G_OnFire } from '../../Net/OnFire';
 
 
 const {ccclass, property} = cc._decorator;
@@ -67,8 +70,16 @@ export default class PersonalPanel extends cc.Component {
 
     private index = 0;
 
+    start(){
+        G_OnFire.on(EventRequest.VipUpdate, this.showInfo.bind(this))
+    }
+
     onLoad () {
-        G_VipControl.requesVipData();
+        if(G_VipControl.getVipConfig().data==null)
+        {
+            G_VipControl.requesVipData();
+        }
+        
         // G_OnFire.on(uiEventFunction.rename_event,this.renameCallback.bind(this))
         this.btnAlterName.on(cc.Node.EventType.TOUCH_START, this.onXiuGaiMingZi.bind(this));
         this.btnUpdateBalance.on(cc.Node.EventType.TOUCH_START, this.onShuaXin.bind(this));
@@ -78,8 +89,6 @@ export default class PersonalPanel extends cc.Component {
         this.uponeLevel = this.btnLeft.getChildByName("text")
         this.nextLevel  = this.btnRight.getChildByName("text")
 
-       
-        G_UserControl.getUser().userVipLevel = 0
         this.list.numItems = this.max;
         
         this.uponeLevel.getComponent(cc.Label).string = "VIP"+ G_UserControl.getUser().userVipLevel
@@ -103,35 +112,35 @@ export default class PersonalPanel extends cc.Component {
 
     }
     onEnable(){
-        //头像
-        var spriteFrame : cc.SpriteFrame = this.headAtlas.getSpriteFrame("touxiang"+3)
-        this.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-
-        this.progressBar.getComponent(cc.ProgressBar).progress = 0.1;
-
-        this.labelCurrentVipLv.getComponent(cc.Label).string = "VIP"+G_UserControl.getUser().userVipLevel
-        var addLv : number = G_UserControl.getUser().userVipLevel + 1
-        var nextLv : number = addLv > this.max ? this.max : addLv
-        this.labelNextVipLv.getComponent(cc.Label).string = "VIP"+nextLv
-
-
-        this.vipExp.getComponent(cc.Label).string = 100+"/"+900
-        
-        this.labelID0.getComponent(cc.Label).string = G_UserControl.getUser().uid.toString();
-        this.labelName0.getComponent(cc.Label).string = G_UserControl.getUser().userName;
-        this.labelIntegral0.getComponent(cc.Label).string ="999"
-        this.labelBalance0.getComponent(cc.Label).string = (Math.floor(G_UserControl.getUser().balance*10)/10).toString();
-
+        if(G_VipControl.getVipConfig().data)
+        {
+            this.showInfo();
+        }
         // this.labelMembership.getComponent(cc.Label).string =G_Language.get("Membership")
        // this.labelMembership.getComponent(cc.Label).string = this.getVIPMembership(G_UserControl.getUser().userVipLevel)
-       this.labelMembership.getComponent(cc.Label).string = "VIP" + this.index.toString();
 
     }
 
-    start () {
+    showInfo()
+    {
+          //头像
+          var spriteFrame : cc.SpriteFrame = this.headAtlas.getSpriteFrame("touxiang"+3)
+          this.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+          console.log('G_VipControl.getVipConfig()  '+G_VipControl.getVipConfig().data+"  G_UserControl.getUser().userVipLevel "+G_UserControl.getUser().userVipLevel)
+          this.progressBar.getComponent(cc.ProgressBar).progress = G_UserControl.getUser().exp / G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"]
+          this.vipExp.getComponent(cc.Label).string = Math.floor(G_UserControl.getUser().exp) +"/"+ Math.floor(G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"])
+  
+          this.labelCurrentVipLv.getComponent(cc.Label).string = "VIP"+G_UserControl.getUser().userVipLevel
+          var addLv : number = G_UserControl.getUser().userVipLevel + 1
+          var nextLv : number = addLv > this.max ? this.max : addLv
+          this.labelNextVipLv.getComponent(cc.Label).string = "VIP"+nextLv
+          
+          this.labelID0.getComponent(cc.Label).string = G_UserControl.getUser().uid.toString();
+          this.labelName0.getComponent(cc.Label).string = G_UserControl.getUser().userName;
+          this.labelIntegral0.getComponent(cc.Label).string = G_UserControl.getUser().score.toString();
+          this.labelBalance0.getComponent(cc.Label).string = (Math.floor(G_UserControl.getUser().balance*10)/10).toString();
+          this.labelMembership.getComponent(cc.Label).string = "VIP" + this.index.toString();
     }
-
-    // update (dt) {}
 
 
     onListRender(item: cc.Node, idx: number) {
@@ -163,6 +172,14 @@ export default class PersonalPanel extends cc.Component {
                 {
                     mvalue = "1";
                 }
+                if(index == 0)   //晋级奖金
+                {
+                    btn.active = G_UserControl.getUser().vippromotion == 1;
+                }
+                if(index == 1)  //每周奖励
+                {
+                    btn.active = G_UserControl.getUser().vipweekly == 1;
+                }
                // console.log('mvalue   '+mvalue+"  index  "+index + "tt  "+tt.name);
                 gold.getComponent(cc.Label).string = mvalue;
             },this)
@@ -172,6 +189,7 @@ export default class PersonalPanel extends cc.Component {
 
     onListPageChange(pageNum: number) {
         cc.log('当前是第' + pageNum + '页');
+        this.index = pageNum;
         this.uponeLevel.getComponent(cc.Label).string = pageNum-1 >= 0 ?"VIP"+(pageNum-1) : "";
         this.nextLevel.getComponent(cc.Label).string = "VIP"+(pageNum + 1)
         this.curLabel.getComponent(cc.Label).string = "VIP"+pageNum
@@ -207,7 +225,7 @@ export default class PersonalPanel extends cc.Component {
         }
         console.log('strName   '+strName);
         G_UserControl.requesPlayerChange(strName,G_UserControl.getUser().usePic,function(ret){
-            if(ret.code==CODE.SUCCEED)
+            if(ret.status)
             {
                 G_UiForms.hint(G_Language.get("nameChangeSuccess"));
                  this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName
@@ -238,7 +256,41 @@ export default class PersonalPanel extends cc.Component {
         });
     }
 
+    onvippromotionClick(){
+        console.log("this.index  "+this.index +" G_UserControl.getUser().userVipLevel  "+G_UserControl.getUser().userVipLevel + "G_UserControl.getUser().vippromotion "+G_UserControl.getUser().vippromotion)
+        if(this.index != G_UserControl.getUser().userVipLevel)
+        {   //VIP等级不符
+            return;
+        }
+        if(G_UserControl.getUser().vippromotion <= 0)
+        {   //已领取过
+            return;
+        }
+        G_VipControl.requesVipPromotion((ret)=>{
+            if(ret.status){
+                G_UiForms.hint(G_Language.get("getsucceed"))      
+                this.showInfo();        
+            }
+        })
+    }
    
+
+    onvipweeklyClick(){
+        if(this.index != G_UserControl.getUser().userVipLevel)
+        {   //VIP等级不符
+            return;
+        }
+        if(G_UserControl.getUser().vipweekly <= 0)
+        {   //已领取过
+            return;
+        }
+        G_VipControl.requesVipWeekLy((ret)=>{
+            if(ret.status){
+                G_UiForms.hint(G_Language.get("getsucceed"))      
+                this.showInfo();        
+            }
+        })
+    }
    
     calculateAngle(first:cc.Vec2, second:cc.Vec2)
     {
@@ -278,5 +330,10 @@ export default class PersonalPanel extends cc.Component {
     getVIPMembership(index : number) : string {
         return G_UserControl.getUser().userVipLevel == index ? G_Language.get("currMembership") :G_Language.get("Membership")
     }
+    
+    onDestroy(){
+        G_OnFire.off(EventRequest.VipUpdate, this.showInfo.bind(this))
+    }
+
 
 }

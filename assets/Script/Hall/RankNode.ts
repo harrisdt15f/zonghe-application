@@ -132,7 +132,7 @@ export default class RankNode extends cc.Component {
             if(this.listOne.length <= 0){
                 G_HttpHelper.httpGet("/app-api/games-lobby/rich-list",function(data){
                     
-                    if(data.status && data.code == 200)
+                    if(data.status)
                     {
                         console.log(data.data.length)
                         this.viewOne.getComponent(ListViewCommon).init(data.data.length,35,function(index,itemPrefab){
@@ -173,7 +173,7 @@ export default class RankNode extends cc.Component {
             this.titleLabel.string = G_Language.get("rank_title2");
             if(this.listTwo.length <= 0){
                 G_HttpHelper.httpGet("/app-api/games-lobby/rich-list",function(data){
-                    if(data.status && data.code == 200)
+                    if(data.status)
                     {
                         this.viewTwo.getComponent(ListViewCommon).init(data.data.length,35,function(index,itemPrefab){
                             let itemTs = itemPrefab.getComponent(RankItem);

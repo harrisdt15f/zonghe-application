@@ -85,7 +85,7 @@ var recoverPanel = /** @class */ (function (_super) {
             }
             console.log('phone   ' + phone);
             UserControl_1.G_UserControl.requestVerificationRecoveCode(phone, function (ret) {
-                if (ret.status && ret.code == 200) {
+                if (ret.status) {
                     UiForms_1.G_UiForms.hint(Language_1.G_Language.get('verificationCodeSend'));
                     this.ver_mobile = this.phoneNumInfo;
                     this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
@@ -121,7 +121,7 @@ var recoverPanel = /** @class */ (function (_super) {
             return;
         }
         UserControl_1.G_UserControl.requestRecoverCode(this.ver_mobile, this.passwordInfo, this.passwordAgainInfo, this.verificationInfo, this.ver_key, function (ret) {
-            if (ret.status && ret.code == 200) {
+            if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get('recoverSuccess'));
             }
             else {

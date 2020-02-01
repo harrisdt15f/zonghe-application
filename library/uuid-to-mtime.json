@@ -265,8 +265,8 @@
     "relativePath": "prefabs\\Hall\\Shop"
   },
   "24c481f4-d04b-4d1b-94cf-763acd45c826": {
-    "asset": 1580466743688,
-    "meta": 1580466743713,
+    "asset": 1580477844308,
+    "meta": 1580477844334,
     "relativePath": "prefabs\\Hall\\playerCentre\\playerCenterNode.prefab"
   },
   "dda0e6e6-4282-472e-94d8-f2e730db7a0a": {
@@ -1289,21 +1289,6 @@
     "meta": 1580284532306,
     "relativePath": "Script\\Config\\config.ts"
   },
-  "c20727e4-69cc-49d5-a0ee-e198f89e91de": {
-    "asset": 1580284430000,
-    "meta": 1580284533042,
-    "relativePath": "Script\\Hall\\SetUI\\alterCodePanel.ts"
-  },
-  "1fc09a9e-bb92-41e7-ab44-941b2d6f0503": {
-    "asset": 1580284430000,
-    "meta": 1580284533078,
-    "relativePath": "Script\\Hall\\SetUI\\RevisionPanel.ts"
-  },
-  "0198e11f-8da9-4382-ac3c-76e7303d6ea3": {
-    "asset": 1580284430000,
-    "meta": 1580284532852,
-    "relativePath": "Script\\Hall\\Login\\recoverPanel.ts"
-  },
   "674fe7b5-ab36-4957-adbf-463a5f75b08a": {
     "asset": 1580284430000,
     "meta": 1580284533455,
@@ -1709,11 +1694,6 @@
     "meta": 1580284532993,
     "relativePath": "Script\\Hall\\PlayerCenter\\VipPromotedMoSiPanel.ts"
   },
-  "6fe0fa15-9924-4046-9a81-e003aff8e9db": {
-    "asset": 1580284430000,
-    "meta": 1580284533356,
-    "relativePath": "Script\\Language\\Zh.ts"
-  },
   "1ba3d3f7-fb75-4b68-970f-3de97713c8c1": {
     "asset": 1580284430000,
     "meta": 1580284533152,
@@ -1774,20 +1754,10 @@
     "meta": 1580284532335,
     "relativePath": "Script\\Controller\\CommonControl.ts"
   },
-  "c3225398-72ec-4481-9efb-09e28c111257": {
-    "asset": 1580284430000,
-    "meta": 1580284533019,
-    "relativePath": "Script\\Hall\\RankNode.ts"
-  },
   "557e46a6-2ba0-4b34-b63a-4e69f075f313": {
     "asset": 1580284430000,
     "meta": 1580284532741,
     "relativePath": "Script\\Hall\\HallRightNode.ts"
-  },
-  "bf21d5c6-ffee-4e3f-9bfd-6e55918885b5": {
-    "asset": 1580284430000,
-    "meta": 1580284532853,
-    "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
   },
   "8734977a-127c-4dd0-8d01-448e5d4b31de": {
     "asset": 1580284430000,
@@ -2074,19 +2044,49 @@
     "meta": 1580466230566,
     "relativePath": "Script\\Config\\uiEvent.ts"
   },
-  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
-    "asset": 1580466381772,
-    "meta": 1580466383592,
-    "relativePath": "Script\\Controller\\VipControl.ts"
-  },
   "7ba4fc46-b661-4c65-a26b-368df7b4385f": {
     "asset": 1580467148305,
     "meta": 1580467163274,
     "relativePath": "Script\\Controller\\UserControl.ts"
   },
+  "6fe0fa15-9924-4046-9a81-e003aff8e9db": {
+    "asset": 1580477658325,
+    "meta": 1580477724752,
+    "relativePath": "Script\\Language\\Zh.ts"
+  },
+  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
+    "asset": 1580478117336,
+    "meta": 1580478118440,
+    "relativePath": "Script\\Controller\\VipControl.ts"
+  },
+  "0198e11f-8da9-4382-ac3c-76e7303d6ea3": {
+    "asset": 1580524918888,
+    "meta": 1580525315718,
+    "relativePath": "Script\\Hall\\Login\\recoverPanel.ts"
+  },
+  "bf21d5c6-ffee-4e3f-9bfd-6e55918885b5": {
+    "asset": 1580524992067,
+    "meta": 1580525315784,
+    "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
+  },
   "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
-    "asset": 1580467690749,
-    "meta": 1580467762846,
+    "asset": 1580525071804,
+    "meta": 1580525315855,
     "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
+  },
+  "c3225398-72ec-4481-9efb-09e28c111257": {
+    "asset": 1580525005567,
+    "meta": 1580525315881,
+    "relativePath": "Script\\Hall\\RankNode.ts"
+  },
+  "c20727e4-69cc-49d5-a0ee-e198f89e91de": {
+    "asset": 1580525021625,
+    "meta": 1580525315917,
+    "relativePath": "Script\\Hall\\SetUI\\alterCodePanel.ts"
+  },
+  "1fc09a9e-bb92-41e7-ab44-941b2d6f0503": {
+    "asset": 1580525033953,
+    "meta": 1580525315917,
+    "relativePath": "Script\\Hall\\SetUI\\RevisionPanel.ts"
   }
 }
