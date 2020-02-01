@@ -35,6 +35,35 @@ var Platforms = /** @class */ (function () {
                 break;
         }
     };
+    Platforms.prototype.webCopyString = function (str) {
+        var el = document.createElement('textarea');
+        el.value = str;
+        el.setAttribute('readonly', '');
+        el.style.contain = 'strict';
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        el.style.fontSize = '12pt'; // Prevent zooming on iOS
+        var selection = getSelection();
+        var originalRange = null;
+        if (selection.rangeCount > 0) {
+            originalRange = selection.getRangeAt(0);
+        }
+        document.body.appendChild(el);
+        el.select();
+        el.selectionStart = 0;
+        el.selectionEnd = str.length;
+        var success = false;
+        try {
+            success = document.execCommand('copy');
+        }
+        catch (err) { }
+        document.body.removeChild(el);
+        if (originalRange) {
+            selection.removeAllRanges();
+            selection.addRange(originalRange);
+        }
+        return success;
+    };
     Platforms.prototype.JsCopy = function (copyText) {
         /*
         if (cc.sys.isNative && cc.sys.os == cc.sys.OS_ANDROID){
@@ -73,20 +102,23 @@ var Platforms = /** @class */ (function () {
                 // btn.text = ret ? '已复制' : '复制失败';
             }
             else {
+                this.webCopyString(copyText);
+                /*
                 var textArea = document.getElementById("clipBoard");
                 if (textArea === null) {
                     textArea = document.createElement("textarea");
                     textArea.id = "clipBoard";
+
                     textArea.textContent = copyText;
                     document.body.appendChild(textArea);
                 }
-                //   textArea.select();
+             //   textArea.select();
                 try {
-                    var msg = document.execCommand('copy') ? 'successful' : 'unsuccessful';
+                    const msg = document.execCommand('copy') ? 'successful' : 'unsuccessful';
                     document.body.removeChild(textArea);
+                } catch (err) {
                 }
-                catch (err) {
-                }
+                */
             }
         }
     };

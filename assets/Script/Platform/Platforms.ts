@@ -36,7 +36,39 @@ export class Platforms {
             break;
         }
     }
-    
+    webCopyString(str){
+        const el = document.createElement('textarea');
+        el.value = str;
+        el.setAttribute('readonly', '');
+        el.style.contain = 'strict';
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        el.style.fontSize = '12pt'; // Prevent zooming on iOS
+
+        const selection = getSelection();
+        var originalRange = null;
+        if (selection.rangeCount > 0) {
+            originalRange = selection.getRangeAt(0);
+        }
+        document.body.appendChild(el);
+        el.select();
+        el.selectionStart = 0;
+        el.selectionEnd = str.length;
+
+        var success = false;
+        try {
+            success = document.execCommand('copy');
+        } catch (err) {}
+
+        document.body.removeChild(el);
+
+        if (originalRange) {
+            selection.removeAllRanges();
+            selection.addRange(originalRange);
+        }
+
+        return success;
+    }
 
     JsCopy(copyText){
         /*
@@ -76,6 +108,8 @@ export class Platforms {
                 // btn.text = ret ? '已复制' : '复制失败';
 
             }else{
+                this.webCopyString(copyText);
+                /*
                 var textArea = document.getElementById("clipBoard");
                 if (textArea === null) {
                     textArea = document.createElement("textarea");
@@ -90,6 +124,7 @@ export class Platforms {
                     document.body.removeChild(textArea);
                 } catch (err) {
                 }
+                */
             }
             
         }

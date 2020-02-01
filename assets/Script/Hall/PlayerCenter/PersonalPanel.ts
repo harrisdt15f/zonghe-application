@@ -157,21 +157,26 @@ export default class PersonalPanel extends cc.Component {
                 var box = tt.getChildByName("doNot")
                 btn.active = (index <= 1) && idx == G_UserControl.getUser().userVipLevel
                 box.active =!((index <= 1) && idx == G_UserControl.getUser().userVipLevel);  
-                let data = G_VipControl.getVipConfig().data[idx -1];
+                
                 let mvalue = '';
-                if(index == 0)
+                if(G_VipControl.getVipConfig().data && G_VipControl.getVipConfig().data.length >= idx-1)
                 {
-                    mvalue = (Math.floor(data["grade_gift"]*10)/10).toString();
-                }else if(index == 1)
-                {
-                    mvalue = (Math.floor(data["week_gift"]*10)/10).toString();
-                }else if(index == 2)
+                    let data = G_VipControl.getVipConfig().data[idx -1];
+                    if(index == 0)
+                    {
+                        mvalue = (Math.floor(data["grade_gift"]*10)/10).toString();
+                    }else if(index == 1)
+                    {
+                        mvalue = (Math.floor(data["week_gift"]*10)/10).toString();
+                    }
+                }
+                if(index == 2)
                 {
                     mvalue = "1";
                 }else if(index == 3)
                 {
                     mvalue = "1";
-                }
+                }            
                 if(index == 0)   //晋级奖金
                 {
                     btn.active = G_UserControl.getUser().vippromotion == 1;
@@ -224,7 +229,8 @@ export default class PersonalPanel extends cc.Component {
             return;
         }
         console.log('strName   '+strName);
-        G_UserControl.requesPlayerChange(strName,G_UserControl.getUser().usePic,function(ret){
+        //G_UserControl.requesPlayerChange(strName,G_UserControl.getUser().usePic,function(ret){
+        G_UserControl.requesPlayerChange(strName,1,function(ret){
             if(ret.status)
             {
                 G_UiForms.hint(G_Language.get("nameChangeSuccess"));

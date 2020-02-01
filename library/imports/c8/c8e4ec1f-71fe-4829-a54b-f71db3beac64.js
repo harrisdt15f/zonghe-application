@@ -130,15 +130,17 @@ var PersonalPanel = /** @class */ (function (_super) {
                 var box = tt.getChildByName("doNot");
                 btn.active = (index <= 1) && idx == UserControl_1.G_UserControl.getUser().userVipLevel;
                 box.active = !((index <= 1) && idx == UserControl_1.G_UserControl.getUser().userVipLevel);
-                var data = VipControl_1.G_VipControl.getVipConfig().data[idx - 1];
                 var mvalue = '';
-                if (index == 0) {
-                    mvalue = (Math.floor(data["grade_gift"] * 10) / 10).toString();
+                if (VipControl_1.G_VipControl.getVipConfig().data && VipControl_1.G_VipControl.getVipConfig().data.length >= idx - 1) {
+                    var data = VipControl_1.G_VipControl.getVipConfig().data[idx - 1];
+                    if (index == 0) {
+                        mvalue = (Math.floor(data["grade_gift"] * 10) / 10).toString();
+                    }
+                    else if (index == 1) {
+                        mvalue = (Math.floor(data["week_gift"] * 10) / 10).toString();
+                    }
                 }
-                else if (index == 1) {
-                    mvalue = (Math.floor(data["week_gift"] * 10) / 10).toString();
-                }
-                else if (index == 2) {
+                if (index == 2) {
                     mvalue = "1";
                 }
                 else if (index == 3) {
@@ -192,7 +194,8 @@ var PersonalPanel = /** @class */ (function (_super) {
             return;
         }
         console.log('strName   ' + strName);
-        UserControl_1.G_UserControl.requesPlayerChange(strName, UserControl_1.G_UserControl.getUser().usePic, function (ret) {
+        //G_UserControl.requesPlayerChange(strName,G_UserControl.getUser().usePic,function(ret){
+        UserControl_1.G_UserControl.requesPlayerChange(strName, 1, function (ret) {
             if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get("nameChangeSuccess"));
                 this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName;

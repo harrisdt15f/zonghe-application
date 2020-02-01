@@ -255,8 +255,8 @@
     "relativePath": "prefabs\\Hall\\Set"
   },
   "f99df381-28fa-4571-b3b6-ef771a36f367": {
-    "asset": 1580284430000,
-    "meta": 1580284530195,
+    "asset": 1580536993482,
+    "meta": 1580536993504,
     "relativePath": "prefabs\\Hall\\Set\\setNode.prefab"
   },
   "784a815f-a846-4027-877c-98e0466cae4f": {
@@ -1679,11 +1679,6 @@
     "meta": 1580284533494,
     "relativePath": "Script\\Tool\\Utils.ts"
   },
-  "c7afc35d-2ee5-4add-b9e0-de72752b3287": {
-    "asset": 1580284430000,
-    "meta": 1580284533435,
-    "relativePath": "Script\\Platform\\Platforms.ts"
-  },
   "8bd5f2fc-97dc-4a75-ad75-bc7134c72710": {
     "asset": 1580284430000,
     "meta": 1580284532323,
@@ -2069,11 +2064,6 @@
     "meta": 1580525315784,
     "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
   },
-  "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
-    "asset": 1580525071804,
-    "meta": 1580525315855,
-    "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
-  },
   "c3225398-72ec-4481-9efb-09e28c111257": {
     "asset": 1580525005567,
     "meta": 1580525315881,
@@ -2088,5 +2078,15 @@
     "asset": 1580525033953,
     "meta": 1580525315917,
     "relativePath": "Script\\Hall\\SetUI\\RevisionPanel.ts"
+  },
+  "c7afc35d-2ee5-4add-b9e0-de72752b3287": {
+    "asset": 1580536515460,
+    "meta": 1580536517464,
+    "relativePath": "Script\\Platform\\Platforms.ts"
+  },
+  "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
+    "asset": 1580537548628,
+    "meta": 1580537551655,
+    "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
   }
 }
