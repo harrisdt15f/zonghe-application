@@ -19,14 +19,13 @@ class HttpHelper {
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status == 200) {
-                let respone = xhr.responseText;
-                let rsp = JSON.parse(respone);
-                callback(rsp);
+                let data = this.doDecode(xhr.responseText);
+                 callback(data);
             } 
             else if (xhr.readyState === 4 && xhr.status == 401) {
                 callback({status:401});
             } 
-        };
+        }.bind(this);
 
         let data = this.doEncode(url);
         // xhr.withCredentials = true;
@@ -65,15 +64,17 @@ class HttpHelper {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status == 200) {
                 let respone = xhr.responseText;
-                let rsp = JSON.parse(respone);
-                callback(rsp);
+                let data = this.doDecode(xhr.responseText);
+               // let rsp = JSON.parse(data);
+                callback(data);
             }else if(xhr.readyState === 3 &&  xhr.status != 200) {
                 let respone = xhr.responseText;
-                var rsp = JSON.parse(respone);
-                callback(rsp);
+                let data = this.doDecode(xhr.responseText);
+               // let rsp = JSON.parse(data);
+                callback(data);
             }
-            console.log('respone  '+xhr.status);
-        };
+            //console.log('respone  '+xhr.responseText);
+        }.bind(this);
         console.log("[HTTP>POST]:URL>>>>>>>>>>>>>>>>>",URL+url," params "+JSON.stringify(params) )
         xhr.open('POST', URL+url, true);
         // if (cc.sys.isNative) {
@@ -109,16 +110,14 @@ class HttpHelper {
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status == 200) {
-                let respone = xhr.responseText;
-                let rsp = JSON.parse(respone);
-                callback(rsp);
+                let data = this.doDecode(xhr.responseText);
+                 callback(data);
             }else if(xhr.readyState === 3 &&  xhr.status != 200) {
-                let respone = xhr.responseText;
-                var rsp = JSON.parse(respone);
-                callback(rsp);
+                let data = this.doDecode(xhr.responseText);
+                 callback(data);
             }
-            console.log('respone  '+xhr.status);
-        };
+            //console.log('respone  '+xhr.status);
+        }.bind(this);
         console.log("[HTTP>POST]:URL>>>>>>>>>>>>>>>>>",URL+url," params "+JSON.stringify(params) )
         xhr.open('PUT', URL+url, true);
         // if (cc.sys.isNative) {
@@ -151,16 +150,11 @@ class HttpHelper {
         // //偏移量 由前端每次请求随机生成 16位
         var IV = this.randomString(16);
         // //AES加密KEY 由前端自己每次请求随机生成
-        var KEY = this.randomString(16);
-        
+        var KEY = this.randomString(16);     
         var public_key = "-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgy6JOupuDqE9itVQvGSBDJotBEJFASuklIwvcMNtXUH99PdihJ+TJN2AjNphzCdgL9KlguDG+u4C719DZOC3YrGn7Ps9vWOFtQYLzh69cGd+nlqOR4LKVSAYRn2NtrV9elAzBjie/Y7ITMsU9+ZTsccRqb+qd+OlBsYdg9dhvVQIDAQAB-----END PUBLIC KEY-----";
-        
-        
+     
         //加密后的数据 json 直接传递给后端
         var encrypt_data = this.AES_encrypt(data,KEY,IV,public_key);
-        console.log('jiam  '+encrypt_data);
-      //  var jiem  = this.doDecode(encrypt_data,KEY,IV);
-      //  console.log('jiem   '+jiem);
         return encrypt_data;
     }
 
@@ -211,16 +205,58 @@ class HttpHelper {
         return res_data
     }
 
-    doDecode(data,key_utf8,iv_utf8)
+    //解密
+    doDecode(responseData)
     {
-       // var key_utf8 = CryptoJS.enc.Utf8.parse(KEY);// 秘钥
-        //var iv_utf8= CryptoJS.enc.Utf8.parse(IV);//向量iv
-        let encryptedHexStr = CryptoJS.enc.Hex.parse(data);
-        let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
-        let decrypt = CryptoJS.AES.decrypt(srcs,key_utf8,{iv: iv_utf8, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7}).toString();
-        let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
-        return decryptedStr.toString();
+        //console.log("解密 responseData  "+responseData);
+        if(responseData == null)
+        {
+            return null;
+        }
+        var data = JSON.parse(responseData);
+        var cryptData = data.data;
+        if (cryptData != undefined) {
+            var cryptDataArr = cryptData.split("hDdoAPaXI3S");
+            if (cryptDataArr.length == 3) {
+                var cryptDataStr = cryptDataArr[0];
+                var privateKey = "-----BEGIN PRIVATE KEY-----MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAPTYUA2oNnnEwCM+firQEh3qtvhzy2sPcCCPBuk1ALN98ThFtwbsAIXn4iflC8cL74OxsW5LhVLqRaNJwrj19nUWRNg2V0UG0qiSMDoFQzcf14Tl3YEMVhHmhT60KEc/mcOkGp7BGFneNRkUrnAedUPaI18hHfwlOXCTBOXjsLEHAgMBAAECgYAOsZCUUTz7r8gMFWsC7Lu5meVjIafag/GpsouqoSiqnOtGAkEKpE0fvBvBYyiCyH+WOqq4QMX+hNqrAvkxmmkw3Zj6pqGIGBm8qP0sC7kV9l3+1GyNweBaPqnZs02Kb3WCZnw8h1NaJRR9uqXFITzLkNgxEOuq9oiQqmI9UmP7sQJBAP1qL2O32RS/i08lCHR1r/XQTF/0pkSPX+a6SEf25iewzKm5do8hOtSG7+zjOlOQwsGwCPuNovz5g8BPMv2juQ8CQQD3V78skMtTp+0c6WjVh5ORIkkYAyOnSfl3nigkQKCfGyiTwX1cm3GLTHkDHZBVJjFyz8U/ngZZbG8ScHZCMtiJAkEAroiApQxNXaXiu5rE7PjVPNa+k2P7U8LviQiJmc7pizKQcuDCUCfRzeg1vJBvbniIOkAUn7RYKiVrYXrqopgtbwJAd+zzpIgQDd+99+a0DdROmHAnQJ1FDDex3W2xyOIM/xgL9Jg8UEqOIxxREFGlSaPbFe/nk5DrQzBwKmCc9jvxAQJALe9ZaKqPeZywh2aUa8huotTe5lj/iDeGdHOgxx4xkDK9ddzuSks1dbJQ/gHl8lA7MjOI6TvtgeLB9FOOvsi5EQ==-----END PRIVATE KEY-----";
+
+                var jsencrypt = new JSEncrypt();
+                jsencrypt.setPrivateKey(privateKey);
+                var iValue = jsencrypt.decrypt(cryptDataArr[1]);
+                var iKey = jsencrypt.decrypt(cryptDataArr[2]);
+                //console.log("cryptDataArr",cryptDataArr[0])
+                //console.log('iValue', iValue);
+                //console.log('iKey',iKey);
+                var options = {
+                    iv: CryptoJS.enc.Utf8.parse(iValue),
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                };
+
+                var tt = CryptoJS.AES.decrypt(cryptDataStr,CryptoJS.enc.Utf8.parse(iKey),options);
+                let srcs = ''
+                switch (typeof (tt)) {
+                  case 'string':
+                    srcs = CryptoJS.enc.Utf8.parse(tt)
+                    break;
+                  case 'object':
+                    srcs = tt.toString(CryptoJS.enc.Utf8);
+                    //srcs = CryptoJS.enc.Utf8.parse(tt.toString());
+                    break;
+                  default:
+                    srcs = CryptoJS.enc.Utf8.parse(tt.toString())
+                }
+                var jsonData = JSON.parse(srcs);
+                return jsonData;                
+            }
+        }else
+        {
+            console.log("cryptData   underfined")
+        }
+        return null;
     }
+    
 }
 
 export const G_HttpHelper = HttpHelper.Instance;
