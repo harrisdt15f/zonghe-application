@@ -109,6 +109,7 @@ class HttpHelper {
     httpPut(url, params, callback) {
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
+            console.log("xhr.readyState   "+xhr.readyState + "  xhr.status == 200  "+xhr.status)
             if (xhr.readyState === 4 && xhr.status == 200) {
                 let data = this.doDecode(xhr.responseText);
                  callback(data);
@@ -248,6 +249,7 @@ class HttpHelper {
                     srcs = CryptoJS.enc.Utf8.parse(tt.toString())
                 }
                 var jsonData = JSON.parse(srcs);
+                console.log("srcs "+srcs)
                 return jsonData;                
             }
         }else

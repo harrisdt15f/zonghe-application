@@ -122,6 +122,7 @@ export const zh = {
     verificationIsEmpty: "验证码不能为空",  //手机验证码
     verificationCodeSend: "已发送",  //手机验证码已发送
     registerSuccess : "注册成功! ",   //注册成功
+    revisionSuccess : "修改成功! ",   //密码修改成功    
     recoverSuccess : "密码找回成功! ",   //密码找回成功
     securityCodeSuccess : "安全码设置成功! ",   //安全码设置成功   
     nameChangeSuccess : "改名成功! ",   //改名成功  

@@ -151,9 +151,9 @@ class UserControl {
         list["password_confirmation"] = passwordagain;
         list["verification_code"] = ver_code;
         list["verification_key"] = ver_key;
-        G_HttpHelper.httpPut("/app-api/user/reset-password",list, function(ret){
+        G_HttpHelper.httpPut("/app-api/user/password-reset",list, function(ret){
             console.log("[密码找回]：返回数据",ret)    
-            if(ret.status && ret.code == CODE.SUCCEED){
+            if(ret.status){
                 //保存登陆名称，密码
                 this._userModel.userMobile = mobile;
                 this._userModel.userPassword = password;
@@ -179,30 +179,53 @@ class UserControl {
     * @param ver_code 验证码
     * @param ver_key  验证key
     */
-   requestPasswordChange(securitycode : string,password : string, passwordagain:string,ver_key:string, call? : Function ){
-    let list = {};
-    list["password"] = password;
-    list["password_confirmation"] = passwordagain;
-   // list["verification_code"] = ver_code;
-    list["verification_key"] = ver_key;
-    G_HttpHelper.httpPost("/app-api/user/reset-password",list, function(ret){
-        //console.log("[注册]：返回数据",ret)    
-        if(ret.status && ret.code == CODE.SUCCEED){
-            //保存登陆名称，密码
-           // this._userModel.userMobile = mobile;
+   requestPasswordChange(password : string, passwordagain:string, securitycode : string,ver_code:string,ver_key:string, call? : Function ){
+        let list = {};
+        list["password"] = password;
+        list["password_confirmation"] = passwordagain;
+        list["security_code"] = securitycode;
+        list["verification_code"] = ver_code;
+        list["verification_key"] = ver_key;
+        G_HttpHelper.httpPut("/app-api/user/password-change",list, function(ret){
+            //console.log("[注册]：返回数据",ret)    
+            if(ret.status){
+                //保存登陆名称，密码
+            // this._userModel.userMobile = mobile;
             this._userModel.userPassword = password;
-            this._userModel.accessToken = ret.data["access_token"];
             this.requesPlayerData(function(){
                 if(call){
                     call(ret)
                 }
-            });
-        }else if(!ret.status){
-            G_UiForms.hint(ret.message)
-        }
-    }.bind(this))
+                });
+            }else if(!ret.status){
+                G_UiForms.hint(ret.message)
+            }
+        }.bind(this))
 
-}
+    }
+
+    /**
+     * 密码修改码验证
+     * @param mobile 账户
+     * @param password 
+     * @param call 
+     */
+    requestPasswordChangeVCode(call? : Function ){
+        G_HttpHelper.httpGet("/app-api/password/change-code",function(ret){
+            if(ret.status)
+            {
+                if(call)
+                {
+                    call(ret);
+                }  
+            }else
+            {
+                G_UiForms.hint(ret.message); 
+            }
+        }.bind(this))
+
+    }
+
 
     /**
      * 手机注册码验证
@@ -236,7 +259,7 @@ class UserControl {
      * @param call 
      */
     requestVerificationRecoveCode(mobile : string, call? : Function ){
-        G_HttpHelper.httpPost("/app-api/reset-password/verification-code",{
+        G_HttpHelper.httpPost("/app-api/password-reset/verification-code",{
             mobile : mobile,
         }, function(ret){
             if(ret.status && ret.code== CODE.SUCCEED)

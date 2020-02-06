@@ -77,37 +77,21 @@ export default class NewClass extends cc.Component {
       {
           return;
       }
-      let phone = this.phoneNumInfo
-     // let verificationNumber = this.verificationInfo
-     // console.log('verificationNumber   '+verificationNumber);      
-        if(phone)
-        {
-            if(!G_Utils.isPoneAvailable(phone))
+      G_UserControl.requestPasswordChangeVCode(function(ret){
+            if(ret.status){
+                G_UiForms.hint(G_Language.get('verificationCodeSend'));
+
+                this.ver_mobile = this.phoneNumInfo;
+                this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
+                this.ver_key = ret.data['verification_key'];
+            // this.ver_code = ret.data['verification_code'];
+                console.log('cd_time  '+ this.cd_time + "  ver_code  " +ret.data['verification_code']);
+                this.onCheckVerificationState();   
+            }else
             {
-                G_UiForms.hint(G_Language.get("PhoneFormatWrong"));
-                return;
+                G_UiForms.hint(ret.message);
             }
-            G_UserControl.requestVerificationCode(phone,function(ret){
-                if(ret.status){
-                    G_UiForms.hint(G_Language.get('verificationCodeSend'));
-
-                    this.ver_mobile = this.phoneNumInfo;
-                    this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
-                    this.ver_key = ret.data['verification_key'];
-                   // this.ver_code = ret.data['verification_code'];
-                    console.log('cd_time  '+ this.cd_time + "  ver_code  " +ret.data['verification_code']);
-                    this.onCheckVerificationState();   
-                }else
-                {
-                    G_UiForms.hint(ret.message);
-                }
-            }.bind(this))   
-        }else
-        {
-            console.log('phone   is empty');
-        }
-
-
+        }.bind(this))  
     }
 
 
@@ -130,10 +114,10 @@ export default class NewClass extends cc.Component {
             return;
         }
 
-        G_UserControl.requestPasswordChange(this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key, function(ret){
+        G_UserControl.requestPasswordChange(this.passwordInfo,  this.passwordAgainInfo,this.phoneNumInfo,this.verificationInfo,this.ver_key, function(ret){
             if(ret.status)
             {
-                G_UiForms.hint(G_Language.get('registerSuccess'))
+                G_UiForms.hint(G_Language.get('revisionSuccess'))
             }else
             {
                 G_UiForms.hint(ret.message);
