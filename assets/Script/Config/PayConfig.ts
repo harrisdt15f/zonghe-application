@@ -3,6 +3,11 @@
 export  class PayConfig {
 
     private payTabAtlasList = {
+        //线下支付
+        "offline":{"name":"官方充值","is_online":0,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"ebankPanel"}, //官方充值
+        "alipay_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝转账
+
+        //线上支付
         "alipay":{"name":"","is_online":1,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝
         "wechat":{"name":"","is_online":1,"normalText":"subtitle_weixinchongzhi_0","specialText":"subtitle_weixinchongzhi_1","icon":"leftic2","panel":"payPanel"},   //微信
         "online_bank":{"name":"","is_online":1,"normalText":"subtitle_wangyinchongzhi_0","specialText":"subtitle_wangyinchongzhi_1","icon":"leftic3","panel":"payPanel"},   //网银充值

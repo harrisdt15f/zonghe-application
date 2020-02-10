@@ -27,7 +27,13 @@ class PayControl {
      * 获取充值分类
      */
     requesRechargeType(isOnLine,call){      
-        G_HttpHelper.httpPost("/app-api/recharge/types",{"is_online":isOnLine}, function(ret){
+       // G_HttpHelper.httpPost("/app-api/recharge/types",{"is_online":isOnLine}, function(ret){
+        let json = null;
+        if(isOnLine!= null)
+        {
+            json = {"is_online":isOnLine}
+        }
+        G_HttpHelper.httpPost("/app-api/recharge/types",json, function(ret){
            console.log("[获取充值分类]：返回数据",ret)   
             if(ret.status){
                 this.getPayConfig().dataType = ret.data;

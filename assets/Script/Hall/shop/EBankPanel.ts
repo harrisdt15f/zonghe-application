@@ -44,9 +44,15 @@ export default class  ebankPanel extends cc.Component {
     private typeObjList =[] 
     private numObjList = []  
 
-    init (data) {
+    // data:{
+    //     "is_online":0,
+    //     "data":[] ==>"data":xxxxx, "config":xxxxxx
+    // }
+    init (data) {    
         this.Data = data;
-        this.textTip.getComponent(cc.Label).string = ""
+        //this.textTip.getComponent(cc.Label).string = ""
+        console.log("offline  "+data.data[0].config.name)
+        /*
         G_PayControl.requesRechargeChannels(data.data.id,function(ret){ 
             if(ret.status)
             {
@@ -57,6 +63,7 @@ export default class  ebankPanel extends cc.Component {
                 }
             }
         }.bind(this));
+        */
     }
 
     //充值渠道
