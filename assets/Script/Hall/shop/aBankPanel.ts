@@ -11,7 +11,7 @@ import { G_Language } from '../../Language/Language';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class  alipayPanel extends cc.Component {
+export default class  aBankPanel extends cc.Component {
 
     @property(cc.Node)
     typeGrid:cc.Node = null;
@@ -24,11 +24,20 @@ export default class  alipayPanel extends cc.Component {
     @property(cc.Node)
     numberItemPrefab:cc.Node = null;
     @property(cc.Node)
-    bankDetail:cc.Node = null;
-    @property(cc.Node)
-    qrImage:cc.Graphics = null;
-    @property(cc.Node)
     textTip:cc.Node = null;
+
+    @property(cc.Node)
+    bankDetail:cc.Node = null;
+    @property(cc.Label)
+    textBank:cc.Label = null;   //银行名
+    @property(cc.Label)         
+    textName:cc.Label = null;   //姓名
+    @property(cc.Label)
+    textNumber:cc.Label = null; //收款号
+    @property(cc.Label)
+    textAdress:cc.Label = null; //开户行
+    @property(cc.Label)
+    textMoney:cc.Label = null; //金额
 
     @property(cc.Node)
     numberEditbox: cc.Node = null;  //输入金额
@@ -46,17 +55,6 @@ export default class  alipayPanel extends cc.Component {
         this.Data = data;
         this.textTip.getComponent(cc.Label).string ="";
         this.dataList = data.data;
-        // G_PayControl.requesRechargeChannels(data.data.id,function(ret){ 
-        //     if(ret.status)
-        //     {
-        //         this.dataList = ret.data;
-        //         if(ret.data.length >0)
-        //         {
-        //             this.showTypeList()
-        //         }
-        //     }
-        // }.bind(this));
-        this.showTypeList()
     }
 
     //充值渠道
@@ -65,7 +63,7 @@ export default class  alipayPanel extends cc.Component {
         this.typeObjList.forEach(element => {
             element.active = false;
         });
-        
+
         for(let i=0;i<this.dataList.length;i++)
         {
             var item;
@@ -145,28 +143,18 @@ export default class  alipayPanel extends cc.Component {
         G_PayControl.requesSendRecharge(this.Data.data.is_online,this.curData.id,val,function(ret){
             if(ret.status)
             {
-                let url =  ret.data.payContent;
-               // url = "https://www.lagou.com/lgeduarticle/74918.html"           
-                switch(ret.data.mode)
-                {
-                    case "html":
-                        document.write(url);                      
-                    break;
-                    case "qrcode":  //展示二维码
-                        this.initQrCode(url);
-                    break;
-                    case " jump":
-                        if(CC_JSB){
-                            jsb.openURL(url);
-                        }else{
-                            window.open(url)
-                        } 
-                        break;
-                }
+                this.typeDetail.active = false;
+                this.bankDetail.active = true;
+                this.textBank.string = this.curData.name;
+                this.textName.string = this.curData.bank.name;
+                this.textNumber.string = this.curData.bank.code;
+                this.textAdress.string = " ";
+                this.textMoney.string = " ";
+
             }
 
         }.bind(this));
-        
+
     }
     
 
@@ -177,40 +165,20 @@ export default class  alipayPanel extends cc.Component {
         return this.numberEditbox.getComponent("MyEditbox").getEdiboxComponent().string
     }
 
-    
-    initQrCode(str){
-        this.typeDetail.active = false;
-        this.bankDetail.active = true;
-        var qrcode = new QRCode(-1, QRErrorCorrectLevel.H);
-        qrcode.addData(str);
-        qrcode.make();
+    OnCopyBank()
+    {
 
-        var ctx = this.qrImage;
-        ctx.fillColor = cc.Color.BLACK;
-        // compute tileW/tileH based on node width and height
-        var tileW = ctx.node.width / qrcode.getModuleCount();
-        var tileH = ctx.node.height / qrcode.getModuleCount();
+    }
+    onCopyBankNumber()
+    {
 
-        // draw in the Graphics
-        for (var row = 0; row < qrcode.getModuleCount(); row++) {
-            for (var col = 0; col < qrcode.getModuleCount(); col++) {
-                if (qrcode.isDark(row, col)) {
-                    // ctx.fillColor = cc.Color.BLACK;
-                    var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
-                    var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));
-                    ctx.rect(Math.round(col * tileW), Math.round(row * tileH), w, h);
-                    ctx.fill();
-                } else {
-                    // ctx.fillColor = cc.Color.WHITE;
-                }
-                var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
-                // var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));
-                // ctx.rect(Math.round(col * tileW), Math.round(row * tileH), w, h);
-                // ctx.fill();
-            }
-        }
+    }
+    onCopyName(){
 
-    },
-    
+    }
+    onCopyMoney(){
+
+    }
+
 
 }

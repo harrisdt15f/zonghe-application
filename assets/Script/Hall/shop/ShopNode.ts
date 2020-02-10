@@ -93,7 +93,7 @@ export default class ShopNode extends cc.Component {
         console.log("index>>>",index,"    ",this.curLeftData.data.sign,"    ",this.curLeftData.config.name);
         this.onShowRightInfo();
     }
-
+    private restttt;
     onShowRightInfo()
     {
         this.rightNode.children.forEach(element => {
@@ -134,16 +134,22 @@ export default class ShopNode extends cc.Component {
                     {
                         if(script)
                         {
-                            console.log("shop node111111111111111111111111")
-                            this.nonePanel.active = false;
-                            element.active = true;
-                            script.init(ret);
+                            this.restttt = ret;
+                            // this.nonePanel.active = false;
+                            // element.active = true;
+                            // script.init(ret);
                         }
                     }else
                     {
                         element.active = false;
                         this.nonePanel.active = true;
                     }
+                   if(this.restttt.data.length >0)
+                   {
+                      this.nonePanel.active = false;
+                      element.active = true;
+                      script.init(ret);
+                   }
                 }
             }.bind(this));
 

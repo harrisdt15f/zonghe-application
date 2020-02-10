@@ -4,12 +4,12 @@ export  class PayConfig {
 
     private payTabAtlasList = {
         "alipay":{"name":"","is_online":1,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝
-        "wechat":{"name":"","is_online":1,"normalText":"subtitle_weixinchongzhi_0","specialText":"subtitle_weixinchongzhi_1","icon":"leftic2","panel":"wechatPanel"},   //微信
-        "online_bank":{"name":"","is_online":1,"normalText":"subtitle_wangyinchongzhi_0","specialText":"subtitle_wangyinchongzhi_1","icon":"leftic3","panel":"ebankPanel"},   //网银充值
-        "unionPay":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"abankPanel"},    //银联扫码
-        "jd":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"nonePanel"},    //京东钱包
-        "baidu":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"nonePanel"},    //百度钱包
-        "withdraw":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"nonePanel"},    //在线出款        
+        "wechat":{"name":"","is_online":1,"normalText":"subtitle_weixinchongzhi_0","specialText":"subtitle_weixinchongzhi_1","icon":"leftic2","panel":"payPanel"},   //微信
+        "online_bank":{"name":"","is_online":1,"normalText":"subtitle_wangyinchongzhi_0","specialText":"subtitle_wangyinchongzhi_1","icon":"leftic3","panel":"payPanel"},   //网银充值
+        "unionPay":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"payPanel"},    //银联扫码
+        "jd":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"payPanel"},    //京东钱包
+        "baidu":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"payPanel"},    //百度钱包
+        "withdraw":{"name":"","is_online":1,"normalText":"subtitle_yinliansaoma_0","specialText":"subtitle_yinliansaoma_1","icon":"leftic4","panel":"payPanel"},    //在线出款        
 
         4:{"name":"","is_online":1,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"nonePanel"},     //VIP充值
         5:{"name":"","is_online":1,"normalText":"subtitle_chongzijilu_0","specialText":"subtitle_chongzijilu_1","icon":"leftic6","panel":"topUpListPanel"},     //充值记录  

@@ -11,7 +11,7 @@ import { G_Language } from '../../Language/Language';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class  alipayPanel extends cc.Component {
+export default class  wechatpayPanel extends cc.Component {
 
     @property(cc.Node)
     typeGrid:cc.Node = null;
@@ -46,16 +46,6 @@ export default class  alipayPanel extends cc.Component {
         this.Data = data;
         this.textTip.getComponent(cc.Label).string ="";
         this.dataList = data.data;
-        // G_PayControl.requesRechargeChannels(data.data.id,function(ret){ 
-        //     if(ret.status)
-        //     {
-        //         this.dataList = ret.data;
-        //         if(ret.data.length >0)
-        //         {
-        //             this.showTypeList()
-        //         }
-        //     }
-        // }.bind(this));
         this.showTypeList()
     }
 
@@ -65,7 +55,7 @@ export default class  alipayPanel extends cc.Component {
         this.typeObjList.forEach(element => {
             element.active = false;
         });
-        
+
         for(let i=0;i<this.dataList.length;i++)
         {
             var item;
@@ -113,7 +103,7 @@ export default class  alipayPanel extends cc.Component {
             }
         }
         this.textTip.getComponent(cc.Label).string =this.curData.desc;
-        this.numberEditbox.getChildByName("editbox").getChildByName("text").getComponent(cc.Label).string = Math.floor(this.curData.min) + " - " +Math.floor(this.curData.max)
+        this.numberEditbox.getChildByName("editbox").getChildByName("text").getComponent(cc.Label).string = this.curData.min + " - " + this.curData.max
     }
 
 
@@ -146,14 +136,13 @@ export default class  alipayPanel extends cc.Component {
             if(ret.status)
             {
                 let url =  ret.data.payContent;
-               // url = "https://www.lagou.com/lgeduarticle/74918.html"           
                 switch(ret.data.mode)
                 {
                     case "html":
                         document.write(url);                      
                     break;
                     case "qrcode":  //展示二维码
-                        this.initQrCode(url);
+                       // this.initQrCode(url);
                     break;
                     case " jump":
                         if(CC_JSB){
@@ -163,10 +152,11 @@ export default class  alipayPanel extends cc.Component {
                         } 
                         break;
                 }
+                console.log("url  "+url);
             }
 
         }.bind(this));
-        
+
     }
     
 
@@ -177,40 +167,5 @@ export default class  alipayPanel extends cc.Component {
         return this.numberEditbox.getComponent("MyEditbox").getEdiboxComponent().string
     }
 
-    
-    initQrCode(str){
-        this.typeDetail.active = false;
-        this.bankDetail.active = true;
-        var qrcode = new QRCode(-1, QRErrorCorrectLevel.H);
-        qrcode.addData(str);
-        qrcode.make();
-
-        var ctx = this.qrImage;
-        ctx.fillColor = cc.Color.BLACK;
-        // compute tileW/tileH based on node width and height
-        var tileW = ctx.node.width / qrcode.getModuleCount();
-        var tileH = ctx.node.height / qrcode.getModuleCount();
-
-        // draw in the Graphics
-        for (var row = 0; row < qrcode.getModuleCount(); row++) {
-            for (var col = 0; col < qrcode.getModuleCount(); col++) {
-                if (qrcode.isDark(row, col)) {
-                    // ctx.fillColor = cc.Color.BLACK;
-                    var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
-                    var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));
-                    ctx.rect(Math.round(col * tileW), Math.round(row * tileH), w, h);
-                    ctx.fill();
-                } else {
-                    // ctx.fillColor = cc.Color.WHITE;
-                }
-                var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
-                // var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));
-                // ctx.rect(Math.round(col * tileW), Math.round(row * tileH), w, h);
-                // ctx.fill();
-            }
-        }
-
-    },
-    
 
 }
