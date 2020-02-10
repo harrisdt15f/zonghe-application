@@ -21,6 +21,7 @@ export default class HallLeftItem extends cc.Component {
     iconAtlas:cc.SpriteAtlas = null;
 
     private back = null;
+    private data = null;
     private index = 0;
     private pathList = null;
 
@@ -28,17 +29,18 @@ export default class HallLeftItem extends cc.Component {
     {
         if(this.back)
         {
-            this.back(this.index);
+            this.back(this.index,this.data);
         }
     }
 
-    init(data,fback){
+    init(data,index,fback){
+        this.data = data;
         this.back = fback;
-        this.index = data.type_id;
-        this.pathList = G_CommonControl.getCommonConfig().getJsonPath(this.index)
-         this.icon.spriteFrame = this.iconAtlas.getSpriteFrame(this.pathList.icon)
-        this.normalImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(this.pathList.normalText);
-        this.specialImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(this.pathList.specialText);    
+        this.index = index;
+         this.icon.spriteFrame = this.iconAtlas.getSpriteFrame(data.config.icon)
+        this.normalImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(data.config.normalText);
+        this.specialImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(data.config.specialText);    
+        this.setSelectState(false);
     }
 
     setSelectState(bTrue){

@@ -26,12 +26,13 @@ export default class SubitemControl extends cc.Component {
     private deficiencyNode : cc.Node = null;
 
     onLoad () {
-        this.rightNode.children.forEach((item, index)=>{
-            item.active = index == 0;
-            if(index == 0)
-                this.lastItem = item;
-        },this)
-        
+        if(this.rightNode != null){
+            this.rightNode.children.forEach((item, index)=>{
+                item.active = index == 0;
+                if(index == 0)
+                    this.lastItem = item;
+            },this)
+        }      
     }
 
     start () {

@@ -128,5 +128,7 @@ export const zh = {
     nameChangeSuccess : "改名成功! ",   //改名成功  
     rank_title1:"盈利榜",
     rank_title2:"富豪榜",
+    payMinTip:"单笔充值金额不得低于",
+    payMaxTip:"单笔充值金额不得高于",
 }
 
