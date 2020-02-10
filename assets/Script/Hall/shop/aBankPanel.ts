@@ -11,7 +11,7 @@ import { G_Language } from '../../Language/Language';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class  aBankPanel extends cc.Component {
+export default class  abankPanel extends cc.Component {
 
     @property(cc.Node)
     typeGrid:cc.Node = null;
@@ -44,23 +44,35 @@ export default class  aBankPanel extends cc.Component {
 
     private Data = null;   //充值类型data
     private dataList = null;  //充值方式list
-    private curData = null;   //当前方式
+    private curDataList = null;  //当前充值方式list
+    private curData = null;   //当前充值方式当前种
 
-    private typeObjList =[] 
-    private numObjList = []  
+    private typeObjList =[]     //银行卡，支付宝，微信，等
+    private typeDetailObjList = []  //通道1,2,3,4 
+    private numObjList = []        //金额 10 100 1000 10000...
 
+
+    
+    // data:{
+    //     "is_online":0,
+    //     "data":[] ==>"data":xxxxx, "config":xxxxxx
+    // }
     init (data) {
         this.typeDetail.active = true;
         this.bankDetail.active = false;
         this.Data = data;
         this.textTip.getComponent(cc.Label).string ="";
         this.dataList = data.data;
+        this.showTypeList();
     }
 
     //充值渠道
     showTypeList()
     {
         this.typeObjList.forEach(element => {
+            element.active = false;
+        });
+        this.typeDetailObjList.forEach(element => {
             element.active = false;
         });
 
@@ -75,7 +87,7 @@ export default class  aBankPanel extends cc.Component {
                 this.typeGrid.addChild(item);
                 this.typeObjList.push(item);
                 G_Utils.onClickEnd(item, ()=>{
-                    this.showTypeDetail(i);
+                  //  this.showTypeDetail(i);
                 }, this)
             }else
             {
@@ -87,13 +99,14 @@ export default class  aBankPanel extends cc.Component {
         }
         if(this.dataList.length > 0)
         {
-            this.showTypeDetail(0);
+          //  this.showTypeDetail(0);
         }
     }
 
     //当前渠道详情
     showTypeDetail(index)
     {
+        
         this.curData  =this.dataList[index]
         if(this.numObjList.length <= 0)
         {

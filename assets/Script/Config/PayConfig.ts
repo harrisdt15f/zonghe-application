@@ -4,8 +4,11 @@ export  class PayConfig {
 
     private payTabAtlasList = {
         //线下支付
-        "offline":{"name":"官方充值","is_online":0,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"ebankPanel"}, //官方充值
+        "offline":{"name":"官方充值","is_online":0,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"abankPanel"}, //官方充值
         "alipay_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝转账
+        "bank_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //银行卡转账
+        "wechat_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //微信转账
+        "unionPay_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //云闪付转账
 
         //线上支付
         "alipay":{"name":"","is_online":1,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝
@@ -24,6 +27,10 @@ export  class PayConfig {
 
    public setPayItemInfo(str,name,is_online)
    {
+        if(this.payTabAtlasList[str] == null)
+        {
+            this.payTabAtlasList[str] = this.payTabAtlasList["offline"];
+        }
         var tt = this.payTabAtlasList[str];
         tt.name = name;
         tt.is_online = is_online;

@@ -1,8 +1,9 @@
 import { G_PayControl } from "../../Controller/PayControl";
 import  ShopLeftItem from "../shop/ShopLeftItem";
 import alipayPanel from "./alipayPanel";
-import wechatpayPanel from "./wechatpayPanel";
-import ebankPanel from "./eBankPanel";
+//import wechatpayPanel from "./wechatpayPanel";
+//import ebankPanel from "./eBankPanel";
+import abankPanel from "./aBankPanel";
 
 const {ccclass, property} = cc._decorator;
 
@@ -186,7 +187,7 @@ export default class ShopNode extends cc.Component {
                 {
                     console.log("open panel   xian  xia......",element.name)
                     element.active = true;
-                    let script = element.getComponent(ebankPanel); 
+                    let script = element.getComponent(abankPanel); 
                     script.init(this.curLeftData);
                 }
             }
