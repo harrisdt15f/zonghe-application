@@ -96,6 +96,10 @@ export default class  alipayPanel extends cc.Component {
     //当前渠道详情
     showTypeDetail(index)
     {
+        this.typeObjList.forEach(element => {
+            element.getChildByName('select').node.active = false;
+        });
+        this.typeObjList[index].getChildByName('select').node.active = true;
         this.curData  =this.dataList[index]
         if(this.numObjList.length <= 0)
         {

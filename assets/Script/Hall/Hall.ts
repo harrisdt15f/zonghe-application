@@ -65,7 +65,7 @@ export default class Hall extends cc.Component {
             }
         }
     }
-
+    
     //G_Utils.onClickEnd(item, this.onToggleEnd, this)
     onSelectedItem(index){
         if(this.curLeftIndex > 0 && this.curLeftIndex <= this.leftList.length + 1)
@@ -76,7 +76,7 @@ export default class Hall extends cc.Component {
         this.curLeftIndex = index;
         var tt = this.leftList[this.curLeftIndex - 1].getComponent(HallLeftItem);
         tt.setSelectState(true);
-        console.log("index>>>",index)
+        //console.log("index>>>",index)
         
         if(G_CommonControl.getCommonConfig().getGameSub(this.curLeftIndex) == null)
         {

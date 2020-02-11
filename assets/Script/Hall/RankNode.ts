@@ -130,7 +130,7 @@ export default class RankNode extends cc.Component {
             this.tabSelectTwo.active = false;
             this.titleLabel.string = G_Language.get("rank_title1");
             if(this.listOne.length <= 0){
-                G_HttpHelper.httpGet("/app-api/games-lobby/rich-list",function(data){
+                G_HttpHelper.httpPost("/app-api/games-lobby/profit-list",null,function(data){
                     
                     if(data.status)
                     {
@@ -139,7 +139,7 @@ export default class RankNode extends cc.Component {
                             let itemTs = itemPrefab.getComponent(RankItem);
                             this.listOne[index] = itemTs;
                             itemTs.init(index+1,data.data[index]);
-                            console.log("data.data.guid   "+data.data[index] + "  "+ G_UserControl.getUser().uid)
+                            //console.log("data.data.guid   "+data.data[index] + "  "+ G_UserControl.getUser().uid)
                             if(data.data[index].guid == G_UserControl.getUser().uid)
                             {
                                 this.myRankOne = index + 1;

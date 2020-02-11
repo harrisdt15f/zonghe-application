@@ -249,7 +249,7 @@ class HttpHelper {
                     srcs = CryptoJS.enc.Utf8.parse(tt.toString())
                 }
                 var jsonData = JSON.parse(srcs);
-                console.log("srcs "+srcs)
+                console.log("typeof (tt)  "+typeof (tt) +"        srcs "+srcs)
                 return jsonData;                
             }
         }else

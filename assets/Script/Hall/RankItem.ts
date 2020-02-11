@@ -31,7 +31,7 @@ export default class RankItem extends cc.Component {
     }
 
     onRefreshData(){
-        console.log("this.msg    "+this.msg);
+        //console.log("this.msg    "+this.msg);
         if(this.msg == null)
         {
             return

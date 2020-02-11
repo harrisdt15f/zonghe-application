@@ -3,7 +3,7 @@ import  ShopLeftItem from "../shop/ShopLeftItem";
 import alipayPanel from "./alipayPanel";
 //import wechatpayPanel from "./wechatpayPanel";
 //import ebankPanel from "./eBankPanel";
-import abankPanel from "./aBankPanel";
+import abankPanel from "./abankPanel";
 
 const {ccclass, property} = cc._decorator;
 
@@ -106,6 +106,10 @@ export default class ShopNode extends cc.Component {
 
     //G_Utils.onClickEnd(item, this.onToggleEnd, this)
     onSelectedItem(index,data){
+        if(this.curLeftIndex > 0 && this.curLeftIndex == index+1)
+        {
+            return;
+        }
         if(this.curLeftIndex > 0 && this.curLeftIndex <= this.leftList.length + 1)
         {
             var tt = this.leftObjList[this.curLeftIndex - 1].getComponent(ShopLeftItem);

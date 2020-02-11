@@ -37,12 +37,10 @@ export  class CommonConfig {
     private _dataGame = {};
 
     public getGameSub(index){
-        console.log('get '+index);
         return this._dataGame[index];
     }
 
     public setGameSub(index,data){
-        console.log('set '+index);
         this._dataGame[index] = data;
     }
 }
