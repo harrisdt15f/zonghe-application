@@ -5,6 +5,7 @@ import { G_HttpHelper } from "../Net/HttpHelper";
 import { G_UserControl } from "../Controller/UserControl";
 import { G_UiForms } from "../Tool/UiForms";
 import { uiEventModules } from "../Config/uiEvent";
+import { RequestEnum } from "../Config/RequestConfig";
 
 const {ccclass, property} = cc._decorator;
 
@@ -130,7 +131,7 @@ export default class RankNode extends cc.Component {
             this.tabSelectTwo.active = false;
             this.titleLabel.string = G_Language.get("rank_title1");
             if(this.listOne.length <= 0){
-                G_HttpHelper.httpPost("/app-api/games-lobby/profit-list",null,function(data){
+                G_HttpHelper.httpPost(RequestEnum.Profit,null,function(data){
                     
                     if(data.status)
                     {
@@ -172,7 +173,7 @@ export default class RankNode extends cc.Component {
             this.tabSelectTwo.active = true;
             this.titleLabel.string = G_Language.get("rank_title2");
             if(this.listTwo.length <= 0){
-                G_HttpHelper.httpGet("/app-api/games-lobby/rich-list",function(data){
+                G_HttpHelper.httpGet(RequestEnum.Rich,function(data){
                     if(data.status)
                     {
                         this.viewTwo.getComponent(ListViewCommon).init(data.data.length,35,function(index,itemPrefab){

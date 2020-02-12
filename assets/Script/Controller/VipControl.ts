@@ -6,6 +6,7 @@ import { VipConfig } from "../Config/VipConfig";
 import { G_OnFire } from "../Net/OnFire";
 import { EventRequest } from "../Config/uiEvent";
 import { G_UserControl } from "./UserControl";
+import { RequestEnum } from "../Config/RequestConfig";
 
 
 class VipControl {
@@ -34,7 +35,7 @@ class VipControl {
         {
             return;
         }
-        G_HttpHelper.httpGet("/app-api/user/grades", function(ret){
+        G_HttpHelper.httpGet(RequestEnum.VIP, function(ret){
             console.log("[获取VIP配置]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 this.vipConfig.data = ret.data;
@@ -54,7 +55,7 @@ class VipControl {
             return;
         }
         console.log("领取晋级赠金2")   
-        G_HttpHelper.httpPost("/app-api/user/promotion-gifts",null, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.Promotion,null, function(ret){
             console.log("[领取晋级赠金]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 G_UserControl.getUser().vippromotion = 0;
@@ -77,7 +78,7 @@ class VipControl {
             return;
         }
         console.log("领取每周赠金2")   
-        G_HttpHelper.httpPost("/app-api/user/weekly-gifts",null, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.Weekly,null, function(ret){
             console.log("[领取每周赠金]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 G_UserControl.getUser().vipweekly = 0;

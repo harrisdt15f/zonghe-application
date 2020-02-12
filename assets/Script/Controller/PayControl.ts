@@ -3,6 +3,7 @@ import { G_UiForms } from "../Tool/UiForms";
 import { G_HttpHelper } from "../Net/HttpHelper";
 import { CODE } from "../Config/IdentifyKey";
 import { PayConfig } from "../Config/PayConfig";
+import { RequestEnum } from "../Config/RequestConfig";
 
 
 class PayControl {
@@ -26,14 +27,9 @@ class PayControl {
     /**
      * 获取充值分类
      */
-    requesRechargeType(isOnLine,call){      
-       // G_HttpHelper.httpPost("/app-api/recharge/types",{"is_online":isOnLine}, function(ret){
-        let json = null;
-        if(isOnLine!= null)
-        {
-            json = {"is_online":isOnLine}
-        }
-        G_HttpHelper.httpPost("/app-api/recharge/types",json, function(ret){
+    requesRechargeType(call){      
+
+        G_HttpHelper.httpGet(RequestEnum.PayInfo, function(ret){
            console.log("[获取充值分类]：返回数据",ret)   
             if(ret.status){
                 this.getPayConfig().dataType = ret.data;
@@ -50,7 +46,7 @@ class PayControl {
      * 获取充值渠道
     */
     requesRechargeChannels(typeid,call){       
-        G_HttpHelper.httpPost("/app-api/recharge/channels",{"type_id":typeid}, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.Channels,{"type_id":typeid}, function(ret){
            console.log("[获取充值渠道]：返回数据",ret)   
             if(ret.status ){
                 // if(ret.data.length > 0)
@@ -72,7 +68,7 @@ class PayControl {
      * 发起充值
      */
     requesSendRecharge(isOnLine,channelId,money,call){      
-        G_HttpHelper.httpPost("/app-api/recharge/recharge",{"is_online":isOnLine,"channel_id":channelId,"money":money}, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.Recharge,{"is_online":isOnLine,"channel_id":channelId,"money":money}, function(ret){
            console.log("[获取充值分类]：返回数据",ret)   
             if(ret.status){
                // this.getCommonConfig().gameHall = ret.data;

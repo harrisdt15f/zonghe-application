@@ -250,15 +250,16 @@ export default class PersonalPanel extends cc.Component {
         {
             return;
         }
-        this.btnUpdateBalance.getComponent(cc.Button).interactable= false;
+        //this.btnUpdateBalance.getComponent(cc.Button).interactable= false;
         console.log("刷新金额")
         let tt  = cc.repeatForever(cc.rotateBy(0.3,360));
         this.btnUpdateBalance.runAction(tt);
+        this.scheduleOnce(function(){
+            this.btnUpdateBalance.stopAction(tt);
+            //this.btnUpdateBalance.getComponent(cc.Button).interactable= true;
+        }.bind(this),0.3);
         G_UserControl.sendspecialPlayerData(()=>{
-            this.scheduleOnce(function(){
-                this.btnUpdateBalance.stopAction(tt);
-                this.btnUpdateBalance.getComponent(cc.Button).interactable= true;
-            }.bind(this),0.3);
+
         });
     }
 

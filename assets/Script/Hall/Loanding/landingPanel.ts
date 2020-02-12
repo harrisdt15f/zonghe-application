@@ -58,14 +58,13 @@ export default class landingPanel extends cc.Component {
             return;
         }
         console.log('333')
-        this.btnLanding.getComponent(cc.Button).enabled= false;
+        //this.btnLanding.getComponent(cc.Button).enabled= false;
         this.isLanding = false;
         this.scheduleOnce(()=>{
-           // this.btnLanding.getComponent(cc.Button).enabled= true;
             this.isLanding = true;
         },1);
         G_UserControl.requestLogin(this.phoneNumInfo,  this.passwordInfo, function(data){
-            this.btnLanding.getComponent(cc.Button).enabled= true;
+           // this.btnLanding.getComponent(cc.Button).enabled= true;
             if(data.status)
             {
                 G_OnFire.fire(uiEventFunction.colseBox)

@@ -4,6 +4,8 @@ import alipayPanel from "./alipayPanel";
 //import wechatpayPanel from "./wechatpayPanel";
 //import ebankPanel from "./eBankPanel";
 import abankPanel from "./abankPanel";
+import { G_RequestControl } from "../../Controller/RequestControl";
+import { RequestEnum } from "../../Config/RequestConfig";
 
 const {ccclass, property} = cc._decorator;
 
@@ -35,57 +37,70 @@ export default class ShopNode extends cc.Component {
 
     onEnable()
     {
-        this.showLeft();
-    }
-    showLeft()
-    {     
-        let x = 0;
-        let y = 0;  
-        if(this.leftObjList.length <= 0)
-        { 
-            G_PayControl.requesRechargeType(null,function(ret){
-                let list = G_PayControl.getPayConfig().dataType
-                for(let i=0;i<list.length;i++){
-                    let tt = list[i]
-                    G_PayControl.getPayConfig().setPayItemInfo(tt.sign,tt.name,tt.is_online)
-                    let info = G_PayControl.getPayConfig().getPayItemInfo(tt.sign);
-                    if(info)
-                    {
-                        if(tt.is_online == 1)  //线上
-                        {
-                            let leftInfo = {};
-                            leftInfo["data"] = tt;
-                            leftInfo["config"] = info;
-                            leftInfo["is_online"] = 1;
-                            this.leftList[x] = leftInfo;
-                            x++;
-                        }else
-                        {
-                            let leftInfo = {};
-                            leftInfo["data"] = tt;
-                            leftInfo["config"] = info;
-                            this.offlineList[y] = leftInfo;
-                            y++;
-                        }
-                    }
-                }
-                if(this.offlineList.length > 0)
-                {
-                    let leftInfo = {};
-                    leftInfo["is_online"] = 0;
-                    leftInfo["config"] = G_PayControl.getPayConfig().getPayItemInfo("offline");
-                    leftInfo["data"] = this.offlineList;
-                    this.leftList.push(leftInfo);
-                }
-                if(this.leftList.length > 0)
-                {
-                    this.LoadLeft();
-                }
-
-            }.bind(this));
-        }
+        this.LoadLeft();
     }
     LoadLeft()
+    {     
+        if(this.leftObjList.length <= 0)
+        { 
+            let list = G_PayControl.getPayConfig().dataType
+            if(list && list.length > 0)
+            {
+                this.LoadData(list);
+            }
+            else
+            {
+                G_PayControl.requesRechargeType(function(ret){
+                    let list = G_PayControl.getPayConfig().dataType
+                    this.LoadData(list);
+    
+                }.bind(this));
+            }
+           
+        }
+    }
+
+    LoadData(list){
+        let x = 0;
+        let y = 0;  
+        for(let i=0;i<list.length;i++){
+            let tt = list[i]
+            G_PayControl.getPayConfig().setPayItemInfo(tt.sign,tt.name,tt.is_online)
+            let info = G_PayControl.getPayConfig().getPayItemInfo(tt.sign);
+            if(info)
+            {
+                if(tt.is_online == 1)  //线上
+                {
+                    let leftInfo = {};
+                    leftInfo["data"] = tt;
+                    leftInfo["config"] = info;
+                    leftInfo["is_online"] = 1;
+                    this.leftList[x] = leftInfo;
+                    x++;
+                }else
+                {
+                    let leftInfo = {};
+                    leftInfo["data"] = tt;
+                    leftInfo["config"] = info;
+                    this.offlineList[y] = leftInfo;
+                    y++;
+                }
+            }
+        }
+        if(this.offlineList.length > 0)
+        {
+            let leftInfo = {};
+            leftInfo["is_online"] = 0;
+            leftInfo["config"] = G_PayControl.getPayConfig().getPayItemInfo("offline");
+            leftInfo["data"] = this.offlineList;
+            this.leftList.push(leftInfo);
+        }
+        if(this.leftList.length > 0)
+        {
+            this.showLeft();
+        }
+    }
+    showLeft()
     {
         for(let i=0;i<this.leftList.length;i++)
         {
@@ -157,6 +172,7 @@ export default class ShopNode extends cc.Component {
                         script = element.getComponent(alipayPanel);                  
                         break;
                     }
+                    /*
                     G_PayControl.requesRechargeChannels(this.curLeftData.data.id,function(ret){ 
                     if(ret.status)
                     {
@@ -182,7 +198,7 @@ export default class ShopNode extends cc.Component {
                         //    }
                         }
                     }.bind(this));
-
+                    */
                 }
             }  else     //线下
             {

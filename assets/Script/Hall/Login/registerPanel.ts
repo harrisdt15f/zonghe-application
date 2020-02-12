@@ -142,12 +142,12 @@ export default class registerPanel extends cc.Component {
         {
             return;
         }
-        this.btnLanding.getComponent(cc.Button).enabled= false;
+        //this.btnLanding.getComponent(cc.Button).enabled= false;
         //this.scheduleOnce(()=>{
         //    this.btnLanding.getComponent(cc.Button).enabled= true;
        // },1);
         G_UserControl.requestRegister(this.ver_mobile,this.passwordInfo,  this.passwordAgainInfo,this.verificationInfo,this.ver_key,this.invatationInfo, function(ret){
-            this.btnLanding.getComponent(cc.Button).enabled= true;
+            //this.btnLanding.getComponent(cc.Button).enabled= true;
             if(ret.status)
             {
                 G_UiForms.hint(G_Language.get('registerSuccess'))

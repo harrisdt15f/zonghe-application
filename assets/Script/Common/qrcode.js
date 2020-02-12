@@ -23,7 +23,6 @@ QR8bitByte.prototype = {
 //---------------------------------------------------------------------
 
 function QRCode(typeNumber, errorCorrectLevel) {
-	console.log("1111111111111111111111111111111111111111111111111111111");
 	this.typeNumber = typeNumber;
 	this.errorCorrectLevel = errorCorrectLevel;
 	this.modules = null;

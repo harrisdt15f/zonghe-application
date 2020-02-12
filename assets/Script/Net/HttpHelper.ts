@@ -5,6 +5,7 @@ import { G_UserControl } from '../Controller/UserControl';
 //import { context } from "../../../packVersion/ver_1_0.0.0/src/cocos2d-jsb";
 import CryptoJS  = require('../Common/CryptoJS')
 import { JSEncrypt } from "../Common/jsencrypt";
+import { G_RequestControl } from "../Controller/RequestControl";
 
 
 class HttpHelper {
@@ -14,7 +15,14 @@ class HttpHelper {
      * @param {string} url 
      * @param {function} callback 
      */
-    httpGet(url, callback) {
+    httpGet(path, callback) {       
+        let isCD =  G_RequestControl.getConfig().isCD(path)
+        if(isCD)
+        {
+            return;
+        }
+        let url = G_RequestControl.getConfig().getURL(path)
+
         // cc.myGame.gameUi.onShowLockScreen();
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
@@ -59,7 +67,17 @@ class HttpHelper {
      * @param {object} params 
      * @param {function} callback 
      */
-    httpPost(url, params, callback) {
+    httpPost(path, params, callback) {
+        console.log("path  ",path);
+        
+        let isCD =  G_RequestControl.getConfig().isCD(path)
+        if(isCD)
+        {
+            console.log("return  ",path);
+            return;
+        }
+        console.log("nocdddddddddddddd  ",path);
+        let url = G_RequestControl.getConfig().getURL(path)
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status == 200) {
@@ -106,7 +124,13 @@ class HttpHelper {
      * @param {object} params 
      * @param {function} callback 
      */
-    httpPut(url, params, callback) {
+    httpPut(path, params, callback) {
+        let isCD =  G_RequestControl.getConfig().isCD(path)
+        if(isCD)
+        {
+            return;
+        }
+        let url = G_RequestControl.getConfig().getURL(path)
         let xhr = cc.loader.getXMLHttpRequest();
         xhr.onreadystatechange = function () {
             console.log("xhr.readyState   "+xhr.readyState + "  xhr.status == 200  "+xhr.status)

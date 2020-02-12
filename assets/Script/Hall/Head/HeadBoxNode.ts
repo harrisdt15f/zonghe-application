@@ -6,6 +6,7 @@ import { headNum } from '../../Config/config';
 import { G_HttpHelper } from "../../Net/HttpHelper";
 import {EventRequest} from "../../Config/uiEvent";
 import { CODE } from "../../Config/IdentifyKey";
+import { RequestEnum } from '../../Config/RequestConfig';
 
 const {ccclass, property} = cc._decorator;
 @ccclass
@@ -25,7 +26,7 @@ export default class HeadBoxNode extends cc.Component {
     private selectIdx : number = 0;
 
     onLoad () {
-        G_HttpHelper.httpGet("/app-api/user/system-avatar", function(ret){
+        G_HttpHelper.httpGet(RequestEnum.Avatar, function(ret){
             console.log("app-api/user/system-avatar数据",ret); 
 
             G_OnFire.fire(EventRequest.HeadUpdata)

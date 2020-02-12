@@ -3,6 +3,7 @@ import { G_UiForms } from "../Tool/UiForms";
 import { G_HttpHelper } from "../Net/HttpHelper";
 import { CODE } from "../Config/IdentifyKey";
 import { CommonConfig } from "../Config/CommonConfig";
+import { RequestEnum } from "../Config/RequestConfig";
 
 
 class CommonControl {
@@ -28,7 +29,7 @@ class CommonControl {
      */
     requesGameData(call){
         
-        G_HttpHelper.httpPost("/app-api/games-lobby/game-categories",{"device":2}, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.GameCategories,{"device":2}, function(ret){
            console.log("[游戏大厅]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 this.getCommonConfig().gameHall = ret.data;
@@ -46,7 +47,7 @@ class CommonControl {
     */
     requesGameDetailData(typeid,call){
         
-        G_HttpHelper.httpPost("/app-api/games-lobby/game-list",{"device":2,"type_id":typeid}, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.GameList,{"device":2,"type_id":typeid}, function(ret){
            console.log("[游戏列表]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
                 // if(ret.data.length > 0)
