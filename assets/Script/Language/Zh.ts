@@ -130,5 +130,8 @@ export const zh = {
     rank_title2:"富豪榜",
     payMinTip:"单笔充值金额不得低于",
     payMaxTip:"单笔充值金额不得高于",
+    payMoneyInput:"请输入金额",
+    payLeftTime:"转账倒计时:",
+    payTrueTip:"订单已提交",
 }
 

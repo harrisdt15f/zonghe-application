@@ -5,6 +5,7 @@ import { G_UiForms } from '../../Tool/UiForms';
 import List from '../../Common/List';
 import { G_PayControl } from '../../Controller/PayControl';
 import { G_Language } from '../../Language/Language';
+import { Platforms } from '../../Platform/Platforms';
 /**
  * app 支付方式
  */
@@ -46,6 +47,8 @@ export default class  abankPanel extends cc.Component {
     textTime:cc.Label = null; //倒计时
     @property(cc.Label)
     textCode:cc.Label = null; //订单号
+    @property(cc.Node)
+    numberDetail:cc.Node = null;
 
     @property(cc.Node)
     numberEditbox: cc.Node = null;  //输入金额
@@ -62,8 +65,15 @@ export default class  abankPanel extends cc.Component {
     private typeDetailObjList = []  //通道1,2,3,4 
     private numObjList = []        //金额 10 100 1000 10000...
 
+    private leftTime = 0;
+    private bankInfo = null;
 
-    
+    private platforms : Platforms = null;
+
+    onLoad () {
+        this.platforms = new Platforms()
+    }
+
     // data:{
     //     "is_online":0,
     //     "data":[] ==>"data":xxxxx, "config":xxxxxx
@@ -72,6 +82,7 @@ export default class  abankPanel extends cc.Component {
         this.typeDetail.active = true;
         this.bankDetail.active = false;
         this.Data = data;
+        this.bankInfo = null;
         this.textTip.getComponent(cc.Label).string ="";
         this.dataList = data.data;
         this.curDataListIndex = -1;
@@ -83,6 +94,7 @@ export default class  abankPanel extends cc.Component {
     showTypeList()
     {
         this.typeObjList.forEach(element => {
+            element.getChildByName('select').active = false;
             element.active = false;
         });
 
@@ -122,30 +134,25 @@ export default class  abankPanel extends cc.Component {
         this.typeObjList.forEach(element => {
             element.getChildByName('select').active = false;
         });
-        console.log("index   "+this.dataList[index].data.id)
+
         this.typeObjList[index].getChildByName('select').active = true;
-        G_PayControl.requesRechargeChannels( this.dataList[index].data.id,function(ret){ 
-            if(ret.status)
-            {
-                console.log("(ret.status  ",ret);
-                this.curDataList = ret.data;
-                if(ret.data.length >0)
-                {
-                    this.showTypeDetail()
-                }
-            }
-        }.bind(this));
+        this.numberDetail.active =false;
+        this.typeDetailObjList.forEach(element => {
+            element.active = false;
+            element.getChildByName('select').active = false;
+        });   
+        if(this.dataList[index].data.offline_infos.length > 0){
+            this.curDataList = this.dataList[index].data.offline_infos;
+            this.showTypeDetail()
+        }
+
     }
 
     //当前渠道详情
     showTypeDetail()
     {
-        this.typeDetailObjList.forEach(element => {
-            element.active = false;
-        });   
-        console.log("this.curData   "+this.curData)
-        if(this.curDataList.data.length> 0){
-            for(let i=0;i<this.curDataList.data.length;i++)
+        if(this.curDataList.length> 0){
+            for(let i=0;i<this.curDataList.length;i++)
             {
                 var item;
                 if(this.typeDetailObjList[i] == null)
@@ -164,7 +171,7 @@ export default class  abankPanel extends cc.Component {
                     item.active = true;
                     item.name = i.toString();
                 }
-                item.getChildByName("text").getComponent(cc.Label).string = this.curDataList.data[i].data.name
+                item.getChildByName("text").getComponent(cc.Label).string = this.curDataList[i].name
             }
         }
 
@@ -172,16 +179,17 @@ export default class  abankPanel extends cc.Component {
 
     showDetailTypeDetail(index)
     {
-        if(this.curDataIndex >= 0 && this.curDataIndex == index)
-        {
-            return;
-        }
+        // if(this.curDataIndex >= 0 && this.curDataIndex == index)
+        // {
+        //     return;
+        // }
+        this.numberDetail.active = true;
         this.curDataIndex = index;
         this.typeDetailObjList.forEach(element => {
-            element.getChildByName('select').node.active = false;
+            element.getChildByName('select').active = false;
         });
-        this.typeDetailObjList[index].getChildByName('select').node.active = true;
-        this.curData  = this.curDataList.data[index]
+        this.typeDetailObjList[index].getChildByName('select').active = true;
+        this.curData  = this.curDataList[index]
         if(this.numObjList.length <= 0)
         {
             var list = G_PayControl.getPayConfig().payMoneyList;
@@ -217,8 +225,11 @@ export default class  abankPanel extends cc.Component {
         {
             return;
         }
-        console.log("this.NumInfo   "+this.NumInfo);
         let val = parseInt(this.NumInfo);
+        if(this.NumInfo == null || this.NumInfo == ''){
+            G_UiForms.hint(G_Language.get("payMoneyInput"));
+            return;
+        }
         if(val < this.curData.min)
         {
             G_UiForms.hint(G_Language.get("payMinTip")+this.curData.min);
@@ -229,26 +240,40 @@ export default class  abankPanel extends cc.Component {
             G_UiForms.hint(G_Language.get("payMaxTip")+this.curData.max);
             return;
         }
-        G_PayControl.requesSendRecharge(false,this.curData.id,val,function(ret){
+        console.log("this.NumInfo   "+val,"   ",this.curData.id);
+        G_PayControl.requesSendRecharge(this.Data.is_online,this.curData.id,val,function(ret){
             if(ret.status)
             {
+                this.bankInfo = ret.data;
                 this.typeDetail.active = false;
                 this.bankDetail.active = true;
                 //this.textBank.string = this.curData.xxxxxxxxxxxxxxxxx;
-                this.textName.string = this.curData.bank.name;
+                this.textName.string = ret.data.username;
                 this.textNumber.string = ret.data.account.toString();
                 this.textAdress.string = ret.data.branch;
                 this.textMoney.string = ret.data.money;
-                this.textCode.string = ret.data.order_no
-               // let leftTime = ret.data.expired_at  ret.data.created_at
+                this.textCode.string = "订单号: " +ret.data.order_no;
                // let order = vdata.order_no;  //订单号
-
+               var before = new Date(ret.data.created_at).getTime()
+               var after = new Date(ret.data.expired_at).getTime()
+               this.leftTime = (after - before)/1000;
+               this.textTime.string = G_Utils.getDateTimeStrTwo(this.leftTime);
             }
 
         }.bind(this));
 
     }
     
+    update(dt){
+        if(this.leftTime >0 && this.bankInfo != null){
+            this.leftTime -= dt;
+            this.textTime.string = G_Language.get("payLeftTime")+ G_Utils.getDateTimeStrTwo(this.leftTime);
+            if(this.leftTime <= 0)
+            {
+                this.textTime.string = G_Language.get("payLeftTime") +"00:00";
+            }
+        }
+    }
 
     set NumInfo(text : string){
         this.numberEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
@@ -259,28 +284,51 @@ export default class  abankPanel extends cc.Component {
 
     OnCopyBank()
     {
-
+        if(this.bankInfo == null){
+            return;
+        }
+        this.platforms.JsCopy(this.bankInfo.branch)
+        G_UiForms.hint(G_Language.get("copySucceed"))
     }
     onCopyBankNumber()
     {
-
+        if(this.bankInfo == null){
+            return;
+        }
+        this.platforms.JsCopy(this.bankInfo.account)
+        G_UiForms.hint(G_Language.get("copySucceed"))
     }
     onCopyName(){
-
+        if(this.bankInfo == null){
+            return;
+        }
+        this.platforms.JsCopy(this.bankInfo.username)
+        G_UiForms.hint(G_Language.get("copySucceed"))
     }
     onCopyMoney(){
-
+        if(this.bankInfo == null){
+            return;
+        }
+        this.platforms.JsCopy(this.bankInfo.money)
+        G_UiForms.hint(G_Language.get("copySucceed"))
     }
 
     ///我已转账
     onSendPaySuccess(){
-
-
+        G_PayControl.requesSendPayTrue(this.bankInfo.order_no,function(ret){
+            this.init(this.Data)
+           G_UiForms.hint(G_Language.get("payTrueTip"))
+        }.bind(this))
     }
 
     ///取消订单
     onSendPayRefuse(){
+        G_PayControl.requesSendPayCancel(this.bankInfo.order_no,function(ret){
 
+        }.bind(this))
+        this.init(this.Data)
+        //请求 撤销
+    
     }
 
 }

@@ -41,22 +41,21 @@ export default class ShopNode extends cc.Component {
     }
     LoadLeft()
     {     
-        if(this.leftObjList.length <= 0)
-        { 
+        let cd = G_RequestControl.getConfig().getCD(RequestEnum.PayInfo)
+        if(cd < 0)
+        {
+            G_PayControl.requesRechargeType(function(ret){
+                let list = G_PayControl.getPayConfig().dataType
+                this.LoadData(list);
+
+            }.bind(this));
+        }else
+        {
             let list = G_PayControl.getPayConfig().dataType
             if(list && list.length > 0)
             {
                 this.LoadData(list);
             }
-            else
-            {
-                G_PayControl.requesRechargeType(function(ret){
-                    let list = G_PayControl.getPayConfig().dataType
-                    this.LoadData(list);
-    
-                }.bind(this));
-            }
-           
         }
     }
 
@@ -104,10 +103,22 @@ export default class ShopNode extends cc.Component {
     {
         for(let i=0;i<this.leftList.length;i++)
         {
-            var item = cc.instantiate(this.leftItem);
-            item.active = true;
-            this.leftGrid.addChild(item);
-            this.leftObjList.push(item);
+            var item ;
+            if(this.leftObjList.length >i)
+            {
+                item = this.leftObjList[i];
+                item.active = true;
+            }else
+            {
+                item = cc.instantiate(this.leftItem);
+                item.active = true;
+                this.leftGrid.addChild(item);
+                this.leftObjList.push(item);
+            }
+
+           // item.active = true;
+           // this.leftGrid.addChild(item);
+            //this.leftObjList.push(item);
             var itemJs = item.getComponent(ShopLeftItem);             
             itemJs.init(this.leftList[i],i,(index,data)=>{
                 this.onSelectedItem(index,data);
@@ -142,70 +153,27 @@ export default class ShopNode extends cc.Component {
     {
         this.rightNode.children.forEach(element => {
             element.active = false;
+        });
+        this.rightNode.children.forEach(element => {
             if(this.curLeftData.is_online == 1)    //线上
             {
                 if(this.curLeftData.config.panel == element.name)
                 {
                     console.log("open panel ",element.name);
-                    let script = null;
-                    switch(this.curLeftData.data.sign)
+                    if(this.curLeftData.data.online_infos.length > 0)
                     {
-                        case "alipay":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "wechat":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "online_bank":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "unionPay":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "jd":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "baidu":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
-                        case "withdraw":
-                        script = element.getComponent(alipayPanel);                  
-                        break;
+                        element.active = true;
+                        let script = element.getComponent(alipayPanel);  
+                        script.init(this.curLeftData)                       
+                    }else
+                    {
+                        this.nonePanel.active = true;                      
                     }
-                    /*
-                    G_PayControl.requesRechargeChannels(this.curLeftData.data.id,function(ret){ 
-                    if(ret.status)
-                    {
-                        if(ret.data.length >0)
-                        {
-                            if(script)
-                            {
-                                this.restttt = ret;
-                                this.nonePanel.active = false;
-                                element.active = true;
-                                script.init(ret);
-                            }
-                        }else
-                        {
-                            element.active = false;
-                            this.nonePanel.active = true;
-                        }
-                        //  if(this.restttt.data.length >0)
-                        //    {
-                        //       this.nonePanel.active = false;
-                        //       element.active = true;
-                        //       script.init(ret);
-                        //    }
-                        }
-                    }.bind(this));
-                    */
                 }
             }  else     //线下
             {
-                console.log("open panel   xian  xia......",element.name +"  this.curLeftData.config.panel  "+this.curLeftData.config.panel)
                 if(element.name == this.curLeftData.config.panel)
                 {
-                    console.log("open panel   xian  xia......",element.name)
                     element.active = true;
                     let script = element.getComponent(abankPanel); 
                     script.init(this.curLeftData);

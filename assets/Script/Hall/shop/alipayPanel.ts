@@ -25,7 +25,7 @@ export default class  alipayPanel extends cc.Component {
     numberItemPrefab:cc.Node = null;
     @property(cc.Node)
     bankDetail:cc.Node = null;
-    @property(cc.Node)
+    @property(cc.Graphics)
     qrImage:cc.Graphics = null;
     @property(cc.Node)
     textTip:cc.Node = null;
@@ -45,17 +45,7 @@ export default class  alipayPanel extends cc.Component {
         this.bankDetail.active = false;
         this.Data = data;
         this.textTip.getComponent(cc.Label).string ="";
-        this.dataList = data.data;
-        // G_PayControl.requesRechargeChannels(data.data.id,function(ret){ 
-        //     if(ret.status)
-        //     {
-        //         this.dataList = ret.data;
-        //         if(ret.data.length >0)
-        //         {
-        //             this.showTypeList()
-        //         }
-        //     }
-        // }.bind(this));
+        this.dataList = data.data.online_infos;
         this.showTypeList()
     }
 
@@ -134,7 +124,10 @@ export default class  alipayPanel extends cc.Component {
         {
             return;
         }
-        console.log("this.NumInfo   "+this.NumInfo);
+        if(this.NumInfo == null || this.NumInfo == ''){
+            G_UiForms.hint(G_Language.get("payMoneyInput"));
+            return;
+        }
         let val = parseInt(this.NumInfo);
         if(val < this.curData.min)
         {
@@ -146,6 +139,7 @@ export default class  alipayPanel extends cc.Component {
             G_UiForms.hint(G_Language.get("payMaxTip")+this.curData.max);
             return;
         }
+        console.log("this.NumInfo   "+val,"   ",this.curData.id);
         G_PayControl.requesSendRecharge(this.Data.data.is_online,this.curData.id,val,function(ret){
             if(ret.status)
             {
@@ -154,7 +148,8 @@ export default class  alipayPanel extends cc.Component {
                 switch(ret.data.mode)
                 {
                     case "html":
-                        document.write(url);                      
+                        //document.write(url);    
+                        this.initQrCode(url);                                     
                     break;
                     case "qrcode":  //展示二维码
                         this.initQrCode(url);
@@ -188,24 +183,22 @@ export default class  alipayPanel extends cc.Component {
         var qrcode = new QRCode(-1, QRErrorCorrectLevel.H);
         qrcode.addData(str);
         qrcode.make();
-
         var ctx = this.qrImage;
         ctx.fillColor = cc.Color.BLACK;
         // compute tileW/tileH based on node width and height
         var tileW = ctx.node.width / qrcode.getModuleCount();
         var tileH = ctx.node.height / qrcode.getModuleCount();
-
         // draw in the Graphics
         for (var row = 0; row < qrcode.getModuleCount(); row++) {
             for (var col = 0; col < qrcode.getModuleCount(); col++) {
                 if (qrcode.isDark(row, col)) {
-                    // ctx.fillColor = cc.Color.BLACK;
+                     ctx.fillColor = cc.Color.BLACK;
                     var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
                     var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));
                     ctx.rect(Math.round(col * tileW), Math.round(row * tileH), w, h);
                     ctx.fill();
                 } else {
-                    // ctx.fillColor = cc.Color.WHITE;
+                     ctx.fillColor = cc.Color.WHITE;
                 }
                 var w = (Math.ceil((col + 1) * tileW) - Math.floor(col * tileW));
                 // var h = (Math.ceil((row + 1) * tileW) - Math.floor(row * tileW));

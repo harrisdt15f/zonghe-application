@@ -34,10 +34,10 @@ export enum RequestEnum{
     Security ="Security",
     SecurityCode ="SecurityCode",
     //7
-    RechargeType ="RechargeType",
-    Channels ="Channels",
     Recharge ="Recharge",
     PayInfo = "PayInfo",
+    PayCancel = "PayCancel",
+    PayTrue = "PayTrue",
 }
 
 export  class RequestConfig {
@@ -78,16 +78,26 @@ export  class RequestConfig {
         Security : {url:"/app-api/user/security-code",cdTime:3,sendTime:0,},
         SecurityCode : {url:"/app-api/security-verification-code",cdTime:3,sendTime:0,},
         //7
-        RechargeType : {url:"/app-api/recharge/types",cdTime:3,sendTime:0,},
-        Channels : {url:"/app-api/recharge/channels",cdTime:3,sendTime:0,},
-        Recharge : {url:"/app-api/recharge/recharge",cdTime:3,sendTime:0,},
-        PayInfo : {url:"/app-api/recharge/get-finance-info",cdTime:5,sendTime:0,},
-
+        Recharge : {url:"/app-api/recharge/recharge",cdTime:2,sendTime:0,},
+        PayInfo : {url:"/app-api/recharge/get-finance-info",cdTime:3,sendTime:0,},
+        PayCancel : {url:"/app-api/recharge/cancel",cdTime:3,sendTime:0,},
+        PayTrue : {url:"/app-api/recharge/confirm",cdTime:3,sendTime:0,},
     }
 
     public getURL(str)
     {
         return this.requestList[str].url;
+    }
+
+    public getCD(str){
+        let member = this.requestList[str]    
+        if(member.sendTime <= 0)
+        {
+           
+            return -1 ;
+        }
+
+        return member.cdTime*1000 - (Date.parse(new Date().toString()) - member.sendTime);
     }
 
     //  true--> 冷却中   
@@ -101,7 +111,7 @@ export  class RequestConfig {
             return false ;
         }
 
-        if((Date.parse(new Date().toString()) - member.sendTime) >= (member.cdTime*1000))
+        if(member.cdTime*1000 - (Date.parse(new Date().toString()) - member.sendTime) < 0)
         {
             this.setSendTime(str,Date.parse(new Date().toString()));
             return false;

@@ -52,18 +52,7 @@ export default class  ebankPanel extends cc.Component {
         this.Data = data;
         //this.textTip.getComponent(cc.Label).string = ""
         console.log("offline  "+data.data[0].config.name)
-        /*
-        G_PayControl.requesRechargeChannels(data.data.id,function(ret){ 
-            if(ret.status)
-            {
-                this.dataList = ret.data;
-                if(ret.data.length >0)
-                {
-                    this.showTypeList()
-                }
-            }
-        }.bind(this));
-        */
+
     }
 
     //充值渠道
