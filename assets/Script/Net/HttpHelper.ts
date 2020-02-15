@@ -9,13 +9,31 @@ import { G_RequestControl } from "../Controller/RequestControl";
 
 
 class HttpHelper {
+    
+    
+    private lastTime = null;
+
+    private  cd(path){
+        if(this.lastTime == null)
+        {
+            this.lastTime = new Date().getTime();
+           console.log("Time--------------------------->",path,"       ",0); 
+        }else
+        {
+            let tt =  new Date().getTime() - this.lastTime;
+            //this.lastTime = new Date().getTime();
+            console.log("Time--------------------------->",path,"       ",tt/1000); 
+        }
+    }
+
     public static readonly Instance : HttpHelper = new HttpHelper();
     /**
      * get请求
      * @param {string} url 
      * @param {function} callback 
      */
-    httpGet(path, callback) {       
+    httpGet(path, callback) {      
+        this.cd(path);
         let isCD =  G_RequestControl.getConfig().isCD(path)
         if(isCD)
         {
@@ -69,7 +87,7 @@ class HttpHelper {
      */
     httpPost(path, params, callback) {
         console.log("path  ",path);
-        
+        this.cd(path);
         let isCD =  G_RequestControl.getConfig().isCD(path)
         if(isCD)
         {
@@ -125,6 +143,7 @@ class HttpHelper {
      * @param {function} callback 
      */
     httpPut(path, params, callback) {
+        this.cd(path);
         let isCD =  G_RequestControl.getConfig().isCD(path)
         if(isCD)
         {

@@ -149,6 +149,8 @@ export default class PersonalPanel extends cc.Component {
             item.active = false;
         }else
         {
+            console.log("刷新列表。。。。。。。。。。 ",idx,"  ",G_UserControl.getUser().vippromotion,"   ",G_UserControl.getUser().vipweekly);
+            
             item.active = true;
             item.children.forEach((tt : cc.Node, index : number)=>{
                 var goldeNode = tt.getChildByName("goldeNode")
@@ -176,14 +178,31 @@ export default class PersonalPanel extends cc.Component {
                 }else if(index == 3)
                 {
                     mvalue = "1";
-                }            
-                if(index == 0)   //晋级奖金
+                }      
+                if(idx == G_UserControl.getUser().userVipLevel)      
                 {
-                    btn.active = G_UserControl.getUser().vippromotion == 1;
-                }
-                if(index == 1)  //每周奖励
+                    if(index == 0)   //晋级奖金
+                    {
+                        btn.active = G_UserControl.getUser().vippromotion == 1;
+                        tt.getChildByName("btnDown").active = G_UserControl.getUser().vippromotion == 0;
+                    }
+                    if(index == 1)  //每周奖励
+                    {
+                        btn.active = G_UserControl.getUser().vipweekly == 1;
+                        tt.getChildByName("btnDown").active = G_UserControl.getUser().vipweekly == 0;
+                    }
+                }else
                 {
-                    btn.active = G_UserControl.getUser().vipweekly == 1;
+                    if(index == 0)   //晋级奖金
+                    {
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                    }
+                    if(index == 1)  //每周奖励
+                    {
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                    }
                 }
                // console.log('mvalue   '+mvalue+"  index  "+index + "tt  "+tt.name);
                 gold.getComponent(cc.Label).string = mvalue;
@@ -271,6 +290,7 @@ export default class PersonalPanel extends cc.Component {
         }
         if(G_UserControl.getUser().vippromotion <= 0)
         {   //已领取过
+            G_UiForms.hint(G_Language.get("havesucceedTip"))     
             return;
         }
         G_VipControl.requesVipPromotion((ret)=>{

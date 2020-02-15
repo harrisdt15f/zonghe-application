@@ -109,7 +109,7 @@ export const zh = {
 
     signinsucceed : "签到成功！",
     getsucceed : "领取成功！",
-    // signin : "已"
+    havesucceedTip : "已领取过",
     Membership : "会员专属",
     currMembership: "当前会员专属",
     PleaseLogInFirst :"未登陆，请您先登陆！",

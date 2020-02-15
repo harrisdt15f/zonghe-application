@@ -316,8 +316,14 @@ export default class  abankPanel extends cc.Component {
     ///我已转账
     onSendPaySuccess(){
         G_PayControl.requesSendPayTrue(this.bankInfo.order_no,function(ret){
-            this.init(this.Data)
-           G_UiForms.hint(G_Language.get("payTrueTip"))
+            if(ret.status){
+                this.init(this.Data)
+                G_UiForms.hint(G_Language.get("payTrueTip"))
+            }else
+            {
+                G_UiForms.hint(ret.message)
+            }
+        
         }.bind(this))
     }
 

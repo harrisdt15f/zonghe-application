@@ -98,7 +98,7 @@ class UserControl {
                 }
             }
         }.bind(this))
-
+    
     }
     
     /**
@@ -391,8 +391,8 @@ class UserControl {
             console.log("[更改信息]：1返回数据",ret); 
             if(ret.status && ret.code == CODE.SUCCEED)
             {
-                this._userModel.userName = ret.data.nickname
-                this._userModel.usePic =ret.data.avatar
+                this._userModel.userName = name
+                this._userModel.usePic = pic
                 G_OnFire.fire(EventRequest.HeadUpdata)
             }
             if(call)
