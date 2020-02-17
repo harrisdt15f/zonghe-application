@@ -22,23 +22,20 @@ class WithDrawControl {
         return this.withDrawConfig;
     }
 
-    //支持的银行列表
-    private _bankList:[] = null;
-    public get BankList(){
-        return this._bankList;
-    }
-    public set BankList(data:[]){
-        this._bankList = data;
+    private bindAlipay = false;
+
+    public isBindAliPay()
+    {
+        return this.bindAlipay;
     }
 
-    //绑定的账户
-    private _accountList:[] = null;
-    public get MyAccountList(){
-        return this._accountList;
+    private bindBank = false;
+
+    public isBindBank()
+    {
+        return this.bindBank;
     }
-    public set MyAccountList(data:[]){
-        this._accountList = data;
-    }
+
     // Banks ="Banks",
     // AlipayBind ="AlipayBind",
     // AlipayBindFirst ="AlipayBindFirst",
@@ -48,6 +45,29 @@ class WithDrawControl {
     // AccountDel ="AccountDel",
     // DrawCheck ="DrawCheck",
     // WithDraw ="WithDraw",   
+
+    GetMyAccountList(call)
+    {
+        if(this.getConfig().MyAccountList == null||this.getConfig().MyAccountList.length <= 0)
+        {
+            this.requesMyAccounts(call);
+        }
+        else
+        {
+            call();
+        }
+    }
+
+    GetBanksList(call){
+        if(this.getConfig().BankList == null||this.getConfig().BankList.length <= 0)
+        {
+            this.requesBanks(call);
+        }
+        else
+        {
+            call();
+        }
+    }
 
     /**
      * 系统支持的银行列表
@@ -74,6 +94,7 @@ class WithDrawControl {
             console.log("[账户列表]：返回数据",ret)   
              if(ret.status){
                  this.getConfig().MyAccountList = ret.data;
+                 this.checkBindType();
                  //console.log("ret.data   "+ret.data);
                  if(call)
                  {
@@ -81,6 +102,18 @@ class WithDrawControl {
                  }
              }
          }.bind(this))      
+    }
+
+    checkBindType(){
+        let list =  this.getConfig().MyAccountList
+        list.forEach(element => {
+            if(element.code == "ALIPAY"){
+                this.bindAlipay = true;
+            }else
+            {
+                this.bindBank = true;
+            }
+        });
     }
 
     /**
@@ -192,7 +225,7 @@ class WithDrawControl {
     /**
      *  检查是否设置取款密码
      */
-    requesDrawCheck(cardid,securityCode,call){      
+    requesDrawCheck(call){      
         G_HttpHelper.httpGet(RequestEnum.DrawCheck,function(ret){
            console.log("检查是否设置取款密码：返回数据",ret)   
             if(ret.status){

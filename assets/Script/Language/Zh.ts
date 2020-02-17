@@ -41,7 +41,8 @@ export const zh = {
     PleaseEnterYourAlipayUserName:"请输入您的支付宝用户名",
     PleaseEnterAlipayAccount : "请输入支付宝账号",
     PleaseEnterTheAlipayAccountAgain : "请再次输入支付宝账号",
-
+    PleaseEnterWithDrawPassCode:"请设置取款密码",
+    PleaseEnterWithDrawPassCodeAgain:"二次确认取款密码",
     gameType:[
         "全部",
         "1",
@@ -133,5 +134,8 @@ export const zh = {
     payMoneyInput:"请输入金额",
     payLeftTime:"转账倒计时:",
     payTrueTip:"订单已提交",
+    bindEmpty:"您还未绑定银行卡，不能取款",
+    withDrawing:"提现已申请",
+
 }
 

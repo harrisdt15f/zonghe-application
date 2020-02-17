@@ -2,7 +2,7 @@
 
 export  class WithDrawConfig {
     private payTabAtlasList = {
-        
+        "ALIPAY":{"name":"支付宝","nameSprite":"yh0","image":"zfb_panel"},
         "PBC":{"name":"中国人民银行","nameSprite":"","image":"yh_panel"},
         "CCB":{"name":"中国建设银行","nameSprite":"yh15","image":"yh_panel"},
         "ABC":{"name":"中国农业银行","nameSprite":"yh14","image":"yh_panel"},
@@ -56,26 +56,21 @@ export  class WithDrawConfig {
         return this.payTabAtlasList[str];
     }
 
-    //充值分类
-    private _dataType:[] = null;
-    public get dataType(){
-        return this._dataType;
+    //支持的银行列表
+    private _bankList:[] = null;
+    public get BankList(){
+        return this._bankList;
     }
-    public set dataType(data:[]){
-        this._dataType = data;
-    }
-
-    
-
-    private _dataDetail = {};
-
-    public getDataDetail(index){
-        console.log('get '+index);
-        return this._dataDetail[index];
+    public set BankList(data:[]){
+        this._bankList = data;
     }
 
-    public setDataDetail(index,data){
-        console.log('set '+index);
-        this._dataDetail[index] = data;
+    //绑定的账户
+    private _accountList:[] = null;
+    public get MyAccountList(){
+        return this._accountList;
+    }
+    public set MyAccountList(data:[]){
+        this._accountList = data;
     }
 }
