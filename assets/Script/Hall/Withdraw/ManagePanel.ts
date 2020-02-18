@@ -18,6 +18,8 @@ export default class ManagePanel extends cc.Component {
 
     @property(List)
     list : List = null;
+    @property(cc.Node)
+    delNode:cc.Node = null;
 
     @property(cc.SpriteAtlas)
     bankAtlas : cc.SpriteAtlas = null;
@@ -38,31 +40,7 @@ export default class ManagePanel extends cc.Component {
 
         G_OnFire.on(uiEventFunction.manage, this.setManagePanelActive.bind(this));
         G_OnFire.on(uiEventFunction.atOnceManage, this.setManagePanelActive.bind(this));
-        
-        // this.temp = [];
-        // for (let key in BANK_CARD_NAME) {
-        //     var tempmodel = new tempModel();
-        //     let keyType = Number(key)
-        //     if (keyType == ACCOUNT_TYPE.ALIPAY){
-        //         tempmodel.accountType = ACCOUNT_TYPE.ALIPAY
-        //         tempmodel.bankType = 0;
-        //         tempmodel.number = key + "123525" + "@qq.com";
-        //     }else{
-        //         tempmodel.accountType = ACCOUNT_TYPE.BANK;
-        //         tempmodel.bankType = key;
-        //         tempmodel.number ="123456789101234";
-        //     }
-        //     this.temp.push(tempmodel)
-        // }
-        // var tempnone = new tempModel();
-        // tempnone.accountType = ACCOUNT_TYPE.NONE
-        // tempnone.bankType = ACCOUNT_TYPE.NONE;
-        // tempnone.number = ACCOUNT_TYPE.NONE;
-        // this.temp.push(tempnone)
-        
-        // // console.log(">>>",BANK_CARD_NAME[1])
-        // //this.list.numItems = this.temp.length / 2
-        // this.list.numItems = this.temp.length
+
     }
 
     start () {
@@ -71,18 +49,7 @@ export default class ManagePanel extends cc.Component {
 
     onEnable()
     {
-        this.temp = [];
-        G_WithDrawControl.GetMyAccountList(()=>{
-            this.temp = G_WithDrawControl.getConfig().MyAccountList;
-           // this.showInfo();
-        //    var tempnone = new tempModel();
-        //    tempnone.accountType = ACCOUNT_TYPE.NONE
-        //    tempnone.bankType = ACCOUNT_TYPE.NONE;
-        //    tempnone.number = ACCOUNT_TYPE.NONE;
-        //    this.temp.push(tempnone)
-           this.list.numItems = this.temp.length+1
-        });
-
+        this.setManagePanelActive(true)
     }
 
     // update (dt) {}
@@ -111,77 +78,47 @@ export default class ManagePanel extends cc.Component {
     }
 
     setManagePanelActive(flag){
-        this.list.node.active = flag;
+        this.list.node.active = flag;       
         this.manageAddNode.active = !flag;
+        this.delNode.active = false;
+        this.temp = [];
+        G_WithDrawControl.GetMyAccountList(()=>{
+            this.temp = G_WithDrawControl.getConfig().MyAccountList;
+           this.list.numItems = this.temp.length + 1
+        });
     }
 
     
     onListRender(item: cc.Node, idx: number) {
         if(!item)
             return;
-
+       // console.log("idx   ",idx);
+        
         var box = item.getChildByName("box");
         var sprAccountName = item.getChildByName("sprAccountName")
         var sprAdd = item.getChildByName("sprAdd")
 
         var labelNode = item.getChildByName("labelNode")
         var labAccount = labelNode.getChildByName("labAccount")
-        var sprSuffix = labelNode.getChildByName("sprSuffix")
-        console.log("idx  "+idx+ " this.temp.length  "+this.temp.length);
+       // var sprSuffix = labelNode.getChildByName("sprSuffix")
+        //console.log("idx  "+idx+ " this.temp.length  "+this.temp.length);
         if(this.temp.length > idx){
             sprAdd.active =false;
             labelNode.active = true;
             sprAccountName.active = true;
+            box.active = true;
             let config = G_WithDrawControl.getConfig().getPayItemInfo(this.temp[idx].code)
             this.setSpriteFrame(sprAccountName, this.bankAtlas, config.nameSprite)
             this.setSpriteFrame(box, this.bankAtlas, config.image);
             labAccount.getComponent(cc.Label).string = this.temp[idx].card_number_hidden
-            sprSuffix.active = this.temp[idx].code == "ALIPAY"
+           // sprSuffix.active = this.temp[idx].code == "ALIPAY"
         }else   
         {   // add
             sprAdd.active =true;
             labelNode.active = false;
             sprAccountName.active = false;
+            box.active = false;
         }
-        /*
-        var data = this.temp[idx]
-        var box = item.getChildByName("box");
-        var sprAccountName = item.getChildByName("sprAccountName")
-        var sprAdd = item.getChildByName("sprAdd")
-        sprAdd.active = data.accountType == ACCOUNT_TYPE.NONE;
-
-        var labelNode = item.getChildByName("labelNode")
-        var labAccount = labelNode.getChildByName("labAccount")
-        var sprSuffix = labelNode.getChildByName("sprSuffix")
-        sprSuffix.active = data.accountType == ACCOUNT_TYPE.ALIPAY;
-        console.log("data.accountType  "+data.accountType +"  "+data.bankType)
-        switch ( data.accountType ) {
-            case ACCOUNT_TYPE.NONE:
-                this.setSpriteFrame(box, this.com9sAtlas, "hesiBox");
-                this.setSpriteFrame(sprAccountName, this.caption, "tjzh")
-                labAccount.active = false;
-                labelNode.active = false;
-                sprAccountName.active = false;
-                break;
-            case ACCOUNT_TYPE.ALIPAY:
-                labelNode.active = true;
-                sprAccountName.active = true;
-                this.setSpriteFrame(box, this.bankAtlas, "zfb_panel");
-                this.setSpriteFrame(sprAccountName, this.bankAtlas, "yh"+data.bankType)
-                var strList = this.accountBySeparatorSuffix(data.number)
-                labAccount.getComponent(cc.Label).string = strList[0]
-                break;
-            case ACCOUNT_TYPE.BANK:
-                labelNode.active = true;
-                sprAccountName.active = true;
-                this.setSpriteFrame(box, this.bankAtlas, "yh_panel");
-                this.setSpriteFrame(sprAccountName, this.bankAtlas, "yh"+data.bankType)
-                var str = this.accountBySeparator(data.number)
-                labAccount.getComponent(cc.Label).string = str
-                break;        
-        }
-        */
-    
     }
 
     //更新图案
@@ -194,7 +131,7 @@ export default class ManagePanel extends cc.Component {
         if (!item)
             return;
 
-        // console.log("》》》》》》》》",selectedId,this.temp[selectedId])
+         console.log("》》》》》》》》",selectedId,this.temp[selectedId])
         // var data = this.temp[selectedId]
         // if(data.accountType == ACCOUNT_TYPE.NONE){
         //     this.manageAddNode.active = true;
@@ -202,7 +139,7 @@ export default class ManagePanel extends cc.Component {
         // }
         if(this.temp.length > selectedId)
         {
-
+            this.delNode.active = true;
         }else
         {
             this.manageAddNode.active = true;

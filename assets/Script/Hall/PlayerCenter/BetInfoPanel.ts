@@ -1,6 +1,7 @@
 
 import { G_Language } from '../../Language/Language';
 import List from '../../Common/List';
+import { LoginTab_Type } from '../../Config/IdentifyKey';
 
 const {ccclass, property} = cc._decorator;
 
@@ -48,6 +49,7 @@ export default class BetInfoPanel extends cc.Component {
             let labStr = item.getChildByName("label_"+i)
             labStr.getComponent(cc.Label).string = "cs"+idx;
         }
+        
     }
 
     onRequestData(item: cc.Node, idx: number){

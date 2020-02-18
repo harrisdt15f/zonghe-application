@@ -37,15 +37,14 @@ export default class node extends cc.Component {
     private mimaEditbox = null;      //取款密码
     private mimaAgainEditbox = null; //确认取款密码
 
-    // openAccountSiteName : string = G_Language.get("PleaseEnterYourAccountName")
-    // openAccountSite : string = G_Language.get("PleaseEnterTheAccountOpeningAddress")
-    // bankNum : string = G_Language.get("PleaseEnterTheBankCardNumber")
-    // alipayName : string = G_Language.get("PleaseEnterYourAlipayUserName")
-    // alipayAccount : string = G_Language.get("PleaseEnterAlipayAccount")
-    // againAlipayAccount : string = G_Language.get("PleaseEnterTheAlipayAccountAgain")
-    // mimaString : string = G_Language.get("PleaseEnterWithDrawPassCode")
-    // mimaAgainString : string = G_Language.get("PleaseEnterWithDrawPassCodeAgain")
-
+    BankAccount : string = G_Language.get("BankAccount")
+    PleaseEnterBankAccount : string = G_Language.get("PleaseEnterTheBankCardNumber")
+    alipayAccount : string = G_Language.get("AlipayAccount")
+    PleaseEnterAlipayAccount : string = G_Language.get("PleaseEnterAlipayAccount")
+    mimaString : string = G_Language.get("PleaseEnterWithDrawPassCode")
+    mimaAgainString : string = G_Language.get("PleaseEnterWithDrawPassCodeAgain")
+    PleaseEnterBankName : string = G_Language.get("PleaseEnterYourAccountName")
+    PleaseEnterAlipayName : string = G_Language.get("PleaseEnterYourAlipayUserName")
 
     private typeMenu = null;
     private _myPulldownMenu = null;
@@ -87,6 +86,7 @@ export default class node extends cc.Component {
                    // this.onSelectItem(msg) 
                 }
             }
+            this.onSelectItem();
         });
     }
 
@@ -138,8 +138,8 @@ export default class node extends cc.Component {
         // }
 
         //确定绑定
-        let btnQueDing = this.node.getChildByName("btnQueDing");
-        btnQueDing.on(cc.Node.EventType.TOUCH_END, this.onQueDing.bind(this));
+        // let btnQueDing = this.node.getChildByName("btnQueDing");
+        // btnQueDing.on(cc.Node.EventType.TOUCH_END, this.onQueDing.bind(this));
         // //取消
         // let btnQuXiao = this.node.getChildByName("btnQuXiao");
         // btnQuXiao.on(cc.Node.EventType.TOUCH_END, this.onQuXiao.bind(this));
@@ -158,15 +158,111 @@ export default class node extends cc.Component {
     }
 
     onQueDing(){
-        G_OnFire.fire(uiEventFunction.manage, true);
+        let _name = this.nameEditInfo
+        let _account = this.yhkhEditInfo
+        if(_name === ''){
+            G_UiForms.hint(G_Language.get("nameEmpty"))
+            return;
+        }
+        if(_account === ''){
+            G_UiForms.hint(G_Language.get("accountEmpty"))
+            return;
+        }
+        console.log("_name  ",_name,'  _account',_account)
+        if(this.typeId == 0)   //支付宝
+        {
+            if(G_WithDrawControl.isBindAliPay){
+                G_WithDrawControl.requesAlipayBind(_name,_account,function(ret){
+                    if(ret.status)
+                    {
+                        G_UiForms.hint(G_Language.get("bindSuccess"));
+                        G_OnFire.fire(uiEventFunction.manage, true);
+                    }else
+                    {
+                        G_UiForms.hint(ret.message);
+                    }
+                    console.log("11111111111111111111111",ret.status)
+                }.bind(this));
+            }
+            else
+            {
+                if(this.mimaEditInfo === ''){
+                    G_UiForms.hint(G_Language.get("PasswordIsEmpty"))
+                    return;
+                }
+                if(this.mimaAgainEditInfo === ''){
+                    G_UiForms.hint(G_Language.get("PasswordIsEmpty"))
+                    return;
+                }               
+                if(this.mimaEditInfo != this.mimaAgainEditInfo){
+                    G_UiForms.hint(G_Language.get("PasswordAgainDifference"))
+                    return;
+                }
+                G_WithDrawControl.requesAlipayBindFirst(_name,_account,this.mimaEditInfo,this.mimaAgainEditInfo,function(ret){
+                    if(ret.status)
+                    {
+                        G_UiForms.hint(G_Language.get("bindSuccess"));
+                        G_OnFire.fire(uiEventFunction.manage, true);
+                    }else
+                    {
+                        G_UiForms.hint(ret.message);
+                    }
+                }.bind(this));
+            }
+        }else   //银行卡
+        {
+            if(G_WithDrawControl.isBindBank){
+                G_WithDrawControl.requesBankBind(_name,_account,this.khhEditInfo,this.bankList[this.chooseId].code,this.bankList[this.chooseId].id,function(ret){
+                    if(ret.status)
+                    {
+                        G_UiForms.hint(G_Language.get("bindSuccess"));
+                        G_OnFire.fire(uiEventFunction.manage, true);
+                    }else
+                    {
+                        G_UiForms.hint(ret.message);
+                    }
+                    console.log("11111111111111111111111",ret.status)
+                }.bind(this));
+            }
+            else
+            {
+                if(this.mimaEditInfo === ''){
+                    G_UiForms.hint(G_Language.get("PasswordIsEmpty"))
+                    return;
+                }
+                if(this.mimaAgainEditInfo === ''){
+                    G_UiForms.hint(G_Language.get("PasswordIsEmpty"))
+                    return;
+                }               
+                if(this.mimaEditInfo != this.mimaAgainEditInfo){
+                    G_UiForms.hint(G_Language.get("PasswordAgainDifference"))
+                    return;
+                }
+                G_WithDrawControl.requesBankBindFirst(_name,_account,this.khhEditInfo,this.bankList[this.chooseId].code,this.bankList[this.chooseId].id,
+                    this.mimaEditInfo,this.mimaAgainEditInfo,function(ret){
+                    if(ret.status)
+                    {
+                        G_UiForms.hint(G_Language.get("bindSuccess"));
+                        G_OnFire.fire(uiEventFunction.manage, true);
+                    }else
+                    {
+                        G_UiForms.hint(ret.message);
+                    }
+                }.bind(this));
+            }
+        }
+        //G_OnFire.fire(uiEventFunction.manage, true);
+        
     }
 
     onQuXiao(){
         G_OnFire.fire(uiEventFunction.manage, true);
+
+
     }
 
     onListRender(item: cc.Node, idx: number) {
-        console.log("item.name   "+item.name);
+        console.log("idx   "+idx);
         /*
         let msg = this.bankList[idx]
         if(msg){
@@ -176,64 +272,77 @@ export default class node extends cc.Component {
     }
 
        //当列表项被选择...
-    onListSelected(data : any) {
+    onOneListSelected(data : any) {
         var _types = data.selectedId
         console.log("_types   "+_types);
-        /*
-        let msg = this.bankList[_types]
-        if(msg){
-            this.onSelectItem(msg) 
-        }*/
+        this.typeId = _types;
+        this.onSelectItem() 
     }
-    /*
-    onSelectItem(msg){
-        //银行卡状态
-        this.txt_khm.active = msg.code != "ALIPAY";
-        this.txt_khdz.active = msg.code != "ALIPAY";
-        this.txt_yhkh.active = msg.code != "ALIPAY";
-        // 支付宝状态
-        this.txt_xm.active = msg.code == "ALIPAY";
-        this.txt_zfbzh.active = msg.code == "ALIPAY";
-        this.txt_zh.active = msg.code == "ALIPAY";
-
-        let str1 = msg.code != "ALIPAY" ? this.openAccountSiteName : this.alipayName;
-        let str2 = msg.code != "ALIPAY" ? this.openAccountSite : this.alipayAccount;
-        let str3 = msg.code != "ALIPAY" ? this.bankNum :this.againAlipayAccount;
-
-        this.classNameEditbox.getText().string = str1;
-        this.classDiZiEditbox.getText().string = str2;
-        this.classKaHaoEditbox.getText().string = str3;
-
-        this.txt_mima.active = msg.code == "ALIPAY" ? !G_WithDrawControl.isBindAliPay():!G_WithDrawControl.isBindBank();
-        this.txt_mimaAgain.active = msg.code == "ALIPAY" ? !G_WithDrawControl.isBindAliPay():!G_WithDrawControl.isBindBank();
-        this.mimaEditbox.node.active = msg.code == "ALIPAY" ? !G_WithDrawControl.isBindAliPay():!G_WithDrawControl.isBindBank();
-        this.mimaAgainEditbox.node.active = msg.code == "ALIPAY" ? !G_WithDrawControl.isBindAliPay():!G_WithDrawControl.isBindBank();  
+    //当列表项被选择...
+    onTwoListSelected(data : any) {
+        var _types = data.selectedId
+        console.log("_types   "+_types);
+        this.chooseId = _types;
+        this.onSelectItem() 
     }
-    */
-   //仅处理 下拉列表层级，
-   onClickMenu(target : cc.Node, flag : boolean){
-        if(flag){
-            console.log(" target.name   "+ target.name );
-            
-            // switch ( target.name ) {
-            //     case "menuGrantType":
-            //         this.menuListGrantType.zIndex = 3
-            //         this.menuListGameType.zIndex = 2
-            //         this.menuListGrantState.zIndex = 1
-            //         break;
-            //     case "menuGameType":
-            //         this.menuListGrantType.zIndex = 2
-            //         this.menuListGameType.zIndex = 3
-            //         this.menuListGrantState.zIndex = 1
-            //         break;
-            //     case "menuGrantState":
-            //         this.menuListGrantType.zIndex = 1
-            //         this.menuListGameType.zIndex = 2
-            //         this.menuListGrantState.zIndex = 3
-            //         break;
-            //     default:
-            //         break;
-            // }
+    
+    onSelectItem(){
+        if(this.typeId == 0)   //支付宝
+        {
+            this.txt_khyh.active = false;
+            this.txt_khh.active = false;
+            this.txt_mima.active = !G_WithDrawControl.isBindAliPay();
+            this.txt_mimaAgain.active = !G_WithDrawControl.isBindAliPay();
+            this.nameEditbox.getText().string = this.PleaseEnterAlipayName;
+            this.txt_yhkh.getComponent(cc.Label).string = this.alipayAccount;
+            this.yhkhEditbox.getText().string = this.PleaseEnterAlipayAccount;
+        }else  //银行卡
+        {
+            this.txt_khyh.active = true;
+            this.txt_khh.active = true;
+            this.txt_mima.active = !G_WithDrawControl.isBindBank();
+            this.txt_mimaAgain.active = !G_WithDrawControl.isBindBank();
+            this.nameEditbox.getText().string = this.PleaseEnterBankName;
+            this.txt_yhkh.getComponent(cc.Label).string = this.BankAccount;
+            this.yhkhEditbox.getText().string = this.PleaseEnterBankAccount;
         }
     }
+
+    
+    set nameEditInfo(text : string){
+        this.nameEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
+    }
+    get nameEditInfo(){
+        return this.nameEditbox.getComponent("MyEditbox").getEdiboxComponent().string
+    }
+    
+    set yhkhEditInfo(text : string){
+        this.yhkhEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
+    }
+    get yhkhEditInfo(){
+        return this.yhkhEditbox.getComponent("MyEditbox").getEdiboxComponent().string
+    }
+    
+    set khhEditInfo(text : string){
+        this.khhEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
+    }
+    get khhEditInfo(){
+        return this.khhEditbox.getComponent("MyEditbox").getEdiboxComponent().string
+    }
+    
+    set mimaEditInfo(text : string){
+        this.mimaEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
+    }
+    get mimaEditInfo(){
+        return this.mimaEditbox.getComponent("MyEditbox").getEdiboxComponent().string
+    }
+    
+    set mimaAgainEditInfo(text : string){
+        this.mimaAgainEditbox.getComponent("MyEditbox").getEdiboxComponent().string = text;
+    }
+    get mimaAgainEditInfo(){
+        return this.mimaAgainEditbox.getComponent("MyEditbox").getEdiboxComponent().string
+    }
+
+
 }

@@ -54,14 +54,6 @@ export default class registerPanel extends cc.Component {
     }
 
     onEnable(){
-        /*
-        let name = G_UserControl.getUser().userMobile
-        if(name)
-            this.phoneNumInfo = name
-        let pass = G_UserControl.getUser().userPassword
-        if(pass)
-            this.passwordInfo = pass;
-         */
         this.onCheckVerificationState();    
     }
 

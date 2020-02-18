@@ -37,8 +37,10 @@ export const zh = {
     ],
     PleaseEnterYourAccountName : "请输入您的开户名",
     PleaseEnterTheAccountOpeningAddress : "请输入开户地址",
+    BankAccount:"银行卡号：",
     PleaseEnterTheBankCardNumber: "请输入银行卡号",
     PleaseEnterYourAlipayUserName:"请输入您的支付宝用户名",
+    AlipayAccount:"支付宝账号：",
     PleaseEnterAlipayAccount : "请输入支付宝账号",
     PleaseEnterTheAlipayAccountAgain : "请再次输入支付宝账号",
     PleaseEnterWithDrawPassCode:"请设置取款密码",
@@ -136,6 +138,9 @@ export const zh = {
     payTrueTip:"订单已提交",
     bindEmpty:"您还未绑定银行卡，不能取款",
     withDrawing:"提现已申请",
+    nameEmpty:"名字不能为空",
+    accountEmpty:"账号不能为空",
+    bindSuccess:"绑定成功",
 
 }
 

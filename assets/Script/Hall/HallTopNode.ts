@@ -166,6 +166,7 @@ export default class HallTopNode extends cc.Component {
       }.bind(this));
       */
 
+      /*
        cc.loader.load({url:remoteUrl,type:"png"},function(err,img){
             if(err)
             {
@@ -175,8 +176,37 @@ export default class HallTopNode extends cc.Component {
             //var mylogo  = new cc.SpriteFrame(img); 
             //this.head.spriteFrame = mylogo;
         }.bind(this));
-
+        */
+       
        // this.head.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang"); 
+
+       /*
+        let xhr = cc.loader.getXMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            console.log("data  "+xhr.responseText);
+            if (xhr.readyState === 4 && xhr.status == 200) {
+                //let data = this.doDecode(xhr.responseText);
+                    
+            } 
+            else if (xhr.readyState === 4 && xhr.status == 401) {
+                
+            } 
+        }.bind(this);
+        
+        xhr.open('GET', remoteUrl, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+        xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+        xhr.setRequestHeader('Access-Control-Allow-Credentials','true')
+        //xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,GET');
+        //xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
+        // xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
+        console.log("xhr  "+xhr.status)
+        xhr.timeout = 5000;
+        xhr.send();
+        */
     }
 
     fireUpdateView(){

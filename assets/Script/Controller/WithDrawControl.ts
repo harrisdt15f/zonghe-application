@@ -123,7 +123,10 @@ class WithDrawControl {
         G_HttpHelper.httpPost(RequestEnum.AlipayBind,{"owner_name":name,"card_number":account},function(ret){
            console.log("绑定：返回数据",ret)   
             if(ret.status){
-                //console.log("ret.data   "+ret.data);
+                console.log("0000");
+                this.requesMyAccounts(call);
+            }else
+            {
                 if(call)
                 {
                     call(ret);
@@ -144,8 +147,10 @@ class WithDrawControl {
                 "fund_password_confirmation":passwordAgain
             },  function(ret){
            console.log("绑定：返回数据",ret)   
-            if(ret.status){
-                //console.log("ret.data   "+ret.data);
+           if(ret.status){
+                this.requesMyAccounts(call);
+            }else
+            {
                 if(call)
                 {
                     call(ret);
@@ -167,8 +172,10 @@ class WithDrawControl {
                 "bank_id":bank_id
             },  function(ret){
            console.log("绑定：返回数据",ret)   
-            if(ret.status){
-                //console.log("ret.data   "+ret.data);
+           if(ret.status){
+                this.requesMyAccounts(call);
+            }else
+            {
                 if(call)
                 {
                     call(ret);
@@ -192,8 +199,10 @@ class WithDrawControl {
                 "fund_password_confirmation":passwordAgain
             },  function(ret){
            console.log("绑定：返回数据",ret)   
-            if(ret.status){
-                //console.log("ret.data   "+ret.data);
+           if(ret.status){
+                this.requesMyAccounts(call);
+            }else
+            {
                 if(call)
                 {
                     call(ret);
@@ -212,8 +221,10 @@ class WithDrawControl {
                 "security_code":securityCode,             
             },  function(ret){
            console.log("账户删除：返回数据",ret)   
-            if(ret.status){
-                //console.log("ret.data   "+ret.data);
+           if(ret.status){
+                this.requesMyAccounts(call);
+            }else
+            {
                 if(call)
                 {
                     call(ret);
