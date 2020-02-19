@@ -141,6 +141,7 @@ export const zh = {
     nameEmpty:"名字不能为空",
     accountEmpty:"账号不能为空",
     bindSuccess:"绑定成功",
-
+    balanceError:"金额输入有误",
+    balanceLess:"账户余额不足",
 }
 

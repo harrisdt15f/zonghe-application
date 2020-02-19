@@ -5,6 +5,7 @@ import { CODE } from "../Config/IdentifyKey";
 import { PayConfig } from "../Config/PayConfig";
 import { RequestEnum } from "../Config/RequestConfig";
 import { WithDrawConfig } from "../Config/WithDrawConfig";
+import { G_UserControl } from "./UserControl";
 
 
 class WithDrawControl {
@@ -253,7 +254,7 @@ class WithDrawControl {
      *  提现
      */
     requesWithDraw(amount,bankid,password,call){      
-        G_HttpHelper.httpPost(RequestEnum.AccountDel,
+        G_HttpHelper.httpPost(RequestEnum.WithDraw,
             {
                 "amount":amount,
                 "bank_id":bankid,
@@ -262,10 +263,10 @@ class WithDrawControl {
            console.log("提现：返回数据",ret)   
             if(ret.status){
                 //console.log("ret.data   "+ret.data);
-                if(call)
-                {
-                    call(ret);
-                }
+                G_UserControl.sendspecialPlayerData(call);
+            }else
+            {
+                call(ret);
             }
         }.bind(this))        
     }

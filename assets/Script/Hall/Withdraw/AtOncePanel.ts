@@ -5,6 +5,7 @@ import {uiEventModules, uiEventFunction} from "../../Config/uiEvent"
 import { TEXT_INFO } from '../../Config/IdentifyKey';
 import { G_WithDrawControl } from '../../Controller/WithDrawControl';
 import { G_Language } from '../../Language/Language';
+import { G_UserControl } from '../../Controller/UserControl';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -76,6 +77,10 @@ export default class AtOncePanel extends cc.Component {
         classEdithbox.onDidEndedCallback = function(target) {
             var strName =  classEdithbox.getEdiboxComponent().string 
             console.log("录完》》",typeof(strName))
+            var num = Number(strName)
+            if(!isNaN(num) && num > 0){
+                classEdithbox.getEdiboxComponent().string = num.toFixed(2);
+            }
             //if('number' ==typeof(parseInt(strName)))
         }
         classEdithbox.onTextChangedCallback = function(target) {
@@ -86,6 +91,9 @@ export default class AtOncePanel extends cc.Component {
 
     onEnable()
     {
+        console.log("G_UserControl.getUser().balance  ",typeof(G_UserControl.getUser().balance));
+        
+        this.balance.string = G_UserControl.getUser().balance.toFixed(2);
         G_WithDrawControl.GetMyAccountList(()=>{
             this.accountList = G_WithDrawControl.getConfig().MyAccountList;
             this.showInfo();
@@ -120,7 +128,7 @@ export default class AtOncePanel extends cc.Component {
             if(this.myPulldownMenu){
                 this._myPulldownMenu = this.myPulldownMenu.getComponent("MyPulldownMenu")
                 this._myPulldownMenu.menuData = this.accoutNameList;
-                this.chooseId = this._myPulldownMenu.selectResult.selectedId;
+                //this.chooseId = this._myPulldownMenu.selectResult.selectedId;
                 var selectedText = this._myPulldownMenu.selectResult.text;
                 console.log("选择了什么》》",this.chooseId,selectedText)
             }
@@ -137,10 +145,9 @@ export default class AtOncePanel extends cc.Component {
             return
         }
         var val = this.myEditboxGolde.getComponent("MyEditbox").getEdiboxComponent().string 
-        var money = parseInt(val);
-        console.log(typeof(money));
+        var money = Number(val);
+        console.log(typeof(money),"   ",money);
         //if(money)
-
         var code = '';
         if(this.isSecurityCode)
         {
@@ -155,9 +162,25 @@ export default class AtOncePanel extends cc.Component {
             G_UiForms.hint(G_Language.get("securityisEmpty"))
             return;
         }
-
-        G_WithDrawControl.requesWithDraw(parseInt(val),this.accountList[this.chooseId].id,code,function(ret){
-            G_UiForms.hint(G_Language.get("withDrawing"))
+        if(isNaN(money)){
+            G_UiForms.hint(G_Language.get("balanceError"))
+            return;
+        }
+        if(money > G_UserControl.getUser().balance){
+            G_UiForms.hint(G_Language.get("balanceLess"))
+            return;           
+        }
+        var choose = this._myPulldownMenu.selectResult.selectedId;
+        console.log("choose  ",choose);
+        
+        G_WithDrawControl.requesWithDraw(money,this.accountList[choose].id,code,function(ret){
+            if(ret.status){
+                G_UiForms.hint(G_Language.get("withDrawing"))
+                this.balance.string = G_UserControl.getUser().balance.toString();
+            }else
+            {
+                G_UiForms.hint(ret.message)
+            }
         })
         
     }

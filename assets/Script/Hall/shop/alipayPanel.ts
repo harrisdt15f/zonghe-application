@@ -129,6 +129,11 @@ export default class  alipayPanel extends cc.Component {
             return;
         }
         let val = parseInt(this.NumInfo);
+        if(isNaN(val))
+        {
+            G_UiForms.hint(G_Language.get("balanceError"))
+            return;
+        }
         if(val < this.curData.min)
         {
             G_UiForms.hint(G_Language.get("payMinTip")+this.curData.min);
@@ -148,8 +153,7 @@ export default class  alipayPanel extends cc.Component {
                 switch(ret.data.mode)
                 {
                     case "html":
-                        //document.write(url);    
-                        this.initQrCode(url);                                     
+                        document.write(url);                                                              
                     break;
                     case "qrcode":  //展示二维码
                         this.initQrCode(url);

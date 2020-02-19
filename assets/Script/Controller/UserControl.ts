@@ -365,7 +365,7 @@ class UserControl {
             {
                 this._userModel.richrank =ret.data.rich_rank
                 this._userModel.level = ret.data.level_deep
-                this._userModel.balance = ret.data.balance
+                this._userModel.balance = parseInt(ret.data.balance);
                 this._userModel.exp = ret.data.experience
                 this._userModel.score = ret.data.score
                 //this._userModel.userVipLevel = ret.data.grade
