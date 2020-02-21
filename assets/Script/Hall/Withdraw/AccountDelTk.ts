@@ -24,13 +24,30 @@ export default class AccountDelTk extends cc.Component {
     @property(cc.Label)
     cdTimeLabel : cc.Label = null;  
 
+    private data = null;
     private cd_time = 0;
+    private ver_key = null;
 
     update(dt){
         if(this.cd_time >0){
             this.cd_time -= dt;
             this.onCheckVerificationState();
         }
+    }
+
+    init(_data){
+        if(this.data != null  && this.data.id != _data.id)
+        {
+            this.cd_time = 0;
+            this.cdTimeLabel.string = '发送';            
+        }
+        this.data = _data;
+        //this.nameEditbox.getText().string = this.alipayName;
+        // this.nameEditInfo = "";
+        // this.codeEditInfo = '';
+        // this.nameEditBox.getComponent("MyEditbox").getText().string = G_Language.get("accountNameInput");
+        // this.securyEditBox.getComponent("MyEditbox").getText().string = G_Language.get("serurityInput");
+        // this.codeEditBox.getComponent("MyEditbox").getText().string = G_Language.get("vcodeInput");
     }
 
     onEnable(){
@@ -73,15 +90,15 @@ export default class AccountDelTk extends cc.Component {
         {
             return;
         }
-        G_UserControl.requestVerificationCode(G_UserControl.getUser().userMobile,function(ret){
+        G_WithDrawControl.requesAccountDelVcode(function(ret){
             if(ret.status){
                 G_UiForms.hint(G_Language.get('verificationCodeSend'));
 
-                this.ver_mobile = this.phoneNumInfo;
+               // this.ver_mobile = this.phoneNumInfo;
                 this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
                 this.ver_key = ret.data['verification_key'];
                 // this.ver_code = ret.data['verification_code'];
-                console.log('cd_time  '+ this.cd_time + "  ver_code  " +ret.data['verification_code']);
+              //  console.log('cd_time  '+ this.cd_time + "  ver_code  " +ret.data['verification_code']);
                 this.onCheckVerificationState();   
             }else
             {
@@ -90,8 +107,39 @@ export default class AccountDelTk extends cc.Component {
         }.bind(this))   
     }   
 
-    onBtnTrue(){      
-        G_OnFire.fire(uiEventFunction.manage, true);
+    onBtnTrue(){     
+        if(this.data == null)
+        {
+            return;
+        }
+        if(this.nameEditInfo === ''){
+            G_UiForms.hint(G_Language.get("nameEmpty"))
+            return;
+        }
+        if(this.nameEditInfo != this.data.owner_name){
+            G_UiForms.hint(G_Language.get("nameError"))
+            return;
+        }
+        if(this.securyEditInfo === ''){
+            G_UiForms.hint(G_Language.get("securityisEmpty"))
+            return;
+        }
+        if(this.codeEditInfo === '')
+        {
+            G_UiForms.hint(G_Language.get("verificationIsEmpty"))
+            return;
+        } 
+        console.log("111111111")
+        G_WithDrawControl.requesAccountDel(this.data.id,this.securyEditInfo,this.nameEditInfo,this.codeEditInfo,this.ver_key,function(ret){
+            if(ret.status){
+                G_UiForms.hint(G_Language.get('delSuccess'));
+                G_OnFire.fire(uiEventFunction.manage, true);
+                this.onCheckVerificationState();   
+            }else
+            {
+                G_UiForms.hint(ret.message);
+            }
+        }.bind(this))   
     }
 
     onBtnFalse(){

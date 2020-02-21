@@ -4,6 +4,7 @@ import { ACCOUNT_TYPE ,BANK_CARD_NAME} from "../../Config/config"
 import {uiEventFunction} from "../../Config/uiEvent"
 import List from '../../Common/List';
 import { G_WithDrawControl } from '../../Controller/WithDrawControl';
+import AccountDelTk from './AccountDelTk';
 
 const {ccclass, property} = cc._decorator;
 
@@ -140,6 +141,7 @@ export default class ManagePanel extends cc.Component {
         if(this.temp.length > selectedId)
         {
             this.delNode.active = true;
+            this.delNode.getComponent(AccountDelTk).init( this.temp[selectedId])
         }else
         {
             this.manageAddNode.active = true;

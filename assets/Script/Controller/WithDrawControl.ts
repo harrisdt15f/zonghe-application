@@ -215,11 +215,14 @@ class WithDrawControl {
     /**
      *  账户管理-账户删除
      */
-    requesAccountDel(cardid,securityCode,call){      
+    requesAccountDel(cardid,securityCode,name,vcode,vcodeKey,call){      
         G_HttpHelper.httpPost(RequestEnum.AccountDel,
             {
                 "card_id":cardid,
-                "security_code":securityCode,             
+                "security_code":securityCode,  
+                "owner_name":name,
+                "verification_code":vcode,    
+                "verification_key":vcodeKey,     
             },  function(ret){
            console.log("账户删除：返回数据",ret)   
            if(ret.status){
@@ -233,6 +236,20 @@ class WithDrawControl {
             }
         }.bind(this))        
     }
+
+        /**
+     *  账户管理-账户删除获取手机验证码
+     */
+    requesAccountDelVcode(call){      
+        G_HttpHelper.httpPost(RequestEnum.AccountDelCode,null,  function(ret){
+           console.log("验证码：返回数据",ret)   
+           if(call)
+           {
+               call(ret);
+           }
+        }.bind(this))        
+    }
+
 
     /**
      *  检查是否设置取款密码

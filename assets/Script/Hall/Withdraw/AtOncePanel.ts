@@ -176,12 +176,12 @@ export default class AtOncePanel extends cc.Component {
         G_WithDrawControl.requesWithDraw(money,this.accountList[choose].id,code,function(ret){
             if(ret.status){
                 G_UiForms.hint(G_Language.get("withDrawing"))
-                this.balance.string = G_UserControl.getUser().balance.toString();
+                this.balance.string = G_UserControl.getUser().balance.toFixed(2);
             }else
             {
                 G_UiForms.hint(ret.message)
             }
-        })
+        }.bind(this)
         
     }
     onDestroy(){

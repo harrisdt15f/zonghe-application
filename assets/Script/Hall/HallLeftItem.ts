@@ -35,6 +35,8 @@ export default class HallLeftItem extends cc.Component {
     init(data,fback){
         this.back = fback;
         this.index = data.type_id;
+        console.log("index ",this.index);
+        
         this.pathList = G_CommonControl.getCommonConfig().getJsonPath(this.index)
          this.icon.spriteFrame = this.iconAtlas.getSpriteFrame(this.pathList.icon)
         this.normalImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(this.pathList.normalText);

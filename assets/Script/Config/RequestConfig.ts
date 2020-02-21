@@ -32,6 +32,7 @@ export enum RequestEnum{
     BankBindFirst ="BankBindFirst",
     Accounts ="Accounts",
     AccountDel ="AccountDel",
+    AccountDelCode = "AccountDelCode",
     DrawCheck ="DrawCheck",
     WithDraw ="WithDraw",
     //6
@@ -79,7 +80,8 @@ export  class RequestConfig {
         BankBind : {url:"/app-api/account/bank-card/binding",cdTime:1,sendTime:0,},
         BankBindFirst : {url:"/app-api/account/bank-card/first-binding",cdTime:1,sendTime:0,},
         Accounts : {url:"/app-api/account/list",cdTime:1,sendTime:0,},
-        AccountDel : {url:"/app-api/account/destroy",cdTime:1,sendTime:0,},
+        AccountDel : {url:"/app-api/account/destroy",cdTime:2,sendTime:0,},
+        AccountDelCode : {url:"/app-api/account/destroy/verification-code",cdTime:2,sendTime:0,},
         DrawCheck : {url:"/app-api/account/fund-password/check",cdTime:1,sendTime:0,},
         WithDraw : {url:"/app-api/account/withdraw",cdTime:1,sendTime:0,},
         //6

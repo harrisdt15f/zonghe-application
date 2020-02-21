@@ -143,5 +143,11 @@ export const zh = {
     bindSuccess:"绑定成功",
     balanceError:"金额输入有误",
     balanceLess:"账户余额不足",
+    delSuccess:"删除成功",
+    nameError:"姓名输入有误",
+    accountNameInput:"请输入该账户姓名",
+    serurityInput:"请输入安全码",
+    vcodeInput:"请输入验证码",
+
 }
 
