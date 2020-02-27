@@ -12,6 +12,7 @@ class UiForms{
     private _node : cc.Node = null;
     private _uiNode :　cc.Node = null;
     private _tipsNode : cc.Node = null;
+    private _webNode : cc.Node = null;
 
     private _showBox : cc.Node = null;
     private _tempBox : cc.Node = null;
@@ -30,6 +31,7 @@ class UiForms{
         this._node = node
         this._uiNode = node.getChildByName("UiNode")
         this._tipsNode = node.getChildByName("TipsNode")
+        this._webNode = node.getChildByName("WebNode")
     }
 
     /**
@@ -87,6 +89,13 @@ class UiForms{
         let tips : cc.Node = this._tipsNode.getChildByName("TipsNode")
         let _tips = tips.getComponent("TipsNode")
         _tips.textString = _text
+    }
+    Web(url : string){
+        if(!this._webNode)
+            return;
+        this._webNode.active = true; 
+        let web = this._webNode.getComponent("WebNode")
+        web.init(url)
     }
 }
 

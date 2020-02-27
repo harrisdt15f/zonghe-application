@@ -92,8 +92,10 @@ export default class AtOncePanel extends cc.Component {
     onEnable()
     {
         console.log("G_UserControl.getUser().balance  ",typeof(G_UserControl.getUser().balance));
-        
-        this.balance.string = G_UserControl.getUser().balance.toFixed(2);
+        if(G_UserControl.getUser().balance)
+        {
+            this.balance.string = G_UserControl.getUser().balance.toFixed(2); 
+        }
         G_WithDrawControl.GetMyAccountList(()=>{
             this.accountList = G_WithDrawControl.getConfig().MyAccountList;
             this.showInfo();

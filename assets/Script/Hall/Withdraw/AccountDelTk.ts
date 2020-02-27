@@ -108,6 +108,7 @@ export default class AccountDelTk extends cc.Component {
     }   
 
     onBtnTrue(){     
+        //G_UiForms.Web("https://blog.k-res.net/archives/2428.html")
         if(this.data == null)
         {
             return;
@@ -129,7 +130,6 @@ export default class AccountDelTk extends cc.Component {
             G_UiForms.hint(G_Language.get("verificationIsEmpty"))
             return;
         } 
-        console.log("111111111")
         G_WithDrawControl.requesAccountDel(this.data.id,this.securyEditInfo,this.nameEditInfo,this.codeEditInfo,this.ver_key,function(ret){
             if(ret.status){
                 G_UiForms.hint(G_Language.get('delSuccess'));

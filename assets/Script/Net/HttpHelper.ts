@@ -1,6 +1,6 @@
 
 
-import {URL} from "../Config/config"
+import {URL, DNS} from "../Config/config"
 import { G_UserControl } from '../Controller/UserControl';
 //import { context } from "../../../packVersion/ver_1_0.0.0/src/cocos2d-jsb";
 import CryptoJS  = require('../Common/CryptoJS')
@@ -68,6 +68,8 @@ class HttpHelper {
         //xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
         // xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+        xhr.setRequestHeader('JHReferer', DNS);
         xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
 
         // xhr.setRequestHeader('Authorization', 'Bearer ' + "");
@@ -114,11 +116,19 @@ class HttpHelper {
         console.log("[HTTP>POST]:URL>>>>>>>>>>>>>>>>>",URL+url," params "+JSON.stringify(params) )
         xhr.open('POST', URL+url, true);
         // if (cc.sys.isNative) {
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
-        xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
+        // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+       //xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
+       //xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with');
         xhr.setRequestHeader("Content-Type", "application/json");
-         xhr.setRequestHeader('Authorization', 'Bearer ' + G_UserControl.getUser().accessToken);
+ 
+        xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+        //xhr.setRequestHeader("Accept", "application/json");
+       // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader('JHReferer', DNS);
+        if(G_UserControl.getUser().accessToken)
+        {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + G_UserControl.getUser().accessToken);
+        }
         // }
         // note: In Internet Explorer, the timeout property may be set only after calling the open()
         // method and before calling the send() method.
@@ -165,11 +175,13 @@ class HttpHelper {
         console.log("[HTTP>POST]:URL>>>>>>>>>>>>>>>>>",URL+url," params "+JSON.stringify(params) )
         xhr.open('PUT', URL+url, true);
         // if (cc.sys.isNative) {
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+       // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
         xhr.open('PUT', URL+url, true);
-        xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,GET, POST');
-        xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
+        //xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,GET, POST');
+        //xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
         xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+        xhr.setRequestHeader('JHReferer', DNS);
          xhr.setRequestHeader('Authorization', 'Bearer ' + G_UserControl.getUser().accessToken);
         // }
         // note: In Internet Explorer, the timeout property may be set only after calling the open()
@@ -219,7 +231,9 @@ class HttpHelper {
     /**
      * AES加密数组 传入参数为需要传递的数组JSON
      */
-    AES_encrypt(data,KEY,IV,pkcs8_public) {              
+    AES_encrypt(data,KEY,IV,pkcs8_public) {       
+        console.log("typeof data   ",typeof(data));
+               
         var key_utf8 = CryptoJS.enc.Utf8.parse(KEY);// 秘钥
         var iv_utf8= CryptoJS.enc.Utf8.parse(IV);//向量iv
           let srcs = ''
