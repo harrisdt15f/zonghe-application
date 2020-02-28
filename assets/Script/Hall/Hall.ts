@@ -80,9 +80,9 @@ export default class Hall extends cc.Component {
         
         if(G_CommonControl.getCommonConfig().getGameSub(this.curLeftIndex) == null)
         {
-            G_CommonControl.requesGameDetailData(this.curLeftIndex,()=>{
-                this.onShowRightInfo();
-            });
+            // G_CommonControl.requesGameDetailData(this.curLeftIndex,()=>{
+            //     this.onShowRightInfo();
+            // });
         }else
         {
             this.onShowRightInfo();

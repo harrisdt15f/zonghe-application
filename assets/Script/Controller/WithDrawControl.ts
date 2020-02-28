@@ -287,6 +287,23 @@ class WithDrawControl {
             }
         }.bind(this))        
     }
+  
+    /**
+     *  提现记录
+     */
+    requesWithDrawRecord(call){      
+        G_HttpHelper.httpPost(RequestEnum.WithDrawRecord,
+            {
+                "type":3,           
+            },  function(ret){
+           console.log("提现记录：返回数据",ret)   
+            if(ret.status){
+                this.getConfig().RecordList = ret.data.data;
+                console.log("ret.data.data.length   "+ret.data.data.length);
+                call(ret);
+            }
+        }.bind(this))        
+    }
 
 }
 

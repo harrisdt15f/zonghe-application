@@ -43,6 +43,7 @@ export enum RequestEnum{
     PayInfo = "PayInfo",
     PayCancel = "PayCancel",
     PayTrue = "PayTrue",
+    WithDrawRecord = "WithDrawRecord",
 }
 
 export  class RequestConfig {
@@ -84,6 +85,7 @@ export  class RequestConfig {
         AccountDelCode : {url:"/app-api/account/destroy/verification-code",cdTime:2,sendTime:0,},
         DrawCheck : {url:"/app-api/account/fund-password/check",cdTime:1,sendTime:0,},
         WithDraw : {url:"/app-api/account/withdraw",cdTime:1,sendTime:0,},
+        WithDrawRecord : {url:"/app-api/account/report",cdTime:3,sendTime:0,},
         //6
         Security : {url:"/app-api/user/security-code",cdTime:1,sendTime:0,},
         SecurityCode : {url:"/app-api/security-verification-code",cdTime:1,sendTime:0,},

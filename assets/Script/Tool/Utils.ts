@@ -157,7 +157,10 @@
             return s;
         }
     }
-
+    /**
+     * 倒计时转换为时间
+     * @param secondTime 秒数
+     *  **/
     getDateTimeStr(secondTime)
     {
         var minuteTime = 0;// 分
@@ -185,6 +188,10 @@
         console.log(resultTime);
         return resultTime;
     }
+    /**
+     * 倒计时转换为时间
+     * @param secondTime 秒数
+     *  **/
     getDateTimeStrTwo(secondTime)
     {
         var minuteTime = 0;// 分
@@ -211,6 +218,47 @@
         }
         return resultTime;
     }
+
+    /**
+     * 时间戳转时间
+     * @param second 时间戳
+     */
+    getDateTimeStrThree(date)
+    {
+        let yyyy = date.getFullYear() + '-';
+
+        let MM = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+
+        let dd = date.getDate() + ' ';
+
+        let HH = date.getHours() + ':';
+
+        let mm = date.getMinutes() + ':';
+
+        let ss = date.getSeconds();
+
+        let str = yyyy + MM + dd + HH + mm + ss
+        console.log("str  "+str); 
+        return str;
+    }
+
+
+    //获取指定时间的时间戳, n 天数
+    getCurTimeDate(n)
+    {
+        var curData = new Date();
+        curData.setDate(curData.getDate()+n); //
+        console.log(" d ",curData);
+
+        let str = this.getDateTimeStrThree(curData);
+        console.log("str  "+str);
+        
+        return str;
+        
+       // curDate = moment(curDate).unix();
+    }
+
+
 
 
     //整数
