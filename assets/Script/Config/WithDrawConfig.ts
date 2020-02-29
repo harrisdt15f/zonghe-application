@@ -182,13 +182,6 @@ export  class WithDrawConfig {
                 }  
             }
         });
-        list.push(list[0]);
-        list.push(list[0]);
-        list.push(list[0]);
-        list.push(list[0]);
-        list.push(list[0]);
-        list.push(list[0]);
-
         return list;
     }
 

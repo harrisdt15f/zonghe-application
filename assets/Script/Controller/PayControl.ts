@@ -94,7 +94,22 @@ class PayControl {
         }.bind(this))
         
     }
-
+    /**
+     *  账户记录
+     */
+    requesAccountRecord(call){      
+        G_HttpHelper.httpPost(RequestEnum.AccountRecord,
+            {
+                "type":3,           
+            },  function(ret){
+           console.log("账户记录：返回数据",ret)   
+            if(ret.status){
+                this.getPayConfig().AccountRecordList = ret.data.data;
+                console.log("ret.data.data.length   "+ret.data.data.length);
+                call(ret);
+            }
+        }.bind(this))        
+    }
 }
 
 

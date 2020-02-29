@@ -24,6 +24,7 @@ export enum RequestEnum{
     VIP ="VIP",
     Promotion ="Promotion",
     Weekly ="Weekly",
+    AccountRecord = "AccountRecord",
     //5
     Banks ="Banks",
     AlipayBind ="AlipayBind",
@@ -74,6 +75,7 @@ export  class RequestConfig {
         VIP : {url:"/app-api/user/grades",cdTime:1,sendTime:0,},
         Promotion : {url:"/app-api/user/promotion-gifts",cdTime:1,sendTime:0,},
         Weekly : {url:"/app-api/user/weekly-gifts",cdTime:1,sendTime:0,},
+        AccountRecord : {url:"/app-api/account/report??",cdTime:1,sendTime:0,},
         //5
         Banks : {url:"/app-api/system/banks",cdTime:1,sendTime:0,},
         AlipayBind : {url:"/app-api/account/alipay/binding",cdTime:1,sendTime:0,},

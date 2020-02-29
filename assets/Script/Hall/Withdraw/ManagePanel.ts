@@ -139,8 +139,12 @@ export default class ManagePanel extends cc.Component {
         //     //this.list.node.active = false;
         // }
         if(this.temp.length > selectedId)
-        {
+        {           
             this.delNode.active = true;
+            var s1 = cc.scaleTo(0.1, 1.1)
+            var s2 = cc.scaleTo(0.1, 1)
+            var seq = cc.sequence(s1,s2)
+            this.delNode.runAction(seq)
             this.delNode.getComponent(AccountDelTk).init( this.temp[selectedId])
         }else
         {

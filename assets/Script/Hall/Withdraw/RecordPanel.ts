@@ -37,13 +37,6 @@ export default class RecordPanel extends cc.Component {
     @property(cc.Label)
     detail_DescText:cc.Label = null;
 
-
-
-
-
-
-
-
     // private classMenu = null;
     private _typeMenu = null;
     private _stateMenu = null;
@@ -62,6 +55,14 @@ export default class RecordPanel extends cc.Component {
         if(this.typeList){
             this._typeMenu = this.typeList.getComponent("MyPulldownMenu")
             this._typeMenu.menuData = G_Language.get("withDrawTypeList")
+            let _length = G_Language.get("withDrawTypeList").length
+            if(_length >=8)
+            {
+                this._typeMenu.list.node.height = 37 * 8;
+            }else
+            {
+                this._typeMenu.list.node.height = _length > 0 ? (37*_length):37;
+            }
             var selectedId = this._typeMenu.selectResult.selectedId;
             var selectedText = this._typeMenu.selectResult.text;
             console.log("选择了什么》》",selectedId,selectedText)
@@ -69,6 +70,14 @@ export default class RecordPanel extends cc.Component {
         if(this.stateList){
             this._stateMenu = this.stateList.getComponent("MyPulldownMenu")
             this._stateMenu.menuData = G_Language.get("withDrawStateList")
+            let _length = G_Language.get("withDrawStateList").length
+            if(_length >=8)
+            {
+                this._stateMenu.list.node.height = 37 * 8;
+            }else
+            {
+                this._stateMenu.list.node.height = _length > 0 ? (37*_length):37;
+            }
             var selectedId = this._stateMenu.selectResult.selectedId;
             var selectedText = this._stateMenu.selectResult.text;
             console.log("选择了什么》》",selectedId,selectedText)
@@ -223,7 +232,6 @@ export default class RecordPanel extends cc.Component {
             var cur = this.curList[idx]
             this.mainObj.active = false;
             this.detailObj.active = true;
-            console.log("cur  ",cur);
             this.detail_MoneyText.string = parseInt(cur.amount).toFixed(2);
             this.detail_OrderText.string = cur.order_no.toString();
             this.detail_StateText.string = G_WithDrawControl.getConfig().ServerStateConfig[cur.status].name;
