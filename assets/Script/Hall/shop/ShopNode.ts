@@ -4,6 +4,7 @@ import alipayPanel from "./alipayPanel";
 //import wechatpayPanel from "./wechatpayPanel";
 //import ebankPanel from "./eBankPanel";
 import abankPanel from "./abankPanel";
+import PayRecordPanel from "./PayRecordPanel";
 import { G_RequestControl } from "../../Controller/RequestControl";
 import { RequestEnum } from "../../Config/RequestConfig";
 
@@ -94,6 +95,13 @@ export default class ShopNode extends cc.Component {
             leftInfo["data"] = this.offlineList;
             this.leftList.push(leftInfo);
         }
+        //充值记录
+        let leftInfoTwo = {};
+        leftInfoTwo["is_online"] = -1;
+        leftInfoTwo["config"] = G_PayControl.getPayConfig().getPayItemInfo("record");
+        leftInfoTwo["data"] = null;
+        this.leftList.push(leftInfoTwo);
+    
         if(this.leftList.length > 0)
         {
             this.showLeft();
@@ -170,13 +178,23 @@ export default class ShopNode extends cc.Component {
                         this.nonePanel.active = true;                      
                     }
                 }
-            }  else     //线下
+            }
+            else if(this.curLeftData.is_online == 0)    //线下
             {
                 if(element.name == this.curLeftData.config.panel)
                 {
                     element.active = true;
                     let script = element.getComponent(abankPanel); 
                     script.init(this.curLeftData);
+                }
+            }
+            else  //充值记录
+            {
+                if(element.name == this.curLeftData.config.panel)
+                {
+                    element.active = true;
+                   // let script = element.getComponent(PayRecordPanel); 
+                   // script.init(this.curLeftData);
                 }
             }
         });

@@ -67,6 +67,13 @@ export const zh = {
         "提款失败",     
     ],
 
+    payStateList:[   
+        "全部",         
+        "未支付",       // recharge_status = 0
+        "已支付/审核中",   //recharge_status = 1 && status = 0
+        "充值成功",        //recharge_status = 1 && status = 1
+    ],  
+
 
     PleaseEnterYourAccountName : "请输入您的开户名",
     PleaseEnterTheAccountOpeningAddress : "请输入开户地址",

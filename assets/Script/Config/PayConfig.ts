@@ -6,6 +6,7 @@ export  class PayConfig {
     private payTabAtlasList = {
         //线下支付
         "offline":{"name":"官方充值","is_online":0,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"abankPanel"}, //官方充值
+        "record":{"name":"充值记录","is_online":-1,"normalText":"subtitle_chongzijilu_0","specialText":"subtitle_chongzijilu_1","icon":"leftic6","panel":"recordPanel"}, //充值记录       
         "alipay_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //支付宝转账
         "bank_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //银行卡转账
         "wechat_transfer":{"name":"","is_online":0,"normalText":"subtitle_zhifubaocongzhi_0","specialText":"subtitle_zhifubaocongzhi_1","icon":"leftic1","panel":"payPanel"}, //微信转账
@@ -23,6 +24,8 @@ export  class PayConfig {
         4:{"name":"","is_online":1,"normalText":"subtitle_vipchongzhi_0","specialText":"subtitle_vipchongzhi_1","icon":"leftic5","panel":"nonePanel"},     //VIP充值
         5:{"name":"","is_online":1,"normalText":"subtitle_chongzijilu_0","specialText":"subtitle_chongzijilu_1","icon":"leftic6","panel":"topUpListPanel"},     //充值记录  
     }
+
+
 
     /** serverConfig
      * 
@@ -64,31 +67,7 @@ export  class PayConfig {
 
     private accountTypeNameList = [];
     private accountSignList = [];
-
-    public getCurAccoutSignValue(sign)
-    {
-        if(this.accountSignList[sign])
-        {
-            let str =  G_Language.get(this.accountTypeList[sign].name);
-            return str;
-        }
-        return "";
-    }
-
-    public getAccountTypeValueList()
-    {
-        if(this.accountTypeNameList.length <= 0)
-        {
-            for(var k in this.accountTypeList)
-            {
-                let str = G_Language.get(this.accountTypeList[k].name);
-                this.accountTypeNameList.push(str);   
-                this.accountSignList.push(k);   
-            } 
-        }
-       return this.accountTypeNameList;
-    }
-
+    
     public getCurAccountSign(index)
     {
         if(this.accountSignList.length <= 0)
@@ -107,6 +86,29 @@ export  class PayConfig {
         return null;
     }
 
+    public getAccountTypeValueList()
+    {
+        if(this.accountTypeNameList.length <= 0)
+        {
+            for(var k in this.accountTypeList)
+            {
+                let str = G_Language.get(this.accountTypeList[k].name);
+                this.accountTypeNameList.push(str);   
+                this.accountSignList.push(k);   
+            } 
+        }
+       return this.accountTypeNameList;
+    }
+    
+    public getCurAccoutSignValue(sign)
+    {
+        if(this.accountTypeList[sign])
+        {
+            let str =  G_Language.get(this.accountTypeList[sign].name);
+            return str;
+        }
+        return "";
+    }
 
    public payMoneyList = [10,50,100,200,300,500,1000,5000];
 
@@ -156,6 +158,47 @@ export  class PayConfig {
         });
         return list;
     }
+    public getPayRecordListInfo(_type,beginTime,endTime){
+        if(this.PayRecordList == null || this.PayRecordList.length <= 0)
+        {
+            return [];
+        }
+        console.log("this.PayRecordList.length     ",this.PayRecordList.length);
+        console.log("_type     ",_type);
+        console.log("beginTime     ",beginTime);
+        console.log("endTime     ",endTime);
+        let list = [];
+        this.PayRecordList.forEach(item=>{
+            let curTime = Date.parse(item.created_at)
+            if(curTime >= beginTime && curTime <= endTime)
+            {
+                if(_type == 0)
+                {
+                    list.push(item);
+                }
+                else  if(_type == 1 && item.recharge_status == 0)
+                {
+                    list.push(item);
+                
+                }
+                else  if(_type == 2 && item.recharge_status == 1 && item.status == 0)
+                {
+                    list.push(item);
+                
+                }
+                else  if(_type == 3 && item.recharge_status == 1 && item.status == 1)
+                {
+                    list.push(item);
+                
+                }
+                else
+                {
+                    //empty
+                }  
+            }
+        });
+        return list;
+    }
 
 
     //充值分类
@@ -188,5 +231,14 @@ export  class PayConfig {
     }
     public set AccountRecordList(data:[]){
         this._recordList = data;
+    }   
+
+    //充值记录列表
+    private _payrecordList:[] = null;
+    public get PayRecordList(){
+        return this._payrecordList;
+    }
+    public set PayRecordList(data:[]){
+        this._payrecordList = data;
     }   
 }

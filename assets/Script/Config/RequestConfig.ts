@@ -36,6 +36,7 @@ export enum RequestEnum{
     AccountDelCode = "AccountDelCode",
     DrawCheck ="DrawCheck",
     WithDraw ="WithDraw",
+    WithDrawRecord = "WithDrawRecord",
     //6
     Security ="Security",
     SecurityCode ="SecurityCode",
@@ -44,7 +45,7 @@ export enum RequestEnum{
     PayInfo = "PayInfo",
     PayCancel = "PayCancel",
     PayTrue = "PayTrue",
-    WithDrawRecord = "WithDrawRecord",
+    PayRecord = "PayRecord",
 }
 
 export  class RequestConfig {
@@ -96,6 +97,7 @@ export  class RequestConfig {
         PayInfo : {url:"/app-api/recharge/get-finance-info",cdTime:1,sendTime:0,},
         PayCancel : {url:"/app-api/recharge/cancel",cdTime:1,sendTime:0,},
         PayTrue : {url:"/app-api/recharge/confirm",cdTime:1,sendTime:0,},
+        PayRecord : {url:"/app-api/account/report?",cdTime:1,sendTime:0,},
     }
 
     public getURL(str)
