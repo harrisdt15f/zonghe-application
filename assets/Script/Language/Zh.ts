@@ -169,6 +169,7 @@ export const zh = {
     recoverSuccess : "密码找回成功! ",   //密码找回成功
     securityCodeSuccess : "安全码设置成功! ",   //安全码设置成功   
     nameChangeSuccess : "改名成功! ",   //改名成功  
+    picChangeSuccess : "头像修改成功! ",   //头像修改成功  
     rank_title1:"盈利榜",
     rank_title2:"富豪榜",
     payMinTip:"单笔充值金额不得低于",

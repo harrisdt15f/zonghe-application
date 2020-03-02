@@ -345,12 +345,12 @@ class UserControl {
 
     sendnormalInfoPlaydata(call){
         G_HttpHelper.httpGet(RequestEnum.Information, function(ret){
-            //console.log("[玩家信息]：1返回数据",ret); 
+            console.log("[玩家信息]：1返回数据",ret); 
             if(ret.status && ret.code == CODE.SUCCEED)
             {
                 this._userModel.userName = ret.data.nickname
                 this._userModel.uid = ret.data.guid
-                this._userModel.usePic =ret.data.avatar
+                this._userModel.usePic =ret.data.avatar_id
                // console.log("pic "+this._userModel.usePic)
             }
            // G_OnFire.fire(EventRequest.HeadUpdata)          
@@ -361,7 +361,7 @@ class UserControl {
     sendspecialPlayerData(call){
         G_HttpHelper.httpGet(RequestEnum.DynamicInfo, function(ret){
             console.log("[玩家信息]：2返回数据",ret); 
-            if(ret.status && ret.code == CODE.SUCCEED)
+            if(ret.status)
             {
                 this._userModel.richrank =ret.data.rich_rank
                 this._userModel.level = ret.data.level_deep
@@ -389,7 +389,7 @@ class UserControl {
             nickname:name,
         }, function(ret){
             console.log("[更改信息]：1返回数据",ret); 
-            if(ret.status && ret.code == CODE.SUCCEED)
+            if(ret.status)
             {
                 this._userModel.userName = name
                 this._userModel.usePic = pic
@@ -408,7 +408,7 @@ class UserControl {
    requestAccesstoken(call? : Function ){
     G_HttpHelper.httpPut(RequestEnum.RefreshToken,null, function(ret){
         console.log("[刷新token]：返回数据",ret)    
-        if(ret.status && ret.code == CODE.SUCCEED){
+        if(ret.status){
             //保存登陆名称，密码
             this._userModel.accessToken = ret.data["access_token"];
             if(call){

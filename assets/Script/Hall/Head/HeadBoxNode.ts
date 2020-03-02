@@ -1,12 +1,12 @@
 
 
 import { G_OnFire } from '../../Net/OnFire';
-// import { UI_EVENT_STATE } from '../../Config/uiEvent';
+ import {uiEventFunction } from '../../Config/uiEvent';
 import { headNum } from '../../Config/config';
-import { G_HttpHelper } from "../../Net/HttpHelper";
-import {EventRequest} from "../../Config/uiEvent";
-import { CODE } from "../../Config/IdentifyKey";
-import { RequestEnum } from '../../Config/RequestConfig';
+
+import { G_UserControl } from '../../Controller/UserControl';
+import { G_UiForms } from '../../Tool/UiForms';
+import { G_Language } from '../../Language/Language';
 
 const {ccclass, property} = cc._decorator;
 @ccclass
@@ -26,11 +26,11 @@ export default class HeadBoxNode extends cc.Component {
     private selectIdx : number = 0;
 
     onLoad () {
-        G_HttpHelper.httpGet(RequestEnum.Avatar, function(ret){
-            console.log("app-api/user/system-avatar数据",ret); 
+        // G_HttpHelper.httpGet(RequestEnum.Avatar, function(ret){
+        //     console.log("app-api/user/system-avatar数据",ret); 
 
-            G_OnFire.fire(EventRequest.HeadUpdata)
-        }.bind(this))
+        //     G_OnFire.fire(EventRequest.HeadUpdata)
+        // }.bind(this))
     }
 
     start () {
@@ -40,13 +40,20 @@ export default class HeadBoxNode extends cc.Component {
         content.removeAllChildren()
 
         this.selectBox = cc.instantiate(this.headSelect)
-
+        let cur = parseInt(G_UserControl.getUser().usePic);
+        if(!isNaN(cur) && cur > 0)
+        {
+           // cur = cur;
+        }else
+        {
+            cur = 1;
+        }
         for (let index = 1; index <= headNum; index++) {
             let piece = cc.instantiate(this.headImage)
             piece.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang"+index)
             piece.parent =  content;
             piece.name = "heand_"+index;
-            if (index == 1){
+            if (index == cur){
                 this.selectIdx = index;
                 this.tmpSelectBox = piece;
                 this.selectBox.setPosition(cc.v2(0,0))
@@ -74,8 +81,21 @@ export default class HeadBoxNode extends cc.Component {
     }
 
     onTiJiao(){
-        // G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_replace, this.selectIdx);
+         //G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_replace, this.selectIdx);
         // G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_colse);
+        console.log("selectIdx  ",this.selectIdx);
+        
+        G_UserControl.requesPlayerChange(G_UserControl.getUser().userName,this.selectIdx,function(ret){
+            if(ret.status)
+            {
+                G_UiForms.hint(G_Language.get("picChangeSuccess"));
+                G_OnFire.fire(uiEventFunction.colseBox);
+            }else
+            {
+                G_UiForms.hint(ret.message);
+            }
+
+        }.bind(this));
     }
 
     onDestroy(){

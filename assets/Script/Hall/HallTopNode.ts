@@ -221,8 +221,18 @@ export default class HallTopNode extends cc.Component {
             this.setVIP(G_UserControl.getUser().level);
 
             let pic = G_UserControl.getUser().usePic;
+            console.log("pic  ",pic);
+            
+            let index = parseInt(pic)
+            if(!isNaN(index) && index >0)
+            {
+                this.head.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang" + index);
+            }else
+            {
+                this.head.getComponent(cc.Sprite).spriteFrame =this.headAtlas.getSpriteFrame("touxiang1");
+            }
 
-           //this.onReplaceHead(pic)
+          // this.onReplaceHead(pic)
            /*
            this.loadNative(pic,(o)=>{
             this.head.spriteFrame = o;
@@ -327,7 +337,7 @@ export default class HallTopNode extends cc.Component {
                 callback(newframe);
             } 
             else if (xhr.readyState === 4 && xhr.status == 401) {
-                callback({status:401});
+              //  callback({status:401});
             } 
         };
 
@@ -336,11 +346,9 @@ export default class HallTopNode extends cc.Component {
         xhr.open('GET', Url, true);
  
         // if (cc.sys.isNative) {
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,POST,GET,OPTIONS');
-        xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
-         xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
         xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+        //xhr.setRequestHeader('JHReferer', DNS);
         xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
 
         // xhr.setRequestHeader('Authorization', 'Bearer ' + "");
@@ -351,7 +359,7 @@ export default class HallTopNode extends cc.Component {
         xhr.send();
         
      }
-        */
+    */
 
 
 }
