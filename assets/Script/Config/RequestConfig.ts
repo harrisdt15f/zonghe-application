@@ -73,7 +73,7 @@ export  class RequestConfig {
         Information : {url:"/app-api/user/information",cdTime:1,sendTime:0,},
         DynamicInfo : {url:"/app-api/user/dynamic-information",cdTime:1,sendTime:0,},
         UpdateInfo : {url:"/app-api/user/information",cdTime:0,sendTime:0,},
-        VIP : {url:"/app-api/user/grades",cdTime:1,sendTime:0,},
+        VIP : {url:"/app-api/user/check-benefits",cdTime:1,sendTime:0,},
         Promotion : {url:"/app-api/user/promotion-gifts",cdTime:1,sendTime:0,},
         Weekly : {url:"/app-api/user/weekly-gifts",cdTime:1,sendTime:0,},
         AccountRecord : {url:"/app-api/account/report??",cdTime:1,sendTime:0,},

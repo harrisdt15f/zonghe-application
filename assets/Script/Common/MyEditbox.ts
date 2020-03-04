@@ -83,7 +83,7 @@ export default class MyEditbox extends cc.Component {
         return this.text;
     }
 
-    // getTEXTLABEL(){
-    //     return this.myEditBox.node.getChildByName("TEXT_LABEL")
-    // }
+    getTEXTLABEL(){
+        return this.myEditBox.node.getChildByName("TEXT_LABEL")
+    }
 }

@@ -106,7 +106,7 @@ export default class PersonalPanel extends cc.Component {
         }.bind(this)
         // onDidEndedCallback
 
-        this.list.skipPage(G_UserControl.getUser().userVipLevel, .1);
+        //this.list.skipPage(G_UserControl.getUser().userVipLevel, .1);
         this.labelName0.active = true;
         this.myEditbox.active = false;
 
@@ -123,12 +123,22 @@ export default class PersonalPanel extends cc.Component {
 
     showInfo()
     {
+          this.max = G_VipControl.getVipConfig().data.length;
+          this.list.skipPage(G_UserControl.getUser().userVipLevel, .1);
           //头像
           var spriteFrame : cc.SpriteFrame = this.headAtlas.getSpriteFrame("touxiang"+3)
           this.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
           console.log('G_VipControl.getVipConfig()  '+G_VipControl.getVipConfig().data+"  G_UserControl.getUser().userVipLevel "+G_UserControl.getUser().userVipLevel)
-          this.progressBar.getComponent(cc.ProgressBar).progress = G_UserControl.getUser().exp / G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"]
-          this.vipExp.getComponent(cc.Label).string = Math.floor(G_UserControl.getUser().exp) +"/"+ Math.floor(G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"])
+          if(G_UserControl.getUser().userVipLevel < G_VipControl.getVipConfig().data.length)
+          {
+               this.progressBar.getComponent(cc.ProgressBar).progress = G_UserControl.getUser().exp / G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"]
+               this.vipExp.getComponent(cc.Label).string = Math.floor(G_UserControl.getUser().exp) +"/"+ Math.floor(G_VipControl.getVipConfig().data[G_UserControl.getUser().userVipLevel]["experience_max"])
+          }else
+          {
+                this.progressBar.getComponent(cc.ProgressBar).progress = G_UserControl.getUser().exp / G_UserControl.getUser().exp
+               // this.vipExp.getComponent(cc.Label).string = Math.floor(G_UserControl.getUser().exp) +"/"+ G_UserControl.getUser().exp 
+          }
+
   
           this.labelCurrentVipLv.getComponent(cc.Label).string = "VIP"+G_UserControl.getUser().userVipLevel
           var addLv : number = G_UserControl.getUser().userVipLevel + 1
@@ -149,7 +159,7 @@ export default class PersonalPanel extends cc.Component {
             item.active = false;
         }else
         {
-            console.log("刷新列表。。。。。。。。。。 ",idx,"  ",G_UserControl.getUser().vippromotion,"   ",G_UserControl.getUser().vipweekly);
+           // console.log("刷新列表。。。。。。。。。。 ",idx,"  ",G_UserControl.getUser().vippromotion,"   ",G_UserControl.getUser().vipweekly);
             
             item.active = true;
             item.children.forEach((tt : cc.Node, index : number)=>{
@@ -166,10 +176,10 @@ export default class PersonalPanel extends cc.Component {
                     let data = G_VipControl.getVipConfig().data[idx -1];
                     if(index == 0)
                     {
-                        mvalue = (Math.floor(data["grade_gift"]*10)/10).toString();
+                        mvalue = (Math.floor(data["promotion_gift"]*10)/10).toString();
                     }else if(index == 1)
                     {
-                        mvalue = (Math.floor(data["week_gift"]*10)/10).toString();
+                        mvalue = (Math.floor(data["weekly_gift"]*10)/10).toString();
                     }
                 }
                 if(index == 2)
@@ -178,34 +188,36 @@ export default class PersonalPanel extends cc.Component {
                 }else if(index == 3)
                 {
                     mvalue = "1";
-                }      
-                if(idx == G_UserControl.getUser().userVipLevel)      
+                }     
+                gold.getComponent(cc.Label).string = mvalue; 
+                let msg = G_VipControl.getVipConfig().personMsg[idx -1];
+                if(msg == null)
                 {
                     if(index == 0)   //晋级奖金
                     {
-                        btn.active = G_UserControl.getUser().vippromotion == 1;
-                        tt.getChildByName("btnDown").active = G_UserControl.getUser().vippromotion == 0;
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                        //tt.getChildByName("btnDown").active = G_UserControl.getUser().vippromotion == 0;
                     }
                     if(index == 1)  //每周奖励
                     {
-                        btn.active = G_UserControl.getUser().vipweekly == 1;
-                        tt.getChildByName("btnDown").active = G_UserControl.getUser().vipweekly == 0;
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                        //tt.getChildByName("btnDown").active = G_UserControl.getUser().vipweekly == 0;
                     }
                 }else
                 {
                     if(index == 0)   //晋级奖金
                     {
-                        btn.active = false;
-                        tt.getChildByName("btnDown").active = false;
+                        btn.active = msg.promotion_gift == 1;
+                        tt.getChildByName("btnDown").active = msg.promotion_gift == 0;
                     }
                     if(index == 1)  //每周奖励
                     {
-                        btn.active = false;
-                        tt.getChildByName("btnDown").active = false;
+                        btn.active = msg.weekly_gift == 1;
+                        tt.getChildByName("btnDown").active = msg.weekly_gift == 0;
                     }
                 }
-               // console.log('mvalue   '+mvalue+"  index  "+index + "tt  "+tt.name);
-                gold.getComponent(cc.Label).string = mvalue;
             },this)
         }
        
@@ -253,10 +265,12 @@ export default class PersonalPanel extends cc.Component {
             if(ret.status)
             {
                 G_UiForms.hint(G_Language.get("nameChangeSuccess"));
-                 this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName
+                //this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName
                 
             }else
             {
+                this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = G_UserControl.getUser().userName;
+                this.labelName0.getComponent(cc.Label).string = G_UserControl.getUser().userName;
                 G_UiForms.hint(ret.message);
             }
 

@@ -11,5 +11,13 @@ export  class VipConfig {
         this._data = data;
     }
 
+    //VIP 领取状态
+    private _personMsg:[] = null;
+    public get personMsg(){
+        return this._personMsg;
+    }
+    public set personMsg(data:[]){
+        this._personMsg = data;
+    }    
 
 }

@@ -364,14 +364,14 @@ class UserControl {
             if(ret.status)
             {
                 this._userModel.richrank =ret.data.rich_rank
-                this._userModel.level = ret.data.level_deep
+                this._userModel.level = ret.data.level
                 this._userModel.balance = parseInt(ret.data.balance);
                 this._userModel.exp = ret.data.experience
                 this._userModel.score = ret.data.score
                 //this._userModel.userVipLevel = ret.data.grade
-                this._userModel.userVipLevel = 8
-                this._userModel.vipweekly = ret.data.weekly_gift
-                this._userModel.vippromotion = ret.data.promotion_gift
+                this._userModel.userVipLevel = ret.data.level
+               // this._userModel.vipweekly = ret.data.weekly_gift
+               // this._userModel.vippromotion = ret.data.promotion_gift
                // console.log("pic "+this._userModel.richrank)
             }
             if(call)

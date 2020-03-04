@@ -260,6 +260,77 @@
 
 
 
+    getTimeDate(dateType,back)
+    {
+        var now = new Date(); //当前日期
+        var nowDayOfWeek = now.getDay()-1; //今天本周的第几天
+        var nowDay = now.getDate(); //当前日
+        var nowMonth = now.getMonth(); //当前月
+        var nowYear = now.getFullYear(); //当前年
+        nowYear += (nowYear < 2000) ? 1900 : 0;
+        var lastMonthDate = new Date(); //上月日期
+        lastMonthDate.setDate(1);
+        lastMonthDate.setMonth(lastMonthDate.getMonth() - 1);
+        var lastYear = lastMonthDate.getFullYear();       
+        var lastMonth = lastMonthDate.getMonth();
+        let begin = null;
+        let end = null;
+        let curBeginTimeDate = null;
+        let curEndTimeDate = null;
+        if(dateType == 1)
+        {
+            begin =  new Date(nowYear-3, lastMonth, 1);
+            end = new Date();
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+       else if(dateType == 2)  //2.昨日
+       {
+            begin =  new Date(nowYear, nowMonth, nowDay-1);      
+            end = new Date(nowYear, nowMonth, nowDay);
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+       }
+       else if(dateType == 3)  //3.今日
+       {
+            begin = new Date(nowYear, nowMonth, nowDay);      
+            end = new Date();
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+       } 
+       else if(dateType == 4)  //4.上周
+       {
+            begin =  new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 7);      
+            end = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 1);
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+
+       }else if(dateType == 5)  //5.上月
+       {
+           if(lastMonth==11){
+               begin = new Date(nowYear-1, lastMonth, 1);
+               end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
+            }else{
+                begin = new Date(nowYear, lastMonth, 1);
+                end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
+            }    
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+       } 
+       back(curBeginTimeDate,curEndTimeDate);
+    }
+
+    //获得某月的天数
+    getMonthDays(nowYear,myMonth) {
+        let monthStartDate = new Date(nowYear, myMonth, 1);
+        let monthEndDate = new Date(nowYear, myMonth + 1, 1);
+        let days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);
+        return days;
+    }
+
+
+
+
 
     //整数
     isInteger(str){

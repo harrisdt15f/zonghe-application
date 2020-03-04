@@ -35,10 +35,11 @@ class VipControl {
         {
             return;
         }
-        G_HttpHelper.httpGet(RequestEnum.VIP, function(ret){
+        G_HttpHelper.httpPost(RequestEnum.VIP,null, function(ret){
             console.log("[获取VIP配置]：返回数据",ret)   
             if(ret.status && ret.code == CODE.SUCCEED){
-                this.vipConfig.data = ret.data;
+                this.vipConfig.data = ret.data.system_level;
+                this.vipConfig.personMsg = ret.data.level_benefits_status;
                 console.log("ret.data   "+ret.data);
             }
             G_OnFire.fire(EventRequest.VipUpdate)  

@@ -75,9 +75,18 @@ export default class RecordPanel extends cc.Component {
     onToggleClick(event){
         console.log("event.name:",event.target._localZOrder)
         this.dateType =  event.target._localZOrder;    //1.全部 2.昨日 3.今日 4.上周 5.上月
-        this.getTimeDate();   
+        this.getTimeDate();        
     }
 
+    getTimeDate()
+    {
+        G_Utils.getTimeDate(this.dateType,function(begin,end){
+            this.curBeginTimeDate = begin;
+            this.curEndTimeDate = end;
+        }.bind(this));
+    }
+
+    /*
     getTimeDate()
     {
         var now = new Date(); //当前日期
@@ -138,19 +147,6 @@ export default class RecordPanel extends cc.Component {
     //    console.log("end ",end);
     }
 
-    formatDate(date) {
-        var myyear = date.getFullYear();
-        var mymonth = date.getMonth() + 1;
-        var myweekday = date.getDate();
-        if (mymonth < 10) {
-            mymonth = "0" + mymonth;
-        }
-        if (myweekday < 10) {
-            myweekday = "0" + myweekday;
-        }
-        return (myyear + "-" + mymonth + "-" + myweekday);
-    }
-
     //获得某月的天数
     getMonthDays(nowYear,myMonth) {
         let monthStartDate = new Date(nowYear, myMonth, 1);
@@ -158,6 +154,7 @@ export default class RecordPanel extends cc.Component {
         let days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);
         return days;
     }
+    */
 
     onListRender(item: cc.Node, idx: number) {
         //console.log("item   ",this.curList.length);
