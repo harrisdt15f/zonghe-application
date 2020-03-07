@@ -169,7 +169,6 @@ export default class  alipayPanel extends cc.Component {
             }
 
         }.bind(this));
-        
     }
     
 

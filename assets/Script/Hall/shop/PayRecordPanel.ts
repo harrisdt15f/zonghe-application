@@ -1,6 +1,7 @@
 import { G_Language } from '../../Language/Language';
 import List from '../../Common/List';
 import { G_PayControl } from '../../Controller/PayControl';
+import { G_Utils } from '../../Tool/Utils';
 
 const {ccclass, property} = cc._decorator;
 
@@ -115,83 +116,10 @@ export default class PayRecordPanel extends cc.Component {
 
     getTimeDate()
     {
-        var now = new Date(); //当前日期
-        var nowDayOfWeek = now.getDay()-1; //今天本周的第几天
-        var nowDay = now.getDate(); //当前日
-        var nowMonth = now.getMonth(); //当前月
-        var nowYear = now.getFullYear(); //当前年
-        nowYear += (nowYear < 2000) ? 1900 : 0;
-        var lastMonthDate = new Date(); //上月日期
-        lastMonthDate.setDate(1);
-        lastMonthDate.setMonth(lastMonthDate.getMonth() - 1);
-        var lastYear = lastMonthDate.getFullYear();       
-        var lastMonth = lastMonthDate.getMonth();
-        let begin = null;
-        let end = null;
-        if(this.dateType == 1)
-        {
-            begin =  new Date(nowYear-3, lastMonth, 1);
-            end = new Date();
-            this.curBeginTimeDate = begin.getTime();
-            this.curEndTimeDate = end.getTime();
-        }
-       else if(this.dateType == 2)  //2.昨日
-       {
-            begin =  new Date(nowYear, nowMonth, nowDay-1);      
-            end = new Date(nowYear, nowMonth, nowDay);
-            this.curBeginTimeDate = begin.getTime();
-            this.curEndTimeDate = end.getTime();
-       }
-       else if(this.dateType == 3)  //3.今日
-       {
-            begin = new Date(nowYear, nowMonth, nowDay);      
-            end = new Date();
-            this.curBeginTimeDate = begin.getTime();
-            this.curEndTimeDate = end.getTime();
-       } 
-       else if(this.dateType == 4)  //4.上周
-       {
-            begin =  new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 7);      
-            end = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 1);
-            this.curBeginTimeDate = begin.getTime();
-            this.curEndTimeDate = end.getTime();
-
-       }else if(this.dateType == 5)  //5.上月
-       {
-           if(lastMonth==11){
-               begin = new Date(nowYear-1, lastMonth, 1);
-               end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
-            }else{
-                begin = new Date(nowYear, lastMonth, 1);
-                end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
-            }    
-            this.curBeginTimeDate = begin.getTime();
-            this.curEndTimeDate = end.getTime();
-       } 
-    //    console.log("type ",this.dateType);
-    //    console.log("begin ",begin);
-    //    console.log("end ",end);
-    }
-
-    formatDate(date) {
-        var myyear = date.getFullYear();
-        var mymonth = date.getMonth() + 1;
-        var myweekday = date.getDate();
-        if (mymonth < 10) {
-            mymonth = "0" + mymonth;
-        }
-        if (myweekday < 10) {
-            myweekday = "0" + myweekday;
-        }
-        return (myyear + "-" + mymonth + "-" + myweekday);
-    }
-
-    //获得某月的天数
-    getMonthDays(nowYear,myMonth) {
-        let monthStartDate = new Date(nowYear, myMonth, 1);
-        let monthEndDate = new Date(nowYear, myMonth + 1, 1);
-        let days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);
-        return days;
+        G_Utils.getTimeDate(this.dateType,function(begin,end){
+            this.curBeginTimeDate = begin;
+            this.curEndTimeDate = end;
+        }.bind(this))
     }
 
     onListRender(item: cc.Node, idx: number) {

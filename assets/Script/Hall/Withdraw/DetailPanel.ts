@@ -166,14 +166,14 @@ export default class RecordPanel extends cc.Component {
             console.log("cur   ",cur);
             let _color = "";
             let labStr = "";
-            if(cur.in_out == 1)  //减少
+            if(cur.in_out == 2)  //减少
             {
                 _color = "37CC6E"
-                labStr = "+"+parseInt(cur.amount).toFixed(2);
+                labStr = "-"+parseFloat(cur.amount).toFixed(2);
             }else
             {
-                _color = "16FA5F"
-                labStr = "-"+parseInt(cur.amount).toFixed(2);
+                _color = "DF0F39"
+                labStr = "+"+parseFloat(cur.amount).toFixed(2);
             }
             item.getChildByName("label_0").getComponent(cc.RichText).string = "<color =#" +_color +">"+labStr +"</color>"
             item.getChildByName("label_1").getComponent(cc.Label).string = G_PayControl.getPayConfig().getCurAccoutSignValue(cur.type_sign);

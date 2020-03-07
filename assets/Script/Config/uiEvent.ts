@@ -17,7 +17,8 @@ export const uiEventModules = {
     /** 提现 2*/
     withdrawNode : "withdrawNode",
     /**推广 3*/
-    generalizeNode : "generalizeNode",
+    //generalizeNode : "generalizeNode",
+    promoteNode : "promoteNode",
     /** 玩家中心 4*/
     playerCenterNode : "playerCenterNode",
     /**活动 5*/

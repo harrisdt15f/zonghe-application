@@ -222,6 +222,11 @@ export const zh = {
     accountType_casino_in:"转入娱乐城",
     accountType_casino_to:"娱乐城转入平台",
 
-
+    underLevelAll:"全部",
+    underLevelFirst:"一级",
+    underLevelTwo:"二级",
+    underLevelThird:"三级",
+    underLevelMore:"更多",
+    underNumRecord:"条记录",
 }
 

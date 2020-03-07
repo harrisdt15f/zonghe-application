@@ -312,7 +312,7 @@
                end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
             }else{
                 begin = new Date(nowYear, lastMonth, 1);
-                end = new Date(nowYear-1, lastMonth, this.getMonthDays(nowYear,lastMonth));
+                end = new Date(nowYear, lastMonth, this.getMonthDays(nowYear,lastMonth));
             }    
             curBeginTimeDate = begin.getTime();
             curEndTimeDate = end.getTime();
