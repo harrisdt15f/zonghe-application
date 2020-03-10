@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'b3715HQ0xFHM4mkW5sUHkLW', 'abankPanel');
-// Script/Hall/shop/abankPanel.ts
+cc._RF.push(module, 'b0033dhbqZHtLpb4MU8nz3E', 'payBankPanel');
+// Script/Hall/shop/payBankPanel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -32,9 +32,9 @@ var Platforms_1 = require("../../Platform/Platforms");
  * app 支付方式
  */
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var abankPanel = /** @class */ (function (_super) {
-    __extends(abankPanel, _super);
-    function abankPanel() {
+var payBankPanel = /** @class */ (function (_super) {
+    __extends(payBankPanel, _super);
+    function payBankPanel() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.typeDetail = null;
         _this.typeGrid = null;
@@ -68,14 +68,14 @@ var abankPanel = /** @class */ (function (_super) {
         _this.platforms = null;
         return _this;
     }
-    abankPanel.prototype.onLoad = function () {
+    payBankPanel.prototype.onLoad = function () {
         this.platforms = new Platforms_1.Platforms();
     };
     // data:{
     //     "is_online":0,
     //     "data":[] ==>"data":xxxxx, "config":xxxxxx
     // }
-    abankPanel.prototype.init = function (data) {
+    payBankPanel.prototype.init = function (data) {
         this.typeDetail.active = true;
         this.bankDetail.active = false;
         this.Data = data;
@@ -87,7 +87,7 @@ var abankPanel = /** @class */ (function (_super) {
         this.showTypeList();
     };
     //充值渠道
-    abankPanel.prototype.showTypeList = function () {
+    payBankPanel.prototype.showTypeList = function () {
         var _this = this;
         this.typeObjList.forEach(function (element) {
             element.getChildByName('select').active = false;
@@ -119,7 +119,7 @@ var abankPanel = /** @class */ (function (_super) {
             this.sendDetailRechargeChannel(0);
         }
     };
-    abankPanel.prototype.sendDetailRechargeChannel = function (index) {
+    payBankPanel.prototype.sendDetailRechargeChannel = function (index) {
         if (this.curDataListIndex >= 0 && this.curDataListIndex == index) {
             return;
         }
@@ -139,7 +139,7 @@ var abankPanel = /** @class */ (function (_super) {
         }
     };
     //当前渠道详情
-    abankPanel.prototype.showTypeDetail = function () {
+    payBankPanel.prototype.showTypeDetail = function () {
         var _this = this;
         if (this.curDataList.length > 0) {
             var _loop_2 = function (i) {
@@ -166,7 +166,7 @@ var abankPanel = /** @class */ (function (_super) {
             }
         }
     };
-    abankPanel.prototype.showDetailTypeDetail = function (index) {
+    payBankPanel.prototype.showDetailTypeDetail = function (index) {
         var _this = this;
         // if(this.curDataIndex >= 0 && this.curDataIndex == index)
         // {
@@ -201,12 +201,12 @@ var abankPanel = /** @class */ (function (_super) {
         this.textTip.getComponent(cc.Label).string = "";
         this.numberEditbox.getChildByName("editbox").getChildByName("text").getComponent(cc.Label).string = Math.floor(this.curData.min) + " - " + Math.floor(this.curData.max);
     };
-    abankPanel.prototype.onNumberClick = function (index) {
+    payBankPanel.prototype.onNumberClick = function (index) {
         console.log("index  " + index);
         var list = PayControl_1.G_PayControl.getPayConfig().payMoneyList;
         this.numberEditbox.getComponent("MyEditbox").getEdiboxComponent().string = list[index];
     };
-    abankPanel.prototype.onPayClick = function () {
+    payBankPanel.prototype.onPayClick = function () {
         if (this.curData == null) {
             return;
         }
@@ -243,7 +243,7 @@ var abankPanel = /** @class */ (function (_super) {
             }
         }.bind(this));
     };
-    abankPanel.prototype.update = function (dt) {
+    payBankPanel.prototype.update = function (dt) {
         if (this.leftTime > 0 && this.bankInfo != null) {
             this.leftTime -= dt;
             this.textTime.string = Language_1.G_Language.get("payLeftTime") + Utils_1.G_Utils.getDateTimeStrTwo(this.leftTime);
@@ -252,7 +252,7 @@ var abankPanel = /** @class */ (function (_super) {
             }
         }
     };
-    Object.defineProperty(abankPanel.prototype, "NumInfo", {
+    Object.defineProperty(payBankPanel.prototype, "NumInfo", {
         get: function () {
             return this.numberEditbox.getComponent("MyEditbox").getEdiboxComponent().string;
         },
@@ -262,28 +262,28 @@ var abankPanel = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
-    abankPanel.prototype.OnCopyBank = function () {
+    payBankPanel.prototype.OnCopyBank = function () {
         if (this.bankInfo == null) {
             return;
         }
         this.platforms.JsCopy(this.bankInfo.branch);
         UiForms_1.G_UiForms.hint(Language_1.G_Language.get("copySucceed"));
     };
-    abankPanel.prototype.onCopyBankNumber = function () {
+    payBankPanel.prototype.onCopyBankNumber = function () {
         if (this.bankInfo == null) {
             return;
         }
         this.platforms.JsCopy(this.bankInfo.account);
         UiForms_1.G_UiForms.hint(Language_1.G_Language.get("copySucceed"));
     };
-    abankPanel.prototype.onCopyName = function () {
+    payBankPanel.prototype.onCopyName = function () {
         if (this.bankInfo == null) {
             return;
         }
         this.platforms.JsCopy(this.bankInfo.username);
         UiForms_1.G_UiForms.hint(Language_1.G_Language.get("copySucceed"));
     };
-    abankPanel.prototype.onCopyMoney = function () {
+    payBankPanel.prototype.onCopyMoney = function () {
         if (this.bankInfo == null) {
             return;
         }
@@ -291,7 +291,7 @@ var abankPanel = /** @class */ (function (_super) {
         UiForms_1.G_UiForms.hint(Language_1.G_Language.get("copySucceed"));
     };
     ///我已转账
-    abankPanel.prototype.onSendPaySuccess = function () {
+    payBankPanel.prototype.onSendPaySuccess = function () {
         PayControl_1.G_PayControl.requesSendPayTrue(this.bankInfo.order_no, function (ret) {
             if (ret.status) {
                 this.init(this.Data);
@@ -303,7 +303,7 @@ var abankPanel = /** @class */ (function (_super) {
         }.bind(this));
     };
     ///取消订单
-    abankPanel.prototype.onSendPayRefuse = function () {
+    payBankPanel.prototype.onSendPayRefuse = function () {
         PayControl_1.G_PayControl.requesSendPayCancel(this.bankInfo.order_no, function (ret) {
         }.bind(this));
         this.init(this.Data);
@@ -311,63 +311,63 @@ var abankPanel = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "typeDetail", void 0);
+    ], payBankPanel.prototype, "typeDetail", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "typeGrid", void 0);
+    ], payBankPanel.prototype, "typeGrid", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "typeItemPrefab", void 0);
+    ], payBankPanel.prototype, "typeItemPrefab", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "typeDetailGrid", void 0);
+    ], payBankPanel.prototype, "typeDetailGrid", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "typeDetailItemPrefab", void 0);
+    ], payBankPanel.prototype, "typeDetailItemPrefab", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "numberGrid", void 0);
+    ], payBankPanel.prototype, "numberGrid", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "numberItemPrefab", void 0);
+    ], payBankPanel.prototype, "numberItemPrefab", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "textTip", void 0);
+    ], payBankPanel.prototype, "textTip", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "bankDetail", void 0);
+    ], payBankPanel.prototype, "bankDetail", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textBank", void 0);
+    ], payBankPanel.prototype, "textBank", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textName", void 0);
+    ], payBankPanel.prototype, "textName", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textNumber", void 0);
+    ], payBankPanel.prototype, "textNumber", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textAdress", void 0);
+    ], payBankPanel.prototype, "textAdress", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textMoney", void 0);
+    ], payBankPanel.prototype, "textMoney", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textTime", void 0);
+    ], payBankPanel.prototype, "textTime", void 0);
     __decorate([
         property(cc.Label)
-    ], abankPanel.prototype, "textCode", void 0);
+    ], payBankPanel.prototype, "textCode", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "numberDetail", void 0);
+    ], payBankPanel.prototype, "numberDetail", void 0);
     __decorate([
         property(cc.Node)
-    ], abankPanel.prototype, "numberEditbox", void 0);
-    abankPanel = __decorate([
+    ], payBankPanel.prototype, "numberEditbox", void 0);
+    payBankPanel = __decorate([
         ccclass
-    ], abankPanel);
-    return abankPanel;
+    ], payBankPanel);
+    return payBankPanel;
 }(cc.Component));
-exports.default = abankPanel;
+exports.default = payBankPanel;
 
 cc._RF.pop();

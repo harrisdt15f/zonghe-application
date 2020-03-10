@@ -1,8 +1,5 @@
-import { G_OnFire } from '../../Net/OnFire';
-import { uiEventFunction } from '../../Config/uiEvent';
 import { G_Utils } from '../../Tool/Utils';
 import { G_UiForms } from '../../Tool/UiForms';
-import List from '../../Common/List';
 import { G_PayControl } from '../../Controller/PayControl';
 import { G_Language } from '../../Language/Language';
 import { Platforms } from '../../Platform/Platforms';
@@ -12,7 +9,7 @@ import { Platforms } from '../../Platform/Platforms';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class  abankPanel extends cc.Component {
+export default class  payBankPanel extends cc.Component {
 
     @property(cc.Node)
     typeDetail:cc.Node = null;

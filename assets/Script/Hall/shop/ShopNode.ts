@@ -1,9 +1,7 @@
 import { G_PayControl } from "../../Controller/PayControl";
 import  ShopLeftItem from "../shop/ShopLeftItem";
 import alipayPanel from "./alipayPanel";
-//import wechatpayPanel from "./wechatpayPanel";
-//import ebankPanel from "./eBankPanel";
-import abankPanel from "./abankPanel";
+import abankPanel from "./payBankPanel";
 import PayRecordPanel from "./PayRecordPanel";
 import { G_RequestControl } from "../../Controller/RequestControl";
 import { RequestEnum } from "../../Config/RequestConfig";

@@ -26,9 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var PayControl_1 = require("../../Controller/PayControl");
 var ShopLeftItem_1 = require("../shop/ShopLeftItem");
 var alipayPanel_1 = require("./alipayPanel");
-//import wechatpayPanel from "./wechatpayPanel";
-//import ebankPanel from "./eBankPanel";
-var abankPanel_1 = require("./abankPanel");
+var payBankPanel_1 = require("./payBankPanel");
 var RequestControl_1 = require("../../Controller/RequestControl");
 var RequestConfig_1 = require("../../Config/RequestConfig");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -178,7 +176,7 @@ var ShopNode = /** @class */ (function (_super) {
              {
                 if (element.name == _this.curLeftData.config.panel) {
                     element.active = true;
-                    var script = element.getComponent(abankPanel_1.default);
+                    var script = element.getComponent(payBankPanel_1.default);
                     script.init(_this.curLeftData);
                 }
             }

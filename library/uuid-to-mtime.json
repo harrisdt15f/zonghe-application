@@ -65,12 +65,12 @@
     "relativePath": "resources\\materials"
   },
   "10715763-2e96-4e0e-b832-c48dac602bf8": {
-    "asset": 1583833785133,
+    "asset": 1583834216787,
     "meta": 1580284430000,
     "relativePath": "prefabs"
   },
   "6ce0c5a8-132b-42d5-b04e-f4bdf38e695c": {
-    "asset": 1583833785131,
+    "asset": 1583834216785,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Common"
   },
@@ -95,7 +95,7 @@
     "relativePath": "prefabs\\Common\\toggleContainer.prefab"
   },
   "39bdf515-df37-4ee7-af52-275cdbd16dee": {
-    "asset": 1583833785486,
+    "asset": 1583834216876,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall"
   },
@@ -105,12 +105,12 @@
     "relativePath": "prefabs\\Common\\myTabControlNode.prefab"
   },
   "a870571d-44d9-4496-9482-e72633b16423": {
-    "asset": 1583833785170,
+    "asset": 1583834216806,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Activity"
   },
   "d66c0d89-da59-45c8-8402-c362600342c0": {
-    "asset": 1583833785190,
+    "asset": 1583834216824,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\GameItem"
   },
@@ -155,7 +155,7 @@
     "relativePath": "prefabs\\Hall\\GameItem\\game_btn8.prefab"
   },
   "b7c1a721-b820-4f14-a5ab-90b671b44958": {
-    "asset": 1583833785210,
+    "asset": 1583834216828,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Generalize"
   },
@@ -165,7 +165,7 @@
     "relativePath": "prefabs\\Hall\\Activity\\activityNode.prefab"
   },
   "e87f925a-86c1-4b20-a250-b97402c87a46": {
-    "asset": 1583833785218,
+    "asset": 1583834216836,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Head"
   },
@@ -185,7 +185,7 @@
     "relativePath": "prefabs\\Hall\\Head\\headSelect.prefab"
   },
   "c9b454f8-48ca-4925-b33c-40d6fff9d2d6": {
-    "asset": 1583833785223,
+    "asset": 1583834216840,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Landing"
   },
@@ -195,7 +195,7 @@
     "relativePath": "prefabs\\Hall\\Head\\headSetNode.prefab"
   },
   "a4e37340-669b-48f3-b773-5a23031cd2ca": {
-    "asset": 1583833785230,
+    "asset": 1583834216846,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Message"
   },
@@ -215,7 +215,7 @@
     "relativePath": "prefabs\\Hall\\nonePanel.prefab"
   },
   "cd478145-e6a9-4645-bbf4-cf8227abba84": {
-    "asset": 1583833785238,
+    "asset": 1583834216852,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Notice"
   },
@@ -225,7 +225,7 @@
     "relativePath": "prefabs\\Hall\\Landing\\landingNode.prefab"
   },
   "82379f2a-2853-4b61-97b3-a6f3fd72f574": {
-    "asset": 1583833785294,
+    "asset": 1583834216858,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\playerCentre"
   },
@@ -240,7 +240,7 @@
     "relativePath": "prefabs\\Hall\\playerCentre\\alterNameNode.prefab"
   },
   "80cc5d7b-b249-4b2e-87e9-5063f2fe3227": {
-    "asset": 1583833785433,
+    "asset": 1583834216867,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Service"
   },
@@ -250,7 +250,7 @@
     "relativePath": "prefabs\\Hall\\Service\\serviceNode.prefab"
   },
   "2b4fa662-bed9-4d42-9b5a-24312e110581": {
-    "asset": 1583833785470,
+    "asset": 1583834216871,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Set"
   },
@@ -260,7 +260,7 @@
     "relativePath": "prefabs\\Hall\\Set\\setNode.prefab"
   },
   "784a815f-a846-4027-877c-98e0466cae4f": {
-    "asset": 1583833785484,
+    "asset": 1583834216875,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Shop"
   },
@@ -270,17 +270,17 @@
     "relativePath": "prefabs\\Hall\\playerCentre\\playerCenterNode.prefab"
   },
   "dda0e6e6-4282-472e-94d8-f2e730db7a0a": {
-    "asset": 1583833785504,
+    "asset": 1583834216879,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Withdraw"
   },
   "aa7634b4-5379-43bf-82da-275719b5aa77": {
-    "asset": 1583130145121,
-    "meta": 1583130145152,
+    "asset": 1583835724767,
+    "meta": 1583835724795,
     "relativePath": "prefabs\\Hall\\Shop\\shopNode.prefab"
   },
   "07338b08-bae9-4873-8392-467cd8be4933": {
-    "asset": 1583833786049,
+    "asset": 1583834218378,
     "meta": 1580284430000,
     "relativePath": "resources"
   },
@@ -290,7 +290,7 @@
     "relativePath": "prefabs\\Hall\\Withdraw\\withdrawNode.prefab"
   },
   "4e5ba9b7-7965-4436-9190-d1c4cfca52e3": {
-    "asset": 1583833785794,
+    "asset": 1583834217057,
     "meta": 1580284430000,
     "relativePath": "resources\\Font"
   },
@@ -350,7 +350,7 @@
     "relativePath": "resources\\Font\\yuan.png"
   },
   "07910ef1-7dda-43ee-b652-1b34517debb0": {
-    "asset": 1583833786022,
+    "asset": 1583834217236,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall"
   },
@@ -360,7 +360,7 @@
     "relativePath": "resources\\Font\\zp_num.png"
   },
   "7cbb4086-218c-4c6a-80f6-58765e520022": {
-    "asset": 1583833785819,
+    "asset": 1583834217080,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\activity"
   },
@@ -370,7 +370,7 @@
     "relativePath": "resources\\resHall\\activity\\activity.plist"
   },
   "b59ecd03-b884-49f0-89d2-bd3cdad6b428": {
-    "asset": 1583833785860,
+    "asset": 1583834217112,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\activity\\sketchMap"
   },
@@ -450,7 +450,7 @@
     "relativePath": "resources\\resHall\\activity\\sketchMap\\xkuan.png"
   },
   "5abe742e-4a33-400f-8a87-11468666a109": {
-    "asset": 1583833785868,
+    "asset": 1583834217120,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\bankCard"
   },
@@ -460,7 +460,7 @@
     "relativePath": "resources\\resHall\\bankCard\\bankCard.plist"
   },
   "e99be3e7-53cb-4a76-8220-e6571f4b5053": {
-    "asset": 1583833785879,
+    "asset": 1583834217127,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\bg"
   },
@@ -475,7 +475,7 @@
     "relativePath": "resources\\resHall\\bg\\BG.png"
   },
   "3b1a9e7d-f9a0-41e9-b894-944124933da4": {
-    "asset": 1583833785886,
+    "asset": 1583834217136,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\caption"
   },
@@ -485,12 +485,12 @@
     "relativePath": "resources\\resHall\\caption\\caption.plist"
   },
   "8ea6f8ee-0eb8-46c0-9ab7-3ba70f83a7d7": {
-    "asset": 1583833785943,
+    "asset": 1583834217183,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common"
   },
   "baa6415f-091c-4542-9c77-d751a60736ef": {
-    "asset": 1583833785906,
+    "asset": 1583834217160,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common\\button"
   },
@@ -500,27 +500,27 @@
     "relativePath": "resources\\resHall\\caption\\caption.png"
   },
   "1494db7f-b77d-4c35-b08d-9c6f0d1cc5ed": {
-    "asset": 1583833785915,
+    "asset": 1583834217167,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common\\com"
   },
   "9d093325-769c-46ba-a2b9-9921b5c65c45": {
-    "asset": 1583833785930,
+    "asset": 1583834217174,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common\\com9s"
   },
   "4e2054b7-c52b-4b09-8727-de3c34c747e4": {
-    "asset": 1583833785941,
+    "asset": 1583834217181,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common\\subtitle"
   },
   "b75bcac7-3034-45e9-ba94-b21b5cc2cf33": {
-    "asset": 1583833785949,
+    "asset": 1583834217188,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\common\\title"
   },
   "24697ef7-b441-4486-b380-93b2e1ced085": {
-    "asset": 1583833785961,
+    "asset": 1583834217195,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\gameImage"
   },
@@ -530,7 +530,7 @@
     "relativePath": "resources\\resHall\\gameImage\\gameImage.plist"
   },
   "e9ab83eb-a53a-4ce9-a930-2023a634902c": {
-    "asset": 1583833785977,
+    "asset": 1583834217201,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\head"
   },
@@ -540,7 +540,7 @@
     "relativePath": "resources\\resHall\\gameImage\\gameImage.png"
   },
   "3788f28b-73ba-4b73-b9d0-00cd137cd381": {
-    "asset": 1583833785988,
+    "asset": 1583834217209,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\loanding"
   },
@@ -555,7 +555,7 @@
     "relativePath": "resources\\resHall\\loanding\\loding_d.png"
   },
   "a6c77cd9-57ae-4ffa-ada6-445bd79159ea": {
-    "asset": 1583833785999,
+    "asset": 1583834217217,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\lobby"
   },
@@ -565,7 +565,7 @@
     "relativePath": "resources\\resHall\\loanding\\loding_S.png"
   },
   "87ce71e3-6d5a-4e87-93a6-3f976346cc86": {
-    "asset": 1583833786011,
+    "asset": 1583834217229,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\notice"
   },
@@ -575,7 +575,7 @@
     "relativePath": "resources\\resHall\\notice\\notice.plist"
   },
   "ee45362b-2ce1-4a84-8ec9-68ee4b44ad64": {
-    "asset": 1583833786017,
+    "asset": 1583834217234,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\number"
   },
@@ -595,12 +595,12 @@
     "relativePath": "resources\\resHall\\number\\number.png"
   },
   "6ff9f9d5-1bdc-4190-aa91-0c731a6ff5db": {
-    "asset": 1583833786045,
+    "asset": 1583834217258,
     "meta": 1580284430000,
     "relativePath": "resources\\Sound"
   },
   "8a64efc6-a8b9-444b-a2bc-ff1d30870e9d": {
-    "asset": 1583833786044,
+    "asset": 1583834217255,
     "meta": 1580284430000,
     "relativePath": "resources\\Sound\\bg"
   },
@@ -610,7 +610,7 @@
     "relativePath": "resources\\Sound\\bg\\bjl.mp3"
   },
   "fbb8b266-25f1-4763-88c7-80c88a67dd35": {
-    "asset": 1583833786048,
+    "asset": 1583834218351,
     "meta": 1580284430000,
     "relativePath": "resources\\Sound\\buttonSound"
   },
@@ -620,7 +620,7 @@
     "relativePath": "resources\\Sound\\bg\\bebg.mp3"
   },
   "875f8ae5-b318-4ec9-8bb9-6fa655ec033f": {
-    "asset": 1583833786103,
+    "asset": 1583834218383,
     "meta": 1580284430000,
     "relativePath": "resources\\ttf"
   },
@@ -630,7 +630,7 @@
     "relativePath": "resources\\ttf\\txbBold.ttf"
   },
   "29f52784-2fca-467b-92e7-8fd9ef8c57b7": {
-    "asset": 1583833786179,
+    "asset": 1583834218393,
     "meta": 1580284430000,
     "relativePath": "Scene"
   },
@@ -645,12 +645,12 @@
     "relativePath": "Scene\\test.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1583833788663,
+    "asset": 1583834218708,
     "meta": 1580284430000,
     "relativePath": "Script"
   },
   "45104519-a623-45de-b83b-7f7578274ee9": {
-    "asset": 1583833786678,
+    "asset": 1583834218437,
     "meta": 1580284430000,
     "relativePath": "Script\\Common"
   },
@@ -670,27 +670,27 @@
     "relativePath": "Script\\Common\\MyPulldownMenu.ts"
   },
   "d0f481c6-3e02-4700-ad0a-f8d52a40d306": {
-    "asset": 1583833786826,
+    "asset": 1583834218459,
     "meta": 1580284430000,
     "relativePath": "Script\\Config"
   },
   "024915a9-4ba7-42d0-83fb-89e8ab667bfa": {
-    "asset": 1583833786933,
+    "asset": 1583834218475,
     "meta": 1580284430000,
     "relativePath": "Script\\Controller"
   },
   "aba389c6-e698-4d7f-b6d4-d9d4fbb6deb4": {
-    "asset": 1583833786940,
+    "asset": 1583834218479,
     "meta": 1580284430000,
     "relativePath": "Script\\Game"
   },
   "24d42976-68a0-46dd-8d81-ffb50b3b4071": {
-    "asset": 1583833787492,
+    "asset": 1583834218670,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall"
   },
   "8575621f-3b13-4fb7-ac9b-c6c80cdaf94a": {
-    "asset": 1583833787118,
+    "asset": 1583834218551,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Activity"
   },
@@ -740,7 +740,7 @@
     "relativePath": "Script\\Hall\\Activity\\SignInNode.ts"
   },
   "b6df1e01-9bd6-4612-82ad-493501b300cd": {
-    "asset": 1583833787130,
+    "asset": 1583834218561,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Generalize"
   },
@@ -775,17 +775,17 @@
     "relativePath": "Script\\Hall\\HallLiaotianNode.ts"
   },
   "4b93597a-bced-437a-a9a5-0a32c8b0bd56": {
-    "asset": 1583833787134,
+    "asset": 1583834218564,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Head"
   },
   "6fb4a7a5-49ee-4ef2-bb70-a2c73b4c7f5a": {
-    "asset": 1583833787157,
+    "asset": 1583834218571,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Loanding"
   },
   "0131bf2c-a514-4d6a-acb3-a1cf379c95af": {
-    "asset": 1583833787179,
+    "asset": 1583834218586,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Message"
   },
@@ -800,7 +800,7 @@
     "relativePath": "Script\\Hall\\Message\\SystemMessageNode.ts"
   },
   "c152bcee-9378-4514-abd5-35e87301955a": {
-    "asset": 1583833787183,
+    "asset": 1583834218589,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Notice"
   },
@@ -820,7 +820,7 @@
     "relativePath": "Script\\Hall\\PagingScrollView.ts"
   },
   "c558c9b9-3ba5-4754-8655-e85400aec830": {
-    "asset": 1583833787270,
+    "asset": 1583834218604,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\PlayerCenter"
   },
@@ -840,7 +840,7 @@
     "relativePath": "Script\\Hall\\PlayerCenter\\ReportPanel.ts"
   },
   "fbec9217-5767-44c4-9460-9d79884011c2": {
-    "asset": 1583833787341,
+    "asset": 1583834218621,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\SetUI"
   },
@@ -850,7 +850,7 @@
     "relativePath": "Script\\Hall\\SetUI\\CircuitPanel.ts"
   },
   "de21d76d-ba23-42ec-83cb-cc112f284ac6": {
-    "asset": 1583833787456,
+    "asset": 1583834218641,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\shop"
   },
@@ -860,12 +860,12 @@
     "relativePath": "Script\\Hall\\shop\\TopUpListPanel.ts"
   },
   "a1e0f7f5-00e8-40ac-9b63-2f3c7e03a578": {
-    "asset": 1583833787461,
+    "asset": 1583834218645,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\ShowBoxUI"
   },
   "b1565095-c408-4d35-aa3c-085c8f1240ce": {
-    "asset": 1583833787474,
+    "asset": 1583834218653,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Subitem"
   },
@@ -880,7 +880,7 @@
     "relativePath": "Script\\Hall\\Subitem\\RightNode.ts"
   },
   "7d343cbf-9ac2-45ea-9e24-04bf72376f83": {
-    "asset": 1583833787481,
+    "asset": 1583834218659,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\test"
   },
@@ -895,7 +895,7 @@
     "relativePath": "Script\\Hall\\test\\UIDatePicker.ts"
   },
   "852fde13-ed37-429e-b309-14fc3e83aefb": {
-    "asset": 1583833787487,
+    "asset": 1583834218665,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\TimeSelect"
   },
@@ -910,7 +910,7 @@
     "relativePath": "Script\\Hall\\TimeSelect\\TimeSelectNode.ts"
   },
   "e4aa2675-517c-4f02-aa16-42c7b4042ca5": {
-    "asset": 1583833787491,
+    "asset": 1583834218668,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\UIPickerView"
   },
@@ -920,7 +920,7 @@
     "relativePath": "Script\\Hall\\TipsNode.ts"
   },
   "959adb75-3490-4dfd-8bff-9431bb1a09c9": {
-    "asset": 1583833787601,
+    "asset": 1583834218682,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Withdraw"
   },
@@ -930,7 +930,7 @@
     "relativePath": "Script\\Hall\\UIPickerView\\UIPickerView.ts"
   },
   "cd3ed93a-898e-46b2-b64d-041c2b1d0e2f": {
-    "asset": 1583833788126,
+    "asset": 1583834218690,
     "meta": 1580284430000,
     "relativePath": "Script\\Language"
   },
@@ -945,12 +945,12 @@
     "relativePath": "Script\\Language\\Language.ts"
   },
   "8b3c756f-31b2-4162-a55d-1647a690b851": {
-    "asset": 1583833788565,
+    "asset": 1583834218694,
     "meta": 1580284430000,
     "relativePath": "Script\\Model"
   },
   "6154bc79-2cac-44eb-9414-5b6a717faedc": {
-    "asset": 1583833788644,
+    "asset": 1583834218702,
     "meta": 1580284430000,
     "relativePath": "Script\\Net"
   },
@@ -960,12 +960,12 @@
     "relativePath": "Script\\Net\\OnFire.ts"
   },
   "6594ceea-48f4-43d6-bddc-514af1973776": {
-    "asset": 1583833788659,
+    "asset": 1583834218706,
     "meta": 1580284430000,
     "relativePath": "Script\\Platform"
   },
   "6c1dc786-7edf-447d-a5be-5db1f1a3fecb": {
-    "asset": 1583833788733,
+    "asset": 1583834218718,
     "meta": 1580284430000,
     "relativePath": "Script\\Tool"
   },
@@ -975,7 +975,7 @@
     "relativePath": "Script\\Tool\\ScrollMsg.ts"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1583833788741,
+    "asset": 1583834218723,
     "meta": 1580284430000,
     "relativePath": "Texture"
   },
@@ -1045,12 +1045,12 @@
     "relativePath": "resources\\resHall\\common\\button\\button.png"
   },
   "a5568493-6cb8-48f7-9ebc-502cf132a7ee": {
-    "asset": 1583833785892,
+    "asset": 1583834217147,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\chat"
   },
   "4dd39e4d-27d6-49ea-b08b-d369d406c6f8": {
-    "asset": 1583833786032,
+    "asset": 1583834217241,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\rank"
   },
@@ -1065,7 +1065,7 @@
     "relativePath": "resources\\resHall\\rank\\rank.png"
   },
   "18a71e4c-086b-49ae-a1a8-447edf8f1c84": {
-    "asset": 1583833786004,
+    "asset": 1583834217222,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall\\lobby\\part"
   },
@@ -1100,7 +1100,7 @@
     "relativePath": "Script\\Config\\IdentifyKey.ts"
   },
   "6cbfdfc1-580b-4941-bee5-c8475fcf1d33": {
-    "asset": 1583833787171,
+    "asset": 1583834218577,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Login"
   },
@@ -1580,12 +1580,12 @@
     "relativePath": "Script\\Hall\\HallRightNode.ts"
   },
   "8d66c6fd-b6a7-4be6-8a4d-5314f3a33379": {
-    "asset": 1583833785763,
+    "asset": 1583834217028,
     "meta": 1580284587972,
     "relativePath": "resources\\Animation"
   },
   "e3d7272a-b134-49ca-9c80-2eaed3fdf90f": {
-    "asset": 1583833785675,
+    "asset": 1583834216975,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\baoxian"
   },
@@ -1705,7 +1705,7 @@
     "relativePath": "resources\\Animation\\baoxian\\bb.anim"
   },
   "c9b84cf5-c7b2-42ba-b391-8e1e87a713bb": {
-    "asset": 1583833785690,
+    "asset": 1583834216989,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\countDown"
   },
@@ -1735,7 +1735,7 @@
     "relativePath": "resources\\Animation\\baoxian\\BLACK_PP.png"
   },
   "a3c18bb7-9de1-44a0-902e-a3d63039a8db": {
-    "asset": 1583833785708,
+    "asset": 1583834217003,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\faCaiHua"
   },
@@ -1775,7 +1775,7 @@
     "relativePath": "resources\\Animation\\faCaiHua\\faicaihua_tex.png"
   },
   "d0f8530d-8ce6-47cd-94b1-41be0dd482d7": {
-    "asset": 1583833785717,
+    "asset": 1583834217011,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\loading"
   },
@@ -1790,7 +1790,7 @@
     "relativePath": "resources\\Animation\\loading\\load.anim"
   },
   "261a1c88-ebf9-4c69-ba93-4f2c3de9848e": {
-    "asset": 1583833785752,
+    "asset": 1583834217019,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\rankeffect"
   },
@@ -1810,7 +1810,7 @@
     "relativePath": "resources\\Animation\\rankeffect\\rankeffectClip.anim"
   },
   "7b889cc2-9ab7-4050-8557-78ce61bd297f": {
-    "asset": 1583833785761,
+    "asset": 1583834217027,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\shockWave"
   },
@@ -1830,7 +1830,7 @@
     "relativePath": "resources\\Animation\\shockWave\\shockWaveClip.anim"
   },
   "8bb780c2-dbf0-4cef-9e4c-50bd23e76ff2": {
-    "asset": 1583833785765,
+    "asset": 1583834217030,
     "meta": 1580284430000,
     "relativePath": "resources\\Animation\\test"
   },
@@ -1924,11 +1924,6 @@
     "meta": 1581654455199,
     "relativePath": "Script\\Hall\\shop\\eBankPanel.ts"
   },
-  "b37151d0-d311-4733-89a4-5b9b141e42d6": {
-    "asset": 1581661381877,
-    "meta": 1581661383277,
-    "relativePath": "Script\\Hall\\shop\\abankPanel.ts"
-  },
   "93bcbb0c-7030-4783-ba70-9e8d2289ed7a": {
     "asset": 1581662185181,
     "meta": 1581662201737,
@@ -2014,11 +2009,6 @@
     "meta": 1583118648980,
     "relativePath": "Script\\Controller\\PayControl.ts"
   },
-  "83fc2e36-f821-490e-a026-cbd73a840309": {
-    "asset": 1583124983233,
-    "meta": 1583125256903,
-    "relativePath": "Script\\Hall\\shop\\ShopNode.ts"
-  },
   "c4f1d28b-da72-4faa-af90-535966b709b8": {
     "asset": 1583132639258,
     "meta": 1583132641114,
@@ -2075,7 +2065,7 @@
     "relativePath": "Script\\Hall\\Withdraw\\RecordPanel.ts"
   },
   "4f9f4977-1587-4f46-9ad4-db8112388520": {
-    "asset": 1583833785408,
+    "asset": 1583834216862,
     "meta": 1583384537054,
     "relativePath": "prefabs\\Hall\\Promote"
   },
@@ -2095,7 +2085,7 @@
     "relativePath": "Script\\Hall\\shop\\PayRecordPanel.ts"
   },
   "7f607d80-d210-4bc5-b65a-0664738c36fe": {
-    "asset": 1583833787315,
+    "asset": 1583834218611,
     "meta": 1583386663229,
     "relativePath": "Script\\Hall\\Promote"
   },
@@ -2170,7 +2160,7 @@
     "relativePath": "Script\\Hall\\HallBottomNode.ts"
   },
   "f74a1c86-fe2e-4c66-93ee-618b2fa66c4b": {
-    "asset": 1583833786614,
+    "asset": 1583834218413,
     "meta": 1583821845807,
     "relativePath": "Script\\Animation"
   },
@@ -2180,7 +2170,7 @@
     "relativePath": "Script\\Animation\\RankEffect.ts"
   },
   "3ecb842c-8f82-40e1-bcd5-7f48441a5004": {
-    "asset": 1583833785092,
+    "asset": 1583834216770,
     "meta": 1580284430000,
     "relativePath": "linshi"
   },
@@ -2208,5 +2198,15 @@
     "asset": 1582876136104,
     "meta": 1583822201665,
     "relativePath": "linshi\\取款中心提现记录详情.png"
+  },
+  "b0033761-6ea6-47b4-ba5b-e0c53c9f3dc4": {
+    "asset": 1583835437809,
+    "meta": 1583835442799,
+    "relativePath": "Script\\Hall\\shop\\payBankPanel.ts"
+  },
+  "83fc2e36-f821-490e-a026-cbd73a840309": {
+    "asset": 1583835845437,
+    "meta": 1583835848400,
+    "relativePath": "Script\\Hall\\shop\\ShopNode.ts"
   }
 }
