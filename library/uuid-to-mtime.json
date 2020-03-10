@@ -350,7 +350,7 @@
     "relativePath": "resources\\Font\\yuan.png"
   },
   "07910ef1-7dda-43ee-b652-1b34517debb0": {
-    "asset": 1580283591979,
+    "asset": 1583822825700,
     "meta": 1580284430000,
     "relativePath": "resources\\resHall"
   },
@@ -1843,11 +1843,6 @@
     "asset": 1580284430000,
     "meta": 1580284588292,
     "relativePath": "resources\\Animation\\shockWave\\shockWave.png"
-  },
-  "6646d58f-a27d-40ea-8653-ae78269e788e": {
-    "asset": 1578557030759,
-    "meta": 1578470272233,
-    "relativePath": "resources\\resHall\\animation"
   },
   "36824f29-f06d-4f30-aa7e-755554925c6b": {
     "asset": 1580459045378,
