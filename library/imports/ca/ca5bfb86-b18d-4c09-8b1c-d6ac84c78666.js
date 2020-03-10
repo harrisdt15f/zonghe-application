@@ -37,9 +37,6 @@ var MyEditbox = /** @class */ (function (_super) {
         _this.onTextChangedCallback = null;
         _this.onReturnCallback = null;
         return _this;
-        // getTEXTLABEL(){
-        //     return this.myEditBox.node.getChildByName("TEXT_LABEL")
-        // }
     }
     // LIFE-CYCLE CALLBACKS:
     MyEditbox.prototype.onLoad = function () {
@@ -93,6 +90,9 @@ var MyEditbox = /** @class */ (function (_super) {
     };
     MyEditbox.prototype.getText = function () {
         return this.text;
+    };
+    MyEditbox.prototype.getTEXTLABEL = function () {
+        return this.myEditBox.node.getChildByName("TEXT_LABEL");
     };
     __decorate([
         property(cc.Label)

@@ -73,7 +73,6 @@ var Hall = /** @class */ (function (_super) {
     };
     //G_Utils.onClickEnd(item, this.onToggleEnd, this)
     Hall.prototype.onSelectedItem = function (index) {
-        var _this = this;
         if (this.curLeftIndex > 0 && this.curLeftIndex <= this.leftList.length + 1) {
             var tt = this.leftList[this.curLeftIndex - 1].getComponent(HallLeftItem_1.default);
             tt.setSelectState(false);
@@ -81,11 +80,11 @@ var Hall = /** @class */ (function (_super) {
         this.curLeftIndex = index;
         var tt = this.leftList[this.curLeftIndex - 1].getComponent(HallLeftItem_1.default);
         tt.setSelectState(true);
-        console.log("index>>>", index);
+        //console.log("index>>>",index)
         if (CommonControl_1.G_CommonControl.getCommonConfig().getGameSub(this.curLeftIndex) == null) {
-            CommonControl_1.G_CommonControl.requesGameDetailData(this.curLeftIndex, function () {
-                _this.onShowRightInfo();
-            });
+            // G_CommonControl.requesGameDetailData(this.curLeftIndex,()=>{
+            //     this.onShowRightInfo();
+            // });
         }
         else {
             this.onShowRightInfo();

@@ -8,7 +8,7 @@
   },
   "packageName": "org.cocos2d.helloworld",
   "startScene": "133c9656-bc1e-4463-8c55-f085b44849c0",
-  "title": "zongHeJiangHu",
+  "title": "JiangHu",
   "webOrientation": "auto",
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
@@ -21,7 +21,7 @@
   "zipCompressJs": true,
   "fb-instant-games": {},
   "android": {
-    "packageName": "org.cocos2d.zongHeJiangHu"
+    "packageName": "org.cocos2dx"
   },
   "ios": {
     "packageName": "org.cocos2d.helloworld"

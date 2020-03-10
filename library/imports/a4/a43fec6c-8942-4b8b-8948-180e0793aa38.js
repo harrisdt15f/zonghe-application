@@ -10,6 +10,7 @@ var VipConfig_1 = require("../Config/VipConfig");
 var OnFire_1 = require("../Net/OnFire");
 var uiEvent_1 = require("../Config/uiEvent");
 var UserControl_1 = require("./UserControl");
+var RequestConfig_1 = require("../Config/RequestConfig");
 var VipControl = /** @class */ (function () {
     function VipControl() {
         this.vipConfig = null;
@@ -25,10 +26,11 @@ var VipControl = /** @class */ (function () {
         if (this.vipConfig.data != null) {
             return;
         }
-        HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/grades", function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.VIP, null, function (ret) {
             console.log("[获取VIP配置]：返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
-                this.vipConfig.data = ret.data;
+                this.vipConfig.data = ret.data.system_level;
+                this.vipConfig.personMsg = ret.data.level_benefits_status;
                 console.log("ret.data   " + ret.data);
             }
             OnFire_1.G_OnFire.fire(uiEvent_1.EventRequest.VipUpdate);
@@ -43,7 +45,7 @@ var VipControl = /** @class */ (function () {
             return;
         }
         console.log("领取晋级赠金2");
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/user/promotion-gifts", null, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Promotion, null, function (ret) {
             console.log("[领取晋级赠金]：返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 UserControl_1.G_UserControl.getUser().vippromotion = 0;
@@ -64,7 +66,7 @@ var VipControl = /** @class */ (function () {
             return;
         }
         console.log("领取每周赠金2");
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/user/weekly-gifts", null, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Weekly, null, function (ret) {
             console.log("[领取每周赠金]：返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 UserControl_1.G_UserControl.getUser().vipweekly = 0;

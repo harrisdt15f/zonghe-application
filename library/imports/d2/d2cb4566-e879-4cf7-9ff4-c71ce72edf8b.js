@@ -24,10 +24,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var OnFire_1 = require("../../Net/OnFire");
-// import { UI_EVENT_STATE } from '../../Config/uiEvent';
-var config_1 = require("../../Config/config");
-var HttpHelper_1 = require("../../Net/HttpHelper");
 var uiEvent_1 = require("../../Config/uiEvent");
+var config_1 = require("../../Config/config");
+var UserControl_1 = require("../../Controller/UserControl");
+var UiForms_1 = require("../../Tool/UiForms");
+var Language_1 = require("../../Language/Language");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var HeadBoxNode = /** @class */ (function (_super) {
     __extends(HeadBoxNode, _super);
@@ -44,10 +45,10 @@ var HeadBoxNode = /** @class */ (function (_super) {
         return _this;
     }
     HeadBoxNode.prototype.onLoad = function () {
-        HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/system-avatar", function (ret) {
-            console.log("app-api/user/system-avatar数据", ret);
-            OnFire_1.G_OnFire.fire(uiEvent_1.EventRequest.HeadUpdata);
-        }.bind(this));
+        // G_HttpHelper.httpGet(RequestEnum.Avatar, function(ret){
+        //     console.log("app-api/user/system-avatar数据",ret); 
+        //     G_OnFire.fire(EventRequest.HeadUpdata)
+        // }.bind(this))
     };
     HeadBoxNode.prototype.start = function () {
         var scrollview = this.node.getChildByName("scrollview");
@@ -55,12 +56,19 @@ var HeadBoxNode = /** @class */ (function (_super) {
         var content = view.getChildByName("content");
         content.removeAllChildren();
         this.selectBox = cc.instantiate(this.headSelect);
+        var cur = parseInt(UserControl_1.G_UserControl.getUser().usePic);
+        if (!isNaN(cur) && cur > 0) {
+            // cur = cur;
+        }
+        else {
+            cur = 1;
+        }
         for (var index = 1; index <= config_1.headNum; index++) {
             var piece = cc.instantiate(this.headImage);
             piece.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang" + index);
             piece.parent = content;
             piece.name = "heand_" + index;
-            if (index == 1) {
+            if (index == cur) {
                 this.selectIdx = index;
                 this.tmpSelectBox = piece;
                 this.selectBox.setPosition(cc.v2(0, 0));
@@ -87,8 +95,18 @@ var HeadBoxNode = /** @class */ (function (_super) {
         this.selectIdx = Number(str);
     };
     HeadBoxNode.prototype.onTiJiao = function () {
-        // G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_replace, this.selectIdx);
+        //G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_replace, this.selectIdx);
         // G_OnFire.fire(UI_EVENT_STATE.UI_HEAD_colse);
+        console.log("selectIdx  ", this.selectIdx);
+        UserControl_1.G_UserControl.requesPlayerChange(UserControl_1.G_UserControl.getUser().userName, this.selectIdx, function (ret) {
+            if (ret.status) {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("picChangeSuccess"));
+                OnFire_1.G_OnFire.fire(uiEvent_1.uiEventFunction.colseBox);
+            }
+            else {
+                UiForms_1.G_UiForms.hint(ret.message);
+            }
+        }.bind(this));
     };
     HeadBoxNode.prototype.onDestroy = function () {
         // G_OnFire.off(UI_EVENT_STATE.UI_HEAD_replace)

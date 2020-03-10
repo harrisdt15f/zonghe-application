@@ -47,7 +47,7 @@ var RankItem = /** @class */ (function (_super) {
         this.onRefreshData();
     };
     RankItem.prototype.onRefreshData = function () {
-        console.log("this.msg    " + this.msg);
+        //console.log("this.msg    "+this.msg);
         if (this.msg == null) {
             return;
         }

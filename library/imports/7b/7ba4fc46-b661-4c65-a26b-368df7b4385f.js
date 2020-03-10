@@ -11,6 +11,7 @@ var UserModel_1 = require("../Model/UserModel");
 var config_1 = require("../Config/config");
 var uiEvent_1 = require("../Config/uiEvent");
 var OnFire_1 = require("../Net/OnFire");
+var RequestConfig_1 = require("../Config/RequestConfig");
 var UserControl = /** @class */ (function () {
     function UserControl() {
         this._userModel = null;
@@ -58,7 +59,7 @@ var UserControl = /** @class */ (function () {
      * @param call
      */
     UserControl.prototype.requestLogin = function (mobile, password, call) {
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/login", {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Login, {
             mobile: mobile,
             password: password
         }, function (ret) {
@@ -103,7 +104,7 @@ var UserControl = /** @class */ (function () {
         list["verification_key"] = ver_key;
         if (invite_code)
             list["invite_code"] = invite_code;
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/register", list, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Register, list, function (ret) {
             // console.log("[注册]：返回数据",ret)    
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 //保存登陆名称，密码
@@ -135,9 +136,9 @@ var UserControl = /** @class */ (function () {
         list["password_confirmation"] = passwordagain;
         list["verification_code"] = ver_code;
         list["verification_key"] = ver_key;
-        HttpHelper_1.G_HttpHelper.httpPut("/app-api/user/reset-password", list, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPut(RequestConfig_1.RequestEnum.PasswordReset, list, function (ret) {
             console.log("[密码找回]：返回数据", ret);
-            if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
+            if (ret.status) {
                 //保存登陆名称，密码
                 this._userModel.userMobile = mobile;
                 this._userModel.userPassword = password;
@@ -161,19 +162,19 @@ var UserControl = /** @class */ (function () {
     * @param ver_code 验证码
     * @param ver_key  验证key
     */
-    UserControl.prototype.requestPasswordChange = function (securitycode, password, passwordagain, ver_key, call) {
+    UserControl.prototype.requestPasswordChange = function (password, passwordagain, securitycode, ver_code, ver_key, call) {
         var list = {};
         list["password"] = password;
         list["password_confirmation"] = passwordagain;
-        // list["verification_code"] = ver_code;
+        list["security_code"] = securitycode;
+        list["verification_code"] = ver_code;
         list["verification_key"] = ver_key;
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/user/reset-password", list, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPut(RequestConfig_1.RequestEnum.PasswordChange, list, function (ret) {
             //console.log("[注册]：返回数据",ret)    
-            if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
+            if (ret.status) {
                 //保存登陆名称，密码
                 // this._userModel.userMobile = mobile;
                 this._userModel.userPassword = password;
-                this._userModel.accessToken = ret.data["access_token"];
                 this.requesPlayerData(function () {
                     if (call) {
                         call(ret);
@@ -186,13 +187,31 @@ var UserControl = /** @class */ (function () {
         }.bind(this));
     };
     /**
+     * 密码修改码验证
+     * @param mobile 账户
+     * @param password
+     * @param call
+     */
+    UserControl.prototype.requestPasswordChangeVCode = function (call) {
+        HttpHelper_1.G_HttpHelper.httpGet(RequestConfig_1.RequestEnum.ChangeCode, function (ret) {
+            if (ret.status) {
+                if (call) {
+                    call(ret);
+                }
+            }
+            else {
+                UiForms_1.G_UiForms.hint(ret.message);
+            }
+        }.bind(this));
+    };
+    /**
      * 手机注册码验证
      * @param mobile 账户
      * @param password
      * @param call
      */
     UserControl.prototype.requestVerificationCode = function (mobile, call) {
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/register/verification-code", {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.RegisterCode, {
             mobile: mobile,
         }, function (ret) {
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
@@ -212,7 +231,7 @@ var UserControl = /** @class */ (function () {
      * @param call
      */
     UserControl.prototype.requestVerificationRecoveCode = function (mobile, call) {
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/reset-password/verification-code", {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.ResetCode, {
             mobile: mobile,
         }, function (ret) {
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
@@ -232,7 +251,7 @@ var UserControl = /** @class */ (function () {
      * @param call
      */
     UserControl.prototype.requestSecurityVerificationCode = function (call) {
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/security-verification-code", null, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.SecurityCode, null, function (ret) {
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 if (call) {
                     call(ret);
@@ -257,7 +276,7 @@ var UserControl = /** @class */ (function () {
         list["security_code_confirmation"] = passwordagain;
         list["verification_key"] = ver_key;
         list["verification_code"] = ver_code;
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/user/security-code", list, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Security, list, function (ret) {
             console.log("[修改安全码]：返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 if (call) {
@@ -281,12 +300,12 @@ var UserControl = /** @class */ (function () {
         //G_VipControl.requesVipData();
     };
     UserControl.prototype.sendnormalInfoPlaydata = function (call) {
-        HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/information", function (ret) {
-            //console.log("[玩家信息]：1返回数据",ret); 
+        HttpHelper_1.G_HttpHelper.httpGet(RequestConfig_1.RequestEnum.Information, function (ret) {
+            console.log("[玩家信息]：1返回数据", ret);
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 this._userModel.userName = ret.data.nickname;
                 this._userModel.uid = ret.data.guid;
-                this._userModel.usePic = ret.data.avatar;
+                this._userModel.usePic = ret.data.avatar_id;
                 // console.log("pic "+this._userModel.usePic)
             }
             // G_OnFire.fire(EventRequest.HeadUpdata)          
@@ -294,18 +313,18 @@ var UserControl = /** @class */ (function () {
         }.bind(this));
     };
     UserControl.prototype.sendspecialPlayerData = function (call) {
-        HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/dynamic-information", function (ret) {
+        HttpHelper_1.G_HttpHelper.httpGet(RequestConfig_1.RequestEnum.DynamicInfo, function (ret) {
             console.log("[玩家信息]：2返回数据", ret);
-            if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
+            if (ret.status) {
                 this._userModel.richrank = ret.data.rich_rank;
-                this._userModel.level = ret.data.level_deep;
-                this._userModel.balance = ret.data.balance;
+                this._userModel.level = ret.data.level;
+                this._userModel.balance = parseInt(ret.data.balance);
                 this._userModel.exp = ret.data.experience;
                 this._userModel.score = ret.data.score;
                 //this._userModel.userVipLevel = ret.data.grade
-                this._userModel.userVipLevel = 8;
-                this._userModel.vipweekly = ret.data.weekly_gift;
-                this._userModel.vippromotion = ret.data.promotion_gift;
+                this._userModel.userVipLevel = ret.data.level;
+                // this._userModel.vipweekly = ret.data.weekly_gift
+                // this._userModel.vippromotion = ret.data.promotion_gift
                 // console.log("pic "+this._userModel.richrank)
             }
             if (call) {
@@ -316,14 +335,14 @@ var UserControl = /** @class */ (function () {
         }.bind(this));
     };
     UserControl.prototype.requesPlayerChange = function (name, pic, call) {
-        HttpHelper_1.G_HttpHelper.httpPost("/app-api/user/information", {
+        HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.UpdateInfo, {
             avatar: pic,
             nickname: name,
         }, function (ret) {
             console.log("[更改信息]：1返回数据", ret);
-            if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
-                this._userModel.userName = ret.data.nickname;
-                this._userModel.usePic = ret.data.avatar;
+            if (ret.status) {
+                this._userModel.userName = name;
+                this._userModel.usePic = pic;
                 OnFire_1.G_OnFire.fire(uiEvent_1.EventRequest.HeadUpdata);
             }
             if (call) {
@@ -335,9 +354,9 @@ var UserControl = /** @class */ (function () {
     *刷新token
     */
     UserControl.prototype.requestAccesstoken = function (call) {
-        HttpHelper_1.G_HttpHelper.httpPut("/app-api/user/refresh-token", null, function (ret) {
+        HttpHelper_1.G_HttpHelper.httpPut(RequestConfig_1.RequestEnum.RefreshToken, null, function (ret) {
             console.log("[刷新token]：返回数据", ret);
-            if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
+            if (ret.status) {
                 //保存登陆名称，密码
                 this._userModel.accessToken = ret.data["access_token"];
                 if (call) {
@@ -354,7 +373,7 @@ var UserControl = /** @class */ (function () {
             UiForms_1.G_UiForms.hint("请重新登陆！");
             return;
         }
-        HttpHelper_1.G_HttpHelper.httpGet("/app-api/user/logout", function (ret) {
+        HttpHelper_1.G_HttpHelper.httpGet(RequestConfig_1.RequestEnum.Logout, function (ret) {
             // console.log("[退出登陆]：返回数据",ret)   
             if (ret.status && ret.code == IdentifyKey_1.CODE.SUCCEED) {
                 //保存登陆名称，密码

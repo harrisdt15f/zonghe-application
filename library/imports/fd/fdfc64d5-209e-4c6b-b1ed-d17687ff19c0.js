@@ -42,11 +42,13 @@ var SubitemControl = /** @class */ (function (_super) {
     }
     SubitemControl.prototype.onLoad = function () {
         var _this = this;
-        this.rightNode.children.forEach(function (item, index) {
-            item.active = index == 0;
-            if (index == 0)
-                _this.lastItem = item;
-        }, this);
+        if (this.rightNode != null) {
+            this.rightNode.children.forEach(function (item, index) {
+                item.active = index == 0;
+                if (index == 0)
+                    _this.lastItem = item;
+            }, this);
+        }
     };
     SubitemControl.prototype.start = function () {
     };

@@ -83,32 +83,20 @@ var NewClass = /** @class */ (function (_super) {
         if (this.cd_time > 0) {
             return;
         }
-        var phone = this.phoneNumInfo;
-        // let verificationNumber = this.verificationInfo
-        // console.log('verificationNumber   '+verificationNumber);      
-        if (phone) {
-            if (!Utils_1.G_Utils.isPoneAvailable(phone)) {
-                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("PhoneFormatWrong"));
-                return;
+        UserControl_1.G_UserControl.requestPasswordChangeVCode(function (ret) {
+            if (ret.status) {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get('verificationCodeSend'));
+                this.ver_mobile = this.phoneNumInfo;
+                this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
+                this.ver_key = ret.data['verification_key'];
+                // this.ver_code = ret.data['verification_code'];
+                console.log('cd_time  ' + this.cd_time + "  ver_code  " + ret.data['verification_code']);
+                this.onCheckVerificationState();
             }
-            UserControl_1.G_UserControl.requestVerificationCode(phone, function (ret) {
-                if (ret.status) {
-                    UiForms_1.G_UiForms.hint(Language_1.G_Language.get('verificationCodeSend'));
-                    this.ver_mobile = this.phoneNumInfo;
-                    this.cd_time = ret.data['nextReqTime'] - ret.data['currentReqTime'];
-                    this.ver_key = ret.data['verification_key'];
-                    // this.ver_code = ret.data['verification_code'];
-                    console.log('cd_time  ' + this.cd_time + "  ver_code  " + ret.data['verification_code']);
-                    this.onCheckVerificationState();
-                }
-                else {
-                    UiForms_1.G_UiForms.hint(ret.message);
-                }
-            }.bind(this));
-        }
-        else {
-            console.log('phone   is empty');
-        }
+            else {
+                UiForms_1.G_UiForms.hint(ret.message);
+            }
+        }.bind(this));
     };
     NewClass.prototype.onClick = function () {
         if (this.phoneNumInfo === '') {
@@ -127,9 +115,9 @@ var NewClass = /** @class */ (function (_super) {
             UiForms_1.G_UiForms.hint(Language_1.G_Language.get("verificationIsEmpty"));
             return;
         }
-        UserControl_1.G_UserControl.requestPasswordChange(this.passwordInfo, this.passwordAgainInfo, this.verificationInfo, this.ver_key, function (ret) {
+        UserControl_1.G_UserControl.requestPasswordChange(this.passwordInfo, this.passwordAgainInfo, this.phoneNumInfo, this.verificationInfo, this.ver_key, function (ret) {
             if (ret.status) {
-                UiForms_1.G_UiForms.hint(Language_1.G_Language.get('registerSuccess'));
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get('revisionSuccess'));
             }
             else {
                 UiForms_1.G_UiForms.hint(ret.message);

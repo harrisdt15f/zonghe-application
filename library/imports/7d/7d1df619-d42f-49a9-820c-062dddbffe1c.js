@@ -14,6 +14,7 @@ var UiForms = /** @class */ (function () {
         this._node = null;
         this._uiNode = null;
         this._tipsNode = null;
+        this._webNode = null;
         this._showBox = null;
         this._tempBox = null;
         OnFire_1.G_OnFire.on(uiEvent_1.uiEventFunction.secondaryInterface, this.removeFromParent.bind(this));
@@ -28,6 +29,7 @@ var UiForms = /** @class */ (function () {
         this._node = node;
         this._uiNode = node.getChildByName("UiNode");
         this._tipsNode = node.getChildByName("TipsNode");
+        this._webNode = node.getChildByName("WebNode");
     };
     /**
      * 展示与操作界面
@@ -76,6 +78,13 @@ var UiForms = /** @class */ (function () {
         var tips = this._tipsNode.getChildByName("TipsNode");
         var _tips = tips.getComponent("TipsNode");
         _tips.textString = _text;
+    };
+    UiForms.prototype.Web = function (url) {
+        if (!this._webNode)
+            return;
+        this._webNode.active = true;
+        var web = this._webNode.getComponent("WebNode");
+        web.init(url);
     };
     UiForms.Instance = new UiForms();
     return UiForms;

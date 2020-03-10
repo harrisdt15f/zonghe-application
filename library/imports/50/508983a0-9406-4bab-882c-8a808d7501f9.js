@@ -27,6 +27,9 @@ var OnFire_1 = require("../../Net/OnFire");
 var UiForms_1 = require("../../Tool/UiForms");
 var uiEvent_1 = require("../../Config/uiEvent");
 var IdentifyKey_1 = require("../../Config/IdentifyKey");
+var WithDrawControl_1 = require("../../Controller/WithDrawControl");
+var Language_1 = require("../../Language/Language");
+var UserControl_1 = require("../../Controller/UserControl");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var AtOncePanel = /** @class */ (function (_super) {
     __extends(AtOncePanel, _super);
@@ -45,6 +48,11 @@ var AtOncePanel = /** @class */ (function (_super) {
         _this.myEditboxCode = null;
         _this.btnTiXian = null;
         _this.accountEditBox = null;
+        _this.accountList = []; //绑定账户列表
+        _this._myPulldownMenu = null;
+        _this.accoutNameList = []; //绑定账户列表名称
+        _this.chooseId = 0; //当前选定绑定账户index
+        _this.isSecurityCode = false;
         return _this;
         // update (dt) {}
     }
@@ -54,15 +62,101 @@ var AtOncePanel = /** @class */ (function (_super) {
         this.btnSet.on(cc.Node.EventType.TOUCH_END, this.onSet.bind(this));
         var classEdithbox = this.myEditboxGolde.getComponent("MyEditbox");
         classEdithbox.onDidEndedCallback = function (target) {
-            console.log("输入结束》》");
+            var strName = classEdithbox.getEdiboxComponent().string;
+            console.log("录完》》", typeof (strName));
+            var num = Number(strName);
+            if (!isNaN(num) && num > 0) {
+                classEdithbox.getEdiboxComponent().string = num.toFixed(2);
+            }
+            //if('number' ==typeof(parseInt(strName)))
         };
         classEdithbox.onTextChangedCallback = function (target) {
             console.log("录入》》");
         };
     };
-    AtOncePanel.prototype.start = function () {
-    };
     AtOncePanel.prototype.onEnable = function () {
+        var _this = this;
+        console.log("G_UserControl.getUser().balance  ", typeof (UserControl_1.G_UserControl.getUser().balance));
+        if (UserControl_1.G_UserControl.getUser().balance) {
+            this.balance.string = UserControl_1.G_UserControl.getUser().balance.toFixed(2);
+        }
+        WithDrawControl_1.G_WithDrawControl.GetMyAccountList(function () {
+            _this.accountList = WithDrawControl_1.G_WithDrawControl.getConfig().MyAccountList;
+            _this.showInfo();
+        });
+    };
+    AtOncePanel.prototype.showInfo = function () {
+        if (this.accountList.length <= 0) {
+            this.labAccount.active = true;
+            this.btnBangDing.active = true;
+            this.myPulldownMenu.active = false;
+            this.isSecurityCode = false;
+            this.labAnQuanMa.active = true;
+            this.myEditboxCode.active = false;
+            this.btnSet.active = true;
+        }
+        else {
+            this.labAccount.active = false;
+            this.myPulldownMenu.active = true;
+            this.btnBangDing.active = false;
+            this.isSecurityCode = true;
+            this.labAnQuanMa.active = false;
+            this.myEditboxCode.active = true;
+            this.btnSet.active = false;
+            for (var i = 0; i < this.accountList.length; i++) {
+                console.log("this.accountList[i].code " + this.accountList[i].code);
+                var bankInfo = WithDrawControl_1.G_WithDrawControl.getConfig().getPayItemInfo(this.accountList[i].code);
+                this.accoutNameList[i] = bankInfo.name + " " + this.accountList[i].card_number_hidden;
+            }
+            if (this.myPulldownMenu) {
+                this._myPulldownMenu = this.myPulldownMenu.getComponent("MyPulldownMenu");
+                this._myPulldownMenu.menuData = this.accoutNameList;
+                //this.chooseId = this._myPulldownMenu.selectResult.selectedId;
+                var selectedText = this._myPulldownMenu.selectResult.text;
+                console.log("选择了什么》》", this.chooseId, selectedText);
+            }
+        }
+    };
+    AtOncePanel.prototype.onWithDrwClick = function () {
+        if (this.accountList == null || this.accountList.length == 0) {
+            UiForms_1.G_UiForms.hint(Language_1.G_Language.get("bindEmpty"));
+            return;
+        }
+        var val = this.myEditboxGolde.getComponent("MyEditbox").getEdiboxComponent().string;
+        var money = Number(val);
+        console.log(typeof (money), "   ", money);
+        //if(money)
+        var code = '';
+        if (this.isSecurityCode) {
+            code = this.myEditboxCode.getComponent("MyEditbox").getEdiboxComponent().string;
+            if (code == null || code == '') {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("securityisEmpty"));
+                return;
+            }
+        }
+        else {
+            UiForms_1.G_UiForms.hint(Language_1.G_Language.get("securityisEmpty"));
+            return;
+        }
+        if (isNaN(money)) {
+            UiForms_1.G_UiForms.hint(Language_1.G_Language.get("balanceError"));
+            return;
+        }
+        if (money > UserControl_1.G_UserControl.getUser().balance) {
+            UiForms_1.G_UiForms.hint(Language_1.G_Language.get("balanceLess"));
+            return;
+        }
+        var choose = this._myPulldownMenu.selectResult.selectedId;
+        console.log("choose  ", choose);
+        WithDrawControl_1.G_WithDrawControl.requesWithDraw(money, this.accountList[choose].id, code, function (ret) {
+            if (ret.status) {
+                UiForms_1.G_UiForms.hint(Language_1.G_Language.get("withDrawing"));
+                this.balance.string = UserControl_1.G_UserControl.getUser().balance.toFixed(2);
+            }
+            else {
+                UiForms_1.G_UiForms.hint(ret.message);
+            }
+        }.bind(this));
     };
     AtOncePanel.prototype.onDestroy = function () {
         OnFire_1.G_OnFire.off(uiEvent_1.uiEventFunction.atOnceManage);

@@ -55,6 +55,7 @@ var HallBottomNode = /** @class */ (function (_super) {
             UiForms_1.G_UiForms.hint(Language_1.G_Language.get("PleaseLogInFirst"));
         console.log("formsName  " + formsName);
         UiForms_1.G_UiForms.show(formsName);
+        //G_UiForms.show(eventName)
     };
     HallBottomNode = __decorate([
         ccclass

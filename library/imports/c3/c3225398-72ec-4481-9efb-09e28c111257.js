@@ -28,6 +28,7 @@ var RankItem_1 = require("./RankItem");
 var Language_1 = require("../Language/Language");
 var HttpHelper_1 = require("../Net/HttpHelper");
 var UserControl_1 = require("../Controller/UserControl");
+var RequestConfig_1 = require("../Config/RequestConfig");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var RankNode = /** @class */ (function (_super) {
     __extends(RankNode, _super);
@@ -123,14 +124,14 @@ var RankNode = /** @class */ (function (_super) {
             this.tabSelectTwo.active = false;
             this.titleLabel.string = Language_1.G_Language.get("rank_title1");
             if (this.listOne.length <= 0) {
-                HttpHelper_1.G_HttpHelper.httpGet("/app-api/games-lobby/rich-list", function (data) {
+                HttpHelper_1.G_HttpHelper.httpPost(RequestConfig_1.RequestEnum.Profit, null, function (data) {
                     if (data.status) {
                         console.log(data.data.length);
                         this.viewOne.getComponent(ListViewCommon_1.default).init(data.data.length, 35, function (index, itemPrefab) {
                             var itemTs = itemPrefab.getComponent(RankItem_1.default);
                             this.listOne[index] = itemTs;
                             itemTs.init(index + 1, data.data[index]);
-                            console.log("data.data.guid   " + data.data[index] + "  " + UserControl_1.G_UserControl.getUser().uid);
+                            //console.log("data.data.guid   "+data.data[index] + "  "+ G_UserControl.getUser().uid)
                             if (data.data[index].guid == UserControl_1.G_UserControl.getUser().uid) {
                                 this.myRankOne = index + 1;
                                 if (this.myRankOne <= 100) {
@@ -160,7 +161,7 @@ var RankNode = /** @class */ (function (_super) {
             this.tabSelectTwo.active = true;
             this.titleLabel.string = Language_1.G_Language.get("rank_title2");
             if (this.listTwo.length <= 0) {
-                HttpHelper_1.G_HttpHelper.httpGet("/app-api/games-lobby/rich-list", function (data) {
+                HttpHelper_1.G_HttpHelper.httpGet(RequestConfig_1.RequestEnum.Rich, function (data) {
                     if (data.status) {
                         this.viewTwo.getComponent(ListViewCommon_1.default).init(data.data.length, 35, function (index, itemPrefab) {
                             var itemTs = itemPrefab.getComponent(RankItem_1.default);

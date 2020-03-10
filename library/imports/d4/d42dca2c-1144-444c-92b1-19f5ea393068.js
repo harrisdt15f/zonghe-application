@@ -9,7 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 exports.LANGUAGE = "zh";
 exports.URL = "http://api.jianghu.local";
+//export const URL = "http://api.jianghu.local"
 //export const URL = "ws://10.10.50.117"
+exports.DNS = "app.jianghu.com"; //内
+//export const DNS = "app.397017.com"   //外
 exports.PORT = "80";
 // export const URL = "ws://www.baidu.com/"
 /**

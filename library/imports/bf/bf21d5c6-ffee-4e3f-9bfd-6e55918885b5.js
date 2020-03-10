@@ -62,14 +62,6 @@ var registerPanel = /** @class */ (function (_super) {
         }
     };
     registerPanel.prototype.onEnable = function () {
-        /*
-        let name = G_UserControl.getUser().userMobile
-        if(name)
-            this.phoneNumInfo = name
-        let pass = G_UserControl.getUser().userPassword
-        if(pass)
-            this.passwordInfo = pass;
-         */
         this.onCheckVerificationState();
     };
     registerPanel.prototype.onCheckVerificationState = function () {
@@ -137,12 +129,12 @@ var registerPanel = /** @class */ (function (_super) {
         if (!this.btnLanding.getComponent(cc.Button).enabled) {
             return;
         }
-        this.btnLanding.getComponent(cc.Button).enabled = false;
+        //this.btnLanding.getComponent(cc.Button).enabled= false;
         //this.scheduleOnce(()=>{
         //    this.btnLanding.getComponent(cc.Button).enabled= true;
         // },1);
         UserControl_1.G_UserControl.requestRegister(this.ver_mobile, this.passwordInfo, this.passwordAgainInfo, this.verificationInfo, this.ver_key, this.invatationInfo, function (ret) {
-            this.btnLanding.getComponent(cc.Button).enabled = true;
+            //this.btnLanding.getComponent(cc.Button).enabled= true;
             if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get('registerSuccess'));
             }

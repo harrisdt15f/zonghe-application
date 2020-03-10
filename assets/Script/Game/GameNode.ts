@@ -16,7 +16,7 @@ export default class GameNode extends cc.Component {
 
     start () {
         var scheme = "http";
-
+     
         function jsCallback (target, url) {
             // 这里的返回值是内部页面的 URL 数值，需要自行解析自己需要的数据。
             var str = url.replace(scheme + '://', ''); // str === 'a=1&b=2'

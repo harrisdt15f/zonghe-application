@@ -91,10 +91,10 @@ var VipPromotedMoSiPanel = /** @class */ (function (_super) {
                 piece.getChildByName("label_"+i).getComponent(cc.Label).string = _data["name"];
                 //_data["name"]
             }*/
-            piece.getChildByName("label_0").getComponent(cc.Label).string = _data["name"];
+            piece.getChildByName("label_0").getComponent(cc.Label).string = _data["level"];
             piece.getChildByName("label_1").getComponent(cc.Label).string = Math.floor(_data["experience_max"]).toString();
-            piece.getChildByName("label_2").getComponent(cc.Label).string = (Math.floor(_data["grade_gift"] * 10) / 10).toString();
-            piece.getChildByName("label_3").getComponent(cc.Label).string = (Math.floor(_data["week_gift"] * 10) / 10).toString();
+            piece.getChildByName("label_2").getComponent(cc.Label).string = (Math.floor(_data["promotion_gift"] * 10) / 10).toString();
+            piece.getChildByName("label_3").getComponent(cc.Label).string = (Math.floor(_data["weekly_gift"] * 10) / 10).toString();
             piece.getChildByName("label_4").getComponent(cc.Label).string = "1倍";
             piece.getChildByName("label_5").getComponent(cc.Label).string = "1倍";
         }

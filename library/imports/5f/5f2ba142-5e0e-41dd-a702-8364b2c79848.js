@@ -25,9 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var CommonControl_1 = require("../Controller/CommonControl");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var HallRightItem = /** @class */ (function (_super) {
-    __extends(HallRightItem, _super);
-    function HallRightItem() {
+var HallLeftItem = /** @class */ (function (_super) {
+    __extends(HallLeftItem, _super);
+    function HallLeftItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.normalImg = null;
         _this.specialImg = null;
@@ -41,47 +41,48 @@ var HallRightItem = /** @class */ (function (_super) {
         return _this;
         // update (dt) {}
     }
-    HallRightItem.prototype.onSelectClick = function () {
+    HallLeftItem.prototype.onSelectClick = function () {
         if (this.back) {
             this.back(this.index);
         }
     };
-    HallRightItem.prototype.init = function (data, fback) {
+    HallLeftItem.prototype.init = function (data, fback) {
         this.back = fback;
         this.index = data.type_id;
+        console.log("index ", this.index);
         this.pathList = CommonControl_1.G_CommonControl.getCommonConfig().getJsonPath(this.index);
         this.icon.spriteFrame = this.iconAtlas.getSpriteFrame(this.pathList.icon);
         this.normalImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(this.pathList.normalText);
         this.specialImg.spriteFrame = this.subtitleAtlas.getSpriteFrame(this.pathList.specialText);
     };
-    HallRightItem.prototype.setSelectState = function (bTrue) {
+    HallLeftItem.prototype.setSelectState = function (bTrue) {
         this.normalImg.node.active = !bTrue;
         this.specialImg.node.active = bTrue;
         this.selectNode.active = bTrue;
     };
     __decorate([
         property(cc.Sprite)
-    ], HallRightItem.prototype, "normalImg", void 0);
+    ], HallLeftItem.prototype, "normalImg", void 0);
     __decorate([
         property(cc.Sprite)
-    ], HallRightItem.prototype, "specialImg", void 0);
+    ], HallLeftItem.prototype, "specialImg", void 0);
     __decorate([
         property(cc.Node)
-    ], HallRightItem.prototype, "selectNode", void 0);
+    ], HallLeftItem.prototype, "selectNode", void 0);
     __decorate([
         property(cc.Sprite)
-    ], HallRightItem.prototype, "icon", void 0);
+    ], HallLeftItem.prototype, "icon", void 0);
     __decorate([
         property(cc.SpriteAtlas)
-    ], HallRightItem.prototype, "subtitleAtlas", void 0);
+    ], HallLeftItem.prototype, "subtitleAtlas", void 0);
     __decorate([
         property(cc.SpriteAtlas)
-    ], HallRightItem.prototype, "iconAtlas", void 0);
-    HallRightItem = __decorate([
+    ], HallLeftItem.prototype, "iconAtlas", void 0);
+    HallLeftItem = __decorate([
         ccclass
-    ], HallRightItem);
-    return HallRightItem;
+    ], HallLeftItem);
+    return HallLeftItem;
 }(cc.Component));
-exports.default = HallRightItem;
+exports.default = HallLeftItem;
 
 cc._RF.pop();

@@ -43,6 +43,7 @@ export default class GuessingBox extends cc.Component {
         var scaleTo = cc.scaleTo(0.5, 0, 1.1);
         var skewBy = cc.skewBy(0.5, 0, -40)
         var spawn = cc.spawn(skewBy, scaleTo)
+        //var tt = cc.sequence(cc.rotateBy(0,0,-180),cc.rotateBy(0.5,0,90));
         var func = cc.callFunc(function(){
             item.scaleY = 1
             item.scaleX = 1

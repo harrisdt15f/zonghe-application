@@ -32,5 +32,6 @@ export default class HallBottomNode extends cc.Component {
             G_UiForms.hint(G_Language.get("PleaseLogInFirst"))
             console.log("formsName  "+formsName)  
         G_UiForms.show(formsName)
+        //G_UiForms.show(eventName)
     }
 }

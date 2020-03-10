@@ -73,14 +73,13 @@ var landingPanel = /** @class */ (function (_super) {
             return;
         }
         console.log('333');
-        this.btnLanding.getComponent(cc.Button).enabled = false;
+        //this.btnLanding.getComponent(cc.Button).enabled= false;
         this.isLanding = false;
         this.scheduleOnce(function () {
-            // this.btnLanding.getComponent(cc.Button).enabled= true;
             _this.isLanding = true;
         }, 1);
         UserControl_1.G_UserControl.requestLogin(this.phoneNumInfo, this.passwordInfo, function (data) {
-            this.btnLanding.getComponent(cc.Button).enabled = true;
+            // this.btnLanding.getComponent(cc.Button).enabled= true;
             if (data.status) {
                 OnFire_1.G_OnFire.fire(uiEvent_1.uiEventFunction.colseBox);
             }

@@ -56,45 +56,6 @@ var HallTopNode = /** @class */ (function (_super) {
         _this.serverBtn = null; //客服
         _this.supportBtn = null; //帮助    
         _this.platforms = null;
-        _this.loadNative = function (url, callback) {
-            url = "http://cdn.kuokuo666.com/KUOKUO.png";
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            xhr.onreadystatechange = function () {
-                cc.log("xhr.readyState  " + xhr.readyState);
-                cc.log("xhr.status  " + xhr.status);
-                // cc.log("xhr  " +xhr.response);
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var respone = xhr.response;
-                        cc.log("rsp  " + respone);
-                        var rsp = JSON.parse(respone);
-                        var img = new Image();
-                        cc.log("rsp  " + respone);
-                        img.src = rsp.data;
-                        cc.log("data  " + rsp.data);
-                        var texture = new cc.Texture2D();
-                        texture.genMipmaps = false;
-                        texture.initWithElement(img);
-                        texture.handleLoadedTexture();
-                        var newframe = new cc.SpriteFrame(texture);
-                        callback(newframe);
-                    }
-                    else {
-                        callback(null);
-                    }
-                }
-            }.bind(this);
-            xhr.open("GET", url, true);
-            xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-            xhr.setRequestHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
-            xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
-            //xhr.setRequestHeader('Access-Control-Allow-Credentials', 'false');
-            //xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-            //xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader('Authorization', 'Bearer ' + UserControl_1.G_UserControl.getUser().accessToken);
-            xhr.send();
-        };
         return _this;
         /*
         CacheNetImg(Url,callback){
@@ -122,7 +83,7 @@ var HallTopNode = /** @class */ (function (_super) {
                     callback(newframe);
                 }
                 else if (xhr.readyState === 4 && xhr.status == 401) {
-                    callback({status:401});
+                  //  callback({status:401});
                 }
             };
     
@@ -131,11 +92,9 @@ var HallTopNode = /** @class */ (function (_super) {
             xhr.open('GET', Url, true);
      
             // if (cc.sys.isNative) {
-            xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-            xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,POST,GET,OPTIONS');
-            xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
-             xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
             xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+            //xhr.setRequestHeader('JHReferer', DNS);
             xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
     
             // xhr.setRequestHeader('Authorization', 'Bearer ' + "");
@@ -146,7 +105,7 @@ var HallTopNode = /** @class */ (function (_super) {
             xhr.send();
             
          }
-            */
+        */
     }
     HallTopNode.prototype.onLoad = function () {
         this.platforms = new Platforms_1.Platforms();
@@ -225,15 +184,45 @@ var HallTopNode = /** @class */ (function (_super) {
   
         }.bind(this));
         */
-        cc.loader.load({ url: remoteUrl, type: "png" }, function (err, img) {
-            if (err) {
-                console.log("图片下载失败", remoteUrl, err);
-                return;
-            }
-            //var mylogo  = new cc.SpriteFrame(img); 
-            //this.head.spriteFrame = mylogo;
-        }.bind(this));
+        /*
+         cc.loader.load({url:remoteUrl,type:"png"},function(err,img){
+              if(err)
+              {
+                  console.log("图片下载失败",remoteUrl,err);
+                  return;
+              }
+              //var mylogo  = new cc.SpriteFrame(img);
+              //this.head.spriteFrame = mylogo;
+          }.bind(this));
+          */
         // this.head.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang"); 
+        /*
+         let xhr = cc.loader.getXMLHttpRequest();
+         xhr.onreadystatechange = function () {
+             console.log("data  "+xhr.responseText);
+             if (xhr.readyState === 4 && xhr.status == 200) {
+                 //let data = this.doDecode(xhr.responseText);
+                     
+             }
+             else if (xhr.readyState === 4 && xhr.status == 401) {
+                 
+             }
+         }.bind(this);
+         
+         xhr.open('GET', remoteUrl, true);
+         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+         xhr.setRequestHeader('Access-Control-Allow-Headers', 'Content-Type');
+         xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+         xhr.setRequestHeader('Access-Control-Allow-Credentials','true')
+         //xhr.setRequestHeader('Access-Control-Allow-Methods', 'PUT,GET');
+         //xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
+         // xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+         xhr.setRequestHeader("Content-Type", "application/json");
+         xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
+         console.log("xhr  "+xhr.status)
+         xhr.timeout = 5000;
+         xhr.send();
+         */
     };
     HallTopNode.prototype.fireUpdateView = function () {
         var flag = UserControl_1.G_UserControl.isLogin();
@@ -245,7 +234,15 @@ var HallTopNode = /** @class */ (function (_super) {
             this.lableId.getComponent(cc.Label).string = "ID:" + UserControl_1.G_UserControl.getUser().uid;
             this.setVIP(UserControl_1.G_UserControl.getUser().level);
             var pic = UserControl_1.G_UserControl.getUser().usePic;
-            //this.onReplaceHead(pic)
+            console.log("pic  ", pic);
+            var index = parseInt(pic);
+            if (!isNaN(index) && index > 0) {
+                this.head.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang" + index);
+            }
+            else {
+                this.head.getComponent(cc.Sprite).spriteFrame = this.headAtlas.getSpriteFrame("touxiang1");
+            }
+            // this.onReplaceHead(pic)
             /*
             this.loadNative(pic,(o)=>{
              this.head.spriteFrame = o;
@@ -268,12 +265,26 @@ var HallTopNode = /** @class */ (function (_super) {
             this.playerEmptyObj.active = true;
         }
     };
-    HallTopNode.prototype.ceshi = function () {
-        var node = new cc.Node(), sprite = node.addComponent(cc.Sprite);
-        cc.loader.loadRes("testSprite.png", cc.SpriteFrame, function (err, sp) {
-            sprite.spriteFrame = sp;
-        });
-        node.parent = this.node;
+    HallTopNode.prototype.SaveToLocal = function () {
+        var fileName = "textureName";
+        var fileType = ".png";
+        var filePath = null;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.response && cc.sys.isNative) {
+                    var rootPath = jsb.fileUtils.getWritablePath();
+                    // filePath = rootPath + fileName +fileType;
+                    // let u8a=new Uint8Array(xhr.response);
+                    // jsb.fileUtils.writeDataToFile(u8a,filePath);
+                    //JS调用JAVA saveTextureToLocal 方法 参数为 filePath 也就是路径
+                    // jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "saveTextureToLocal", "(Ljava/lang/String;)V", filePath);
+                }
+            }
+        },
+            xhr.responseType = 'arraybuffer';
+        xhr.open("GET", "http://pic.jianghu.local/uploads/jhhy/avatar/2020-02-25/7c0a218b4f651a9c6aeded81fc032ef6.png", true);
+        xhr.send();
     };
     __decorate([
         property(cc.Sprite)

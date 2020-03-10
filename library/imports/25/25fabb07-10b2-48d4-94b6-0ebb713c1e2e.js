@@ -149,6 +149,155 @@ var Utils = /** @class */ (function () {
             return s;
         }
     };
+    /**
+     * 倒计时转换为时间
+     * @param secondTime 秒数
+     *  **/
+    Utils.prototype.getDateTimeStr = function (secondTime) {
+        var minuteTime = 0; // 分
+        var hourTime = 0; // 小时
+        if (secondTime > 60) { //如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = Math.floor(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = Math.floor(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if (minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = Math.floor(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = Math.floor(minuteTime % 60);
+            }
+        }
+        var resultTime = "" + Math.floor(secondTime);
+        if (minuteTime > 0) {
+            resultTime = "" + Math.floor(minuteTime) + ":" + resultTime;
+        }
+        if (hourTime > 0) {
+            resultTime = "" + Math.floor(hourTime) + ":" + resultTime;
+        }
+        console.log(resultTime);
+        return resultTime;
+    };
+    /**
+     * 倒计时转换为时间
+     * @param secondTime 秒数
+     *  **/
+    Utils.prototype.getDateTimeStrTwo = function (secondTime) {
+        var minuteTime = 0; // 分
+        var hourTime = 0; // 小时
+        if (secondTime > 60) { //如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = Math.floor(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = Math.floor(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if (minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = Math.floor(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = Math.floor(minuteTime % 60);
+            }
+        }
+        var resultTime = "" + Math.floor(secondTime) + "秒";
+        if (minuteTime > 0) {
+            resultTime = "" + Math.floor(minuteTime) + "分" + resultTime;
+        }
+        if (hourTime > 0) {
+            resultTime = "" + Math.floor(hourTime) + "时" + resultTime;
+        }
+        return resultTime;
+    };
+    /**
+     * 时间戳转时间
+     * @param second 时间戳
+     */
+    Utils.prototype.getDateTimeStrThree = function (date) {
+        var yyyy = date.getFullYear() + '-';
+        var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var dd = date.getDate() + ' ';
+        var HH = date.getHours() + ':';
+        var mm = date.getMinutes() + ':';
+        var ss = date.getSeconds();
+        var str = yyyy + MM + dd + HH + mm + ss;
+        console.log("str  " + str);
+        return str;
+    };
+    //获取指定时间的时间戳, n 天数
+    Utils.prototype.getCurTimeDate = function (n) {
+        var curData = new Date();
+        curData.setDate(curData.getDate() + n); //
+        console.log(" d ", curData);
+        var str = this.getDateTimeStrThree(curData);
+        console.log("str  " + str);
+        return str;
+        // curDate = moment(curDate).unix();
+    };
+    Utils.prototype.getTimeDate = function (dateType, back) {
+        var now = new Date(); //当前日期
+        var nowDayOfWeek = now.getDay() - 1; //今天本周的第几天
+        var nowDay = now.getDate(); //当前日
+        var nowMonth = now.getMonth(); //当前月
+        var nowYear = now.getFullYear(); //当前年
+        nowYear += (nowYear < 2000) ? 1900 : 0;
+        var lastMonthDate = new Date(); //上月日期
+        lastMonthDate.setDate(1);
+        lastMonthDate.setMonth(lastMonthDate.getMonth() - 1);
+        var lastYear = lastMonthDate.getFullYear();
+        var lastMonth = lastMonthDate.getMonth();
+        var begin = null;
+        var end = null;
+        var curBeginTimeDate = null;
+        var curEndTimeDate = null;
+        if (dateType == 1) {
+            begin = new Date(nowYear - 3, lastMonth, 1);
+            end = new Date();
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+        else if (dateType == 2) //2.昨日
+         {
+            begin = new Date(nowYear, nowMonth, nowDay - 1);
+            end = new Date(nowYear, nowMonth, nowDay);
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+        else if (dateType == 3) //3.今日
+         {
+            begin = new Date(nowYear, nowMonth, nowDay);
+            end = new Date();
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+        else if (dateType == 4) //4.上周
+         {
+            begin = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 7);
+            end = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 1);
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+        else if (dateType == 5) //5.上月
+         {
+            if (lastMonth == 11) {
+                begin = new Date(nowYear - 1, lastMonth, 1);
+                end = new Date(nowYear - 1, lastMonth, this.getMonthDays(nowYear, lastMonth));
+            }
+            else {
+                begin = new Date(nowYear, lastMonth, 1);
+                end = new Date(nowYear, lastMonth, this.getMonthDays(nowYear, lastMonth));
+            }
+            curBeginTimeDate = begin.getTime();
+            curEndTimeDate = end.getTime();
+        }
+        back(curBeginTimeDate, curEndTimeDate);
+    };
+    //获得某月的天数
+    Utils.prototype.getMonthDays = function (nowYear, myMonth) {
+        var monthStartDate = new Date(nowYear, myMonth, 1);
+        var monthEndDate = new Date(nowYear, myMonth + 1, 1);
+        var days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);
+        return days;
+    };
     //整数
     Utils.prototype.isInteger = function (str) {
         var t = /^\d*$/;

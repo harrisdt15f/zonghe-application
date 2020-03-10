@@ -65,14 +65,11 @@ var Platforms = /** @class */ (function () {
         return success;
     };
     Platforms.prototype.JsCopy = function (copyText) {
-        /*
-        if (cc.sys.isNative && cc.sys.os == cc.sys.OS_ANDROID){
-            jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "JavaCopy", "(Ljava/lang/String;)V", str);
-        }
-        */
         if (cc.sys.isNative && cc.sys.isMobile) {
             if (cc.sys.os == cc.sys.OS_ANDROID) {
-                jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "JavaCopy", "(Ljava/lang/String;)V", copyText);
+                setTimeout(function () {
+                    jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "JavaCopy", "(Ljava/lang/String;)V", copyText);
+                }, 100);
             }
             else if (cc.sys.os == cc.sys.OS_IOS) {
                 jsb.reflection.callStaticMethod("NativeOcClass", "callNativeCopyText:", copyText);

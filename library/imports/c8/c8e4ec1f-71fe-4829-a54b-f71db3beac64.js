@@ -89,7 +89,7 @@ var PersonalPanel = /** @class */ (function (_super) {
             this.myEditbox.active = false;
         }.bind(this);
         // onDidEndedCallback
-        this.list.skipPage(UserControl_1.G_UserControl.getUser().userVipLevel, .1);
+        //this.list.skipPage(G_UserControl.getUser().userVipLevel, .1);
         this.labelName0.active = true;
         this.myEditbox.active = false;
     };
@@ -101,12 +101,20 @@ var PersonalPanel = /** @class */ (function (_super) {
         // this.labelMembership.getComponent(cc.Label).string = this.getVIPMembership(G_UserControl.getUser().userVipLevel)
     };
     PersonalPanel.prototype.showInfo = function () {
+        this.max = VipControl_1.G_VipControl.getVipConfig().data.length;
+        this.list.skipPage(UserControl_1.G_UserControl.getUser().userVipLevel, .1);
         //头像
         var spriteFrame = this.headAtlas.getSpriteFrame("touxiang" + 3);
         this.head.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         console.log('G_VipControl.getVipConfig()  ' + VipControl_1.G_VipControl.getVipConfig().data + "  G_UserControl.getUser().userVipLevel " + UserControl_1.G_UserControl.getUser().userVipLevel);
-        this.progressBar.getComponent(cc.ProgressBar).progress = UserControl_1.G_UserControl.getUser().exp / VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"];
-        this.vipExp.getComponent(cc.Label).string = Math.floor(UserControl_1.G_UserControl.getUser().exp) + "/" + Math.floor(VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"]);
+        if (UserControl_1.G_UserControl.getUser().userVipLevel < VipControl_1.G_VipControl.getVipConfig().data.length) {
+            this.progressBar.getComponent(cc.ProgressBar).progress = UserControl_1.G_UserControl.getUser().exp / VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"];
+            this.vipExp.getComponent(cc.Label).string = Math.floor(UserControl_1.G_UserControl.getUser().exp) + "/" + Math.floor(VipControl_1.G_VipControl.getVipConfig().data[UserControl_1.G_UserControl.getUser().userVipLevel]["experience_max"]);
+        }
+        else {
+            this.progressBar.getComponent(cc.ProgressBar).progress = UserControl_1.G_UserControl.getUser().exp / UserControl_1.G_UserControl.getUser().exp;
+            // this.vipExp.getComponent(cc.Label).string = Math.floor(G_UserControl.getUser().exp) +"/"+ G_UserControl.getUser().exp 
+        }
         this.labelCurrentVipLv.getComponent(cc.Label).string = "VIP" + UserControl_1.G_UserControl.getUser().userVipLevel;
         var addLv = UserControl_1.G_UserControl.getUser().userVipLevel + 1;
         var nextLv = addLv > this.max ? this.max : addLv;
@@ -122,6 +130,7 @@ var PersonalPanel = /** @class */ (function (_super) {
             item.active = false;
         }
         else {
+            // console.log("刷新列表。。。。。。。。。。 ",idx,"  ",G_UserControl.getUser().vippromotion,"   ",G_UserControl.getUser().vipweekly);
             item.active = true;
             item.children.forEach(function (tt, index) {
                 var goldeNode = tt.getChildByName("goldeNode");
@@ -134,10 +143,10 @@ var PersonalPanel = /** @class */ (function (_super) {
                 if (VipControl_1.G_VipControl.getVipConfig().data && VipControl_1.G_VipControl.getVipConfig().data.length >= idx - 1) {
                     var data = VipControl_1.G_VipControl.getVipConfig().data[idx - 1];
                     if (index == 0) {
-                        mvalue = (Math.floor(data["grade_gift"] * 10) / 10).toString();
+                        mvalue = (Math.floor(data["promotion_gift"] * 10) / 10).toString();
                     }
                     else if (index == 1) {
-                        mvalue = (Math.floor(data["week_gift"] * 10) / 10).toString();
+                        mvalue = (Math.floor(data["weekly_gift"] * 10) / 10).toString();
                     }
                 }
                 if (index == 2) {
@@ -146,16 +155,34 @@ var PersonalPanel = /** @class */ (function (_super) {
                 else if (index == 3) {
                     mvalue = "1";
                 }
-                if (index == 0) //晋级奖金
-                 {
-                    btn.active = UserControl_1.G_UserControl.getUser().vippromotion == 1;
-                }
-                if (index == 1) //每周奖励
-                 {
-                    btn.active = UserControl_1.G_UserControl.getUser().vipweekly == 1;
-                }
-                // console.log('mvalue   '+mvalue+"  index  "+index + "tt  "+tt.name);
                 gold.getComponent(cc.Label).string = mvalue;
+                var msg = VipControl_1.G_VipControl.getVipConfig().personMsg[idx - 1];
+                if (msg == null) {
+                    if (index == 0) //晋级奖金
+                     {
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                        //tt.getChildByName("btnDown").active = G_UserControl.getUser().vippromotion == 0;
+                    }
+                    if (index == 1) //每周奖励
+                     {
+                        btn.active = false;
+                        tt.getChildByName("btnDown").active = false;
+                        //tt.getChildByName("btnDown").active = G_UserControl.getUser().vipweekly == 0;
+                    }
+                }
+                else {
+                    if (index == 0) //晋级奖金
+                     {
+                        btn.active = msg.promotion_gift == 1;
+                        tt.getChildByName("btnDown").active = msg.promotion_gift == 0;
+                    }
+                    if (index == 1) //每周奖励
+                     {
+                        btn.active = msg.weekly_gift == 1;
+                        tt.getChildByName("btnDown").active = msg.weekly_gift == 0;
+                    }
+                }
             }, this);
         }
     };
@@ -198,27 +225,28 @@ var PersonalPanel = /** @class */ (function (_super) {
         UserControl_1.G_UserControl.requesPlayerChange(strName, 1, function (ret) {
             if (ret.status) {
                 UiForms_1.G_UiForms.hint(Language_1.G_Language.get("nameChangeSuccess"));
-                this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName;
+                //this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = strName
             }
             else {
+                this.myEditbox.getComponent("MyEditbox").getEdiboxComponent().string = UserControl_1.G_UserControl.getUser().userName;
+                this.labelName0.getComponent(cc.Label).string = UserControl_1.G_UserControl.getUser().userName;
                 UiForms_1.G_UiForms.hint(ret.message);
             }
         }.bind(this));
     };
     PersonalPanel.prototype.onShuaXin = function () {
-        var _this = this;
         if (!this.btnUpdateBalance.getComponent(cc.Button).interactable) {
             return;
         }
-        this.btnUpdateBalance.getComponent(cc.Button).interactable = false;
+        //this.btnUpdateBalance.getComponent(cc.Button).interactable= false;
         console.log("刷新金额");
         var tt = cc.repeatForever(cc.rotateBy(0.3, 360));
         this.btnUpdateBalance.runAction(tt);
+        this.scheduleOnce(function () {
+            this.btnUpdateBalance.stopAction(tt);
+            //this.btnUpdateBalance.getComponent(cc.Button).interactable= true;
+        }.bind(this), 0.3);
         UserControl_1.G_UserControl.sendspecialPlayerData(function () {
-            _this.scheduleOnce(function () {
-                this.btnUpdateBalance.stopAction(tt);
-                this.btnUpdateBalance.getComponent(cc.Button).interactable = true;
-            }.bind(_this), 0.3);
         });
     };
     PersonalPanel.prototype.onvippromotionClick = function () {
@@ -228,6 +256,7 @@ var PersonalPanel = /** @class */ (function (_super) {
             return;
         }
         if (UserControl_1.G_UserControl.getUser().vippromotion <= 0) { //已领取过
+            UiForms_1.G_UiForms.hint(Language_1.G_Language.get("havesucceedTip"));
             return;
         }
         VipControl_1.G_VipControl.requesVipPromotion(function (ret) {

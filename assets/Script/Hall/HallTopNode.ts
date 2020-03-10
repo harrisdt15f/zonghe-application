@@ -231,7 +231,6 @@ export default class HallTopNode extends cc.Component {
             {
                 this.head.getComponent(cc.Sprite).spriteFrame =this.headAtlas.getSpriteFrame("touxiang1");
             }
-
           // this.onReplaceHead(pic)
            /*
            this.loadNative(pic,(o)=>{
@@ -259,57 +258,30 @@ export default class HallTopNode extends cc.Component {
         }
     }
 
-    ceshi(){
-        var node = new cc.Node(),sprite = node.addComponent(cc.Sprite)
-        cc.loader.loadRes("testSprite.png" , cc.SpriteFrame , function(err , sp){
-        sprite.spriteFrame = sp
-        })
-        node.parent = this.node
-    }
+    SaveToLocal(){
+ 
+        let fileName="textureName";
+        let fileType=".png";
+        let filePath:string=null;
+        let xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState===4 && xhr.status ===200){
+                if(xhr.response&&cc.sys.isNative){
+                    let rootPath=jsb.fileUtils.getWritablePath();
+                   // filePath = rootPath + fileName +fileType;
+                   // let u8a=new Uint8Array(xhr.response);
+                   // jsb.fileUtils.writeDataToFile(u8a,filePath);
+                    //JS调用JAVA saveTextureToLocal 方法 参数为 filePath 也就是路径
+                   // jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "saveTextureToLocal", "(Ljava/lang/String;)V", filePath);
 
-    loadNative = function(url, callback){       
-        url = "http://cdn.kuokuo666.com/KUOKUO.png"
-        let xhr = new XMLHttpRequest();
-        xhr.responseType = 'arraybuffer';
-    
-        xhr.onreadystatechange = function () {
-            cc.log("xhr.readyState  " +xhr.readyState);
-            cc.log("xhr.status  " +xhr.status);
-           // cc.log("xhr  " +xhr.response);
-            if (xhr.readyState === 4 ) {
-                if(xhr.status === 200){
-                    let respone = xhr.response;
-                    cc.log("rsp  " +respone);
-                    let rsp = JSON.parse(respone);
-                    var img = new Image();
-                    cc.log("rsp  " +respone);
-                    img.src = rsp.data;
-                    cc.log("data  " +rsp.data);
-                    var texture = new cc.Texture2D();
-                    texture.genMipmaps = false;
-                    
-                    texture.initWithElement(img);
-                    
-                    texture.handleLoadedTexture();
-                    
-                    var newframe = new cc.SpriteFrame(texture);
-                    callback(newframe);
-                }else{
-                    callback(null);
                 }
             }
-        }.bind(this);
-        xhr.open("GET", url, true);
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xhr.setRequestHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
-        xhr.setRequestHeader('Access-Control-Allow-Headers', 'x-requested-with,content-type');
-        //xhr.setRequestHeader('Access-Control-Allow-Credentials', 'false');
-        //xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
-        //xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader('Authorization', 'Bearer '+G_UserControl.getUser().accessToken);
+ 
+        },
+        xhr.responseType='arraybuffer';
+        xhr.open("GET","http://pic.jianghu.local/uploads/jhhy/avatar/2020-02-25/7c0a218b4f651a9c6aeded81fc032ef6.png",true);
         xhr.send();
-
-    };
+    }
 
     /*
     CacheNetImg(Url,callback){

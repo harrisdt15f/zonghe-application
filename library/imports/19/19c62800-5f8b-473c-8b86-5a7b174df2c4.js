@@ -40,11 +40,9 @@ var CommonConfig = /** @class */ (function () {
         configurable: true
     });
     CommonConfig.prototype.getGameSub = function (index) {
-        console.log('get ' + index);
         return this._dataGame[index];
     };
     CommonConfig.prototype.setGameSub = function (index, data) {
-        console.log('set ' + index);
         this._dataGame[index] = data;
     };
     return CommonConfig;

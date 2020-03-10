@@ -17,7 +17,8 @@ export default class WebSocketNet  {
         this.ws.onmessage = this.onmessage.bind(this);
         this.ws.onerror = this.onerror.bind(this);
         this.ws.onclose = this.onclose.bind(this);
-
+ 
+        
         // this.sock.onopen = this.on_open.bind(this);
         // this.sock.onmessage = this.on_message.bind(this);
         // this.sock.onclose = this.on_close.bind(this);

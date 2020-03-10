@@ -24,9 +24,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var OnFire_1 = require("../../Net/OnFire");
-var config_1 = require("../../Config/config");
 var uiEvent_1 = require("../../Config/uiEvent");
 var List_1 = require("../../Common/List");
+var WithDrawControl_1 = require("../../Controller/WithDrawControl");
+var AccountDelTk_1 = require("./AccountDelTk");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var tempModel = /** @class */ (function () {
     function tempModel() {
@@ -38,6 +39,7 @@ var ManagePanel = /** @class */ (function (_super) {
     function ManagePanel() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.list = null;
+        _this.delNode = null;
         _this.bankAtlas = null;
         _this.com9sAtlas = null;
         _this.caption = null;
@@ -53,33 +55,11 @@ var ManagePanel = /** @class */ (function (_super) {
         this.manageAddNode.active = false;
         OnFire_1.G_OnFire.on(uiEvent_1.uiEventFunction.manage, this.setManagePanelActive.bind(this));
         OnFire_1.G_OnFire.on(uiEvent_1.uiEventFunction.atOnceManage, this.setManagePanelActive.bind(this));
-        this.temp = [];
-        var tempmodel = new tempModel();
-        tempmodel.accountType = config_1.ACCOUNT_TYPE.NONE;
-        tempmodel.bankType = config_1.ACCOUNT_TYPE.NONE;
-        tempmodel.number = config_1.ACCOUNT_TYPE.NONE;
-        this.temp.push(tempmodel);
-        for (var key in config_1.BANK_CARD_NAME) {
-            tempmodel = new tempModel();
-            var keyType = Number(key);
-            if (keyType == config_1.ACCOUNT_TYPE.ALIPAY) {
-                tempmodel.accountType = config_1.ACCOUNT_TYPE.ALIPAY;
-                tempmodel.bankType = 0;
-                tempmodel.number = key + "123525" + "@qq.com";
-            }
-            else {
-                tempmodel.accountType = config_1.ACCOUNT_TYPE.BANK;
-                tempmodel.bankType = key;
-                tempmodel.number = "123456789101234";
-            }
-            this.temp.push(tempmodel);
-        }
-        // console.log(">>>",BANK_CARD_NAME[1])
-        this.list.numItems = this.temp.length / 2;
     };
     ManagePanel.prototype.start = function () {
     };
     ManagePanel.prototype.onEnable = function () {
+        this.setManagePanelActive(true);
     };
     // update (dt) {}
     ManagePanel.prototype.onDestroy = function () {
@@ -102,39 +82,43 @@ var ManagePanel = /** @class */ (function (_super) {
         return strList;
     };
     ManagePanel.prototype.setManagePanelActive = function (flag) {
+        var _this = this;
         this.list.node.active = flag;
         this.manageAddNode.active = !flag;
+        this.delNode.active = false;
+        this.temp = [];
+        WithDrawControl_1.G_WithDrawControl.GetMyAccountList(function () {
+            _this.temp = WithDrawControl_1.G_WithDrawControl.getConfig().MyAccountList;
+            _this.list.numItems = _this.temp.length + 1;
+        });
     };
     ManagePanel.prototype.onListRender = function (item, idx) {
         if (!item)
             return;
-        var data = this.temp[idx];
+        // console.log("idx   ",idx);
         var box = item.getChildByName("box");
         var sprAccountName = item.getChildByName("sprAccountName");
         var sprAdd = item.getChildByName("sprAdd");
-        sprAdd.active = data.accountType == config_1.ACCOUNT_TYPE.NONE;
         var labelNode = item.getChildByName("labelNode");
         var labAccount = labelNode.getChildByName("labAccount");
-        var sprSuffix = labelNode.getChildByName("sprSuffix");
-        sprSuffix.active = data.accountType == config_1.ACCOUNT_TYPE.ALIPAY;
-        switch (data.accountType) {
-            case config_1.ACCOUNT_TYPE.NONE:
-                this.setSpriteFrame(box, this.com9sAtlas, "hesiBox");
-                this.setSpriteFrame(sprAccountName, this.caption, "tjzh");
-                labAccount.active = false;
-                break;
-            case config_1.ACCOUNT_TYPE.ALIPAY:
-                this.setSpriteFrame(box, this.bankAtlas, "zfb_panel");
-                this.setSpriteFrame(sprAccountName, this.bankAtlas, "yh" + data.bankType);
-                var strList = this.accountBySeparatorSuffix(data.number);
-                labAccount.getComponent(cc.Label).string = strList[0];
-                break;
-            case config_1.ACCOUNT_TYPE.BANK:
-                this.setSpriteFrame(box, this.bankAtlas, "yh_panel");
-                this.setSpriteFrame(sprAccountName, this.bankAtlas, "yh" + data.bankType);
-                var str = this.accountBySeparator(data.number);
-                labAccount.getComponent(cc.Label).string = str;
-                break;
+        // var sprSuffix = labelNode.getChildByName("sprSuffix")
+        //console.log("idx  "+idx+ " this.temp.length  "+this.temp.length);
+        if (this.temp.length > idx) {
+            sprAdd.active = false;
+            labelNode.active = true;
+            sprAccountName.active = true;
+            box.active = true;
+            var config = WithDrawControl_1.G_WithDrawControl.getConfig().getPayItemInfo(this.temp[idx].code);
+            this.setSpriteFrame(sprAccountName, this.bankAtlas, config.nameSprite);
+            this.setSpriteFrame(box, this.bankAtlas, config.image);
+            labAccount.getComponent(cc.Label).string = this.temp[idx].card_number_hidden;
+            // sprSuffix.active = this.temp[idx].code == "ALIPAY"
+        }
+        else { // add
+            sprAdd.active = true;
+            labelNode.active = false;
+            sprAccountName.active = false;
+            box.active = false;
         }
     };
     //更新图案
@@ -146,8 +130,20 @@ var ManagePanel = /** @class */ (function (_super) {
         if (!item)
             return;
         console.log("》》》》》》》》", selectedId, this.temp[selectedId]);
-        var data = this.temp[selectedId];
-        if (data.accountType == config_1.ACCOUNT_TYPE.NONE) {
+        // var data = this.temp[selectedId]
+        // if(data.accountType == ACCOUNT_TYPE.NONE){
+        //     this.manageAddNode.active = true;
+        //     //this.list.node.active = false;
+        // }
+        if (this.temp.length > selectedId) {
+            this.delNode.active = true;
+            var s1 = cc.scaleTo(0.1, 1.1);
+            var s2 = cc.scaleTo(0.1, 1);
+            var seq = cc.sequence(s1, s2);
+            this.delNode.runAction(seq);
+            this.delNode.getComponent(AccountDelTk_1.default).init(this.temp[selectedId]);
+        }
+        else {
             this.manageAddNode.active = true;
             this.list.node.active = false;
         }
@@ -155,6 +151,9 @@ var ManagePanel = /** @class */ (function (_super) {
     __decorate([
         property(List_1.default)
     ], ManagePanel.prototype, "list", void 0);
+    __decorate([
+        property(cc.Node)
+    ], ManagePanel.prototype, "delNode", void 0);
     __decorate([
         property(cc.SpriteAtlas)
     ], ManagePanel.prototype, "bankAtlas", void 0);

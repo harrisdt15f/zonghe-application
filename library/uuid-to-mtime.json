@@ -95,7 +95,7 @@
     "relativePath": "prefabs\\Common\\toggleContainer.prefab"
   },
   "39bdf515-df37-4ee7-af52-275cdbd16dee": {
-    "asset": 1580283591543,
+    "asset": 1583384542464,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall"
   },
@@ -265,28 +265,28 @@
     "relativePath": "prefabs\\Hall\\Shop"
   },
   "24c481f4-d04b-4d1b-94cf-763acd45c826": {
-    "asset": 1580477844308,
-    "meta": 1580477844334,
+    "asset": 1581660772894,
+    "meta": 1581660772922,
     "relativePath": "prefabs\\Hall\\playerCentre\\playerCenterNode.prefab"
   },
   "dda0e6e6-4282-472e-94d8-f2e730db7a0a": {
-    "asset": 1580283591548,
+    "asset": 1583384556953,
     "meta": 1580284430000,
     "relativePath": "prefabs\\Hall\\Withdraw"
   },
   "aa7634b4-5379-43bf-82da-275719b5aa77": {
-    "asset": 1580284430000,
-    "meta": 1580284530207,
+    "asset": 1583130145121,
+    "meta": 1583130145152,
     "relativePath": "prefabs\\Hall\\Shop\\shopNode.prefab"
   },
   "07338b08-bae9-4873-8392-467cd8be4933": {
-    "asset": 1580283592006,
+    "asset": 1583568955130,
     "meta": 1580284430000,
     "relativePath": "resources"
   },
   "ff93eb1e-9f04-43d2-b3ea-3b03f21f2769": {
-    "asset": 1580284430000,
-    "meta": 1580284530228,
+    "asset": 1582955838265,
+    "meta": 1582955838301,
     "relativePath": "prefabs\\Hall\\Withdraw\\withdrawNode.prefab"
   },
   "4e5ba9b7-7965-4436-9190-d1c4cfca52e3": {
@@ -645,12 +645,12 @@
     "relativePath": "Scene\\test.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
-    "asset": 1580283592411,
+    "asset": 1583821845807,
     "meta": 1580284430000,
     "relativePath": "Script"
   },
   "45104519-a623-45de-b83b-7f7578274ee9": {
-    "asset": 1580283592088,
+    "asset": 1581483331021,
     "meta": 1580284430000,
     "relativePath": "Script\\Common"
   },
@@ -664,23 +664,18 @@
     "meta": 1580284532231,
     "relativePath": "Script\\Common\\ListItem.ts"
   },
-  "ca5bfb86-b18d-4c09-8b1c-d6ac84c78666": {
-    "asset": 1580284430000,
-    "meta": 1580284532265,
-    "relativePath": "Script\\Common\\MyEditbox.ts"
-  },
   "0cd5cad3-568c-436f-8bdd-e835d13b9d44": {
     "asset": 1580284430000,
     "meta": 1580284532286,
     "relativePath": "Script\\Common\\MyPulldownMenu.ts"
   },
   "d0f481c6-3e02-4700-ad0a-f8d52a40d306": {
-    "asset": 1580283592105,
+    "asset": 1583387422259,
     "meta": 1580284430000,
     "relativePath": "Script\\Config"
   },
   "024915a9-4ba7-42d0-83fb-89e8ab667bfa": {
-    "asset": 1580283592118,
+    "asset": 1583387395196,
     "meta": 1580284430000,
     "relativePath": "Script\\Controller"
   },
@@ -689,13 +684,8 @@
     "meta": 1580284430000,
     "relativePath": "Script\\Game"
   },
-  "adff36a4-7216-4d1d-a8a0-0e3427ec8a5a": {
-    "asset": 1580284430000,
-    "meta": 1580284532398,
-    "relativePath": "Script\\Game\\GameNode.ts"
-  },
   "24d42976-68a0-46dd-8d81-ffb50b3b4071": {
-    "asset": 1580283592362,
+    "asset": 1583386667823,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall"
   },
@@ -708,11 +698,6 @@
     "asset": 1580284430000,
     "meta": 1580284532419,
     "relativePath": "Script\\Hall\\Activity\\GainNode.ts"
-  },
-  "5c68ada4-5ecc-4638-b57e-3c8dbaa66836": {
-    "asset": 1580284430000,
-    "meta": 1580284532429,
-    "relativePath": "Script\\Hall\\Activity\\GuessingBox.ts"
   },
   "4a94589e-1868-45b5-81ba-8fa7b9856ffa": {
     "asset": 1580284430000,
@@ -844,11 +829,6 @@
     "meta": 1580284532923,
     "relativePath": "Script\\Hall\\PlayerCenter\\AlterNameNode.ts"
   },
-  "400fd9d1-1b03-4bad-9c91-705df10ee023": {
-    "asset": 1580284430000,
-    "meta": 1580284532955,
-    "relativePath": "Script\\Hall\\PlayerCenter\\BetInfoPanel.ts"
-  },
   "983dab00-ff81-473c-81af-223f0250cc3f": {
     "asset": 1580284430000,
     "meta": 1580284532971,
@@ -870,24 +850,9 @@
     "relativePath": "Script\\Hall\\SetUI\\CircuitPanel.ts"
   },
   "de21d76d-ba23-42ec-83cb-cc112f284ac6": {
-    "asset": 1580283592322,
+    "asset": 1583124590504,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\shop"
-  },
-  "e223c536-8d8d-4b7d-873a-3d97f5df8a52": {
-    "asset": 1580284430000,
-    "meta": 1580284533101,
-    "relativePath": "Script\\Hall\\shop\\EBankPanel.ts"
-  },
-  "0b1b3c29-5a8f-4f47-9a88-cacbd5a32a05": {
-    "asset": 1580284430000,
-    "meta": 1580284533109,
-    "relativePath": "Script\\Hall\\shop\\PayPanel.ts"
-  },
-  "83fc2e36-f821-490e-a026-cbd73a840309": {
-    "asset": 1580284430000,
-    "meta": 1580284533117,
-    "relativePath": "Script\\Hall\\shop\\ShopNode.ts"
   },
   "8a8e35bd-1790-4971-ba46-ec3686daa680": {
     "asset": 1580284430000,
@@ -955,7 +920,7 @@
     "relativePath": "Script\\Hall\\TipsNode.ts"
   },
   "959adb75-3490-4dfd-8bff-9431bb1a09c9": {
-    "asset": 1580283592377,
+    "asset": 1583124577455,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Withdraw"
   },
@@ -964,35 +929,10 @@
     "meta": 1580284533269,
     "relativePath": "Script\\Hall\\UIPickerView\\UIPickerView.ts"
   },
-  "508983a0-9406-4bab-882c-8a808d7501f9": {
-    "asset": 1580284430000,
-    "meta": 1580284533281,
-    "relativePath": "Script\\Hall\\Withdraw\\AtOncePanel.ts"
-  },
-  "9909620d-f008-40c3-b254-97f0dbef66ae": {
-    "asset": 1580284430000,
-    "meta": 1580284533301,
-    "relativePath": "Script\\Hall\\Withdraw\\DetailPanel.ts"
-  },
-  "33d3b7aa-9eb8-4943-b79c-8d09e095731b": {
-    "asset": 1580284430000,
-    "meta": 1580284533321,
-    "relativePath": "Script\\Hall\\Withdraw\\ManageAddNode.ts"
-  },
-  "d4d87f40-0d5f-4f18-8591-b27444d9d4ef": {
-    "asset": 1580284430000,
-    "meta": 1580284533330,
-    "relativePath": "Script\\Hall\\Withdraw\\ManagePanel.ts"
-  },
   "cd3ed93a-898e-46b2-b64d-041c2b1d0e2f": {
     "asset": 1580283592389,
     "meta": 1580284430000,
     "relativePath": "Script\\Language"
-  },
-  "1e985a08-a333-4404-bb24-911769dfb2b9": {
-    "asset": 1580284430000,
-    "meta": 1580284533335,
-    "relativePath": "Script\\Hall\\Withdraw\\RecordPanel.ts"
   },
   "154ebec0-e20b-4b44-9bbf-dc17b553c796": {
     "asset": 1580284430000,
@@ -1020,7 +960,7 @@
     "relativePath": "Script\\Net\\OnFire.ts"
   },
   "6594ceea-48f4-43d6-bddc-514af1973776": {
-    "asset": 1580283592409,
+    "asset": 1580535605131,
     "meta": 1580284430000,
     "relativePath": "Script\\Platform"
   },
@@ -1049,19 +989,9 @@
     "meta": 1580284533511,
     "relativePath": "Texture\\HelloWorld.png"
   },
-  "1fa3b26a-7dda-431d-a495-f38f9cb3e9e8": {
-    "asset": 1580284430000,
-    "meta": 1580284533420,
-    "relativePath": "Script\\Net\\WebSocketNet.ts"
-  },
-  "f74a1c86-fe2e-4c66-93ee-618b2fa66c4b": {
-    "asset": 1580283592058,
-    "meta": 1580284430000,
-    "relativePath": "Script\\Animation"
-  },
   "133c9656-bc1e-4463-8c55-f085b44849c0": {
-    "asset": 1580468389004,
-    "meta": 1580468389014,
+    "asset": 1580965014046,
+    "meta": 1580965014057,
     "relativePath": "Scene\\loandingScene.fire"
   },
   "51cbeb3d-cb70-4261-9708-cac035b90d76": {
@@ -1134,16 +1064,6 @@
     "meta": 1580284530870,
     "relativePath": "resources\\resHall\\rank\\rank.png"
   },
-  "3ecb842c-8f82-40e1-bcd5-7f48441a5004": {
-    "asset": 1580283591401,
-    "meta": 1580284430000,
-    "relativePath": "linshi"
-  },
-  "45927351-7ee5-4dab-b649-8d9b2129df79": {
-    "asset": 1580284430000,
-    "meta": 1580284530066,
-    "relativePath": "linshi\\123.png"
-  },
   "18a71e4c-086b-49ae-a1a8-447edf8f1c84": {
     "asset": 1580283591961,
     "meta": 1580284430000,
@@ -1174,16 +1094,6 @@
     "meta": 1580284530738,
     "relativePath": "resources\\resHall\\chat\\chat.png"
   },
-  "7d1df619-d42f-49a9-820c-062dddbffe1c": {
-    "asset": 1580284430000,
-    "meta": 1580284533489,
-    "relativePath": "Script\\Tool\\UiForms.ts"
-  },
-  "fdfc64d5-209e-4c6b-b1ed-d17687ff19c0": {
-    "asset": 1580284430000,
-    "meta": 1580284533175,
-    "relativePath": "Script\\Hall\\Subitem\\SubitemControl.ts"
-  },
   "7bdc7756-7e39-43a6-894b-0d38364f542d": {
     "asset": 1580284430000,
     "meta": 1580284532312,
@@ -1193,11 +1103,6 @@
     "asset": 1580283592258,
     "meta": 1580284430000,
     "relativePath": "Script\\Hall\\Login"
-  },
-  "8aeb7d2f-8d9c-4aa9-bc0e-6c66fa10b3e7": {
-    "asset": 1580284430000,
-    "meta": 1580284532683,
-    "relativePath": "Script\\Hall\\HallBottomNode.ts"
   },
   "c59655f7-0250-4679-80fe-f95f07b70cb7": {
     "asset": 1580284430000,
@@ -1209,16 +1114,6 @@
     "meta": 1580284530849,
     "relativePath": "resources\\resHall\\lobby\\part\\head_juanzhou.png"
   },
-  "ea3e8491-9a22-453f-aa3f-f53ad8bff67b": {
-    "asset": 1580284430000,
-    "meta": 1580284529994,
-    "relativePath": "linshi\\1.1游戏大厅动态.PNG"
-  },
-  "93bcbb0c-7030-4783-ba70-9e8d2289ed7a": {
-    "asset": 1580284430000,
-    "meta": 1580284532768,
-    "relativePath": "Script\\Hall\\HallScene.ts"
-  },
   "e5fde044-9830-44c4-8714-dbf566f81995": {
     "asset": 1580284430000,
     "meta": 1580284532250,
@@ -1229,25 +1124,15 @@
     "meta": 1580284533467,
     "relativePath": "Script\\Tool\\Storage.ts"
   },
-  "03f334cb-9cf0-4196-9f81-421c87c235e1": {
-    "asset": 1580284430000,
-    "meta": 1580284529992,
-    "relativePath": "linshi\\1.3游戏大厅动态.PNG"
-  },
   "d0c59b8f-b53d-4c69-bccc-5cf8aa874f3d": {
-    "asset": 1580284430000,
-    "meta": 1580284532514,
+    "asset": 1583385755689,
+    "meta": 1583385755721,
     "relativePath": "Scene\\HallScene.fire"
   },
   "6275b003-713a-400e-b5fb-543f63327367": {
     "asset": 1580284430000,
     "meta": 1580284530740,
     "relativePath": "resources\\resHall\\bg\\hallBg.png"
-  },
-  "e205dc3e-77e5-434d-8805-399dc14da137": {
-    "asset": 1580284430000,
-    "meta": 1580284530986,
-    "relativePath": "Script\\Animation\\RankEffect.ts"
   },
   "8d1498f2-7bc5-488f-ad5c-6190730b9501": {
     "asset": 1580284430000,
@@ -1278,16 +1163,6 @@
     "asset": 1580284430000,
     "meta": 1580284532810,
     "relativePath": "Script\\Hall\\Loanding\\loadingSecen.ts"
-  },
-  "d2cb4566-e879-4cf7-9ff4-c71ce72edf8b": {
-    "asset": 1580284430000,
-    "meta": 1580284532797,
-    "relativePath": "Script\\Hall\\Head\\HeadBoxNode.ts"
-  },
-  "d42dca2c-1144-444c-92b1-19f5ea393068": {
-    "asset": 1580284430000,
-    "meta": 1580284532306,
-    "relativePath": "Script\\Config\\config.ts"
   },
   "674fe7b5-ab36-4957-adbf-463a5f75b08a": {
     "asset": 1580284430000,
@@ -1669,26 +1544,6 @@
     "meta": 1580370080125,
     "relativePath": "model\\primitives.fbx"
   },
-  "d3739094-918c-4c77-9440-1d1a58d61b22": {
-    "asset": 1580284430000,
-    "meta": 1580284533018,
-    "relativePath": "Script\\Hall\\RankItem.ts"
-  },
-  "25fabb07-10b2-48d4-94b6-0ebb713c1e2e": {
-    "asset": 1580284430000,
-    "meta": 1580284533494,
-    "relativePath": "Script\\Tool\\Utils.ts"
-  },
-  "8bd5f2fc-97dc-4a75-ad75-bc7134c72710": {
-    "asset": 1580284430000,
-    "meta": 1580284532323,
-    "relativePath": "Script\\Config\\VipConfig.ts"
-  },
-  "f4af2ae9-573b-4b01-9fc2-d761055d0ab7": {
-    "asset": 1580284430000,
-    "meta": 1580284532993,
-    "relativePath": "Script\\Hall\\PlayerCenter\\VipPromotedMoSiPanel.ts"
-  },
   "1ba3d3f7-fb75-4b68-970f-3de97713c8c1": {
     "asset": 1580284430000,
     "meta": 1580284533152,
@@ -1714,50 +1569,15 @@
     "meta": 1580284531321,
     "relativePath": "Script\\Common\\global.ts"
   },
-  "52ba0439-df8e-4ce0-b31e-985a70cf6c48": {
-    "asset": 1580284430000,
-    "meta": 1580284532782,
-    "relativePath": "Script\\Hall\\HallTopNode.ts"
-  },
-  "8e4511d5-331b-4150-a742-f22d4ef9db97": {
-    "asset": 1580284430000,
-    "meta": 1580284532808,
-    "relativePath": "Script\\Hall\\Loanding\\landingPanel.ts"
-  },
-  "5f2ba142-5e0e-41dd-a702-8364b2c79848": {
-    "asset": 1580284430000,
-    "meta": 1580284532690,
-    "relativePath": "Script\\Hall\\HallLeftItem.ts"
-  },
-  "3f084ee6-b474-4b82-ada1-2b0591fb7299": {
-    "asset": 1580284430000,
-    "meta": 1580284532674,
-    "relativePath": "Script\\Hall\\Hall.ts"
-  },
-  "19c62800-5f8b-473c-8b86-5a7b174df2c4": {
-    "asset": 1580284430000,
-    "meta": 1580284532297,
-    "relativePath": "Script\\Config\\CommonConfig.ts"
-  },
   "1bb566fd-fcef-4678-80d2-c77c64478da2": {
     "asset": 1580284430000,
     "meta": 1580284532729,
     "relativePath": "Script\\Hall\\HallRightItem.ts"
   },
-  "91f0184d-331f-456e-828e-708aa54ade98": {
-    "asset": 1580284430000,
-    "meta": 1580284532335,
-    "relativePath": "Script\\Controller\\CommonControl.ts"
-  },
   "557e46a6-2ba0-4b34-b63a-4e69f075f313": {
     "asset": 1580284430000,
     "meta": 1580284532741,
     "relativePath": "Script\\Hall\\HallRightNode.ts"
-  },
-  "8734977a-127c-4dd0-8d01-448e5d4b31de": {
-    "asset": 1580284430000,
-    "meta": 1580284533399,
-    "relativePath": "Script\\Net\\HttpHelper.ts"
   },
   "8d66c6fd-b6a7-4be6-8a4d-5314f3a33379": {
     "asset": 1580283591714,
@@ -2034,40 +1854,10 @@
     "meta": 1580459066242,
     "relativePath": "Script\\Model\\UserModel.ts"
   },
-  "4d30ba3a-8bd5-4791-a5b2-ac9e06d85125": {
-    "asset": 1580465969712,
-    "meta": 1580466230566,
-    "relativePath": "Script\\Config\\uiEvent.ts"
-  },
-  "7ba4fc46-b661-4c65-a26b-368df7b4385f": {
-    "asset": 1580467148305,
-    "meta": 1580467163274,
-    "relativePath": "Script\\Controller\\UserControl.ts"
-  },
-  "6fe0fa15-9924-4046-9a81-e003aff8e9db": {
-    "asset": 1580477658325,
-    "meta": 1580477724752,
-    "relativePath": "Script\\Language\\Zh.ts"
-  },
-  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
-    "asset": 1580478117336,
-    "meta": 1580478118440,
-    "relativePath": "Script\\Controller\\VipControl.ts"
-  },
   "0198e11f-8da9-4382-ac3c-76e7303d6ea3": {
     "asset": 1580524918888,
     "meta": 1580525315718,
     "relativePath": "Script\\Hall\\Login\\recoverPanel.ts"
-  },
-  "bf21d5c6-ffee-4e3f-9bfd-6e55918885b5": {
-    "asset": 1580524992067,
-    "meta": 1580525315784,
-    "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
-  },
-  "c3225398-72ec-4481-9efb-09e28c111257": {
-    "asset": 1580525005567,
-    "meta": 1580525315881,
-    "relativePath": "Script\\Hall\\RankNode.ts"
   },
   "c20727e4-69cc-49d5-a0ee-e198f89e91de": {
     "asset": 1580525021625,
@@ -2075,18 +1865,353 @@
     "relativePath": "Script\\Hall\\SetUI\\alterCodePanel.ts"
   },
   "1fc09a9e-bb92-41e7-ab44-941b2d6f0503": {
-    "asset": 1580525033953,
-    "meta": 1580525315917,
+    "asset": 1580964650956,
+    "meta": 1580964667218,
     "relativePath": "Script\\Hall\\SetUI\\RevisionPanel.ts"
   },
-  "c7afc35d-2ee5-4add-b9e0-de72752b3287": {
-    "asset": 1580536515460,
-    "meta": 1580536517464,
-    "relativePath": "Script\\Platform\\Platforms.ts"
+  "fdfc64d5-209e-4c6b-b1ed-d17687ff19c0": {
+    "asset": 1581057796840,
+    "meta": 1581057797920,
+    "relativePath": "Script\\Hall\\Subitem\\SubitemControl.ts"
+  },
+  "4ee9aa52-b5fb-4e7d-9a3f-17feab29e52d": {
+    "asset": 1581058717060,
+    "meta": 1581058718373,
+    "relativePath": "Script\\Hall\\shop\\ShopLeftItem.ts"
+  },
+  "b3fd2290-9abc-4116-b62d-a4cf6d38fb6d": {
+    "asset": 1581323521772,
+    "meta": 1581323525752,
+    "relativePath": "Script\\Hall\\shop\\wechatpayPanel.ts"
+  },
+  "c409135c-9faf-44a5-b116-8afd77eef176": {
+    "asset": 1581329171315,
+    "meta": 1581329175708,
+    "relativePath": "Script\\Hall\\shop\\ShopWebView.js"
+  },
+  "d3739094-918c-4c77-9440-1d1a58d61b22": {
+    "asset": 1581396463383,
+    "meta": 1581396464794,
+    "relativePath": "Script\\Hall\\RankItem.ts"
+  },
+  "19c62800-5f8b-473c-8b86-5a7b174df2c4": {
+    "asset": 1581424014442,
+    "meta": 1581424165828,
+    "relativePath": "Script\\Config\\CommonConfig.ts"
+  },
+  "002ff516-152d-4f7a-890c-704e51fab4f4": {
+    "asset": 1581475236801,
+    "meta": 1581582432732,
+    "relativePath": "Script\\Common\\qrcode.js"
+  },
+  "66626b83-b641-4198-a2f0-a34182fcb982": {
+    "asset": 1581488530959,
+    "meta": 1581488667188,
+    "relativePath": "Script\\Controller\\RequestControl.ts"
+  },
+  "8e4511d5-331b-4150-a742-f22d4ef9db97": {
+    "asset": 1581489807117,
+    "meta": 1581489812965,
+    "relativePath": "Script\\Hall\\Loanding\\landingPanel.ts"
+  },
+  "91f0184d-331f-456e-828e-708aa54ade98": {
+    "asset": 1581495041267,
+    "meta": 1581495043250,
+    "relativePath": "Script\\Controller\\CommonControl.ts"
+  },
+  "c3225398-72ec-4481-9efb-09e28c111257": {
+    "asset": 1581495983317,
+    "meta": 1581496074417,
+    "relativePath": "Script\\Hall\\RankNode.ts"
+  },
+  "e223c536-8d8d-4b7d-873a-3d97f5df8a52": {
+    "asset": 1581647822768,
+    "meta": 1581654455199,
+    "relativePath": "Script\\Hall\\shop\\eBankPanel.ts"
+  },
+  "b37151d0-d311-4733-89a4-5b9b141e42d6": {
+    "asset": 1581661381877,
+    "meta": 1581661383277,
+    "relativePath": "Script\\Hall\\shop\\abankPanel.ts"
+  },
+  "93bcbb0c-7030-4783-ba70-9e8d2289ed7a": {
+    "asset": 1581662185181,
+    "meta": 1581662201737,
+    "relativePath": "Script\\Hall\\HallScene.ts"
+  },
+  "400fd9d1-1b03-4bad-9c91-705df10ee023": {
+    "asset": 1581947494244,
+    "meta": 1581947579745,
+    "relativePath": "Script\\Hall\\PlayerCenter\\BetInfoPanel.ts"
+  },
+  "33d3b7aa-9eb8-4943-b79c-8d09e095731b": {
+    "asset": 1582019445753,
+    "meta": 1582019447417,
+    "relativePath": "Script\\Hall\\Withdraw\\ManageAddNode.ts"
+  },
+  "bf21d5c6-ffee-4e3f-9bfd-6e55918885b5": {
+    "asset": 1582028810773,
+    "meta": 1582028978432,
+    "relativePath": "Script\\Hall\\Login\\registerPanel.ts"
+  },
+  "5f2ba142-5e0e-41dd-a702-8364b2c79848": {
+    "asset": 1582251155315,
+    "meta": 1582251156904,
+    "relativePath": "Script\\Hall\\HallLeftItem.ts"
+  },
+  "7d1df619-d42f-49a9-820c-062dddbffe1c": {
+    "asset": 1582281088596,
+    "meta": 1582281630390,
+    "relativePath": "Script\\Tool\\UiForms.ts"
+  },
+  "9cf082cb-6070-4f86-a0c5-d8b5a252b338": {
+    "asset": 1582281679453,
+    "meta": 1582281682493,
+    "relativePath": "Script\\Hall\\WebNode.js"
+  },
+  "667b8664-0320-4238-8bac-f2758827bc7b": {
+    "asset": 1582281907715,
+    "meta": 1582281910114,
+    "relativePath": "Script\\Hall\\Withdraw\\AccountDelTk.ts"
+  },
+  "d42dca2c-1144-444c-92b1-19f5ea393068": {
+    "asset": 1582624743829,
+    "meta": 1582625436068,
+    "relativePath": "Script\\Config\\config.ts"
+  },
+  "508983a0-9406-4bab-882c-8a808d7501f9": {
+    "asset": 1582779454978,
+    "meta": 1582779456204,
+    "relativePath": "Script\\Hall\\Withdraw\\AtOncePanel.ts"
+  },
+  "8734977a-127c-4dd0-8d01-448e5d4b31de": {
+    "asset": 1582787289902,
+    "meta": 1582787292922,
+    "relativePath": "Script\\Net\\HttpHelper.ts"
+  },
+  "3f084ee6-b474-4b82-ada1-2b0591fb7299": {
+    "asset": 1582787690196,
+    "meta": 1582787691403,
+    "relativePath": "Script\\Hall\\Hall.ts"
+  },
+  "a9a42d5e-5a7f-45ec-a540-036302b2775a": {
+    "asset": 1582883209982,
+    "meta": 1582883212618,
+    "relativePath": "Script\\Config\\WithDrawConfig.ts"
+  },
+  "206341e0-480b-47eb-9f75-d2369c1e9344": {
+    "asset": 1582890324307,
+    "meta": 1582890331599,
+    "relativePath": "Script\\Controller\\WithDrawControl.ts"
+  },
+  "d4d87f40-0d5f-4f18-8591-b27444d9d4ef": {
+    "asset": 1582955060737,
+    "meta": 1582955061972,
+    "relativePath": "Script\\Hall\\Withdraw\\ManagePanel.ts"
+  },
+  "1fa3b26a-7dda-431d-a495-f38f9cb3e9e8": {
+    "asset": 1582969309091,
+    "meta": 1582970925110,
+    "relativePath": "Script\\Net\\WebSocketNet.ts"
+  },
+  "0cd29ac8-9fcb-418f-8916-cb46ecb0b853": {
+    "asset": 1583118645487,
+    "meta": 1583118648980,
+    "relativePath": "Script\\Controller\\PayControl.ts"
+  },
+  "83fc2e36-f821-490e-a026-cbd73a840309": {
+    "asset": 1583124983233,
+    "meta": 1583125256903,
+    "relativePath": "Script\\Hall\\shop\\ShopNode.ts"
+  },
+  "c4f1d28b-da72-4faa-af90-535966b709b8": {
+    "asset": 1583132639258,
+    "meta": 1583132641114,
+    "relativePath": "Script\\Config\\PayConfig.ts"
+  },
+  "d2cb4566-e879-4cf7-9ff4-c71ce72edf8b": {
+    "asset": 1583136758089,
+    "meta": 1583136773935,
+    "relativePath": "Script\\Hall\\Head\\HeadBoxNode.ts"
+  },
+  "adff36a4-7216-4d1d-a8a0-0e3427ec8a5a": {
+    "asset": 1583137102376,
+    "meta": 1583137120722,
+    "relativePath": "Script\\Game\\GameNode.ts"
+  },
+  "c44d08af-2c19-4855-b7fa-21bd3abc8e9c": {
+    "asset": 1583288283436,
+    "meta": 1583288411069,
+    "relativePath": "Script\\Config\\RequestConfig.ts"
+  },
+  "8bd5f2fc-97dc-4a75-ad75-bc7134c72710": {
+    "asset": 1583288375657,
+    "meta": 1583288411095,
+    "relativePath": "Script\\Config\\VipConfig.ts"
+  },
+  "a43fec6c-8942-4b8b-8948-180e0793aa38": {
+    "asset": 1583288448548,
+    "meta": 1583288454954,
+    "relativePath": "Script\\Controller\\VipControl.ts"
+  },
+  "f4af2ae9-573b-4b01-9fc2-d761055d0ab7": {
+    "asset": 1583290417504,
+    "meta": 1583290434331,
+    "relativePath": "Script\\Hall\\PlayerCenter\\VipPromotedMoSiPanel.ts"
+  },
+  "7ba4fc46-b661-4c65-a26b-368df7b4385f": {
+    "asset": 1583292949128,
+    "meta": 1583293022840,
+    "relativePath": "Script\\Controller\\UserControl.ts"
+  },
+  "ca5bfb86-b18d-4c09-8b1c-d6ac84c78666": {
+    "asset": 1583298472393,
+    "meta": 1583298478751,
+    "relativePath": "Script\\Common\\MyEditbox.ts"
   },
   "c8e4ec1f-71fe-4829-a54b-f71db3beac64": {
-    "asset": 1580537548628,
-    "meta": 1580537551655,
+    "asset": 1583298600810,
+    "meta": 1583298601803,
     "relativePath": "Script\\Hall\\PlayerCenter\\PersonalPanel.ts"
+  },
+  "1e985a08-a333-4404-bb24-911769dfb2b9": {
+    "asset": 1583375860758,
+    "meta": 1583375891300,
+    "relativePath": "Script\\Hall\\Withdraw\\RecordPanel.ts"
+  },
+  "4f9f4977-1587-4f46-9ad4-db8112388520": {
+    "asset": 1583384566401,
+    "meta": 1583384537054,
+    "relativePath": "prefabs\\Hall\\Promote"
+  },
+  "b71802fa-5046-430e-b562-3bd23a1c0849": {
+    "asset": 1583667985496,
+    "meta": 1583667985525,
+    "relativePath": "prefabs\\Hall\\Promote\\promoteNode.prefab"
+  },
+  "4d30ba3a-8bd5-4791-a5b2-ac9e06d85125": {
+    "asset": 1583385607491,
+    "meta": 1583385609490,
+    "relativePath": "Script\\Config\\uiEvent.ts"
+  },
+  "e1c6f4b6-3a7b-4e39-9c6f-efd72d724fc5": {
+    "asset": 1583386466212,
+    "meta": 1583386489633,
+    "relativePath": "Script\\Hall\\shop\\PayRecordPanel.ts"
+  },
+  "7f607d80-d210-4bc5-b65a-0664738c36fe": {
+    "asset": 1583403483315,
+    "meta": 1583386663229,
+    "relativePath": "Script\\Hall\\Promote"
+  },
+  "6fe0fa15-9924-4046-9a81-e003aff8e9db": {
+    "asset": 1583393144741,
+    "meta": 1583393159688,
+    "relativePath": "Script\\Language\\Zh.ts"
+  },
+  "25fabb07-10b2-48d4-94b6-0ebb713c1e2e": {
+    "asset": 1583393964112,
+    "meta": 1583393966494,
+    "relativePath": "Script\\Tool\\Utils.ts"
+  },
+  "f5d3b0dc-dcc7-4a04-89ba-2369db6f6cb0": {
+    "asset": 1583398435851,
+    "meta": 1583398492441,
+    "relativePath": "Script\\Controller\\PromoteControl.ts"
+  },
+  "dfd0ef1d-43ce-4375-9700-36c478d33748": {
+    "asset": 1583398564693,
+    "meta": 1583398617193,
+    "relativePath": "Script\\Hall\\Promote\\WashRewardPanel.ts"
+  },
+  "96d96149-c59f-4e09-98e3-74335b0ca515": {
+    "asset": 1583398794723,
+    "meta": 1583398796413,
+    "relativePath": "Script\\Config\\PromoteConfig.ts"
+  },
+  "ec3df17a-b41b-4162-82f4-f324ad2c96aa": {
+    "asset": 1583398891125,
+    "meta": 1583398893033,
+    "relativePath": "Script\\Hall\\Promote\\PromoteRewardPanel.ts"
+  },
+  "9909620d-f008-40c3-b254-97f0dbef66ae": {
+    "asset": 1583402726189,
+    "meta": 1583402728009,
+    "relativePath": "Script\\Hall\\Withdraw\\DetailPanel.ts"
+  },
+  "0b1b3c29-5a8f-4f47-9a88-cacbd5a32a05": {
+    "asset": 1583566368370,
+    "meta": 1583566388314,
+    "relativePath": "Script\\Hall\\shop\\alipayPanel.ts"
+  },
+  "912b48b8-4574-4253-815b-6de0cdec556d": {
+    "asset": 1583568955127,
+    "meta": 1583568955166,
+    "relativePath": "resources\\1.jpg"
+  },
+  "c7afc35d-2ee5-4add-b9e0-de72752b3287": {
+    "asset": 1583655125408,
+    "meta": 1583655176819,
+    "relativePath": "Script\\Platform\\Platforms.ts"
+  },
+  "52ba0439-df8e-4ce0-b31e-985a70cf6c48": {
+    "asset": 1583664490985,
+    "meta": 1583666229795,
+    "relativePath": "Script\\Hall\\HallTopNode.ts"
+  },
+  "74c18fef-ce1b-466d-a770-9dfb32433bd8": {
+    "asset": 1583758958208,
+    "meta": 1583806408997,
+    "relativePath": "Script\\Hall\\Promote\\MyPromotePanel.ts"
+  },
+  "5c68ada4-5ecc-4638-b57e-3c8dbaa66836": {
+    "asset": 1583740969170,
+    "meta": 1583741732224,
+    "relativePath": "Script\\Hall\\Activity\\GuessingBox.ts"
+  },
+  "8aeb7d2f-8d9c-4aa9-bc0e-6c66fa10b3e7": {
+    "asset": 1583806627807,
+    "meta": 1583806629186,
+    "relativePath": "Script\\Hall\\HallBottomNode.ts"
+  },
+  "f74a1c86-fe2e-4c66-93ee-618b2fa66c4b": {
+    "asset": 1580283592058,
+    "meta": 1583821845807,
+    "relativePath": "Script\\Animation"
+  },
+  "e205dc3e-77e5-434d-8805-399dc14da137": {
+    "asset": 1580284430000,
+    "meta": 1583821853006,
+    "relativePath": "Script\\Animation\\RankEffect.ts"
+  },
+  "3ecb842c-8f82-40e1-bcd5-7f48441a5004": {
+    "asset": 1582876136108,
+    "meta": 1580284430000,
+    "relativePath": "linshi"
+  },
+  "ea3e8491-9a22-453f-aa3f-f53ad8bff67b": {
+    "asset": 1580284430000,
+    "meta": 1583822201537,
+    "relativePath": "linshi\\1.1游戏大厅动态.PNG"
+  },
+  "03f334cb-9cf0-4196-9f81-421c87c235e1": {
+    "asset": 1580284430000,
+    "meta": 1583822201539,
+    "relativePath": "linshi\\1.3游戏大厅动态.PNG"
+  },
+  "b7da2534-1ecb-4f82-b722-789053ef808f": {
+    "asset": 1582791333854,
+    "meta": 1583822201616,
+    "relativePath": "linshi\\取款中心提现记录.png"
+  },
+  "45927351-7ee5-4dab-b649-8d9b2129df79": {
+    "asset": 1580284430000,
+    "meta": 1583822201621,
+    "relativePath": "linshi\\123.png"
+  },
+  "7100290f-3dfd-4e97-95dd-dc35368de721": {
+    "asset": 1582876136104,
+    "meta": 1583822201665,
+    "relativePath": "linshi\\取款中心提现记录详情.png"
   }
 }
